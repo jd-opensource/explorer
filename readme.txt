@@ -1,1 +1,1 @@
-a sub-repository of blockchain querier ui;
+UI development repository of blockchain browser;
