@@ -33,6 +33,10 @@ const page1 = require('./routes/page1');
 app.use('/page1', page1);
 const page2 = require('./routes/page2');
 app.use('/page2', page2);
+const overview = require('./routes/overview');
+app.use('/overview', overview);
+const user = require('./routes/user');
+app.use('/user', user);
 //{pages}//
 
 app.post('/common/getLoginInfo', function(req, res) {

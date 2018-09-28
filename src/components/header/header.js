@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import 'flarej/lib/components/antd/menu';
+import 'flarej/lib/components/antd/select';
 import styles from './header.m.less';
 import template from './header.t.html';
 

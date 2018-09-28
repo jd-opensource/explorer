@@ -70,14 +70,24 @@ app.get('/index', function(req, res) {
   res.render('index');
 });
 
-app.get('/page1', function(req, res) {
+app.get('/pages/page1.html', function(req, res) {
   res.type('html');
   res.render('page1', { page: 'page1/', title: 'Page 1' });
 });
 
-app.get('/page2', function(req, res) {
+app.get('/pages/page2.html', function(req, res) {
   res.type('html');
   res.render('page2', { page: 'page2/', title: 'Page 2' });
+});
+
+app.get('/pages/overview.html', function(req, res) {
+  res.type('html');
+  res.render('overview', { page: 'overview/', title: 'Overview' });
+});
+
+app.get('/pages/user.html', function(req, res) {
+  res.type('html');
+  res.render('user', { page: 'user/', title: 'User' });
 });
 
 //{pages}//
