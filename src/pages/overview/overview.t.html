@@ -1,10 +1,28 @@
 <template name="dataTable">
+  <div class="{styles.summary}">
+    <div>
+      123
+    </div>
+    <div>
+      123
+    </div>
+    <div>
+      123
+    </div>
+    <div>
+      123
+    </div>
+    <div style="margin-right:0">
+      123
+    </div>
+  </div>
+
   <ant-Table dataSource={toJS(store.tableData)}
              rowKey="test1"
              {columns}
              bordered
              :pagination="{
-               current: store.pageIndex,
+               current : store.pageIndex,
                pageSize: store.pageSize,
                total: store.count,
                onChange: onPageChange
