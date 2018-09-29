@@ -1,4 +1,5 @@
 ﻿import React, { Component } from 'react';
+import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
@@ -6,6 +7,7 @@ import '../../common/containerConfig';
 import 'flarej/lib/components/antd/button';
 import 'flarej/lib/components/antd/breadcrumb';
 import 'flarej/lib/components/antd/table';
+import 'flarej/lib/components/antd/pagination';
 import { Message } from 'flarej/lib/components/antd/message';
 import { autobind } from 'core-decorators';
 import '../../components/header';
@@ -37,6 +39,17 @@ ContainerHoc('Container', Container, overviewStore);
 @inject('store')
 @observer
 class DataTable extends Component {
+  @observable tabObj = [{
+    id: 1, title: '区块高度', data: 2 , background: '#0DB18C', url: '../../../resources/images/user.png'
+  },{
+    id: 2, title: '交易总数', data: 32134 , background: '#10A647', url: '../../../resources/images/user.png'
+  },{
+    id: 3, title: '用户总数', data: 34 , background: '#037CC1', url: '../../../resources/images/user.png'
+  },{
+    id: 4, title: '数据账户总数', data: 451 , background: '#5A77D2', url: '../../../resources/images/user.png'
+  },{
+    id: 5, title: '合约总数', data: 32 , background: '#3C4C9C', url: '../../../resources/images/user.png'
+  }];  
   state = {
     columns: [{
       title: '测试1',
@@ -115,6 +128,17 @@ class DataTable extends Component {
       }]
     }]
   };
+
+  // itemRender = (current, type, originalElement) => {
+  //   if (type === 'prev') {
+  //     return <a>{`<上一页`}</a>;
+  //   } if (type === 'next') {
+  //     return <a>{`下一页>`}</a>;
+  //   }
+  //   return originalElement;
+  // }
+
+
 
   @autobind
   onPageChange(page, pageSize) {

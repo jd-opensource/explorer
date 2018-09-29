@@ -1,23 +1,242 @@
 <template name="dataTable">
+  <h2 class="fjb-title">摘要</h2>
+
   <div class="{styles.summary}">
-    <div>
-      123
+    <!-- <#each {{tabObj}}>
+      <#if {{id == tabObj.length}}>
+        <div class="{styles.tabs}" style="margin-right:0; background: {{background}}">
+          <div class="{styles.span}">
+            <div class="{styles.left}">
+              <p class="{styles.title}">{{title}}</p>
+              <p class="{styles.data}">{{data}}</p>
+            </div>
+            <div>
+              <img src="{url}" alt="" width="60" height="67">
+            </div>
+          </div>
+        </div>
+        <#else>
+          <div class="{styles.tabs}" style="background: {{background}}">
+            <div class="{styles.span}">
+              <div class="{styles.left}">
+                <p class="{styles.title}">{{title}}</p>
+                <p class="{styles.data}">{{data}}</p>
+              </div>
+              <div>
+                <img src="{url}" alt="" width="60" height="67">
+              </div>
+            </div>
+          </div>
+        </#else>
+      </#if>
+       
+    </#each> -->
+    <div class="{styles.tabs} {styles.blockHeight}">
+      <div class="{styles.span}">
+        <div class="{styles.left}">
+          <p class="{styles.title}">区块高度</p>
+          <p class="{styles.data}">2</p>
+        </div>
+        <div class="{styles.right}">
+          <div class="{styles.logo}">
+          
+          </div>
+        </div>
+      </div>
+    </div><div class="{styles.tabs} {styles.transactions}">
+      <div class="{styles.span}">
+        <div class="{styles.left}">
+          <p class="{styles.title}">交易总数</p>
+          <p class="{styles.data}">32134</p>
+        </div>
+        <div class="{styles.right}">
+          <div class="{styles.logo}">
+          
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-      123
+    <div class="{styles.tabs} {styles.users}">
+      <div class="{styles.span}">
+        <div class="{styles.left}">
+          <p class="{styles.title}">用户总数</p>
+          <p class="{styles.data}">34</p>
+        </div>
+        <div class="{styles.right}">
+          <div class="{styles.logo}">
+          
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-      123
+    <div class="{styles.tabs} {styles.ledgers}">
+      <div class="{styles.span}">
+        <div class="{styles.left}">
+          <p class="{styles.title}">数据账户总数</p>
+          <p class="{styles.data}">451</p>
+        </div>
+        <div class="{styles.right}">
+          <div class="{styles.logo}">
+          
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-      123
-    </div>
-    <div style="margin-right:0">
-      123
+    <div class="{styles.tabs} {styles.contracts}">
+      <div class="{styles.span}">
+        <div class="{styles.left}">
+          <p class="{styles.title}">合约总数</p>
+          <p class="{styles.data}">32</p>
+        </div>
+        <div class="{styles.right}">
+          <div class="{styles.logo}">
+          
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <ant-Table dataSource={toJS(store.tableData)}
+  <div class="{styles.contractBody}">
+    <div class="{styles.left}">
+      <p class="{styles.title}">账本信息</p>
+      <div class="{styles.ledgerTable}">
+        <div class="{styles.ledgerTitle}">
+          <div class="{styles.leftTitle}"></div>
+          <div class="{styles.rightTitle}">
+            <div class="{styles.title}">古井集团-供应链溯源</div>
+            <div class="{styles.domain}">www.gujing.com</div>
+          </div>
+        </div>
+        <table>
+          <tbody>
+            <tr>
+              <td>账本哈希&nbsp;:</td>
+              <td>12341515</td>
+            </tr>
+            <tr>
+              <td>创世种子&nbsp;:</td>
+              <td>6321456666</td>
+            </tr>
+            <tr>
+              <td>最新区块&nbsp;:</td>
+              <td>23415145</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="{styles.ledgerBottom}">
+          <div class="{styles.leftBoot}">
+            <div class="{styles.newData}">78</div>
+            <div class="{styles.newTitle}">新增账户</div>
+          </div>
+          <div class="{styles.line}"></div>
+          <div class="{styles.rightBoot}">
+            <div class="{styles.newData}">246</div>
+            <div class="{styles.newTitle}">新增交易</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="{styles.right}">
+      <p class="{styles.title}">成员列表</p>
+      <div class="{styles.userTable}">
+        <div class="{styles.userState}">
+          <div class="{styles.stateHead}">
+            <div class="{styles.leftTitle}"></div>
+            <div class="{styles.rightTitle}">
+              <p class="{styles.title}">
+                <span class="{styles.key}">名称&nbsp;:&nbsp;</span>
+                <span class="{styles.val}">34145</span>
+              </p>
+              <p class="{styles.title}">
+                <span class="{styles.key}">地址&nbsp;:&nbsp;</span>
+                <span class="{styles.val}">172.34.23.230:6666</span>
+              </p>
+            </div>
+          </div>
+          <p class="{styles.keyTitle}">公钥内容&nbsp;:</p>
+          <p class="{styles.keySpan}">64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty </p>
+          <p class="{styles.keygen}">
+            <span class="{styles.keygenTitle}">公钥算法&nbsp;:&nbsp;</span>
+            <span class="{styles.keygenSpan}">ED25519</span>
+          </p>
+        </div>
+        <div class="{styles.userState}">
+          <div class="{styles.stateHead}">
+            <div class="{styles.leftTitle}"></div>
+            <div class="{styles.rightTitle}">
+              <p class="{styles.title}">
+                <span class="{styles.key}">名称&nbsp;:&nbsp;</span>
+                <span class="{styles.val}">34145</span>
+              </p>
+              <p class="{styles.title}">
+                <span class="{styles.key}">地址&nbsp;:&nbsp;</span>
+                <span class="{styles.val}">172.34.23.230:6666</span>
+              </p>
+            </div>
+          </div>
+          <p class="{styles.keyTitle}">公钥内容&nbsp;:</p>
+          <p class="{styles.keySpan}">64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty </p>
+          <p class="{styles.keygen}">
+            <span class="{styles.keygenTitle}">公钥算法&nbsp;:&nbsp;</span>
+            <span class="{styles.keygenSpan}">ED25519</span>
+          </p>
+        </div>
+        <div class="{styles.userState}">
+          <div class="{styles.stateHead}">
+            <div class="{styles.leftTitle}"></div>
+            <div class="{styles.rightTitle}">
+              <p class="{styles.title}">
+                <span class="{styles.key}">名称&nbsp;:&nbsp;</span>
+                <span class="{styles.val}">34145</span>
+              </p>
+              <p class="{styles.title}">
+                <span class="{styles.key}">地址&nbsp;:&nbsp;</span>
+                <span class="{styles.val}">172.34.23.230:6666</span>
+              </p>
+            </div>
+          </div>
+          <p class="{styles.keyTitle}">公钥内容&nbsp;:</p>
+          <p class="{styles.keySpan}">64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty </p>
+          <p class="{styles.keygen}">
+            <span class="{styles.keygenTitle}">公钥算法&nbsp;:&nbsp;</span>
+            <span class="{styles.keygenSpan}">ED25519</span>
+          </p>
+        </div>
+        <div class="{styles.userState}" style="border-bottom: 1px solid #F2F3F5;border-right: 1px solid #F2F3F5;">
+          <div class="{styles.stateHead}">
+            <div class="{styles.leftTitle}"></div>
+            <div class="{styles.rightTitle}">
+              <p class="{styles.title}">
+                <span class="{styles.key}">名称&nbsp;:&nbsp;</span>
+                <span class="{styles.val}">34145</span>
+              </p>
+              <p class="{styles.title}">
+                <span class="{styles.key}">地址&nbsp;:&nbsp;</span>
+                <span class="{styles.val}">172.34.23.230:6666</span>
+              </p>
+            </div>
+          </div>
+          <p class="{styles.keyTitle}">公钥内容&nbsp;:</p>
+          <p class="{styles.keySpan}">64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty </p>
+          <p class="{styles.keygen}">
+            <span class="{styles.keygenTitle}">公钥算法&nbsp;:&nbsp;</span>
+            <span class="{styles.keygenSpan}">ED25519</span>
+          </p>
+        </div>
+        <div class="{styles.page}">
+          <ant-Pagination 
+            defaultCurrent={1} 
+            total={50}
+            showQuickJumper 
+          />
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- <ant-Table dataSource={toJS(store.tableData)}
              rowKey="test1"
              {columns}
              bordered
@@ -26,5 +245,5 @@
                pageSize: store.pageSize,
                total: store.count,
                onChange: onPageChange
-             }"/>
+             }"/> -->
 </template>

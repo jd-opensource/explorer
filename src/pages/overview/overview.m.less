@@ -3,15 +3,328 @@
 
 .summary {
     width: 100%;
-    height: 100px;
-    border: 1px solid #00f;
+    // height: 160px;
+    // border: 1px solid #00f;
     display: flex;
     flex-direction: row;
+    margin-top: 50px; 
+    margin-bottom: 30px;
+    & .tabs {
+        width: calc(~'20% - 24px');
+        height: 160px;
+        margin-right: 30px;
+        padding: 24px;
+        box-shadow: 0 0 8px 0 rgba(0,0,0,0.08);
+        border-radius: 4px;
+        & .span {
+            display: flex;
+            flex-direction: row;
+            & .left {
+                width: 75%;
+            }
+            & .right {
+                width: 25%;
+                & .logo {
+                    background: url('../../../resources/images/user.png') no-repeat;
+                    background-size: 60px 67px;
+                    width: 100%;
+                    height: 160px;
+                }
+            }
+        }
+    }
+
+    & .blockHeight {
+        background: #0DB18C;
+        background-image: url('../../../resources/images/overview_bg.png');
+        background-repeat: no-repeat;
+        background-size: 250px;
+    }
+
+    & .transactions {
+        background: #10A647;
+        background-image: url('../../../resources/images/overview_bg.png');
+        background-repeat: no-repeat;
+        background-size: 250px;
+    }
+
+    & .users {
+        background: #037CC1;
+        background-image: url('../../../resources/images/overview_bg.png');
+        background-repeat: no-repeat;
+        background-size: 250px;
+    }
+
+    & .ledgers {
+        background: #5A77D2;
+        background-image: url('../../../resources/images/overview_bg.png');
+        background-repeat: no-repeat;
+        background-size: 250px;
+    }
+
+    & .contracts {
+        background: #3C4C9C; 
+        margin-right: 0;
+        background-image: url('../../../resources/images/overview_bg.png');
+        background-repeat: no-repeat;
+        background-size: 250px;
+    }
+
+    & .title {
+        font-family: MicrosoftYaHei;
+        font-size: 14px;
+        color: #FFFFFF;
+        line-height: 14px;
+    }
+
+    & .data {
+        font-family: ArialMT;
+        font-size: 54px;
+        color: #FFFFFF;
+        line-height: 54px;
+        margin-top: 44px;
+    }
     
 }
-.summary div {
-    width: calc(~'20% - 24px');
-    height: 100px;
-    border: 1px solid #f00;
-    margin-right: 30px;
+
+.contractBody {
+    display: flex;
+    flex-direction: row;
+    // 账本信息样式
+    & .left {
+        width: calc(~"40% - 15px");
+        // max-width: 622px;
+        margin-right: 30px;
+        // border: 1px solid #f00;
+        // background: #FFFFFF;
+
+        & .title {
+            font-family: MicrosoftYaHei;
+            font-size: 18px;
+            color: #333333;
+            line-height: 18px;
+        }
+        // padding: 30px;
+        & .ledgerTable {
+            background: #FFFFFF;
+            padding: 30px;
+            box-shadow: 0 0 8px 0 rgba(0,0,0,0.08);
+            border-radius: 4px;
+            & .ledgerTitle {
+                height: 90px;
+                display: flex;
+                flex-direction: row;
+                padding-bottom: 24px;
+                & .leftTitle {
+                    width: 60px;
+                    background: url('../../../resources/images/user.png') no-repeat;
+                    background-size: 60px 67px;
+                    margin-right: 20px;
+                }
+                & .rightTitle {
+                    & .title {
+                        font-family: MicrosoftYaHei;
+                        font-size: 20px;
+                        color: #333333;
+                        line-height: 40px;
+                    }
+                    & .domain {
+                        font-family: MicrosoftYaHei;
+                        font-size: 12px;
+                        color: #999999;
+                        line-height: 24px;
+                    }
+                }
+            }
+            & table {
+                width: 100%;
+            }
+            & tr {
+                line-height: 50px;
+                // padding-left: 20px;
+            }
+            & tr:nth-child(2n+1) {
+                background: #F8F8F8;  
+            }
+            & td:nth-child(2n+1) {
+                font-family: MicrosoftYaHei;
+                font-size: 14px;
+                color: #999999;
+                line-height: 50px;
+                padding-left: 20px;
+                width: 15%;
+            }
+            & td:nth-child(2n) {
+                font-family: MicrosoftYaHei;
+                font-size: 14px;
+                color: #333333;
+                line-height: 50px;
+                // padding-left: 20px;
+                width: 85%;
+            }
+            & .ledgerBottom {
+                height: 90px;
+                background-image: linear-gradient(-135deg, #7599E9 100%, #5A77D3 0%);
+                border-radius: 4px;
+                margin-top: 24px;
+                padding: 20px;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                color: #FFFFFF;
+                & .line {
+                    height: 30px;
+                    border: 1px solid #fff;
+                    width: 1px;
+                    margin-top: 10px;
+                }
+                & .leftBoot {
+                    max-width: 280px;
+                    width: 280px;
+                }
+                & .rightBoot {
+                    max-width: 280%;
+                    width: 280px;
+                }
+                & .newData {
+                    font-family: Arial-BoldMT;
+                    font-size: 28px;
+                    text-align: center;
+                    line-height: 28px;
+                    margin-bottom: 10px;
+                    font-weight: bold;
+                }
+                & .newTitle {
+                    font-family: MicrosoftYaHei;
+                    font-size: 12px;
+                    text-align: center;
+                    line-height: 12px;
+                }
+            }
+        }
+    }
+
+    // 成员列表样式
+    & .right {
+        width: calc(~'60% - 15px');
+        
+        & .title {
+            font-family: MicrosoftYaHei;
+            font-size: 18px;
+            color: #333333;
+            line-height: 18px;
+        }
+        // 列表
+        & .userTable {
+            background: #FFFFFF;
+            box-shadow: 0 0 8px 0 rgba(0,0,0,0.08);
+            border-radius: 4px;
+            padding: 0 30px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            & .userState {
+                // max-width: 473px;
+                // padding: 30px;
+                width: calc(~"50%");
+                // border-bottom: 1px solid #F2F3F5;
+                // border-right: 1px solid #F2F3F5;
+                // margin: 0;
+                // border: 1px solid #F2F3F5;
+                // padding: 30px 0;
+                & .stateHead {
+                    height: 80px;
+                    display: flex;
+                    flex-direction: row;
+                    padding-bottom: 14px;
+                    & .leftTitle {
+                        width: 60px;
+                        background: url('../../../resources/images/user.png') no-repeat;
+                        background-size: 60px 67px;
+                        margin-right: 20px;
+                    }
+                    & .rightTitle {
+                        & .title {
+                            
+                            line-height: 33px;
+                            margin: 0;
+                            & .key {
+                                font-family: MicrosoftYaHei;
+                                font-size: 14px;
+                                color: #333333;
+                                line-height: 14px;
+                            }
+                            & .val {
+                                font-family: MicrosoftYaHei;
+                                font-size: 14px;
+                                color: #999999;
+                                line-height: 14px;
+                            }
+                        }
+                        // & .domain {
+                        //     font-family: MicrosoftYaHei;
+                        //     font-size: 12px;
+                        //     color: #999999;
+                        //     line-height: 24px;
+                        // }
+                    }
+                }
+                & .keyTitle {
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: #333333;
+                    line-height: 14px;
+                }
+                & .keySpan {
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: #999999;
+                    line-height: 14px;
+                }
+
+                & .keygen {
+                    // margin-bottom: 30px;
+                    & .keygenTitle {
+                        font-family: MicrosoftYaHei;
+                        font-size: 14px;
+                        color: #333333;
+                        line-height: 14px;
+                    }
+                    & .keygenSpan {
+                        font-family: MicrosoftYaHei;
+                        font-size: 14px;
+                        color: #999999;
+                        line-height: 14px;
+                    }
+                }
+            }
+
+            & .userState:nth-child(2n+1) {
+                padding: 30px 30px 30px 0;
+                border-right: 1px solid #F2F3F5;
+                border-bottom: 1px solid #F2F3F5;
+            }
+
+            & .userState:nth-child(2n) {
+                padding: 30px 0 30px 30px;
+                border-right: 1px solid #F2F3F5;
+                border-bottom: 1px solid #F2F3F5;
+            }
+            & .page {
+                height: 100px;
+                width: 100%;
+                padding: 24px 0 40px;
+                text-align: right;
+            }
+        }
+
+        
+    }
 }
+// .summary div {
+//     width: calc(~'20% - 24px');
+//     height: 100px;
+//     border: 1px solid #f00;
+//     margin-right: 30px;
+// }
