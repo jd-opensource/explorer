@@ -37,6 +37,8 @@ const overview = require('./routes/overview');
 app.use('/overview', overview);
 const user = require('./routes/user');
 app.use('/user', user);
+const history = require('./routes/history');
+app.use('/history', history);
 //{pages}//
 
 app.post('/common/getLoginInfo', function(req, res) {

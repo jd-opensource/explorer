@@ -90,6 +90,11 @@ app.get('/pages/user.html', function(req, res) {
   res.render('user', { page: 'user/', title: 'User' });
 });
 
+app.get('/pages/history.html', function(req, res) {
+  res.type('html');
+  res.render('history', { page: 'history/', title: 'History' });
+});
+
 //{pages}//
 
 app.get('/checkUser', function(req, res) {
