@@ -2,10 +2,10 @@
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
+import Base58 from 'base58';
 import { registerTmpl } from 'nornj-react';
 import '../../common/containerConfig';
 import 'flarej/lib/components/antd/button';
-import 'flarej/lib/components/antd/form';
 import 'flarej/lib/components/antd/input';
 import 'flarej/lib/components/antd/breadcrumb';
 import 'flarej/lib/components/antd/table';
@@ -17,18 +17,17 @@ import '../../components/header';
 import '../../components/sider';
 import BlockHistory from './blockHistory';
 import ContainerHoc from '../../components/higherOrders/container';
-import { Popover, Button, Collapse, Tabs, Radio } from 'antd';
 import styles from './history.m.less';
 import tmpls from './history.t.html';
 import HistoryStore from '../../stores/HistoryStore';
 const historyStore = new HistoryStore();
-const RadioGroup = Radio.Group;
 
 //页面容器组件
 @inject('store')
 @observer
 class Container extends Component {
   componentDidMount() {
+    console.log(Base58);
   }
 
   render() {
@@ -44,14 +43,14 @@ ContainerHoc('Container', Container, historyStore);
 @inject('store')
 @observer
 class DataTable extends Component {
-  @observable placeholder = "请输入区块高度";
+  @observable placeholder = '请输入区块高度';
   @observable radioValue = 'blockHeight';
 
   handleHashChange = (e) => {
     this.radioValue = e.target.value;
     this.placeholder = 
-      this.radioValue == "blockHash" ? "请输入区块哈希" : 
-      this.radioValue == "transactionHash" ? "请输入交易哈希" : "请输入区块高度";
+      this.radioValue == 'blockHash' ? '请输入区块哈希' : 
+        this.radioValue == 'transactionHash' ? '请输入交易哈希' : '请输入区块高度';
   }
 
   render() {
