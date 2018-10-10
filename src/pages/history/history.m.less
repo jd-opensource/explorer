@@ -1,2 +1,463 @@
 ﻿.content {
 }
+
+.history {
+    & .head {
+        margin-top: 14px;
+        height: 50px;
+        & .blockHeight {
+            margin-bottom: 20px;
+        }
+        & .hisRadio {
+            margin-left: 36px;
+            & .stateRadio {
+                width: 130px;
+                font-family: MicrosoftYaHei;
+                font-size: 14px;
+                color: #333333;
+                text-align: center;
+                line-height: 32px;
+            }
+        }
+        & .radio_group {
+            display: flex;
+            justify-content: center;    
+            line-height: 36px;
+            & .radio_out {
+                width: 22px;
+                height: 22px;
+                margin-top: 6px;
+                border-radius: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                & .radio_in {
+                    background-color: #fff;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 100%;
+                }
+            }
+            & .radio_check{
+                background: #5A77D3;
+            }
+            & .radio_nocheck{
+                border: 1px solid #CCCCCC;
+                background-color: #fff;
+            }
+            & .radio_nocheck:hover{
+                border: 2px solid #5A77D3;
+            }
+        }
+        & .button_contract {
+            border: none;
+            border-radius: 2px;
+            width: 92px;
+            height: 36px;
+            background: #5A77D3;
+            color: #fff;
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #FFFFFF;
+        }
+    }
+
+    & .historyContent {
+        background: #FFFFFF;
+        box-shadow: 0 0 4px 0 rgba(0,0,0,0.10);
+        border-radius: 6px;
+        padding: 40px 330px 40px 370px;
+        & .stateContent {
+            background: #F9F9F9;
+            border-radius: 4px;
+            padding: 0 30px;
+            position: relative;
+            margin-bottom: 20px;
+            & .triangle {
+                position: absolute;
+                width: 0;
+                height: 0;
+                border: 10px solid;
+                border-color: rgba(0,0,0,0) #F9F9F9  rgba(0,0,0,0)  rgba(0,0,0,0);
+                left: -20px;
+                top: 24px;
+            }
+            
+            & .circle {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: #5A77D3;
+                border: 5px solid #e4f3eb;
+                left: -50px;
+                top: 24px;
+            }
+            
+            & .line {
+                position: absolute;
+                height: 172px;
+                max-height: 172px;
+                border-left: 1px solid #5A77D3;
+                left: -40px;
+                top: 50px;
+            }
+            & .lineBottom {
+                position: absolute;
+                height: 370px;
+                border-left: 1px dashed #5A77D3;
+                left: -40px;
+                top: 50px;
+            }
+            & table {
+                width: 100%;
+                & .noBorder {
+                    border: none;
+                }
+                & tr {
+                    line-height: 60px;
+                    border-bottom: 1px solid #E7E7E8;
+                    text-align: left;
+                    & td:nth-child(2n + 1) {
+                        width: 20%;
+                    }
+                    & td:nth-child(2n) {
+                        font-family: MicrosoftYaHei;
+                        font-size: 14px;
+                        color: #5A77D3;
+                    }
+                    & .conBold {
+                        font-weight: bold;
+                    }
+                    & .conCursor {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        & .bgGroup {
+            height: 174px;
+            background-image: url('../../../resources/images/Group\ 4.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 200px 174px;
+            margin-bottom: 20px;
+        }
+    }
+
+    & .hisFooter {
+        & .topFooter {
+            height: 40px;
+            border-bottom: 1px solid #E7E7E8;
+        }
+        & .bottomFooter {
+            // height: 36px;
+            margin-top: 20px;
+            & .footContent {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: MicrosoftYaHei;
+                font-size: 12px;
+                color: #999999;
+                & .linker {
+                    text-decoration: none;
+                    color: #5A77D3;
+                }
+                & .linker:hover {
+                    color: #5A77D3;
+                }
+            }
+        }        
+    } 
+
+    & .blockHeightData {
+        background: #FFFFFF;
+        box-shadow: 0 0 4px 0 rgba(0,0,0,0.10);
+        border-radius: 6px;
+        padding: 0 30px;
+        & .header {
+            padding: 20px 0 16px;
+            border-bottom: 1px solid #E7E7E8;
+            padding-bottom: 16px;
+            & .title {
+                margin: 0;
+                color: #252422;
+                font-weight: 300;
+                // line-height: 40px;
+                clear: both;
+                & p{
+                    float: right;
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: #5A77D3;
+                    cursor: pointer;
+                }
+            }
+        }
+        & .content {
+            padding: 15px 15px 10px 15px;
+            & .hisTitle {
+                width:800px; 
+                background: #F4F3EF;
+                border: 1px solid #ccc;
+                margin: 0 auto;
+                padding-left: 30px;
+                line-height: 50px;
+                border-radius: 4px 4px 0 0;
+                border-bottom: none;
+                font-weight: bold;
+            }
+            & .hisContent {
+                border: 1px solid #ccc; 
+                width: 800px; 
+                margin: 0 auto 20px; 
+                padding: 0 30px 40px; 
+                border-radius: 4px; 
+                border-top: none;
+                & .tableSum {
+                    padding: 0 10px;
+	                width: 100%;
+                    & tr {
+                        border-bottom: 1px solid #ccc; 
+                        & td {
+                            line-height: 32px;
+                            padding: 10px 0;
+                        }
+                        & td:nth-child(2n) {
+                            width: 80%;
+                            font-family: MicrosoftYaHei;
+                            font-size: 14px;
+                            color: #67635D;
+                        }
+                        & td:nth-child(2n+1) {
+                            width: 20%;
+                            font-family: MicrosoftYaHei;
+                            font-size: 14px;
+                            color: #91908C;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .transactionHash {
+        background: #FFFFFF;
+        box-shadow: 0 0 4px 0 rgba(0,0,0,0.10);
+        border-radius: 6px;
+        padding: 0 30px 30px;
+        & .header {
+            padding: 20px 0 16px;
+            border-bottom: 1px solid #E7E7E8;
+            padding-bottom: 16px;
+            & .title {
+                margin: 0;
+                color: #252422;
+                font-weight: 300;
+                clear: both;
+                & p{
+                    float: right;
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: #5A77D3;
+                    cursor: pointer;
+                }
+            }
+        }
+        & .content {
+            padding: 15px 15px 10px 15px;
+            & .transaction{
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                font-family: MicrosoftYaHei;
+                font-size: 14px;
+                color: #91908C;
+                line-height: 14px;
+                & li {
+                    height: 50px;
+                    border-bottom: 1px solid #CCCCCC;
+                    display: flex;
+                    align-items: center;
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: #333333;
+                }
+                & .dh {
+                    width:110px;
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: #999999;
+                }
+            }
+
+            & .transactionList {
+                border-bottom: 1px solid #ccc; 
+                & .listSignatures {
+                    margin-top: 20px;
+                }
+                & .contentSignatures {
+                    padding: 0 20px;
+                    & .titleSignatures {
+                        font-family: MicrosoftYaHei-Bold;
+                        font-size: 14px;
+                        color: #333333;
+                    }
+                    & table {
+                        width: 100%;
+                        margin: 10px 0;
+                        & tr {
+                            line-height: 40px;
+                            & td {
+                                font-family: MicrosoftYaHei;
+                                font-size: 14px;
+                            }
+                            & td:nth-child(2n+1) {
+                                color: #999999;
+                                min-width: 70px;
+                                width: 5%;
+                            }
+                            & td::nth-child(2n) {
+                                color: #333333;
+                            }
+                        }
+                    }
+                }
+                & .title {
+                    color: #5A77D3;
+                    line-height: 50px;
+                    margin-bottom: 0;
+                    clear: both;
+                    & .arrow {
+                        float: right;
+                        background-repeat: no-repeat;
+                        margin: 16px 24px 0 0;
+                        background-size: 12px 12px;
+                        cursor: pointer;
+                        width: 12px;
+                        height: 12px;
+                    }
+                    & .arrowTop {
+                        background-image: url('../../../resources/images/icon-top.png');
+                    }
+                    & .arrowBottom {
+                        background-image: url('../../../resources/images/icon-bottom.png');
+                    }
+                }
+                & .show {
+                    display: block;
+                }
+                & .hide {
+                    display: none;
+                }
+                & .option {
+                    border: 1px solid #ADC6FF;
+                    border-radius: 4px;
+                    height: 50px;
+                    line-height: 50px;
+                    padding-left: 20px;
+                    margin: 20px;
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: #333333;
+                    & span {
+                        font-family: MicrosoftYaHei;
+                        font-size: 14px;
+                        color: #999999;
+                    }
+                }
+                & .optionTitle {
+                    background: #ADC6FF;
+                    border-radius: 4px;
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: #FFFFFF;
+                    line-height: 50px;
+                    padding-left: 20px;
+                    margin: 20px;
+                }
+                & .dataWrite {
+                    padding: 0 50px;
+                    & .writes {
+                        font-family: MicrosoftYaHei-Bold;
+                        font-size: 14px;
+                        color: #333333;
+                        padding-bottom: 22px;
+                    }
+                    & .address {
+                        font-family: MicrosoftYaHei;
+                        font-size: 14px;
+                        color: #333333;
+                        padding-bottom: 20px;
+                        & .ledgerAddress{
+                            color: #999999;
+                        }
+                    }
+                    & .kv {
+                        background: #F9F9F9;
+                        border-radius: 4px;
+                        padding: 10px 30px;
+                        line-height: 40px;
+                        margin-bottom: 20px;
+                        & .key {
+                            font-family: MicrosoftYaHei;
+                            font-size: 14px;
+                            color: #5A77D3;
+                            clear: both;
+                            & .arrow {
+                                float: right;
+                                margin-top: 14px;                                
+                                background-repeat: no-repeat;
+                                background-size: 12px 12px;
+                                cursor: pointer;
+                                width: 12px;
+                                height: 12px;
+                            }
+                            & .arrowTop {
+                                background-image: url('../../../resources/images/icon-top.png');
+                            }
+                            & .arrowBottom {
+                                background-image: url('../../../resources/images/icon-bottom.png');
+                            }
+                        }
+                        & .value {
+                            font-family: MicrosoftYaHei;
+                            font-size: 14px;
+                            color: #333333;
+                            & span {
+                                color: #999999;
+                            }
+                        }
+                        & .show {
+                            display: block;
+                        }
+                        & .hide {
+                            display: none;
+                        }
+                    }
+                    & table {
+                        width: 100%;
+                        margin: 10px 0;
+                        & tr {
+                            line-height: 50px;
+                            & td {
+                                font-family: MicrosoftYaHei;
+                                font-size: 14px;
+                            }
+                            & td:nth-child(2n+1) {
+                                color: #999999;
+                                min-width: 100px;
+                                width: 8%;
+                            }
+                            & td::nth-child(2n) {
+                                color: #333333;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
