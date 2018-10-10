@@ -39,6 +39,8 @@ const user = require('./routes/user');
 app.use('/user', user);
 const history = require('./routes/history');
 app.use('/history', history);
+const contract = require('./routes/contract');
+app.use('/contract', contract);
 //{pages}//
 
 app.post('/common/getLoginInfo', function(req, res) {

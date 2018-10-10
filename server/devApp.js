@@ -95,6 +95,11 @@ app.get('/pages/history.html', function(req, res) {
   res.render('history', { page: 'history/', title: 'History' });
 });
 
+app.get('/pages/contract.html', function(req, res) {
+  res.type('html');
+  res.render('contract', { page: 'contract/', title: 'Contract' });
+});
+
 //{pages}//
 
 app.get('/checkUser', function(req, res) {
