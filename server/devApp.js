@@ -100,6 +100,11 @@ app.get('/pages/contract.html', function(req, res) {
   res.render('contract', { page: 'contract/', title: 'Contract' });
 });
 
+app.get('/pages/ledgers.html', function(req, res) {
+  res.type('html');
+  res.render('ledgers', { page: 'ledgers/', title: 'Ledgers' });
+});
+
 //{pages}//
 
 app.get('/checkUser', function(req, res) {

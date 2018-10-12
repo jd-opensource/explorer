@@ -41,6 +41,8 @@ const history = require('./routes/history');
 app.use('/history', history);
 const contract = require('./routes/contract');
 app.use('/contract', contract);
+const ledgers = require('./routes/ledgers');
+app.use('/ledgers', ledgers);
 //{pages}//
 
 app.post('/common/getLoginInfo', function(req, res) {

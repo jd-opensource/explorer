@@ -1,0 +1,29 @@
+﻿.content {
+}
+
+// 可提取为公共样式
+& .hisFooter {
+    & .topFooter {
+        height: 40px;
+        border-bottom: 1px solid #E7E7E8;
+    }
+    & .bottomFooter {
+        // height: 36px;
+        margin-top: 20px;
+        & .footContent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: MicrosoftYaHei;
+            font-size: 12px;
+            color: #999999;
+            & .linker {
+                text-decoration: none;
+                color: #5A77D3;
+            }
+            & .linker:hover {
+                color: #5A77D3;
+            }
+        }
+    }        
+}
