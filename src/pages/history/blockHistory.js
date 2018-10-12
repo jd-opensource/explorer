@@ -12,9 +12,19 @@ import HistoryStore from '../../stores/HistoryStore';
 @inject('store')
 @observer
 export default class BlockHistory extends Component {
-    render() {
-        return tmpls.blockHistory(this.state, this.props, this, {
-            styles
-        });
-    }
+  @observable a = '123'
+  handleBlockShow = (e) => {
+    debugger;
+    this.handleHeightShow(e);
+  }
+
+  handleHeightShow = (e) => {
+    alert(e);
+  }
+
+  render() {
+    return tmpls.blockHistory(this.state, this.props, this, {
+      styles
+    });
+  }
 }

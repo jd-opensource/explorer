@@ -5,7 +5,7 @@
     <div class="{styles.head}">
       <fj-Row>
         <fj-Col l="4">
-          <ant-Input placeholder={{placeholder}} style="max-width: 600px; height: 36px"/>
+          <ant-Input placeholder={{placeholder}} onChange={handleInputChange} style="max-width: 600px; height: 36px"/>
         </fj-Col>
         <fj-Col l="6">
             <ant-RadioGroup 
@@ -19,14 +19,14 @@
               <ant-Radio value="transactionHash" style="width: 30%">交易哈希</ant-Radio>
             </ant-RadioGroup>
         </fj-Col>
-        <ant-Button icon="search" class="{styles.button_contract}">
+        <ant-Button icon="search" onClick={dataQuery} class="{styles.button_contract}">
           查询
         </ant-Button>
       </fj-Row>
     </div>
 
-    <!-- <BlockHistory/> -->
-    <BlockHeight/>
+    <BlockHistory/>
+    <!-- <BlockHeight/> -->
     <!-- <TransactionHash/> -->
     <div class="{styles.hisFooter}">
       <div class="{styles.topFooter}">
@@ -96,7 +96,10 @@
         <tbody>
           <tr>
             <td class="{styles.conBold}">区块高度：</td>
-            <td class="{styles.conBold} {styles.conCursor}">1235</td>
+            <td 
+              class="{styles.conBold} {styles.conCursor}"
+              onClick={handleBlockShow}
+            >1235</td>
           </tr>
           <tr>
             <td>区块哈希：</td>

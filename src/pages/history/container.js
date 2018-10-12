@@ -44,13 +44,23 @@ ContainerHoc('Container', Container, historyStore);
 @observer
 class DataTable extends Component {
   @observable placeholder = '请输入区块高度';
+  @observable inputValue = '';
   @observable radioValue = 'blockHeight';
+
+  handleInputChange = (e) => {
+    this.inputValue = e.target.value;
+  }
 
   handleHashChange = (e) => {
     this.radioValue = e.target.value;
     this.placeholder = 
       this.radioValue == 'blockHash' ? '请输入区块哈希' : 
         this.radioValue == 'transactionHash' ? '请输入交易哈希' : '请输入区块高度';
+  }
+
+  // 查询按钮
+  dataQuery = () => {
+
   }
 
   render() {
@@ -268,7 +278,10 @@ class BlockHeight extends Component {
       dataIndex: 'hash',
       width: '90%',
       render: (text, record) => (
-        <span className = {`${styles.hash}`}>{record && record['hash'] ? record['hash'] : ''}</span>
+        <span 
+          className = {`${styles.hash}`}
+          onClick = {() => {this.handleTransactionShow(text);}}
+        >{record && record['hash'] ? record['hash'] : ''}</span>
       )
     }, {
       title: '状态',
@@ -279,6 +292,11 @@ class BlockHeight extends Component {
         return <span>{status}</span>;
       }
     }];
+  }
+
+  // 点击交易哈希执行根据当前交易哈希查询交易内容
+  handleTransactionShow = (text) => {
+    alert(text);
   }
 
   render() {
