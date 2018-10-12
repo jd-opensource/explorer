@@ -1,14 +1,10 @@
-﻿.content {
-}
-
-.summary {
+﻿.summary {
     width: 100%;
-    // height: 160px;
-    // border: 1px solid #00f;
     display: flex;
     flex-direction: row;
     margin-top: 50px; 
     margin-bottom: 30px;
+    // 区块高度等页签样式
     & .tabs {
         width: calc(~'20% - 24px');
         height: 160px;
@@ -94,18 +90,13 @@
     // 账本信息样式
     & .left {
         width: calc(~"40% - 15px");
-        // max-width: 622px;
         margin-right: 30px;
-        // border: 1px solid #f00;
-        // background: #FFFFFF;
-
         & .title {
             font-family: MicrosoftYaHei;
             font-size: 18px;
             color: #333333;
             line-height: 18px;
         }
-        // padding: 30px;
         & .ledgerTable {
             background: #FFFFFF;
             padding: 30px;
@@ -142,7 +133,6 @@
             }
             & tr {
                 line-height: 50px;
-                // padding-left: 20px;
             }
             & tr:nth-child(2n+1) {
                 background: #F8F8F8;  
@@ -154,13 +144,13 @@
                 line-height: 50px;
                 padding-left: 20px;
                 width: 20%;
+                min-width: 88px;
             }
             & td:nth-child(2n) {
                 font-family: MicrosoftYaHei;
                 font-size: 14px;
                 color: #333333;
                 line-height: 50px;
-                // padding-left: 20px;
                 width: 80%;
             }
             & .ledgerBottom {
@@ -226,14 +216,7 @@
             flex-direction: row;
             flex-wrap: wrap;
             & .userState {
-                // max-width: 473px;
-                // padding: 30px;
                 width: calc(~"50%");
-                // border-bottom: 1px solid #F2F3F5;
-                // border-right: 1px solid #F2F3F5;
-                // margin: 0;
-                // border: 1px solid #F2F3F5;
-                // padding: 30px 0;
                 & .stateHead {
                     height: 80px;
                     display: flex;
@@ -241,13 +224,14 @@
                     padding-bottom: 14px;
                     & .leftTitle {
                         width: 60px;
+                        min-width: 60px;
                         background: url('../../../resources/images/user.png') no-repeat;
                         background-size: 60px 67px;
                         margin-right: 20px;
                     }
                     & .rightTitle {
                         & .title {
-                            
+                            min-width: 188px;
                             line-height: 33px;
                             margin: 0;
                             & .key {
@@ -255,20 +239,16 @@
                                 font-size: 14px;
                                 color: #333333;
                                 line-height: 14px;
+                                min-width: 40px;
                             }
                             & .val {
                                 font-family: MicrosoftYaHei;
                                 font-size: 14px;
                                 color: #999999;
                                 line-height: 14px;
+                                min-width: 128px;
                             }
                         }
-                        // & .domain {
-                        //     font-family: MicrosoftYaHei;
-                        //     font-size: 12px;
-                        //     color: #999999;
-                        //     line-height: 24px;
-                        // }
                     }
                 }
                 & .keyTitle {
@@ -282,10 +262,12 @@
                     font-size: 14px;
                     color: #999999;
                     line-height: 14px;
+                    min-width: 240px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
 
                 & .keygen {
-                    // margin-bottom: 30px;
                     & .keygenTitle {
                         font-family: MicrosoftYaHei;
                         font-size: 14px;
@@ -322,9 +304,3 @@
         
     }
 }
-// .summary div {
-//     width: calc(~'20% - 24px');
-//     height: 100px;
-//     border: 1px solid #f00;
-//     margin-right: 30px;
-// }
