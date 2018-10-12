@@ -26,8 +26,8 @@
     </div>
 
     <!-- <BlockHistory/> -->
-    <!-- <BlockHeight/> -->
-    <TransactionHash/>
+    <BlockHeight/>
+    <!-- <TransactionHash/> -->
     <div class="{styles.hisFooter}">
       <div class="{styles.topFooter}">
       </div>
@@ -152,7 +152,7 @@
     <div class="{styles.content}">
       <div class="{styles.hisTitle}">概览</div>
       <div class="{styles.hisContent}">
-        <table class="{styles.tableSum}">
+        <table>
           <tbody>
             <tr>
               <td>区块高度:</td>
@@ -187,8 +187,26 @@
       </div>
     </div>
     <!-- 交易 -->
-    <div>
-      
+    <div class="{styles.content}">
+      <div class="{styles.hisTitle}">交易</div>
+      <div class="{styles.tranContent}">
+        <table>
+          <thead>
+            <tr>
+              <td>交易哈希</td>
+              <td>执行状态</td>
+            </tr>
+          </thead>
+        </table>
+        <ant-Table
+          columns={toJS(BlockColumns)}
+          showHeader={false}
+          dataSource={toJS(dataBlock)}
+          rowKey={getRowKey}
+          rowClassName="{styles.rows}"
+          pagination={pagination} 
+        />
+      </div>
     </div>
   </div>
 </template>

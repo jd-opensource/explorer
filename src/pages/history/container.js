@@ -65,9 +65,231 @@ class DataTable extends Component {
 @inject('store')
 @observer
 class BlockHeight extends Component {
+  @observable dataBlock = [{
+    'hash': '1',
+    'status': true
+  }, {
+    'hash': '2',
+    'status': false
+  }, {
+    'hash': '3',
+    'status': true
+  }, {
+    'hash': '4',
+    'status': false
+  }, {
+    'hash': '5',
+    'status': true
+  }, {
+    'hash': '6',
+    'status': true
+  }, {
+    'hash': '7',
+    'status': false
+  }, {
+    'hash': '8',
+    'status': true
+  }, {
+    'hash': '9',
+    'status': false
+  }, {
+    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, {
+    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
+    'status': false
+  }, {
+    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
+    'status': true
+  }, ]
+
+  @computed get BlockColumns() {
+    return [{
+      title: '交易哈希',
+      dataIndex: 'hash',
+      width: '90%',
+      render: (text, record) => (
+        <span className = {`${styles.hash}`}>{record && record['hash'] ? record['hash'] : ''}</span>
+      )
+    }, {
+      title: '状态',
+      dataIndex: 'status',
+      width: '10%',
+      render: (text, record) => {
+        let status = record && record['status'] ? '成功' : '失败';
+        return <span>{status}</span>;
+      }
+    }];
+  }
+
   render() {
     return tmpls.blockHeight(this.state, this.props, this, {
-      styles
+      styles,
+      getRowKey: (record, index) => `uid-${index}`,
+      pagination: {
+        pageSize: 5,
+        defaultCurrent: 1, 
+        showQuickJumper: true
+      }
     });
   }
 }
