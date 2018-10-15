@@ -50,6 +50,7 @@ class DataTable extends Component {
   },{
     id: 5, title: '合约总数', data: 32 , background: '#3C4C9C', url: '../../../resources/images/user.png'
   }];  
+  @observable pageIndex = 0;
   state = {
     columns: [{
       title: '测试1',
@@ -138,7 +139,12 @@ class DataTable extends Component {
   //   return originalElement;
   // }
 
-
+  // @page: 页码----->number类型
+  handlePageChange = (page) => {
+    console.log(page);
+    this.pageIndex = page - 1;
+    console.log(`当前页码为:${page}, 实际为第${this.pageIndex}页`);
+  }
 
   @autobind
   onPageChange(page, pageSize) {

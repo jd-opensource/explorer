@@ -4,8 +4,6 @@ import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import '../../common/containerConfig';
 import 'flarej/lib/components/antd/button';
-import 'flarej/lib/components/antd/breadcrumb';
-import 'flarej/lib/components/antd/table';
 import { Message } from 'flarej/lib/components/antd/message';
 import { autobind } from 'core-decorators';
 import '../../components/header';

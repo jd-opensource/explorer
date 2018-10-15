@@ -2,7 +2,6 @@
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
-import Base58 from 'base58';
 import { registerTmpl } from 'nornj-react';
 import '../../common/containerConfig';
 import 'flarej/lib/components/antd/button';
@@ -20,6 +19,7 @@ import ContainerHoc from '../../components/higherOrders/container';
 import styles from './history.m.less';
 import tmpls from './history.t.html';
 import HistoryStore from '../../stores/HistoryStore';
+import { tranBase58 } from '../../common/util';
 const historyStore = new HistoryStore();
 
 //页面容器组件
@@ -27,7 +27,7 @@ const historyStore = new HistoryStore();
 @observer
 class Container extends Component {
   componentDidMount() {
-    console.log(Base58);
+    console.log(tranBase58('S76SHyu8p164'));
   }
 
   render() {

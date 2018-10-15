@@ -1,4 +1,5 @@
 ﻿import { observable, computed, action, transaction } from 'mobx';
+import { types } from 'mobx-state-tree';
 import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import { autobind } from 'core-decorators';
 import { Notification } from 'flarej/lib/components/antd/notification';

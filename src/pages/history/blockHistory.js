@@ -6,6 +6,7 @@ import { registerTmpl } from 'nornj-react';
 import styles from './history.m.less';
 import tmpls from './history.t.html';
 import HistoryStore from '../../stores/HistoryStore';
+import { tranBase58 } from '../../common/util';
 
 // 区块历史首页
 @registerTmpl('BlockHistory')
@@ -14,7 +15,6 @@ import HistoryStore from '../../stores/HistoryStore';
 export default class BlockHistory extends Component {
   @observable a = '123'
   handleBlockShow = (e) => {
-    debugger;
     this.handleHeightShow(e);
   }
 
