@@ -3,8 +3,72 @@ import { types } from 'mobx-state-tree';
 import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import { autobind } from 'core-decorators';
 import { Notification } from 'flarej/lib/components/antd/notification';
+import { tranBase58 } from '../common/util';
 
 export default class OverviewStore {
+  @observable overviewHeadData = {
+    blockHeight: 2,
+    transactionTotal: 32124,
+    userTotal: 34,
+    dataLedgersTotal: 451,
+    contractTotal: 32
+  }; // 摘要页面tab部分
+  @observable ledgerInformation = {
+    adminInfo: {
+      metadata: {
+        seed: 'amQ=',
+        setting: {
+          cryptoSetting: {
+            hashAlgorithm: 'SHA256',
+            autoVerifyHash: false
+          },
+          consensusSetting: {
+            hostSettingValue: 'Z2V0SG9zdFNldHRpbmdWYWx1ZQ==',
+            systemSettingValue: 'Z2V0U3lzdGVtU2V0dGluZ1ZhbHVl'
+          }
+        },
+        participantsHash: {
+          value: 'F4evU3YyKryMCBNsrPg7NwBz1NX'
+        }
+      },
+      participantCount: 1234
+    },
+    latestBlockHash: {
+      value: '4BoCfJESYPMpDBZVNgKN1j9vuD'
+    },
+    hash: {
+      value: '3uqhFboGY1M'
+    }
+  }; // 当前账本信息
+  @observable accountCount = 78; // 新增账户数量
+  @observable transactionCount = 246; // 新增交易数量
+  @observable userTable = [
+    {
+      pubKey: {
+        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
+      },
+      hostAddress: {
+        host: '172.62.35.230',
+        secure: false,
+        port: 6666
+      },
+      id: 0,
+      name: 'jd-zhangsan'
+    },
+    {
+      pubKey: {
+        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
+      },
+      hostAddress: {
+        host: '172.62.35.230',
+        secure: false,
+        port: 6666
+      },
+      id: 1,
+      name: 'jd-lisi'
+    }
+  ]
+
   @observable pageIndex = 1;
   @observable pageSize = 10;
   @observable count = 0;
@@ -34,5 +98,14 @@ export default class OverviewStore {
     }, { method: 'post' }).catch((ex) => {
       Notification.error({ description: '获取表格数据出错，错误是:' + ex, duration: null });
     });
+  }
+
+  @autobind
+  @action
+  getUserTable() {
+    this.userTable && this.userTable.map((item, key) => {
+      item['pubKey']['algorithm'] = tranBase58(item['pubKey']['value']);
+    });
+    return this.userTable;
   }
 }

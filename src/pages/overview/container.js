@@ -23,13 +23,17 @@ const overviewStore = new OverviewStore();
 @observer
 class Container extends Component {
   componentDidMount() {
-    const closeLoading = Message.loading('正在加载数据...', 0);
-    this.props.store.getTableData(1, this.props.store.pageSize).then(() => closeLoading());
+    // console.log(overviewStore);
+    // const closeLoading = Message.loading('正在加载数据...', 0);
+    // this.props.store.getTableData(1, this.props.store.pageSize).then(() => closeLoading());
   }
 
   render() {
+    const { store } = this.props;
+    console.log(this, this.props, store);
     return this.props.tmpls[0](this, {
-      styles
+      styles,
+      store
     });
   }
 }

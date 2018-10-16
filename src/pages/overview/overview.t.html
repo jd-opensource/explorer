@@ -35,7 +35,7 @@
       <div class="{styles.span}">
         <div class="{styles.left}">
           <p class="{styles.title}">区块高度</p>
-          <p class="{styles.data}">2</p>
+          <p class="{styles.data}">{store.overviewHeadData.blockHeight || 0}</p>
         </div>
         <div class="{styles.right}">
           <div class="{styles.logo}">
@@ -47,7 +47,7 @@
       <div class="{styles.span}">
         <div class="{styles.left}">
           <p class="{styles.title}">交易总数</p>
-          <p class="{styles.data}">32134</p>
+          <p class="{styles.data}">{store.overviewHeadData.transactionTotal || 0}</p>
         </div>
         <div class="{styles.right}">
           <div class="{styles.logo}">
@@ -60,7 +60,7 @@
       <div class="{styles.span}">
         <div class="{styles.left}">
           <p class="{styles.title}">用户总数</p>
-          <p class="{styles.data}">34</p>
+          <p class="{styles.data}">{store.overviewHeadData.userTotal || 0}</p>
         </div>
         <div class="{styles.right}">
           <div class="{styles.logo}">
@@ -73,7 +73,7 @@
       <div class="{styles.span}">
         <div class="{styles.left}">
           <p class="{styles.title}">数据账户总数</p>
-          <p class="{styles.data}">451</p>
+          <p class="{styles.data}">{store.overviewHeadData.dataLedgersTotal || 0}</p>
         </div>
         <div class="{styles.right}">
           <div class="{styles.logo}">
@@ -86,7 +86,7 @@
       <div class="{styles.span}">
         <div class="{styles.left}">
           <p class="{styles.title}">合约总数</p>
-          <p class="{styles.data}">32</p>
+          <p class="{styles.data}">{store.overviewHeadData.contractTotal || 0}</p>
         </div>
         <div class="{styles.right}">
           <div class="{styles.logo}">
@@ -112,26 +112,26 @@
           <tbody>
             <tr>
               <td>账本哈希&nbsp;:</td>
-              <td>12341515</td>
+              <td>{store.ledgerInformation.hash.value || '12341515'}</td>
             </tr>
             <tr>
               <td>创世种子&nbsp;:</td>
-              <td>6321456666</td>
+              <td>{store.ledgerInformation.adminInfo.metadata.seed || '6321456666'}</td>
             </tr>
             <tr>
               <td>最新区块&nbsp;:</td>
-              <td>23415145</td>
+              <td>{store.ledgerInformation.latestBlockHash.value || '23415145'}</td>
             </tr>
           </tbody>
         </table>
         <div class="{styles.ledgerBottom}">
           <div class="{styles.leftBoot}">
-            <div class="{styles.newData}">78</div>
+            <div class="{styles.newData}">{store.accountCount || 0}</div>
             <div class="{styles.newTitle}">新增账户</div>
           </div>
           <div class="{styles.line}"></div>
           <div class="{styles.rightBoot}">
-            <div class="{styles.newData}">246</div>
+            <div class="{styles.newData}">{store.transactionCount || 0}</div>
             <div class="{styles.newTitle}">新增交易</div>
           </div>
         </div>
@@ -224,6 +224,7 @@
             <span class="{styles.keygenSpan}">ED25519</span>
           </p>
         </div>
+        
         <div class="{styles.page}">
           <ant-Pagination
             onChange={handlePageChange} 
