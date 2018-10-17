@@ -53,7 +53,7 @@ export default class OverviewStore {
         port: 6666
       },
       id: 0,
-      name: 'jd-zhangsan'
+      name: 'jd-11'
     },
     {
       pubKey: {
@@ -65,10 +65,94 @@ export default class OverviewStore {
         port: 6666
       },
       id: 1,
-      name: 'jd-lisi'
+      name: 'jd-12'
+    },
+    {
+      pubKey: {
+        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
+      },
+      hostAddress: {
+        host: '172.62.35.230',
+        secure: false,
+        port: 6666
+      },
+      id: 2,
+      name: 'jd-13'
+    },
+    {
+      pubKey: {
+        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
+      },
+      hostAddress: {
+        host: '172.62.35.230',
+        secure: false,
+        port: 6666
+      },
+      id: 3,
+      name: 'jd-14'
+    },
+    {
+      pubKey: {
+        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
+      },
+      hostAddress: {
+        host: '172.62.35.230',
+        secure: false,
+        port: 6666
+      },
+      id: 4,
+      name: 'jd-15'
+    },
+    {
+      pubKey: {
+        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
+      },
+      hostAddress: {
+        host: '172.62.35.230',
+        secure: false,
+        port: 6666
+      },
+      id: 5,
+      name: 'jd-16'
+    },
+    {
+      pubKey: {
+        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
+      },
+      hostAddress: {
+        host: '172.62.35.230',
+        secure: false,
+        port: 6666
+      },
+      id: 6,
+      name: 'jd-17'
+    },
+    {
+      pubKey: {
+        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
+      },
+      hostAddress: {
+        host: '172.62.35.230',
+        secure: false,
+        port: 6666
+      },
+      id: 7,
+      name: 'jd-18'
+    },
+    {
+      pubKey: {
+        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
+      },
+      hostAddress: {
+        host: '172.62.35.230',
+        secure: false,
+        port: 6666
+      },
+      id: 8,
+      name: 'jd-19'
     }
   ]
-
+  @observable pageTotal = 3
   @observable pageIndex = 1;
   @observable pageSize = 10;
   @observable count = 0;
@@ -106,6 +190,7 @@ export default class OverviewStore {
     this.userTable && this.userTable.map((item, key) => {
       item['pubKey']['algorithm'] = tranBase58(item['pubKey']['value']);
     });
+    console.log(this.userTable);
     return this.userTable;
   }
 }

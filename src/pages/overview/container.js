@@ -31,6 +31,7 @@ class Container extends Component {
   render() {
     const { store } = this.props;
     console.log(this, this.props, store);
+    store.getUserTable();
     return this.props.tmpls[0](this, {
       styles,
       store
@@ -42,112 +43,122 @@ ContainerHoc('Container', Container, overviewStore);
 @registerTmpl('DataTable')
 @inject('store')
 @observer
-class DataTable extends Component {
-  @observable tabObj = [{
-    id: 1, title: '区块高度', data: 2 , background: '#0DB18C', url: '../../../resources/images/user.png'
-  },{
-    id: 2, title: '交易总数', data: 32134 , background: '#10A647', url: '../../../resources/images/user.png'
-  },{
-    id: 3, title: '用户总数', data: 34 , background: '#037CC1', url: '../../../resources/images/user.png'
-  },{
-    id: 4, title: '数据账户总数', data: 451 , background: '#5A77D2', url: '../../../resources/images/user.png'
-  },{
-    id: 5, title: '合约总数', data: 32 , background: '#3C4C9C', url: '../../../resources/images/user.png'
-  }];  
+class DataTable extends Component { 
   @observable pageIndex = 0;
-  state = {
-    columns: [{
-      title: '测试1',
-      dataIndex: 'test1',
-      key: 'test1',
-    }, {
-      title: '测试2',
-      dataIndex: 'test2',
-      key: 'test2',
-    }, {
-      title: '测试3',
-      dataIndex: 'test3',
-      key: 'test3',
-      children: [{
-        title: '测试4',
-        dataIndex: 'test4',
-        key: 'test4',
-      }, {
-        title: '测试5',
-        dataIndex: 'test5',
-        key: 'test5',
-      }, {
-        title: '测试6',
-        dataIndex: 'test6',
-        key: 'test6',
-      }]
-    }, {
-      title: '测试7',
-      dataIndex: 'test7',
-      key: 'test7',
-      children: [{
-        title: '测试8',
-        dataIndex: 'test8',
-        key: 'test8',
-      }, {
-        title: '测试9',
-        dataIndex: 'test9',
-        key: 'test9',
-      }, {
-        title: '测试10',
-        dataIndex: 'test10',
-        key: 'test10',
-      }, {
-        title: '测试11',
-        dataIndex: 'test11',
-        key: 'test11',
-      }, {
-        title: '测试12',
-        dataIndex: 'test12',
-        key: 'test12',
-      }]
-    }, {
-      title: '测试13',
-      dataIndex: 'test13',
-      key: 'test13',
-      children: [{
-        title: '测试14',
-        dataIndex: 'test14',
-        key: 'test14',
-      }, {
-        title: '测试15',
-        dataIndex: 'test15',
-        key: 'test15',
-      }, {
-        title: '测试16',
-        dataIndex: 'test16',
-        key: 'test16',
-      }, {
-        title: '测试17',
-        dataIndex: 'test17',
-        key: 'test17',
-      }, {
-        title: '测试18',
-        dataIndex: 'test18',
-        key: 'test18',
-      }]
-    }]
-  };
-
-  // itemRender = (current, type, originalElement) => {
-  //   if (type === 'prev') {
-  //     return <a>{`<上一页`}</a>;
-  //   } if (type === 'next') {
-  //     return <a>{`下一页>`}</a>;
-  //   }
-  //   return originalElement;
-  // }
+  @observable userData = [];
+  @observable total = 0;
+  componentDidMount = () => {
+    const { store } = this.props;
+    this.userData = [...store.userTable];
+    this.total = store.pageTotal;
+    console.log(this.userData);
+    // store.getUserTable()
+  }
 
   // @page: 页码----->number类型
   handlePageChange = (page) => {
     console.log(page);
     this.pageIndex = page - 1;
     console.log(`当前页码为:${page}, 实际为第${this.pageIndex}页`);
+  }
+
+  /**
+   * @num: 第几条
+   */
+  tableDataState = num => {
+    const { store } = this.props;
+    console.log(store.userTable);
+    return (
+      <div className = {`${styles.userState}`}>
+        <div className={`${styles.stateHead}`}>
+          <div className={`${styles.leftTitle}`}></div>
+          <div className={`${styles.rightTitle}`}>
+            <p className={`${styles.title}`}>
+              <span className={`${styles.key}`}>名称&nbsp;:&nbsp;</span>
+              <span className={`${styles.val}`}>
+                {store.userTable && store.userTable[`${num}`] && store.userTable[`${num}`]['name'] || ''}
+              </span>
+            </p>
+            <p className={`${styles.title}`}>
+              <span className={`${styles.key}`}>地址&nbsp;:&nbsp;</span>
+              <span className={`${styles.val}`}>
+                {store.userTable && store.userTable[`${num}`] && store.userTable[`${num}`]['hostAddress']['host'] || ''}
+              </span>
+            </p>
+          </div>
+        </div>
+        <p className={`${styles.keyTitle}`}>公钥内容&nbsp;:</p>
+        <p className={`${styles.keySpan}`}>
+          {/* 64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty  */}
+          {store.userTable && store.userTable[`${num}`] && store.userTable[`${num}`]['pubKey']['value'] || ''}
+        </p>
+        <p className={`${styles.keygen}`}>
+          <span className={`${styles.keygenTitle}`}>公钥算法&nbsp;:&nbsp;</span>
+          <span className={`${styles.keygenSpan}`}>
+            {/* ED25519 */}
+            {store.userTable && store.userTable[`${num}`] && store.userTable[`${num}`]['pubKey']['algorithm'] || ''}
+          </span>
+        </p>
+      </div>
+    );
+  }
+
+  dataNull = () => (
+    <div style={{'width': '100%', 'height':'474px', 'display': 'flex', 'justifyContent':'center', 'alignItems': 'center'}}>
+      <div>
+        暂无数据！！
+      </div>
+    </div>
+  )
+
+  dataNullO = () => (
+    <div style={{'width': '100%', 'height':'237px'}}>
+      
+    </div>
+  )
+
+  // 成员列表数据
+  tableData = () => {
+    const { store } = this.props;
+    let zero = this.pageIndex * 4;
+    let one = this.pageIndex * 4 + 1;
+    let two = this.pageIndex * 4 + 2;
+    let three = this.pageIndex * 4 + 3;
+    let tableZero = store.userTable[`${zero}`] ? this.tableDataState(zero) : null;
+    let tableOne = store.userTable[`${one}`] ? this.tableDataState(one) : null;
+    let tableTwo = store.userTable[`${two}`] ? this.tableDataState(two) : null;
+    let tableThree = store.userTable[`${three}`] ? this.tableDataState(one) : null;
+    let tableNull = this.dataNull();
+    let tableNullO = this.dataNullO();
+    // if (store.userTable[`${zero}`]) {
+    //   debugger;
+    //   return tableZero;
+    // };
+    // if (store.userTable[`${one}`]) {
+    //   debugger;
+    //   return tableOne;
+    // };
+    if (tableZero == null && tableOne == null && tableTwo == null && tableThree == null) {
+      return tableNull;
+    } else if (tableZero !== null && tableOne == null && tableTwo == null && tableThree == null) {
+      return [
+        tableZero,
+        tableNullO
+      ];
+    } else if (tableZero !== null && tableOne !== null && tableTwo == null && tableThree == null) {
+      return [
+        tableZero,
+        tableOne,
+        tableNullO
+      ];
+    }else {
+      return [
+        tableZero,
+        tableOne,
+        tableTwo,
+        tableThree
+      ];
+    }
   }
 
   @autobind

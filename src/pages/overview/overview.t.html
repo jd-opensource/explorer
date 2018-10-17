@@ -2,35 +2,6 @@
   <h2 class="fjb-title">摘要</h2>
 
   <div class="{styles.summary}">
-    <!-- <#each {{tabObj}}>
-      <#if {{id == tabObj.length}}>
-        <div class="{styles.tabs}" style="margin-right:0; background: {{background}}">
-          <div class="{styles.span}">
-            <div class="{styles.left}">
-              <p class="{styles.title}">{{title}}</p>
-              <p class="{styles.data}">{{data}}</p>
-            </div>
-            <div>
-              <img src="{url}" alt="" width="60" height="67">
-            </div>
-          </div>
-        </div>
-        <#else>
-          <div class="{styles.tabs}" style="background: {{background}}">
-            <div class="{styles.span}">
-              <div class="{styles.left}">
-                <p class="{styles.title}">{{title}}</p>
-                <p class="{styles.data}">{{data}}</p>
-              </div>
-              <div>
-                <img src="{url}" alt="" width="60" height="67">
-              </div>
-            </div>
-          </div>
-        </#else>
-      </#if>
-       
-    </#each> -->
     <div class="{styles.tabs} {styles.blockHeight}">
       <div class="{styles.span}">
         <div class="{styles.left}">
@@ -140,7 +111,8 @@
     <div class="{styles.right}">
       <p class="{styles.title}">成员列表</p>
       <div class="{styles.userTable}">
-        <div class="{styles.userState}">
+
+        <!-- <div class="{styles.userState}">
           <div class="{styles.stateHead}">
             <div class="{styles.leftTitle}"></div>
             <div class="{styles.rightTitle}">
@@ -223,13 +195,14 @@
             <span class="{styles.keygenTitle}">公钥算法&nbsp;:&nbsp;</span>
             <span class="{styles.keygenSpan}">ED25519</span>
           </p>
-        </div>
-        
+        </div> -->
+        {tableData()}
         <div class="{styles.page}">
           <ant-Pagination
             onChange={handlePageChange} 
             defaultCurrent={1} 
-            total={50}
+            defaultPageSize={4}
+            total="{store.userTable.length || 0}"
             showQuickJumper 
           />
         </div>
