@@ -15,15 +15,22 @@ export default class ContractStore {
 
   @autobind
   @action
-  getContractData() {
-    fetchData('/ledgers/contract/64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty/www.jd.com',
+  getContractData(e) {
+    console.log(e);
+    fetchData(`http://localhost:8000/ledgers/contract/${e}/www.jd.com`,
       this.setContractData,
       '', { 
         method: 'get',
         headers: {
-          // accept: 'application/json',
+          accept: 'application/json',
           cookie: document.cookie,
-        } 
+          'Access-Control-Allow-Credentials' : true,
+          'Access-Control-Allow-Origin':'*',
+          'Access-Control-Allow-Methods':'OPTIONS',
+          'Access-Control-Allow-Headers':'application/json',
+          
+        },
+        mode: 'no-cors', 
       }
     ).catch(error => {
       console.log(error);
@@ -38,7 +45,7 @@ export default class ContractStore {
   @action
   test() {
     this.contractData['pubKey']['algorithm'] = tranBase58(this.contractData['pubKey']['value']);
-    console.log(this.contractData['pubKey']['algorithm']);
+    // console.log(this.contractData['pubKey']['algorithm']);
   }
 
   setContractData = (result) => {

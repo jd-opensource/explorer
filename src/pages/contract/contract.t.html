@@ -6,8 +6,8 @@
       <span class="{styles.searchLabel}">
         查询合约&nbsp;:
       </span>
-      <input class="{styles.searchInput}" placeholder="请输入合约账户"/>
-      <ant-Button class="{styles.searchButton}" icon="search">查询</ant-Button>
+      <input class="{styles.searchInput}" placeholder="请输入合约账户" onChange={inputChange}/>
+      <ant-Button class="{styles.searchButton}" icon="search" onClick={query}>查询</ant-Button>
     </div>
 
     <!-- 列表区域 -->

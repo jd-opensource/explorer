@@ -12,6 +12,7 @@ import ContainerHoc from '../../components/higherOrders/container';
 import styles from './contract.m.less';
 import tmpls from './contract.t.html';
 import ContractStore from '../../stores/ContractStore';
+import { observable } from 'mobx';
 const contractStore = new ContractStore();
 
 //页面容器组件
@@ -20,13 +21,13 @@ const contractStore = new ContractStore();
 class Container extends Component {
   componentDidMount() {
     const { store } = this.props;
-    Promise.all([
-      store.getContractData()
-    ]).then(
+    // Promise.all([
+    //   store.getContractData()
+    // ]).then(
 
-    ).catch((err) => {
-      console.log(err);
-    });
+    // ).catch((err) => {
+    //   console.log(err);
+    // });
     
     // this.props.store.getContractData().then(() => closeLoading());
   }
@@ -46,10 +47,21 @@ ContainerHoc('Container', Container, contractStore);
 @inject('store')
 @observer
 class DataTable extends Component {
+  @observable contractLedger = ''; // 合约账户
 
-  @autobind
-  onPageChange(page, pageSize) {
-    this.props.store.getTableData(page, pageSize).then(() => closeLoading());
+  inputChange = (e) => {
+    this.contractLedger = e.target.value;
+  }
+
+  query = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getContractData(this.contractLedger)
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {

@@ -158,32 +158,7 @@ export default class OverviewStore {
   @observable pageSize = 10;
   @observable count = 0;
   @observable tableData = [];
-
-  @autobind
-  @action
-  getTableData(currentPage = this.pageIndex, pageSize = this.pageSize) {
-    return fetchData(`${G_WEB_DOMAIN}/overview/getTableData`, result => {
-      transaction(() => {
-        if (result.success) {
-          this.pageIndex = currentPage;
-          this.pageSize = pageSize;
-          this.count = result.totalCount;
-          this.tableData = result.data;
-        } else {
-          this.pageIndex = 1;
-          this.pageSize = 10;
-          this.count = 0;
-          this.tableData = [];
-          Notification.error({ description: '获取表格数据出错，异常是:' + result.msg, duration: null });
-        }
-      });
-    }, {
-      currentPage,
-      pageSize,
-    }, { method: 'post' }).catch((ex) => {
-      Notification.error({ description: '获取表格数据出错，错误是:' + ex, duration: null });
-    });
-  }
+  @observable __HOST = 'http://localhost:8000/';
 
   @autobind
   @action
@@ -195,10 +170,11 @@ export default class OverviewStore {
     return this.userTable;
   }
 
+  // 获取区块高度
   @autobind
   @action
   getBlockHeight() {
-    fetchData(`/ledgers/block/height/max/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+    fetchData(`${this.__HOST}ledgers/block/height/max/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
       this.setBlockHeight,
       '', { 
         method: 'get',
@@ -215,6 +191,198 @@ export default class OverviewStore {
   @autobind
   @action
   setBlockHeight(result) {
+    console.log(result);
+  }
+
+  // 获取交易总数
+  @autobind
+  @action
+  getTransactionTotal() {
+    fetchData(`${this.__HOST}ledgers/tx-count/all/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+      this.setTransactionTotal,
+      '', { 
+        method: 'get',
+        headers: {
+          // accept: 'application/json',
+          cookie: document.cookie,
+        } 
+      }
+    ).catch(error => {
+      console.log(error);
+    });
+  }
+
+  @autobind
+  @action
+  setTransactionTotal(result) {
+    console.log(result);
+  }
+
+  // 获取用户总数
+  @autobind
+  @action
+  getUserTotal() {
+    fetchData(`${this.__HOST}ledgers/user-count/all/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+      this.setUserTotal,
+      '', { 
+        method: 'get',
+        headers: {
+          // accept: 'application/json',
+          cookie: document.cookie,
+        } 
+      }
+    ).catch(error => {
+      console.log(error);
+    });
+  }
+
+  @autobind
+  @action
+  setUser(result) {
+    console.log(result);
+  }
+
+  // 获取数据账户总数
+  @autobind
+  @action
+  getLedgerTotal() {
+    fetchData(`${this.__HOST}ledgers/account-count/all/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+      this.setLedgerTotal,
+      '', { 
+        method: 'get',
+        headers: {
+          // accept: 'application/json',
+          cookie: document.cookie,
+        } 
+      }
+    ).catch(error => {
+      console.log(error);
+    });
+  }
+
+  @autobind
+  @action
+  setLedgerTotal(result) {
+    console.log(result);
+  }
+
+  // 合约总数
+  @autobind
+  @action
+  getContractTotal() {
+    fetchData(`${this.__HOST}ledgers/contract-count/all/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+      this.setTransactionTotal,
+      '', { 
+        method: 'get',
+        headers: {
+          // accept: 'application/json',
+          cookie: document.cookie,
+        } 
+      }
+    ).catch(error => {
+      console.log(error);
+    });
+  }
+
+  @autobind
+  @action
+  setContractTotal(result) {
+    console.log(result);
+  }
+
+  // 获取成员列表
+  @autobind
+  @action
+  getUserList() {
+    fetchData(`${this.__HOST}ledgers/ledger/participants/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+      this.setUserList,
+      '', { 
+        method: 'get',
+        headers: {
+          // accept: 'application/json',
+          cookie: document.cookie,
+        } 
+      }
+    ).catch(error => {
+      console.log(error);
+    });
+  }
+
+  @autobind
+  @action
+  setUserList(result) {
+    console.log(result);
+  }
+
+  // 获取当前账本信息
+  @autobind
+  @action
+  getLedgerCurrent() {
+    fetchData(`${this.__HOST}ledgers/ledger/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+      this.setLedgerCurrent,
+      '', { 
+        method: 'get',
+        headers: {
+          // accept: 'application/json',
+          cookie: document.cookie,
+        } 
+      }
+    ).catch(error => {
+      console.log(error);
+    });
+  }
+
+  @autobind
+  @action
+  setLedgerCurrent(result) {
+    console.log(result);
+  }
+
+  // 获取新增交易数量
+  @autobind
+  @action
+  getNewTransaction() {
+    fetchData(`${this.__HOST}ledgers/tx-count/new/{ledgerHash}UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+      this.setNewTransaction,
+      '', { 
+        method: 'get',
+        headers: {
+          // accept: 'application/json',
+          cookie: document.cookie,
+        } 
+      }
+    ).catch(error => {
+      console.log(error);
+    });
+  }
+
+  @autobind
+  @action
+  setNewTransaction(result) {
+    console.log(result);
+  }
+
+  // 获取新增账户数量
+  @autobind
+  @action
+  getNewLedger() {
+    fetchData(`${this.__HOST}ledgers/account-count/new/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+      this.setNewLedger,
+      '', { 
+        method: 'get',
+        headers: {
+          // accept: 'application/json',
+          cookie: document.cookie,
+        } 
+      }
+    ).catch(error => {
+      console.log(error);
+    });
+  }
+
+  @autobind
+  @action
+  setNewLedger(result) {
     console.log(result);
   }
 }

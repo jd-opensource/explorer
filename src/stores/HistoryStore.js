@@ -169,7 +169,7 @@ export default class HistoryStore {
   @action
   getBlockHistoryData() {
     $.ajax({
-      url: '/ledgers/blocks/' + '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
+      url: 'http://localhost:8000/ledgers/blocks/' + '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
       method: 'GET',
       headers: {
         Accept: 'text/html,application/xhtml+xml,application/xml;'
