@@ -20,21 +20,10 @@ const contractStore = new ContractStore();
 @observer
 class Container extends Component {
   componentDidMount() {
-    const { store } = this.props;
-    // Promise.all([
-    //   store.getContractData()
-    // ]).then(
-
-    // ).catch((err) => {
-    //   console.log(err);
-    // });
-    
-    // this.props.store.getContractData().then(() => closeLoading());
   }
 
   render() {
     const { store } = this.props;
-    store.test();
     return this.props.tmpls[0](this, {
       store,
       styles
@@ -58,7 +47,7 @@ class DataTable extends Component {
     Promise.all([
       store.getContractData(this.contractLedger)
     ]).then(
-
+      
     ).catch((err) => {
       console.log(err);
     });

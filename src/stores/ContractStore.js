@@ -6,49 +6,36 @@ import { tranBase58 } from '../common/util';
 
 export default class ContractStore {
   @observable contractData =  {
-    'address': 'www.jd.com',
-    'chaincodeVersion': -1,
-    'pubKey': {
-      'value': 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
-    }
+    // 'address': 'www.jd.com',
+    // 'chaincodeVersion': -1,
+    // 'pubKey': {
+    //   'value': 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
+    // }
   };
+  @observable algorithm = ''; // 公钥算法
 
   @autobind
   @action
   getContractData(e) {
     console.log(e);
-    fetchData(`http://localhost:8000/ledgers/contract/${e}/www.jd.com`,
+    fetchData(`${G_WEB_DOMAIN}/contract`,
       this.setContractData,
       '', { 
         method: 'get',
-        headers: {
-          accept: 'application/json',
-          cookie: document.cookie,
-          'Access-Control-Allow-Credentials' : true,
-          'Access-Control-Allow-Origin':'*',
-          'Access-Control-Allow-Methods':'OPTIONS',
-          'Access-Control-Allow-Headers':'application/json',
-          
-        },
-        mode: 'no-cors', 
       }
     ).catch(error => {
       console.log(error);
     });
-    this.contractData['pubKey']['algorithm'] = tranBase58(this.contractData['pubKey']['value']);
-    console.log(this.contractData['pubKey']['algorithm']);
+    // this.contractData['pubKey']['algorithm'] = tranBase58(this.contractData['pubKey']['value']);
+    // console.log(this.contractData['pubKey']['algorithm']);
     // console.log(this.userTable);
     // return this.contractData;
   }
 
-  @autobind
-  @action
-  test() {
-    this.contractData['pubKey']['algorithm'] = tranBase58(this.contractData['pubKey']['value']);
-    // console.log(this.contractData['pubKey']['algorithm']);
-  }
-
   setContractData = (result) => {
-    console.log(result);
+    // console.log(result);
+    let response = result && result.data;
+    this.contractData = {...response};
+    this.algorithm = tranBase58(this.contractData['pubKey']['value']);
   }
 }
