@@ -26,7 +26,7 @@ class Container extends Component {
 
   render() {
     const { store } = this.props;
-    store.test();
+    // store.test();
     return this.props.tmpls[0](this, {
       store,
       styles
