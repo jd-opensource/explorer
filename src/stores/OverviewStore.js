@@ -8,151 +8,17 @@ import ActionButton from 'antd/lib/modal/ActionButton';
 
 export default class OverviewStore {
   @observable overviewHeadData = {
-    blockHeight: 2,
-    transactionTotal: 32124,
-    userTotal: 34,
-    dataLedgersTotal: 451,
-    contractTotal: 32
+    blockHeight: 0,
+    transactionTotal: 0,
+    userTotal: 0,
+    dataLedgersTotal: 0,
+    contractTotal: 0
   }; // 摘要页面tab部分
-  @observable ledgerInformation = {
-    adminInfo: {
-      metadata: {
-        seed: 'amQ=',
-        setting: {
-          cryptoSetting: {
-            hashAlgorithm: 'SHA256',
-            autoVerifyHash: false
-          },
-          consensusSetting: {
-            hostSettingValue: 'Z2V0SG9zdFNldHRpbmdWYWx1ZQ==',
-            systemSettingValue: 'Z2V0U3lzdGVtU2V0dGluZ1ZhbHVl'
-          }
-        },
-        participantsHash: {
-          value: 'F4evU3YyKryMCBNsrPg7NwBz1NX'
-        }
-      },
-      participantCount: 1234
-    },
-    latestBlockHash: {
-      value: '4BoCfJESYPMpDBZVNgKN1j9vuD'
-    },
-    hash: {
-      value: '3uqhFboGY1M'
-    }
-  }; // 当前账本信息
-  @observable accountCount = 78; // 新增账户数量
-  @observable transactionCount = 246; // 新增交易数量
-  @observable userTable = [
-    {
-      pubKey: {
-        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
-      },
-      hostAddress: {
-        host: '172.62.35.230',
-        secure: false,
-        port: 6666
-      },
-      id: 0,
-      name: 'jd-11'
-    },
-    {
-      pubKey: {
-        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
-      },
-      hostAddress: {
-        host: '172.62.35.230',
-        secure: false,
-        port: 6666
-      },
-      id: 1,
-      name: 'jd-12'
-    },
-    {
-      pubKey: {
-        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
-      },
-      hostAddress: {
-        host: '172.62.35.230',
-        secure: false,
-        port: 6666
-      },
-      id: 2,
-      name: 'jd-13'
-    },
-    {
-      pubKey: {
-        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
-      },
-      hostAddress: {
-        host: '172.62.35.230',
-        secure: false,
-        port: 6666
-      },
-      id: 3,
-      name: 'jd-14'
-    },
-    {
-      pubKey: {
-        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
-      },
-      hostAddress: {
-        host: '172.62.35.230',
-        secure: false,
-        port: 6666
-      },
-      id: 4,
-      name: 'jd-15'
-    },
-    {
-      pubKey: {
-        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
-      },
-      hostAddress: {
-        host: '172.62.35.230',
-        secure: false,
-        port: 6666
-      },
-      id: 5,
-      name: 'jd-16'
-    },
-    {
-      pubKey: {
-        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
-      },
-      hostAddress: {
-        host: '172.62.35.230',
-        secure: false,
-        port: 6666
-      },
-      id: 6,
-      name: 'jd-17'
-    },
-    {
-      pubKey: {
-        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
-      },
-      hostAddress: {
-        host: '172.62.35.230',
-        secure: false,
-        port: 6666
-      },
-      id: 7,
-      name: 'jd-18'
-    },
-    {
-      pubKey: {
-        value: 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
-      },
-      hostAddress: {
-        host: '172.62.35.230',
-        secure: false,
-        port: 6666
-      },
-      id: 8,
-      name: 'jd-19'
-    }
-  ]
+  @observable ledgerInformation = {}; // 当前账本信息
+  @observable accountCount = 0; // 新增账户数量
+  @observable transactionCount = 0; // 新增交易数量
+  @observable userTable = [];
+  @observable algorithms = [];
   @observable pageTotal = 3
   @observable pageIndex = 1;
   @observable pageSize = 10;
@@ -174,12 +40,11 @@ export default class OverviewStore {
   @autobind
   @action
   getBlockHeight() {
-    fetchData(`${this.__HOST}ledgers/block/height/max/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/blockHeight`,
       this.setBlockHeight,
       '', { 
         method: 'get',
         headers: {
-          // accept: 'application/json',
           cookie: document.cookie,
         } 
       }
@@ -191,14 +56,15 @@ export default class OverviewStore {
   @autobind
   @action
   setBlockHeight(result) {
-    console.log(result);
+    let response = result;
+    this.overviewHeadData.blockHeight = response && response.data ? response.data : 0; 
   }
 
   // 获取交易总数
   @autobind
   @action
   getTransactionTotal() {
-    fetchData(`${this.__HOST}ledgers/tx-count/all/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/transactionAccount`,
       this.setTransactionTotal,
       '', { 
         method: 'get',
@@ -215,14 +81,15 @@ export default class OverviewStore {
   @autobind
   @action
   setTransactionTotal(result) {
-    console.log(result);
+    let response = result;
+    this.overviewHeadData.transactionTotal = response && response.totalCount ? response.totalCount : 0; 
   }
 
   // 获取用户总数
   @autobind
   @action
   getUserTotal() {
-    fetchData(`${this.__HOST}ledgers/user-count/all/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/userTotal`,
       this.setUserTotal,
       '', { 
         method: 'get',
@@ -238,15 +105,16 @@ export default class OverviewStore {
 
   @autobind
   @action
-  setUser(result) {
-    console.log(result);
+  setUserTotal(result) {
+    let response = result;
+    this.overviewHeadData.userTotal = response && response.data ? response.data : 0; 
   }
 
   // 获取数据账户总数
   @autobind
   @action
   getLedgerTotal() {
-    fetchData(`${this.__HOST}ledgers/account-count/all/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/dataLedgersTotal`,
       this.setLedgerTotal,
       '', { 
         method: 'get',
@@ -263,15 +131,16 @@ export default class OverviewStore {
   @autobind
   @action
   setLedgerTotal(result) {
-    console.log(result);
+    let response = result;
+    this.overviewHeadData.dataLedgersTotal = response && response.data ? response.data : 0; 
   }
 
   // 合约总数
   @autobind
   @action
   getContractTotal() {
-    fetchData(`${this.__HOST}ledgers/contract-count/all/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
-      this.setTransactionTotal,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/contractTotal`,
+      this.setContractTotal,
       '', { 
         method: 'get',
         headers: {
@@ -287,14 +156,15 @@ export default class OverviewStore {
   @autobind
   @action
   setContractTotal(result) {
-    console.log(result);
+    let response = result;
+    this.overviewHeadData.contractTotal = response && response.data ? response.data : 0;
   }
 
   // 获取成员列表
   @autobind
   @action
   getUserList() {
-    fetchData(`${this.__HOST}ledgers/ledger/participants/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/userTable`,
       this.setUserList,
       '', { 
         method: 'get',
@@ -311,14 +181,19 @@ export default class OverviewStore {
   @autobind
   @action
   setUserList(result) {
-    console.log(result);
+    let response = result && result.data ? result.data : [];
+    this.algorithms = [];
+    this.userTable = [...response];
+    response && response.map((item, key) => {
+      this.algorithms.push(tranBase58(item['pubKey']['value']));
+    });
   }
 
   // 获取当前账本信息
   @autobind
   @action
   getLedgerCurrent() {
-    fetchData(`${this.__HOST}ledgers/ledger/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/ledgerInformation`,
       this.setLedgerCurrent,
       '', { 
         method: 'get',
@@ -335,14 +210,17 @@ export default class OverviewStore {
   @autobind
   @action
   setLedgerCurrent(result) {
-    console.log(result);
+    let response = result && result.data ? result.data : {};
+    console.log(response);
+    this.ledgerInformation = {...response};
+    console.log(this.ledgerInformation);
   }
 
   // 获取新增交易数量
   @autobind
   @action
   getNewTransaction() {
-    fetchData(`${this.__HOST}ledgers/tx-count/new/{ledgerHash}UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/transactionCount`,
       this.setNewTransaction,
       '', { 
         method: 'get',
@@ -360,13 +238,15 @@ export default class OverviewStore {
   @action
   setNewTransaction(result) {
     console.log(result);
+    let response = result && result.data ? result.data : 0;
+    this.transactionCount = response;
   }
 
   // 获取新增账户数量
   @autobind
   @action
   getNewLedger() {
-    fetchData(`${this.__HOST}ledgers/account-count/new/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/accountCount`,
       this.setNewLedger,
       '', { 
         method: 'get',
@@ -383,6 +263,7 @@ export default class OverviewStore {
   @autobind
   @action
   setNewLedger(result) {
-    console.log(result);
+    let response = result && result.data ? result.data : 0;
+    this.accountCount = response;
   }
 }

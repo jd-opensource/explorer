@@ -54,13 +54,26 @@ class DataTable extends Component {
     this.total = store.pageTotal;
     console.log(this.userData);
     Promise.all([
-      store.getBlockHeight()
+      store.getBlockHeight(), store.getTransactionTotal(), store.getUserTotal(), store.getLedgerTotal(), store.getContractTotal()
     ]).then(
 
     ).catch(
 
     );
-    
+    Promise.all([
+      store.getLedgerCurrent(), store.getNewTransaction(), store.getNewLedger()
+    ]).then(
+
+    ).catch(
+
+    );
+    Promise.all([
+      store.getUserList()
+    ]).then(
+
+    ).catch(
+
+    );
   }
 
   // @page: 页码----->number类型
@@ -75,7 +88,7 @@ class DataTable extends Component {
    */
   tableDataState = num => {
     const { store } = this.props;
-    console.log(store.userTable);
+    // console.log(store.userTable);
     return (
       <div className = {`${styles.userState}`}>
         <div className={`${styles.stateHead}`}>
@@ -108,7 +121,7 @@ class DataTable extends Component {
           <span className={`${styles.keygenTitle}`}>公钥算法&nbsp;:&nbsp;</span>
           <span className={`${styles.keygenSpan}`}>
             {/* ED25519 */}
-            {store.userTable && store.userTable[`${num}`] && store.userTable[`${num}`]['pubKey']['algorithm'] || ''}
+            {store.algorithms && store.algorithms[`${num}`] || ''}
           </span>
         </p>
       </div>

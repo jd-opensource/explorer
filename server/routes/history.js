@@ -43,7 +43,7 @@ router.post('/getTableData', function(req, res) {
     });
 
   Object.assign(ret, resultData, {
-    data,
+    datas,
     totalCount: 100
   });
 

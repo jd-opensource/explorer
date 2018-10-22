@@ -26,21 +26,9 @@ export default class LedgersStore {
   @action
   getLedgerData(e) {
     console.log(e);
-    fetchData(`http://localhost:8000/ledgers/contract/${e}/www.jd.com`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers`,
       this.setLedgerData,
-      '', { 
-        method: 'get',
-        headers: {
-          accept: 'application/json',
-          cookie: document.cookie,
-          'Access-Control-Allow-Credentials' : true,
-          'Access-Control-Allow-Origin':'*',
-          'Access-Control-Allow-Methods':'OPTIONS',
-          'Access-Control-Allow-Headers':'application/json',
-          
-        },
-        mode: 'no-cors', 
-      }
+      '', { method: 'get',}
     ).catch(error => {
       console.log(error);
     });
