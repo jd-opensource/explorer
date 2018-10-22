@@ -13,6 +13,7 @@ import '../../components/sider';
 import ContainerHoc from '../../components/higherOrders/container';
 import styles from './ledgers.m.less';
 import tmpls from './ledgers.t.html';
+import { observable } from 'mobx';
 import LedgersStore from '../../stores/LedgersStore';
 const ledgersStore = new LedgersStore();
 
@@ -26,7 +27,10 @@ class Container extends Component {
   }
 
   render() {
+    const { store } = this.props;
+    store.test();
     return this.props.tmpls[0](this, {
+      store,
       styles
     });
   }
@@ -37,6 +41,22 @@ ContainerHoc('Container', Container, ledgersStore);
 @inject('store')
 @observer
 class DataTable extends Component {
+  @observable dataLedger = ''; // 合约账户
+
+  inputChange = (e) => {
+    this.dataLedger = e.target.value;
+  }
+
+  query = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getLedgerData(this.dataLedger)
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
 
   render() {
     return tmpls.dataTable(this.state, this.props, this, {

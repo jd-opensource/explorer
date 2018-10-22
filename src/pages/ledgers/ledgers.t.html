@@ -1,15 +1,45 @@
 <template name="dataTable">
   <h2 class="fjb-title">数据账户</h2>
-  <!-- <ant-Table dataSource={toJS(store.tableData)}
-             rowKey="test1"
-             {columns}
-             bordered
-             :pagination="{
-               current: store.pageIndex,
-               pageSize: store.pageSize,
-               total: store.count,
-               onChange: onPageChange
-             }"/> -->
+  
+  <div class="{styles.dataContainer}">
+    <!-- 查询区域 -->
+    <div class="{styles.searchZone}">
+      <span class="{styles.searchLabel}">
+        查询数据&nbsp;:
+      </span>
+      <input class="{styles.searchInput}" placeholder="请输入数据账户" onChange={inputChange}/>
+      <ant-Button class="{styles.searchButton}" icon="search" onClick={query}>查询</ant-Button>
+    </div>
+
+    <!-- 列表区域 -->
+    <div class="{styles.dataList}">
+      <p class="{styles.dataTitle}">数据信息</p>
+      <div class="{styles.dataTable}">
+        <table>
+          <tbody>
+            <tr>
+              <td>地址&nbsp;:</td>
+              <td>{store.dataData.address || ''}</td>
+            </tr>
+            <tr>
+              <td>合约版本&nbsp;:</td>
+              <td>{store.dataData.chaincodeVersion || ''}</td>
+            </tr>
+            <tr>
+              <td>公钥内容&nbsp;:</td>
+              <td>{store.dataData.pubKey.value || ''}</td>
+            </tr>
+            <tr>
+              <td>公钥算法&nbsp;:</td>
+              <td>{store.dataData.pubKey.algorithm || ''}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+
   <div class="{styles.hisFooter}">
     <div class="{styles.topFooter}">
     </div>
