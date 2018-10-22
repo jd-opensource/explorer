@@ -2,36 +2,50 @@
 import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import { autobind } from 'core-decorators';
 import { Notification } from 'flarej/lib/components/antd/notification';
+import { tranBase58 } from '../common/util';
 
 export default class UserStore {
-  @observable pageIndex = 1;
-  @observable pageSize = 10;
-  @observable count = 0;
-  @observable tableData = [];
+  @observable userData = {
+    'address': 'www.jd.com',
+    'pubKey': {
+      'value': 'sR4AF'
+    }
+  }
+  @observable __HOST = 'http://localhost:8000/'
+  
+  @autobind
+  @action
+  getUserData(e) {
+    console.log(e);
+    fetchData(`${this.__HOST}ledgers/user/${e}/www.jd.com`,
+      this.setUserData,
+      '', { 
+        method: 'get',
+        headers: {
+          accept: 'application/json',
+          cookie: document.cookie,
+          'Access-Control-Allow-Credentials' : true,
+          'Access-Control-Allow-Origin':'*',
+          'Access-Control-Allow-Methods':'OPTIONS',
+          'Access-Control-Allow-Headers':'application/json',
+          
+        },
+        mode: 'no-cors', 
+      }
+    ).catch(error => {
+      console.log(error);
+    });
+    this.userData['pubKey']['algorithm'] = tranBase58(this.userData['pubKey']['value']);
+    console.log(this.contractData['pubKey']['algorithm']);
+  }
 
   @autobind
   @action
-  getTableData(currentPage = this.pageIndex, pageSize = this.pageSize) {
-    return fetchData(`${G_WEB_DOMAIN}/user/getTableData`, result => {
-      transaction(() => {
-        if (result.success) {
-          this.pageIndex = currentPage;
-          this.pageSize = pageSize;
-          this.count = result.totalCount;
-          this.tableData = result.data;
-        } else {
-          this.pageIndex = 1;
-          this.pageSize = 10;
-          this.count = 0;
-          this.tableData = [];
-          Notification.error({ description: '获取表格数据出错，异常是:' + result.msg, duration: null });
-        }
-      });
-    }, {
-      currentPage,
-      pageSize,
-    }, { method: 'post' }).catch((ex) => {
-      Notification.error({ description: '获取表格数据出错，错误是:' + ex, duration: null });
-    });
+  test() {
+    this.userData['pubKey']['algorithm'] = tranBase58(this.userData['pubKey']['value']);
+  }
+
+  setUserData = (result) => {
+    console.log(result);
   }
 }

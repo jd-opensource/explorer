@@ -1,12 +1,48 @@
 <template name="dataTable">
-  <ant-Table dataSource={toJS(store.tableData)}
-             rowKey="test1"
-             {columns}
-             bordered
-             :pagination="{
-               current: store.pageIndex,
-               pageSize: store.pageSize,
-               total: store.count,
-               onChange: onPageChange
-             }"/>
+  <h2 class="fjb-title">用户</h2>
+  <div class="{styles.userContainer}">
+    <!-- 查询区域 -->
+    <div class="{styles.searchZone}">
+      <span class="{styles.searchLabel}">
+        查询用户&nbsp;:
+      </span>
+      <input class="{styles.searchInput}" placeholder="请输入用户" onChange={inputChange}/>
+      <ant-Button class="{styles.searchButton}" icon="search" onClick={query}>查询</ant-Button>
+    </div>
+
+    <!-- 列表区域 -->
+    <div class="{styles.userList}">
+      <p class="{styles.userTitle}">用户信息</p>
+      <div class="{styles.userTable}">
+        <table>
+          <tbody>
+            <tr>
+              <td>地址&nbsp;:</td>
+              <td>{store.userData.address || ''}</td>
+            </tr>
+            <tr>
+              <td>公钥内容&nbsp;:</td>
+              <td>{store.userData.pubKey.value || ''}</td>
+            </tr>
+            <tr>
+              <td>公钥算法&nbsp;:</td>
+              <td>{store.userData.pubKey.algorithm || ''}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="{styles.hisFooter}">
+    <div class="{styles.topFooter}">
+    </div>
+    <div class="{styles.bottomFooter}">
+      <div class="{styles.footContent}">
+        Copyright &copy; 2018, 京东JD.COM &nbsp; 版权所有 &nbsp; power by
+        <a href="http://ledger.jd.com/" target="_blank" class="{styles.linker}" title="京东区块链">&nbsp;京东区块链平台</a>
+      </div>
+    </div>
+  </div>
 </template>
