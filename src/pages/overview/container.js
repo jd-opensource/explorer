@@ -16,6 +16,7 @@ import ContainerHoc from '../../components/higherOrders/container';
 import styles from './overview.m.less';
 import tmpls from './overview.t.html';
 import OverviewStore from '../../stores/OverviewStore';
+import { Promise } from 'core-js';
 const overviewStore = new OverviewStore();
 
 //页面容器组件
@@ -52,7 +53,14 @@ class DataTable extends Component {
     this.userData = [...store.userTable];
     this.total = store.pageTotal;
     console.log(this.userData);
-    // store.getUserTable()
+    Promise.all([
+      store.getBlockHeight()
+    ]).then(
+
+    ).catch(
+
+    );
+    
   }
 
   // @page: 页码----->number类型
@@ -82,7 +90,11 @@ class DataTable extends Component {
             <p className={`${styles.title}`}>
               <span className={`${styles.key}`}>地址&nbsp;:&nbsp;</span>
               <span className={`${styles.val}`}>
-                {store.userTable && store.userTable[`${num}`] && store.userTable[`${num}`]['hostAddress']['host'] || ''}
+                {store.userTable && 
+                  store.userTable[`${num}`] && 
+                    `${store.userTable[`${num}`]['hostAddress']['host']}:${store.userTable[`${num}`]['hostAddress']['port']}` 
+                      || ''
+                }
               </span>
             </p>
           </div>

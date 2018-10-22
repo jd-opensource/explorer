@@ -7,7 +7,7 @@
         <fj-Col l="4">
           <ant-Input placeholder={{placeholder}} onChange={handleInputChange} style="max-width: 600px; height: 36px"/>
         </fj-Col>
-        <fj-Col l="6">
+        <fj-Col l="3">
             <ant-RadioGroup 
               style="width: 100%; margin-left: 36px; line-height: 36px" 
               defaultValue="blockHeight"
@@ -24,10 +24,23 @@
         </ant-Button>
       </fj-Row>
     </div>
-
+    <#switch {{store.showHistoryState}}>
+      <#case {{1}}>
+        <BlockHistory/>
+      </#case>
+      <#case {{2}}>
+        <BlockHeight/>
+      </#case>
+      <#case {{3}}>
+        <TransactionHash/>
+      </#case>
+      <#default>
+        <BlockHistory/>
+      </#default>
+    </#switch>
     <!-- <BlockHistory/> -->
     <!-- <BlockHeight/> -->
-    <TransactionHash/>
+    <!-- <TransactionHash/> -->
     <div class="{styles.hisFooter}">
       <div class="{styles.topFooter}">
       </div>
@@ -147,7 +160,7 @@
     <div class="{styles.header}">
       <h4 class="{styles.title}">
         区块信息
-        <p>返回</p>
+        <p onClick={store.goback}>返回</p>
       </h4>
       <!-- <hr/> -->
     </div>
@@ -159,31 +172,31 @@
           <tbody>
             <tr>
               <td>区块高度:</td>
-              <td>123</td>
+              <td>{store.blockData.height}</td>
             </tr>
             <tr>
               <td>区块哈希:</td>
-              <td>123</td>
+              <td>{store.blockData.hash.value}</td>
             </tr>
             <tr>
               <td>区块前置哈希:</td>
-              <td>123</td>
+              <td>{store.blockData.previousHash.value}</td>
             </tr>
             <tr>
               <td>用户哈希:</td>
-              <td>123</td>
+              <td>{store.blockData.userAccountSetHash.value}</td>
             </tr>
             <tr>
               <td>交易集哈希:</td>
-              <td>123</td>
+              <td>{store.blockData.transactionSetHash.value}</td>
             </tr>
             <tr>
               <td>账本哈希:</td>
-              <td>123</td>
+              <td>{store.blockData.ledgerHash.value}</td>
             </tr>
             <tr>
               <td>合约账户:</td>
-              <td>123</td>
+              <td>{store.blockData.contractAccountSetHash.value}</td>
             </tr>
           </tbody>
         </table>
@@ -222,7 +235,7 @@
         <div class="{styles.header}">
           <h4 class="{styles.title}">
             交易信息
-            <p>返回</p>
+            <p onClick={store.goback}>返回</p>
           </h4>
         </div>
         <div class="{styles.content}">

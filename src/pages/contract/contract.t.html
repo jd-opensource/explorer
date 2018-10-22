@@ -1,6 +1,43 @@
 <template name="dataTable">
   <h2 class="fjb-title">合约</h2>
-  
+  <div class="{styles.contractContainer}">
+    <!-- 查询区域 -->
+    <div class="{styles.searchZone}">
+      <span class="{styles.searchLabel}">
+        查询合约&nbsp;:
+      </span>
+      <input class="{styles.searchInput}" placeholder="请输入合约账户"/>
+      <ant-Button class="{styles.searchButton}" icon="search">查询</ant-Button>
+    </div>
+
+    <!-- 列表区域 -->
+    <div class="{styles.contractList}">
+      <p class="{styles.contractTitle}">合约信息</p>
+      <div class="{styles.contractTable}">
+        <table>
+          <tbody>
+            <tr>
+              <td>地址&nbsp;:</td>
+              <td>{store.contractData.address || ''}</td>
+            </tr>
+            <tr>
+              <td>合约版本&nbsp;:</td>
+              <td>{store.contractData.chaincodeVersion || ''}</td>
+            </tr>
+            <tr>
+              <td>公钥内容&nbsp;:</td>
+              <td>{store.contractData.pubKey.value || ''}</td>
+            </tr>
+            <tr>
+              <td>公钥算法&nbsp;:</td>
+              <td>{store.contractData.pubKey.algorithm || ''}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+  </div>
   <div class="{styles.hisFooter}">
     <div class="{styles.topFooter}">
     </div>

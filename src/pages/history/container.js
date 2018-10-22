@@ -31,7 +31,10 @@ class Container extends Component {
   }
 
   render() {
+    const { store } = this.props;
+    console.log(store);
     return this.props.tmpls[0](this, {
+      store,
       styles
     });
   }
@@ -322,6 +325,12 @@ class TransactionHash extends Component {
   @observable showTrans = true; // 是否显示交易内容, 默认显示
   @observable showValue = false; // 是否显示value与预期版本
 
+  componentDidMount = () => {
+    const { store } = this.props;
+    store.getBlockHistoryData();
+    store.setTransactionData();
+    console.log('xxxxxxxxxx');
+  }
   /**
    * 控制显示隐藏
    * @val: 控制显示隐藏字段, Boolean

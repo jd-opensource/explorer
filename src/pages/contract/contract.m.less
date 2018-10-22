@@ -1,6 +1,93 @@
 ﻿.content {
 }
 
+.contractContainer {
+    width: 1000px;
+    max-width: 1000px;
+    margin: 0 auto;
+    & .searchZone {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        background: #5A77D2;
+        background-image: url('../../../resources/images/overview_bg.png');
+        background-repeat: no-repeat;
+        background-size: 250px;
+        box-shadow: 0 0 10px 0 #B0C3FF;
+        border-radius: 10px;
+        height: 100px;
+        padding: 27px 57px;
+        
+        & .searchLabel {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #FFFFFF;
+            line-height: 40px;
+        }
+        & .searchInput {
+            line-height: 40px;
+            border: 1px solid #A2B2FF;
+            border-radius: 4px;
+            margin-left: 14px;
+            margin-right: 20px;
+            padding-left: 18px;
+            max-width: 680px;
+            width: 100%;
+        }
+        & .searchButton {
+            background: #3C4C9C;
+            border: 1px solid #819DF3;
+            border-radius: 4px;
+            color: #fff;
+            height: 46px;
+            width: 102px;
+        } 
+    }
+
+    & .contractList {
+        background: #FFFFFF;
+        box-shadow: 0 0 4px 0 rgba(0,0,0,0.10);
+        border-radius: 6px;
+        padding: 30px;
+        height: 672px;
+        & .contractTitle {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            color: #333333;
+            line-height: 50px;
+            background: #F2F3F5;
+            border-radius: 2px;
+            padding-left: 20px;
+        }
+        & .contractTable {
+            width: 100%;
+            padding: 0 20px;
+            & table {
+                width: 100%;
+            }
+            & tr {
+                border-bottom: 1px solid #CCCCCC;
+                line-height: 50px;
+                & td:nth-child(2n+1) {
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: #999999;
+                    line-height: 50px;
+                    // padding-left: 20px;
+                    width: 10%;
+                    min-width: 88px;
+                }
+                & td:nth-child(2n) {
+                    font-family: MicrosoftYaHei;
+                    font-size: 14px;
+                    color: #333333;
+                    line-height: 50px;
+                    width: 90%;
+                }
+            }
+        }
+    }
+}
+
 // 可提取为公共样式
 .hisFooter {
     & .topFooter {

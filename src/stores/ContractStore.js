@@ -2,36 +2,46 @@
 import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import { autobind } from 'core-decorators';
 import { Notification } from 'flarej/lib/components/antd/notification';
+import { tranBase58 } from '../common/util';
 
 export default class ContractStore {
-  @observable pageIndex = 1;
-  @observable pageSize = 10;
-  @observable count = 0;
-  @observable tableData = [];
+  @observable contractData =  {
+    'address': 'www.jd.com',
+    'chaincodeVersion': -1,
+    'pubKey': {
+      'value': 'UUi8Ku8aypHYnNkJRuFnkEYSuXT'
+    }
+  };
 
   @autobind
   @action
-  getTableData(currentPage = this.pageIndex, pageSize = this.pageSize) {
-    return fetchData(`${G_WEB_DOMAIN}/contract/getTableData`, result => {
-      transaction(() => {
-        if (result.success) {
-          this.pageIndex = currentPage;
-          this.pageSize = pageSize;
-          this.count = result.totalCount;
-          this.tableData = result.data;
-        } else {
-          this.pageIndex = 1;
-          this.pageSize = 10;
-          this.count = 0;
-          this.tableData = [];
-          Notification.error({ description: '获取表格数据出错，异常是:' + result.msg, duration: null });
-        }
-      });
-    }, {
-      currentPage,
-      pageSize,
-    }, { method: 'post' }).catch((ex) => {
-      Notification.error({ description: '获取表格数据出错，错误是:' + ex, duration: null });
+  getContractData() {
+    fetchData('/ledgers/contract/64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty/www.jd.com',
+      this.setContractData,
+      '', { 
+        method: 'get',
+        headers: {
+          // accept: 'application/json',
+          cookie: document.cookie,
+        } 
+      }
+    ).catch(error => {
+      console.log(error);
     });
+    this.contractData['pubKey']['algorithm'] = tranBase58(this.contractData['pubKey']['value']);
+    console.log(this.contractData['pubKey']['algorithm']);
+    // console.log(this.userTable);
+    // return this.contractData;
+  }
+
+  @autobind
+  @action
+  test() {
+    this.contractData['pubKey']['algorithm'] = tranBase58(this.contractData['pubKey']['value']);
+    console.log(this.contractData['pubKey']['algorithm']);
+  }
+
+  setContractData = (result) => {
+    console.log(result);
   }
 }

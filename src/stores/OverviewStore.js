@@ -4,6 +4,7 @@ import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import { autobind } from 'core-decorators';
 import { Notification } from 'flarej/lib/components/antd/notification';
 import { tranBase58 } from '../common/util';
+import ActionButton from 'antd/lib/modal/ActionButton';
 
 export default class OverviewStore {
   @observable overviewHeadData = {
@@ -192,5 +193,28 @@ export default class OverviewStore {
     });
     console.log(this.userTable);
     return this.userTable;
+  }
+
+  @autobind
+  @action
+  getBlockHeight() {
+    fetchData(`/ledgers/block/height/max/UUi8Ku8aypHYnNkJRuFnkEYSuXT`,
+      this.setBlockHeight,
+      '', { 
+        method: 'get',
+        headers: {
+          // accept: 'application/json',
+          cookie: document.cookie,
+        } 
+      }
+    ).catch(error => {
+      console.log(error);
+    });
+  }
+
+  @autobind
+  @action
+  setBlockHeight(result) {
+    console.log(result);
   }
 }
