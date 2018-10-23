@@ -5,12 +5,7 @@ import { Notification } from 'flarej/lib/components/antd/notification';
 import { tranBase58 } from '../common/util';
 
 export default class UserStore {
-  @observable userData = {
-    // 'address': 'www.jd.com',
-    // 'pubKey': {
-    //   'value': 'sR4AF'
-    // }
-  }
+  @observable userData = {}
   @observable algorithm = '';
   
   @autobind
@@ -25,15 +20,7 @@ export default class UserStore {
     ).catch(error => {
       console.log(error);
     });
-    // this.userData['pubKey']['algorithm'] = tranBase58(this.userData['pubKey']['value']);
-    // console.log(this.contractData['pubKey']['algorithm']);
   }
-
-  // @autobind
-  // @action
-  // test() {
-  //   this.userData['pubKey']['algorithm'] = tranBase58(this.userData['pubKey']['value']);
-  // }
 
   setUserData = (result) => {
     let response = result && result.data;

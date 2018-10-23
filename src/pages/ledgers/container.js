@@ -82,7 +82,7 @@ class DataTable extends Component {
   selectItem = () => (
     <Select defaultValue = "1">
       <Option value = "1">原始内容</Option>
-      <Option value = "2">转码内容</Option>
+      <Option value = "2">UTF-8</Option>
     </Select>
   )
 

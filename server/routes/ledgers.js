@@ -1682,285 +1682,351 @@ router.get('/transactionList', function(req, res) {
     ]
   });
 });
-module.exports = router;
 
 // 交易哈希
 router.get('/transactionHash', function(req, res) {
-  res.type('json');
-  let params = req.body,
-    ret = {};
-
-  const datas = _.times(100, function(i) {
-    let num = i + 1;
-
-    return {
-      test1: num + 100000,
-      test2: '测试' + num,
-      test4: _.random(10, 90) + '%',
-      test5: _.random(10, 90) + '%',
-      test6: _.random(10, 90) + '%',
-      test8: _.random(1, 10),
-      test9: _.random(1, 10),
-      test10: _.random(1, 10),
-      test11: _.random(1, 10),
-      test12: _.random(1, 10),
-      test14: _.random(10, 90) + '%',
-      test15: _.random(10, 90) + '%',
-      test16: _.random(1, 24),
-      test17: _.random(10, 90) + '%',
-      test18: _.random(1, 100000)
-    };
-  });
-
-  const pageIndex = params.currentPage,
-    pageSize = params.pageSize,
-    start = (pageIndex - 1) * pageSize,
-    end = pageIndex * pageSize,
-    data = datas.filter((obj, i) => {
-      if (i >= start && i < end) {
-        return true;
+    res.type('json');
+    let params = req.body,
+      ret = {};
+  
+    const datas = _.times(100, function(i) {
+      let num = i + 1;
+  
+      return {
+        test1: num + 100000,
+        test2: '测试' + num,
+        test4: _.random(10, 90) + '%',
+        test5: _.random(10, 90) + '%',
+        test6: _.random(10, 90) + '%',
+        test8: _.random(1, 10),
+        test9: _.random(1, 10),
+        test10: _.random(1, 10),
+        test11: _.random(1, 10),
+        test12: _.random(1, 10),
+        test14: _.random(10, 90) + '%',
+        test15: _.random(10, 90) + '%',
+        test16: _.random(1, 24),
+        test17: _.random(10, 90) + '%',
+        test18: _.random(1, 100000)
+      };
+    });
+  
+    const pageIndex = params.currentPage,
+      pageSize = params.pageSize,
+      start = (pageIndex - 1) * pageSize,
+      end = pageIndex * pageSize,
+      data = datas.filter((obj, i) => {
+        if (i >= start && i < end) {
+          return true;
+        }
+      });
+  
+    Object.assign({
+      "success": true,
+      "data": {
+          "userAccountSetHash": {
+              "value": "fPcnPW1xx"
+          },
+          "transactionContent": {
+              "hash": {
+                  "value": "fH9d8BYxU"
+              },
+              "ledgerHash": {
+                  "value": "6EqXXS9c1njm6XPorwgstGLd1rdAywbQKrTfoaxe4SYY9"
+              },
+              "operations": [
+                  {
+                      "accountAddress": "31xnWp5RYLThS47S6yfwqbUW3toZrw5Mm3t",
+                      "writeSet": [{
+                          "expectedVersion": 25,
+                          "key": "Name",
+                          "value": "QUFB"
+                      }]
+                  }, {
+                      "addressSignature": {
+                          "digest": {
+                              "algorithm": "ED25519",
+                              "rawDigest": "d2FuZ3d1"
+                          },
+                          "pubKey": {
+                              "value": "6gtyw9HjZbi"
+                          }
+                      },
+                      "chainCode": "emhhbmdzYW4=",
+                      "contractID": {
+                          "address": "31kiRWCxNm8tYxhFK5wnDp3wNxLCuiVyDA7",
+                          "pubKey": {
+                              "value": "KXywstVY1tEAgEsc7kox48L"
+                          }
+                      }
+                  }, {
+                      "args": "YXJncw==",
+                      "contractAddress": "contract-address",
+                      "event": "contract-event"
+                  }, {
+                      "accountID": {
+                          "address": "31r5f9D8kCxkiat2GvRJfjNi1fnFvaWaBEu",
+                          "pubKey": {
+                              "value": "5CYw7ztKJRxVt6Mfgz6vSQ"
+                          }
+                      },
+                      "addressSignature": {
+                          "digest": {
+                              "algorithm": "ED25519",
+                              "rawDigest": "emhhb2xpdQ=="
+                          },
+                          "pubKey": {
+                              "value": "6gtyw9HjZbi"
+                          }
+                      }
+                  }, {
+                      "userID": {
+                          "address": "321ZeecJ99N7RJGSHkRqkfBZDEAxRMHd6d5",
+                          "pubKey": {
+                              "value": "3qHAWiGwaF6FU2o7Lg"
+                          }
+                      }
+                  }
+              ]
+          },
+          "endpointSignatures": [
+              {
+                  "pubKey": {
+                      "value": "S76SHyu8p164"
+                  },
+                  "digest": {
+                      "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+                  }
+              },
+              {
+                  "pubKey": {
+                      "value": "S76SHyu8p164"
+                  },
+                  "digest": {
+                      "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+                  }
+              }
+          ],
+          "dataAccountSetHash": {
+              "value": "3vZUqf6yrKn"
+          },
+          "executionState": "SUCCESS",
+          "nodeSignatures": [
+              {
+                  "digest": {
+                      "value": "d2FuZ3d1"
+                  },
+                  "pubKey": {
+                      "value": "S76SHz8DsfNc"
+                  }
+              },
+              {
+                  "digest": {
+                      "value": "d2FuZ3d1"
+                  },
+                  "pubKey": {
+                      "value": "S76SHz8DsfNc"
+                  }
+              }
+          ],
+          "contractAccountSetHash": {
+              "value": "9h2UYTxc"
+          },
+          "blockHeight": 123456,
+          "hash": {
+              "value": "DuQMsm4j3GeZ"
+          },
+          "adminAccountHash": {
+              "value": "2y1mCD6"
+          }
       }
     });
-
-  Object.assign({
-    "success": true,
-    "data": {
-        "userAccountSetHash": {
-            "value": "fPcnPW1xx"
-        },
-        "transactionContent": {
-            "hash": {
-				"value": "fH9d8BYxU"
-			},
-			"ledgerHash": {
-				"value": "6EqXXS9c1njm6XPorwgstGLd1rdAywbQKrTfoaxe4SYY9"
-			},
-            "operations": [
-                {
-				    "accountAddress": "31xnWp5RYLThS47S6yfwqbUW3toZrw5Mm3t",
-				    "writeSet": [{
-                        "expectedVersion": 25,
-                        "key": "Name",
-                        "value": "QUFB"
-                    }]
-                }, {
-				    "addressSignature": {
-					    "digest": {
-                            "algorithm": "ED25519",
-                            "rawDigest": "d2FuZ3d1"
-                        },
-                        "pubKey": {
-                            "value": "6gtyw9HjZbi"
-                        }
-                    },
-				    "chainCode": "emhhbmdzYW4=",
-				    "contractID": {
-					    "address": "31kiRWCxNm8tYxhFK5wnDp3wNxLCuiVyDA7",
-					    "pubKey": {
-						    "value": "KXywstVY1tEAgEsc7kox48L"
-					    }
-				    }
-			    }, {
-				    "args": "YXJncw==",
-				    "contractAddress": "contract-address",
-				    "event": "contract-event"
-			    }, {
-				    "accountID": {
-					    "address": "31r5f9D8kCxkiat2GvRJfjNi1fnFvaWaBEu",
-					    "pubKey": {
-						    "value": "5CYw7ztKJRxVt6Mfgz6vSQ"
-					    }
-				    },
-				    "addressSignature": {
-                        "digest": {
-                            "algorithm": "ED25519",
-                            "rawDigest": "emhhb2xpdQ=="
-                        },
-                        "pubKey": {
-                            "value": "6gtyw9HjZbi"
-                        }
-                    }
-                }, {
-				    "userID": {
-					    "address": "321ZeecJ99N7RJGSHkRqkfBZDEAxRMHd6d5",
-					    "pubKey": {
-						    "value": "3qHAWiGwaF6FU2o7Lg"
-					    }
-				    }
-                }
-            ]
-        },
-        "endpointSignatures": [
-            {
-                "pubKey": {
-                    "value": "S76SHyu8p164"
-                },
-                "digest": {
-                    "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
-                }
-            },
-            {
-                "pubKey": {
-                    "value": "S76SHyu8p164"
-                },
-                "digest": {
-                    "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
-                }
-            }
-        ],
-        "dataAccountSetHash": {
-            "value": "3vZUqf6yrKn"
-        },
-        "executionState": "SUCCESS",
-        "nodeSignatures": [
-            {
-                "digest": {
-                    "value": "d2FuZ3d1"
-                },
-                "pubKey": {
-                    "value": "S76SHz8DsfNc"
-                }
-            },
-            {
-                "digest": {
-                    "value": "d2FuZ3d1"
-                },
-                "pubKey": {
-                    "value": "S76SHz8DsfNc"
-                }
-            }
-        ],
-        "contractAccountSetHash": {
-            "value": "9h2UYTxc"
-        },
-        "blockHeight": 123456,
-        "hash": {
-            "value": "DuQMsm4j3GeZ"
-        },
-        "adminAccountHash": {
-            "value": "2y1mCD6"
-        }
-    }
-  });
-
-  res.send({
-    "success": true,
-    "data": {
-        "userAccountSetHash": {
-            "value": "fPcnPW1xx"
-        },
-        "transactionContent": {
-            "hash": {
-				"value": "fH9d8BYxU"
-			},
-			"ledgerHash": {
-				"value": "6EqXXS9c1njm6XPorwgstGLd1rdAywbQKrTfoaxe4SYY9"
-			},
-            "operations": [
-                {
-				    "accountAddress": "31xnWp5RYLThS47S6yfwqbUW3toZrw5Mm3t",
-				    "writeSet": [{
-                        "expectedVersion": 25,
-                        "key": "Name",
-                        "value": "QUFB"
-                    }]
-                }, {
-				    "addressSignature": {
-					    "digest": {
-                            "algorithm": "ED25519",
-                            "rawDigest": "d2FuZ3d1"
-                        },
-                        "pubKey": {
-                            "value": "6gtyw9HjZbi"
-                        }
-                    },
-				    "chainCode": "emhhbmdzYW4=",
-				    "contractID": {
-					    "address": "31kiRWCxNm8tYxhFK5wnDp3wNxLCuiVyDA7",
-					    "pubKey": {
-						    "value": "KXywstVY1tEAgEsc7kox48L"
-					    }
-				    }
-			    }, {
-				    "args": "YXJncw==",
-				    "contractAddress": "contract-address",
-				    "event": "contract-event"
-			    }, {
-				    "accountID": {
-					    "address": "31r5f9D8kCxkiat2GvRJfjNi1fnFvaWaBEu",
-					    "pubKey": {
-						    "value": "5CYw7ztKJRxVt6Mfgz6vSQ"
-					    }
-				    },
-				    "addressSignature": {
-                        "digest": {
-                            "algorithm": "ED25519",
-                            "rawDigest": "emhhb2xpdQ=="
-                        },
-                        "pubKey": {
-                            "value": "6gtyw9HjZbi"
-                        }
-                    }
-                }, {
-				    "userID": {
-					    "address": "321ZeecJ99N7RJGSHkRqkfBZDEAxRMHd6d5",
-					    "pubKey": {
-						    "value": "3qHAWiGwaF6FU2o7Lg"
-					    }
-				    }
-                }
-            ]
-        },
-        "endpointSignatures": [
-            {
-                "pubKey": {
-                    "value": "S76SHyu8p164"
-                },
-                "digest": {
-                    "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
-                }
-            },
-            {
-                "pubKey": {
-                    "value": "S76SHyu8p164"
-                },
-                "digest": {
-                    "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
-                }
-            }
-        ],
-        "dataAccountSetHash": {
-            "value": "3vZUqf6yrKn"
-        },
-        "executionState": "SUCCESS",
-        "nodeSignatures": [
-            {
-                "digest": {
-                    "value": "d2FuZ3d1"
-                },
-                "pubKey": {
-                    "value": "S76SHz8DsfNc"
-                }
-            },
-            {
-                "digest": {
-                    "value": "d2FuZ3d1"
-                },
-                "pubKey": {
-                    "value": "S76SHz8DsfNc"
-                }
-            }
-        ],
-        "contractAccountSetHash": {
-            "value": "9h2UYTxc"
-        },
-        "blockHeight": 123456,
-        "hash": {
-            "value": "DuQMsm4j3GeZ"
-        },
-        "adminAccountHash": {
-            "value": "2y1mCD6"
-        }
-    }
-  });
+  
+    res.send({
+      "success": true,
+      "data": {
+          "userAccountSetHash": {
+              "value": "fPcnPW1xx"
+          },
+          "transactionContent": {
+              "hash": {
+                  "value": "fH9d8BYxU"
+              },
+              "ledgerHash": {
+                  "value": "6EqXXS9c1njm6XPorwgstGLd1rdAywbQKrTfoaxe4SYY9"
+              },
+              "operations": [
+                  {
+                      "accountAddress": "31xnWp5RYLThS47S6yfwqbUW3toZrw5Mm3t",
+                      "writeSet": [{
+                          "expectedVersion": 25,
+                          "key": "Name",
+                          "value": "QUFB"
+                      }]
+                  }, {
+                      "addressSignature": {
+                          "digest": {
+                              "algorithm": "ED25519",
+                              "rawDigest": "d2FuZ3d1"
+                          },
+                          "pubKey": {
+                              "value": "6gtyw9HjZbi"
+                          }
+                      },
+                      "chainCode": "emhhbmdzYW4=",
+                      "contractID": {
+                          "address": "31kiRWCxNm8tYxhFK5wnDp3wNxLCuiVyDA7",
+                          "pubKey": {
+                              "value": "KXywstVY1tEAgEsc7kox48L"
+                          }
+                      }
+                  }, {
+                      "args": "YXJncw==",
+                      "contractAddress": "contract-address",
+                      "event": "contract-event"
+                  }, {
+                      "accountID": {
+                          "address": "31r5f9D8kCxkiat2GvRJfjNi1fnFvaWaBEu",
+                          "pubKey": {
+                              "value": "5CYw7ztKJRxVt6Mfgz6vSQ"
+                          }
+                      },
+                      "addressSignature": {
+                          "digest": {
+                              "algorithm": "ED25519",
+                              "rawDigest": "emhhb2xpdQ=="
+                          },
+                          "pubKey": {
+                              "value": "6gtyw9HjZbi"
+                          }
+                      }
+                  }, {
+                      "userID": {
+                          "address": "321ZeecJ99N7RJGSHkRqkfBZDEAxRMHd6d5",
+                          "pubKey": {
+                              "value": "3qHAWiGwaF6FU2o7Lg"
+                          }
+                      }
+                  }
+              ]
+          },
+          "endpointSignatures": [
+              {
+                  "pubKey": {
+                      "value": "S76SHyu8p164"
+                  },
+                  "digest": {
+                      "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+                  }
+              },
+              {
+                  "pubKey": {
+                      "value": "S76SHyu8p164"
+                  },
+                  "digest": {
+                      "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+                  }
+              }
+          ],
+          "dataAccountSetHash": {
+              "value": "3vZUqf6yrKn"
+          },
+          "executionState": "SUCCESS",
+          "nodeSignatures": [
+              {
+                  "digest": {
+                      "value": "d2FuZ3d1"
+                  },
+                  "pubKey": {
+                      "value": "S76SHz8DsfNc"
+                  }
+              },
+              {
+                  "digest": {
+                      "value": "d2FuZ3d1"
+                  },
+                  "pubKey": {
+                      "value": "S76SHz8DsfNc"
+                  }
+              }
+          ],
+          "contractAccountSetHash": {
+              "value": "9h2UYTxc"
+          },
+          "blockHeight": 123456,
+          "hash": {
+              "value": "DuQMsm4j3GeZ"
+          },
+          "adminAccountHash": {
+              "value": "2y1mCD6"
+          }
+      }
+    });
 });
+
+// 交易哈希
+router.get('/options', function(req, res) {
+    res.type('json');
+    let params = req.body,
+      ret = {};
+  
+    const datas = _.times(100, function(i) {
+      let num = i + 1;
+  
+      return {
+        test1: num + 100000,
+        test2: '测试' + num,
+        test4: _.random(10, 90) + '%',
+        test5: _.random(10, 90) + '%',
+        test6: _.random(10, 90) + '%',
+        test8: _.random(1, 10),
+        test9: _.random(1, 10),
+        test10: _.random(1, 10),
+        test11: _.random(1, 10),
+        test12: _.random(1, 10),
+        test14: _.random(10, 90) + '%',
+        test15: _.random(10, 90) + '%',
+        test16: _.random(1, 24),
+        test17: _.random(10, 90) + '%',
+        test18: _.random(1, 100000)
+      };
+    });
+  
+    const pageIndex = params.currentPage,
+      pageSize = params.pageSize,
+      start = (pageIndex - 1) * pageSize,
+      end = pageIndex * pageSize,
+      data = datas.filter((obj, i) => {
+        if (i >= start && i < end) {
+          return true;
+        }
+      });
+  
+    Object.assign({
+        "data": [
+            {
+                "value": "67nubBh1nBtv9otJTkWw89WXSq7XnxshL74u33f5ipNYS"
+            },
+            {
+                "value": "67nubBh1nBtv9otJTkWw89WXSq7XnxshL74u33f5ipNYSa"
+            }
+        ],
+        "success": true
+    });
+  
+    res.send({
+        "data": [
+            {
+                "value": "67nubBh1nBtv9otJTkWw89WXSq7XnxshL74u33f5ipNYS"
+            },
+            {
+                "value": "67nubBh1nBtv9otJTkWw89WXSq7XnxshL74u33f5ipNYSa"
+            }
+        ],
+        "success": true
+    });
+});
+
+
+module.exports = router;
+
