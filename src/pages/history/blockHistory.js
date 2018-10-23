@@ -14,6 +14,33 @@ import { tranBase58 } from '../../common/util';
 @observer
 export default class BlockHistory extends Component {
   @observable a = '123'
+  componentDidMount = () => {
+    const { store } = this.props;
+    store.getBlockHistoryData();
+  }
+
+  handleChangeHeight = (e) => {
+    const { store } = this.props;
+    Promise.all([
+      store.getBlockHeightData()
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  handleChangeHash = (e) => {
+    const { store } = this.props;
+    Promise.all([
+      store.getBlockHashData()
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
+
   handleBlockShow = (e) => {
     this.handleHeightShow(e);
   }
@@ -23,7 +50,9 @@ export default class BlockHistory extends Component {
   }
 
   render() {
+    const { store } = this.props
     return tmpls.blockHistory(this.state, this.props, this, {
+      store,
       styles
     });
   }

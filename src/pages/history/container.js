@@ -63,11 +63,43 @@ class DataTable extends Component {
 
   // 查询按钮
   dataQuery = () => {
-
+    const { store } = this.props;
+    if (this.inputValue != '') {
+      if (this.radioValue == 'blockHeight') {
+        Promise.all([
+          store.getBlockHeightData()
+        ]).then(
+  
+        ).catch((err) => {
+          console.log(err);
+        });
+      } else if (this.radioValue == 'blockHash') {
+        Promise.all([
+          store.getBlockHashData()
+        ]).then(
+  
+        ).catch((err) => {
+          console.log(err);
+        });
+      } else {
+        Promise.all([
+          store.getTransactionHashData()
+        ]).then(
+  
+        ).catch((err) => {
+          console.log(err);
+        });
+      }
+    } else {
+      alert("请输入...")
+    }
+    
   }
 
   render() {
+    const { store } = this.props;
     return tmpls.dataTable(this.state, this.props, this, {
+      store,
       styles
     });
   }
@@ -78,233 +110,52 @@ class DataTable extends Component {
 @inject('store')
 @observer
 class BlockHeight extends Component {
-  @observable dataBlock = [{
-    'hash': '1',
-    'status': true
-  }, {
-    'hash': '2',
-    'status': false
-  }, {
-    'hash': '3',
-    'status': true
-  }, {
-    'hash': '4',
-    'status': false
-  }, {
-    'hash': '5',
-    'status': true
-  }, {
-    'hash': '6',
-    'status': true
-  }, {
-    'hash': '7',
-    'status': false
-  }, {
-    'hash': '8',
-    'status': true
-  }, {
-    'hash': '9',
-    'status': false
-  }, {
-    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': '64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, {
-    'hash': 'NxUPcaZ1JRCehRwvuNS8Ty',
-    'status': false
-  }, {
-    'hash': 'WmNxUPcaZ1JRCehRwvuNS8Ty',
-    'status': true
-  }, ]
-
   @computed get BlockColumns() {
     return [{
       title: '交易哈希',
       dataIndex: 'hash',
       width: '90%',
-      render: (text, record) => (
-        <span 
-          className = {`${styles.hash}`}
-          onClick = {() => {this.handleTransactionShow(text);}}
-        >{record && record['hash'] ? record['hash'] : ''}</span>
-      )
+      render: (text, record) => {
+        return (
+          <span 
+            className = {`${styles.hash}`}
+            onClick = {() => {this.handleTransactionShow(text);}}
+          >
+            {record && record['hash'] ? record['hash']['value'] : ''}
+          </span>
+        )
+      }
     }, {
       title: '状态',
       dataIndex: 'status',
       width: '10%',
       render: (text, record) => {
-        let status = record && record['status'] ? '成功' : '失败';
+        console.log(record)
+        let status = record && record['executionState'] == 'SUCCESS' ? '成功' : '失败';
         return <span>{status}</span>;
       }
     }];
   }
 
   // 点击交易哈希执行根据当前交易哈希查询交易内容
-  handleTransactionShow = (text) => {
-    alert(text);
+  handleTransactionShow = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getTransactionHashData()
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {
+    const { store } = this.props;
+    // console.log(store.transactionList)
     return tmpls.blockHeight(this.state, this.props, this, {
+      store,
       styles,
+      dataList: store.transactionList ? toJS(store.transactionList) : [],
       getRowKey: (record, index) => `uid-${index}`,
       pagination: {
         pageSize: 5,
@@ -324,20 +175,6 @@ class TransactionHash extends Component {
   @observable showNode = false; // 是否显示节点签名列表, 默认隐藏
   @observable showTrans = true; // 是否显示交易内容, 默认显示
   @observable showValue = false; // 是否显示value与预期版本
-
-  componentDidMount = () => {
-    const { store } = this.props;
-    store.getBlockHistoryData();
-    store.setTransactionData();
-    console.log('xxxxxxxxxx');
-  }
-  /**
-   * 控制显示隐藏
-   * @val: 控制显示隐藏字段, Boolean
-   */
-  // handleValueShow = (val) => {
-  //   val = !val;
-  // }
 
   // 控制终端签名显示隐藏
   handleEndpointShow = () => {

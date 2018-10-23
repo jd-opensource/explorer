@@ -32,17 +32,6 @@ export default class LedgersStore {
     ).catch(error => {
       console.log(error);
     });
-    // this.ledgerData['pubKey']['algorithm'] = tranBase58(this.ledgerData['pubKey']['value']);
-    // console.log(this.contractData['pubKey']['algorithm']);
-    // console.log(this.userTable);
-    // return this.contractData;
-  }
-
-  @autobind
-  @action
-  test() {
-    // this.ledgerData['pubKey']['algorithm'] = tranBase58(this.ledgerData['pubKey']['value']);
-    // console.log(this.contractData['pubKey']['algorithm']);
   }
 
   setLedgerData = (result) => {

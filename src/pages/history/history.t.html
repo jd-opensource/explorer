@@ -65,15 +65,19 @@
         <tbody>
           <tr>
             <td class="{styles.conBold}">区块高度：</td>
-            <td class="{styles.conBold} {styles.conCursor}">1235</td>
+            <td class="{styles.conBold} {styles.conCursor}">
+              <span onClick={handleChangeHeight}>{store.blockHistoryData[0].height || 0}</span>
+            </td>
           </tr>
           <tr>
             <td>区块哈希：</td>
-            <td class="{styles.conCursor}">64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</td>
+            <td class="{styles.conCursor}">
+              <span onClick={handleChangeHash}>{store.blockHistoryData[0].hash.value || ''}</span>
+            </td>
           </tr>
           <tr class="{styles.noBorder}">
             <td>区块前置哈希：</td>
-            <td>64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</td>
+            <td>{store.blockHistoryData[0].previousHash.value || ''}</td>
           </tr>
         </tbody>
       </table>
@@ -87,15 +91,19 @@
         <tbody>
           <tr>
             <td class="{styles.conBold}">区块高度：</td>
-            <td class="{styles.conBold} {styles.conCursor}">1235</td>
+            <td class="{styles.conBold} {styles.conCursor}">
+              <span onClick={handleChangeHeight}>{store.blockHistoryData[1].height || 0}</span>
+            </td>
           </tr>
           <tr>
             <td>区块哈希：</td>
-            <td class="{styles.conCursor}">64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty </td>
+            <td class="{styles.conCursor}">
+              <span onClick={handleChangeHash}>{store.blockHistoryData[1].hash.value || ''}</span>
+            </td>
           </tr>
           <tr class="{styles.noBorder}">
             <td>区块前置哈希：</td>
-            <td>64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty </td>
+            <td>{store.blockHistoryData[1].previousHash.value || ''}</td>
           </tr>
         </tbody>
       </table>
@@ -109,18 +117,19 @@
         <tbody>
           <tr>
             <td class="{styles.conBold}">区块高度：</td>
-            <td 
-              class="{styles.conBold} {styles.conCursor}"
-              onClick={handleBlockShow}
-            >1235</td>
+            <td class="{styles.conBold} {styles.conCursor}">
+              <span onClick={handleChangeHeight}>{store.blockHistoryData[2].height || 0}</span>
+            </td>
           </tr>
           <tr>
             <td>区块哈希：</td>
-            <td class="{styles.conCursor}">64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty </td>
+            <td class="{styles.conCursor}">
+              <span onClick={handleChangeHash}>{store.blockHistoryData[2].hash.value || ''}</span>
+            </td>
           </tr>
           <tr class="{styles.noBorder}">
             <td>区块前置哈希：</td>
-            <td>64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty </td>
+            <td>{store.blockHistoryData[2].previousHash.value || ''}</td>
           </tr>
         </tbody>
       </table>
@@ -137,15 +146,19 @@
         <tbody>
           <tr>
             <td class="{styles.conBold}">区块高度：</td>
-            <td class="{styles.conBold} {styles.conCursor}">1235</td>
+            <td class="{styles.conBold} {styles.conCursor}">
+              <span onClick={handleChangeHeight}>{store.blockHistoryData[3].height || 0}</span>
+            </td>
           </tr>
           <tr>
             <td>区块哈希：</td>
-            <td class="{styles.conCursor}">64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty </td>
+            <td class="{styles.conCursor}">
+              <span onClick={handleChangeHash}>{store.blockHistoryData[3].hash.value || ''}</span>
+            </td>
           </tr>
           <tr class="{styles.noBorder}">
             <td>区块前置哈希：</td>
-            <td>64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty </td>
+            <td>{store.blockHistoryData[3].previousHash.value || ''}</td>
           </tr>
         </tbody>
       </table>
@@ -217,8 +230,8 @@
         <ant-Table
           columns={toJS(BlockColumns)}
           showHeader={false}
-          dataSource={toJS(dataBlock)}
           rowKey={getRowKey}
+          dataSource={dataList}
           rowClassName="{styles.rows}"
           pagination={pagination} 
         />
@@ -239,37 +252,38 @@
           </h4>
         </div>
         <div class="{styles.content}">
+          <!-- 交易信息主体部分 -->
           <ul class="{styles.transaction}">
             <li>
               <span class="{styles.dh}">管理信息哈希：</span>
-              <span>12345</span>
+              <span>{store.transactionData.adminAccountHash.value || ''}</span>
             </li>
             <li>
               <span class="{styles.dh}">区块高度 ：</span>
-              <span>64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</span>
+              <span>{store.transactionData.blockHeight || 0}</span>
             </li>
             <li>
               <span class="{styles.dh}">用户根哈希：</span>
-              <span>64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</span>
+              <span>{store.transactionData.userAccountSetHash.value || ''}</span>
             </li>
             <li>
               <span class="{styles.dh}">数据根哈希：</span>
-              <span>12345</span>
+              <span>{store.transactionData.dataAccountSetHash.value || ''}</span>
             </li>
             <li>
               <span class="{styles.dh}">合约根哈希：</span>
-              <span>NxUPcaZ1JRCehRwvuNS8Ty </span>
+              <span>{store.transactionData.contractAccountSetHash.value || ''}</span>
             </li>
             <li>
               <span class="{styles.dh}">哈希：</span>
-              <span>WmNxUPcaZ1JRCehRwvuNS8Ty</span>
+              <span>{store.transactionData.hash.value || ''}</span>
             </li>
             <li>
               <span class="{styles.dh}">执行状态：</span>
-              <span>成功</span>
+              <span>{store.transactionData.executionState || 'ERROR'}</span>
             </li>
           </ul>
-
+          <!-- 终端签名列表 -->
           <div class="{styles.transactionList}">
             <p class="{styles.title}">
               终端签名列表
@@ -281,31 +295,6 @@
             <div class="{styles.listSignatures} {showEndpoint ? (styles.show, styles.hide)}">
               <div class="{styles.contentSignatures}">
                 <div class="{styles.titleSignatures}">
-                  签名1
-                </div>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>签名算法 :</td>
-                      <td>ED25519</td>
-                    </tr>
-                    <tr>
-                      <td>签名数据 :</td>
-                      <td>emhhbmdzYW4=</td>
-                    </tr>
-                    <tr>
-                      <td>公钥算法 :</td>
-                      <td>ED25519</td>
-                    </tr>
-                    <tr>
-                      <td>公钥数据 :</td>
-                      <td>amQxLmNvbQ==</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="{styles.contentSignatures}">
-                <div class="{styles.titleSignatures}">
                   签名2
                 </div>
                 <table>
@@ -328,10 +317,37 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
+              </div> -->
+              <#each {{store.transactionData.endpointSignatures}}>
+                <div class="{styles.contentSignatures}">
+                  <div class="{styles.titleSignatures}">
+                    签名{{@index + 1}}
+                  </div>
+                  <table>
+                  <tbody>
+                    <tr>
+                      <td>签名算法 :</td>
+                      <td>{store.digests[@index]}</td>
+                    </tr>
+                    <tr>
+                      <td>签名数据 :</td>
+                      <td>{@item['digest']['value'] || ''}</td>
+                    </tr>
+                    <tr>
+                      <td>公钥算法 :</td>
+                      <td>{store.pubKeys[@index]}</td>
+                    </tr>
+                    <tr>
+                      <td>公钥数据 :</td>
+                      <td>{@item['pubKey']['value'] || ''}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+              </#each>
             </div>
           </div>
-
+          <!-- 节点签名列表 -->
           <div class="{styles.transactionList}">
             <p class="{styles.title}">
               节点签名列表
@@ -341,56 +357,33 @@
               ></div>
             </p>
             <div class="{styles.listSignatures} {showNode ? (styles.show, styles.hide)}">
-              <div class="{styles.contentSignatures}">
-                <div class="{styles.titleSignatures}">
-                  签名1
-                </div>
-                <table>
+              <#each {{store.transactionData.nodeSignatures}}>
+                <div class="{styles.contentSignatures}">
+                  <div class="{styles.titleSignatures}">
+                    签名{{@index + 1}}
+                  </div>
+                  <table>
                   <tbody>
                     <tr>
                       <td>签名算法 :</td>
-                      <td>ED25519</td>
+                      <td>{store.digestsNode[@index]}</td>
                     </tr>
                     <tr>
                       <td>签名数据 :</td>
-                      <td>emhhbmdzYW4=</td>
+                      <td>{@item['digest']['value'] || ''}</td>
                     </tr>
                     <tr>
                       <td>公钥算法 :</td>
-                      <td>ED25519</td>
+                      <td>{store.pubKeysNode[@index]}</td>
                     </tr>
                     <tr>
                       <td>公钥数据 :</td>
-                      <td>amQxLmNvbQ==</td>
+                      <td>{@item['pubKey']['value'] || ''}</td>
                     </tr>
                   </tbody>
                 </table>
-              </div>
-              <div class="{styles.contentSignatures}">
-                <div class="{styles.titleSignatures}">
-                  签名2
                 </div>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>签名算法 :</td>
-                      <td>ED25519</td>
-                    </tr>
-                    <tr>
-                      <td>签名数据 :</td>
-                      <td>emhhbmdzYW4=</td>
-                    </tr>
-                    <tr>
-                      <td>公钥算法 :</td>
-                      <td>ED25519</td>
-                    </tr>
-                    <tr>
-                      <td>公钥数据 :</td>
-                      <td>amQxLmNvbQ==</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              </#each>
             </div>
           </div>
 
@@ -405,12 +398,13 @@
             <div class="{styles.contentTrans} {showTrans ? (styles.show, styles.hide)}">
               <div class="{styles.option}">
                 <span>交易哈希 :&nbsp;&nbsp;</span>
-                fH9d8BYxU
+                {store.transactionData.transactionContent.hash.value || ''}
               </div>
               <div class="{styles.option}">
                 <span>账本哈希 :&nbsp;&nbsp;</span>
-                6LDJ58PvoHSm2m1iBDX4vRLRcQe72Bs5vv3dgmtMRgoCX
+                {store.transactionData.transactionContent.ledgerHash.value || ''}
               </div>
+              <!-- 待确认 -->
               <div class="{styles.optionTitle}">
                 数据写入
               </div>
