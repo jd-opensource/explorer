@@ -1,5 +1,5 @@
 ﻿import { Component, PropTypes } from 'react';
-import { toJS, transaction } from 'mobx';
+import { toJS, transaction, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
