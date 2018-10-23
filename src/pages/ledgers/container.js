@@ -6,16 +6,20 @@ import '../../common/containerConfig';
 import 'flarej/lib/components/antd/button';
 import 'flarej/lib/components/antd/breadcrumb';
 import 'flarej/lib/components/antd/table';
+import 'flarej/lib/components/antd/input';
+import 'flarej/lib/components/antd/select';
 import { Message } from 'flarej/lib/components/antd/message';
+import { Select } from 'flarej/lib/components/antd/select';
 import { autobind } from 'core-decorators';
 import '../../components/header';
 import '../../components/sider';
 import ContainerHoc from '../../components/higherOrders/container';
 import styles from './ledgers.m.less';
 import tmpls from './ledgers.t.html';
-import { observable } from 'mobx';
+import { observable, toJS } from 'mobx';
 import LedgersStore from '../../stores/LedgersStore';
 const ledgersStore = new LedgersStore();
+const Option = Select.Option;
 
 //页面容器组件
 @inject('store')
@@ -28,7 +32,6 @@ class Container extends Component {
 
   render() {
     const { store } = this.props;
-    store.test();
     return this.props.tmpls[0](this, {
       store,
       styles
@@ -42,9 +45,15 @@ ContainerHoc('Container', Container, ledgersStore);
 @observer
 class DataTable extends Component {
   @observable dataLedger = ''; // 合约账户
+  @observable keys = []; // key数组
 
   inputChange = (e) => {
     this.dataLedger = e.target.value;
+  }
+
+  keyChange = (e) => {
+    let str = e.target.value;
+    this.keys = str.split(',');
   }
 
   query = () => {
@@ -58,8 +67,29 @@ class DataTable extends Component {
     });
   }
 
+  queryKey = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getKeyData(this.keys)
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  // 待确认
+  selectItem = () => (
+    <Select defaultValue = "1">
+      <Option value = "1">原始内容</Option>
+      <Option value = "2">转码内容</Option>
+    </Select>
+  )
+
   render() {
+    const { store } = this.props;
     return tmpls.dataTable(this.state, this.props, this, {
+      store,
       styles
     });
   }

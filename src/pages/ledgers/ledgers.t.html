@@ -14,29 +14,55 @@
     <!-- 列表区域 -->
     <div class="{styles.dataList}">
       <p class="{styles.dataTitle}">数据信息</p>
-      <div class="{styles.dataTable}">
-        <table>
-          <tbody>
-            <tr>
-              <td>地址&nbsp;:</td>
-              <td>{store.dataData.address || ''}</td>
-            </tr>
-            <tr>
-              <td>合约版本&nbsp;:</td>
-              <td>{store.dataData.chaincodeVersion || ''}</td>
-            </tr>
-            <tr>
-              <td>公钥内容&nbsp;:</td>
-              <td>{store.dataData.pubKey.value || ''}</td>
-            </tr>
-            <tr>
-              <td>公钥算法&nbsp;:</td>
-              <td>{store.dataData.pubKey.algorithm || ''}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
+      <#if {{store.showLdegerList == 1}}>
+        <div class="{styles.dataTable}">
+          <table>
+            <tbody>
+              <tr>
+                <td>地址&nbsp;:</td>
+                <td>{store.ledgerData.address || ''}</td>
+              </tr>
+              <tr>
+                <td>公钥内容&nbsp;:</td>
+                <td>{store.ledgerData.pubKey.value || ''}</td>
+              </tr>
+              <tr>
+                <td>公钥算法&nbsp;:</td>
+                <td>{store.algorithm || ''}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="{styles.keyContent}">
+            <#if {{store.showKeyList == 1}}>
+              <p class="{styles.queryLedger}">
+                在账户&nbsp;<span>ESJKL1342j123NV</span>&nbsp;中查询
+              </p>
+              <div class="{styles.inputQuery}">
+                <ant-input class="{styles.inputValue}" onChange={keyChange} placeholder="请输入键，多个键之间用英文“,”隔开" />
+                <ant-Button class="{styles.queryButton}" icon="search" onClick={queryKey}>查询</ant-Button>
+              </div>
+              <div class="{styles.keyStates}">
+                <#each {{store.keyData}}>
+                  <div class="{styles.keyState}">
+                    <p class="{styles.key}">键&nbsp;:&nbsp;<span>{{key}}</span></p>
+                    <div class="{styles.values}">
+                      <p>版本号&nbsp;:&nbsp;{{version}}</p>
+                      <p>值&nbsp;:&nbsp;</p>
+                      <ant-TextArea class="{styles.keyText}" value={{value}}/>
+                      <#if {{@item.value != ''}}>
+                        <p>查看方式&nbsp;:&nbsp;
+                          {selectItem()}
+                        </p>
+                      </#if>
+                    </div>
+                  </div>
+                </#each>  
+              </div>
+            </#if>
+          </div>
+          
+        </div>
+      </#if>
     </div>
   </div>
 

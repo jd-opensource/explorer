@@ -87,29 +87,104 @@ router.get('', function(req, res) {
     });
 
   Object.assign({
-    "success": true,
-    "data": [
-      {
-        "value": "67nubBh1nBtv9otJTkWw89WXSq7XnxshL74u33f5ipNYS"
-      },
-      {
-        "value": "67nubBh1nBtv9otJTkWw89WXSq7XnxshL74u33f5ipNYS"
-      }
-    ]
+    "data": {
+        "address": "www.jd.com",
+        "pubKey": {
+            "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+        }
+    },
+    "success": true
   });
 
   res.send({
-    "success": true,
-    "data": [
-      {
-        "value": "67nubBh1nBtv9otJTkWw89WXSq7XnxshL74u33f5ipNYS"
-      },
-      {
-        "value": "67nubBh1nBtv9otJTkWw89WXSq7XnxshL74u33f5ipNYS"
-      }
-    ]
+    "data": {
+        "address": "www.jd.com",
+        "pubKey": {
+            "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+        }
+    },
+    "success": true
   });
 });
+
+// 获取数据账户中某些Key的结果
+router.post('/keys', function(req, res) {
+    res.type('json');
+    let params = req.body,
+      ret = {};
+  
+    const datas = _.times(100, function(i) {
+      let num = i + 1;
+  
+      return {
+        test1: num + 100000,
+        test2: '测试' + num,
+        test4: _.random(10, 90) + '%',
+        test5: _.random(10, 90) + '%',
+        test6: _.random(10, 90) + '%',
+        test8: _.random(1, 10),
+        test9: _.random(1, 10),
+        test10: _.random(1, 10),
+        test11: _.random(1, 10),
+        test12: _.random(1, 10),
+        test14: _.random(10, 90) + '%',
+        test15: _.random(10, 90) + '%',
+        test16: _.random(1, 24),
+        test17: _.random(10, 90) + '%',
+        test18: _.random(1, 100000)
+      };
+    });
+  
+    const pageIndex = params.currentPage,
+      pageSize = params.pageSize,
+      start = (pageIndex - 1) * pageSize,
+      end = pageIndex * pageSize,
+      data = datas.filter((obj, i) => {
+        if (i >= start && i < end) {
+          return true;
+        }
+      });
+  
+    Object.assign({
+        "data": [
+            {
+                "value": "value1",
+                "nil": false,
+                "key": "key1",
+                "type": "TEXT",
+                "version": 1
+            },
+            {
+                "value": "value2",
+                "nil": false,
+                "key": "key2",
+                "type": "TEXT",
+                "version": 2
+            }
+        ],
+        "success": true
+    });
+  
+    res.send({
+        "data": [
+            {
+                "value": "value1",
+                "nil": false,
+                "key": "key1",
+                "type": "TEXT",
+                "version": 1
+            },
+            {
+                "value": "value2",
+                "nil": false,
+                "key": "key2",
+                "type": "TEXT",
+                "version": 2
+            }
+        ],
+        "success": true
+    });
+  });
 // 区块高度
 router.get('/blockHeight', function(req, res) {
   res.type('json');
@@ -1655,63 +1730,65 @@ router.get('/transactionHash', function(req, res) {
         },
         "transactionContent": {
             "hash": {
-                "value": "fH9d8BYxU"
-            },
+				"value": "fH9d8BYxU"
+			},
+			"ledgerHash": {
+				"value": "6EqXXS9c1njm6XPorwgstGLd1rdAywbQKrTfoaxe4SYY9"
+			},
             "operations": [
                 {
-                    "writeSet": [
-                        {
-                            "key": "Name",
-                            "expectedVersion": 25,
-                            "value": "QUFB"
+				    "accountAddress": "31xnWp5RYLThS47S6yfwqbUW3toZrw5Mm3t",
+				    "writeSet": [{
+                        "expectedVersion": 25,
+                        "key": "Name",
+                        "value": "QUFB"
+                    }]
+                }, {
+				    "addressSignature": {
+					    "digest": {
+                            "algorithm": "ED25519",
+                            "rawDigest": "d2FuZ3d1"
+                        },
+                        "pubKey": {
+                            "value": "6gtyw9HjZbi"
                         }
-                    ],
-                    "accountAddress": "31xnWp5RYLThS47S6yfwqbUW3toZrw5Mm3t"
-                },
-                {
-                    "writeSet": [
-                        {
-                            "key": "Name",
-                            "expectedVersion": 25,
-                            "value": "QUFB"
+                    },
+				    "chainCode": "emhhbmdzYW4=",
+				    "contractID": {
+					    "address": "31kiRWCxNm8tYxhFK5wnDp3wNxLCuiVyDA7",
+					    "pubKey": {
+						    "value": "KXywstVY1tEAgEsc7kox48L"
+					    }
+				    }
+			    }, {
+				    "args": "YXJncw==",
+				    "contractAddress": "contract-address",
+				    "event": "contract-event"
+			    }, {
+				    "accountID": {
+					    "address": "31r5f9D8kCxkiat2GvRJfjNi1fnFvaWaBEu",
+					    "pubKey": {
+						    "value": "5CYw7ztKJRxVt6Mfgz6vSQ"
+					    }
+				    },
+				    "addressSignature": {
+                        "digest": {
+                            "algorithm": "ED25519",
+                            "rawDigest": "emhhb2xpdQ=="
+                        },
+                        "pubKey": {
+                            "value": "6gtyw9HjZbi"
                         }
-                    ],
-                    "accountAddress": "undefined"
-                },
-                {
-                    "writeSet": [
-                        {
-                            "key": "Name",
-                            "expectedVersion": 25,
-                            "value": "QUFB"
-                        }
-                    ],
-                    "accountAddress": "undefined"
-                },
-                {
-                    "writeSet": [
-                        {
-                            "key": "Name",
-                            "expectedVersion": 25,
-                            "value": "QUFB"
-                        }
-                    ],
-                    "accountAddress": "undefined"
-                },
-                {
-                    "writeSet": [
-                        {
-                            "key": "Name",
-                            "expectedVersion": 25,
-                            "value": "QUFB"
-                        }
-                    ],
-                    "accountAddress": "undefined"
+                    }
+                }, {
+				    "userID": {
+					    "address": "321ZeecJ99N7RJGSHkRqkfBZDEAxRMHd6d5",
+					    "pubKey": {
+						    "value": "3qHAWiGwaF6FU2o7Lg"
+					    }
+				    }
                 }
-            ],
-            "ledgerHash": {
-                "value": "6EqXXS9c1njm6XPorwgstGLd1rdAywbQKrTfoaxe4SYY9"
-            }
+            ]
         },
         "endpointSignatures": [
             {
@@ -1774,63 +1851,65 @@ router.get('/transactionHash', function(req, res) {
         },
         "transactionContent": {
             "hash": {
-                "value": "fH9d8BYxU"
-            },
+				"value": "fH9d8BYxU"
+			},
+			"ledgerHash": {
+				"value": "6EqXXS9c1njm6XPorwgstGLd1rdAywbQKrTfoaxe4SYY9"
+			},
             "operations": [
                 {
-                    "writeSet": [
-                        {
-                            "key": "Name",
-                            "expectedVersion": 25,
-                            "value": "QUFB"
+				    "accountAddress": "31xnWp5RYLThS47S6yfwqbUW3toZrw5Mm3t",
+				    "writeSet": [{
+                        "expectedVersion": 25,
+                        "key": "Name",
+                        "value": "QUFB"
+                    }]
+                }, {
+				    "addressSignature": {
+					    "digest": {
+                            "algorithm": "ED25519",
+                            "rawDigest": "d2FuZ3d1"
+                        },
+                        "pubKey": {
+                            "value": "6gtyw9HjZbi"
                         }
-                    ],
-                    "accountAddress": "31xnWp5RYLThS47S6yfwqbUW3toZrw5Mm3t"
-                },
-                {
-                    "writeSet": [
-                        {
-                            "key": "Name",
-                            "expectedVersion": 25,
-                            "value": "QUFB"
+                    },
+				    "chainCode": "emhhbmdzYW4=",
+				    "contractID": {
+					    "address": "31kiRWCxNm8tYxhFK5wnDp3wNxLCuiVyDA7",
+					    "pubKey": {
+						    "value": "KXywstVY1tEAgEsc7kox48L"
+					    }
+				    }
+			    }, {
+				    "args": "YXJncw==",
+				    "contractAddress": "contract-address",
+				    "event": "contract-event"
+			    }, {
+				    "accountID": {
+					    "address": "31r5f9D8kCxkiat2GvRJfjNi1fnFvaWaBEu",
+					    "pubKey": {
+						    "value": "5CYw7ztKJRxVt6Mfgz6vSQ"
+					    }
+				    },
+				    "addressSignature": {
+                        "digest": {
+                            "algorithm": "ED25519",
+                            "rawDigest": "emhhb2xpdQ=="
+                        },
+                        "pubKey": {
+                            "value": "6gtyw9HjZbi"
                         }
-                    ],
-                    "accountAddress": "undefined"
-                },
-                {
-                    "writeSet": [
-                        {
-                            "key": "Name",
-                            "expectedVersion": 25,
-                            "value": "QUFB"
-                        }
-                    ],
-                    "accountAddress": "undefined"
-                },
-                {
-                    "writeSet": [
-                        {
-                            "key": "Name",
-                            "expectedVersion": 25,
-                            "value": "QUFB"
-                        }
-                    ],
-                    "accountAddress": "undefined"
-                },
-                {
-                    "writeSet": [
-                        {
-                            "key": "Name",
-                            "expectedVersion": 25,
-                            "value": "QUFB"
-                        }
-                    ],
-                    "accountAddress": "undefined"
+                    }
+                }, {
+				    "userID": {
+					    "address": "321ZeecJ99N7RJGSHkRqkfBZDEAxRMHd6d5",
+					    "pubKey": {
+						    "value": "3qHAWiGwaF6FU2o7Lg"
+					    }
+				    }
                 }
-            ],
-            "ledgerHash": {
-                "value": "6EqXXS9c1njm6XPorwgstGLd1rdAywbQKrTfoaxe4SYY9"
-            }
+            ]
         },
         "endpointSignatures": [
             {

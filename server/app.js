@@ -49,6 +49,7 @@ const contract = require('./routes/contract');
 app.use('/contract', contract);
 const ledgers = require('./routes/ledgers');
 app.use('/ledgers', ledgers);
+app.use('/keys', ledgers);
 app.use('/blockHeight', overview);
 app.use('/transactionAccount', overview);
 app.use('/userTotal', overview);

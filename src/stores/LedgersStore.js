@@ -5,22 +5,12 @@ import { Notification } from 'flarej/lib/components/antd/notification';
 import { tranBase58 } from '../common/util';
 
 export default class LedgersStore {
-  @observable ledgerData = [
-    {
-      'key': 'key1',
-      'nil': false,
-      'type': 'TEXT',
-      'value': 'value1',
-      'version': 1
-    },
-    {
-      'key': 'key2',
-      'nil': false,
-      'type': 'TEXT',
-      'value': 'value2',
-      'version': 2
-    }
-  ]
+  @observable showLdegerList = 1; // 1----->正常页面 0----->请求出错页面 -1----->异常页面
+  @observable showKeyList = 0; // 0----->隐藏页面 1----->显示页面
+  @observable showKeys = 0;
+  @observable ledgerData = {};
+  @observable algorithm = ''; // 公钥算法
+  @observable keyData = [];
 
   @autobind
   @action
@@ -35,6 +25,27 @@ export default class LedgersStore {
   }
 
   setLedgerData = (result) => {
-    console.log(result);
+    let response = result && result.data ? result.data : {};
+    this.showKeyList = 1;
+    this.ledgerData = {...response};
+    this.algorithm = tranBase58(this.ledgerData['pubKey']['value']);
+  }
+
+  @autobind
+  @action
+  getKeyData(e) {
+    console.log(e);
+    fetchData(`${G_WEB_DOMAIN}/ledgers/keys`,
+      this.setKeyData,
+      '', { method: 'post',}, {e}
+    ).catch(error => {
+      console.log(error);
+    });
+  }
+
+  setKeyData = (result) => {
+    let response = result && result.data ? result.data : [];
+    console.log(result, response);
+    this.keyData = {...response};
   }
 }
