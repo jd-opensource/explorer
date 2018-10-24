@@ -76,8 +76,10 @@
             </td>
           </tr>
           <tr class="{styles.noBorder}">
-            <td>区块前置哈希：</td>
-            <td>{store.blockHistoryData[0].previousHash.value || ''}</td>
+            <td>前置区块哈希：</td>
+            <td class="{styles.conCursor}">
+              <span onClick={handleChangeHash}>{store.blockHistoryData[0].previousHash.value || ''}</span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -102,8 +104,10 @@
             </td>
           </tr>
           <tr class="{styles.noBorder}">
-            <td>区块前置哈希：</td>
-            <td>{store.blockHistoryData[1].previousHash.value || ''}</td>
+            <td>前置区块哈希：</td>
+            <td class="{styles.conCursor}">
+              <span onClick={handleChangeHash}>{store.blockHistoryData[1].previousHash.value || ''}</span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -128,8 +132,10 @@
             </td>
           </tr>
           <tr class="{styles.noBorder}">
-            <td>区块前置哈希：</td>
-            <td>{store.blockHistoryData[2].previousHash.value || ''}</td>
+            <td>前置区块哈希：</td>
+            <td class="{styles.conCursor}">
+              <span onClick={handleChangeHash}>{store.blockHistoryData[2].previousHash.value || ''}</span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -157,8 +163,10 @@
             </td>
           </tr>
           <tr class="{styles.noBorder}">
-            <td>区块前置哈希：</td>
-            <td>{store.blockHistoryData[3].previousHash.value || ''}</td>
+            <td>前置区块哈希：</td>
+            <td class="{styles.conCursor}">
+              <span onClick={handleChangeHash}>{store.blockHistoryData[3].previousHash.value || ''}</span>
+            </td>
           </tr>
         </tbody>
       </table>
