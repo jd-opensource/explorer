@@ -45,7 +45,7 @@ export default class Header extends Component {
 
   selectItem = () => {
     return (
-      <Select className = {`${styles.value}`} placeholder = "请选择账本" value = {`${this.defaultValue}`}>
+      <Select className = {`${styles.value}`} onChange = {this.handleSelectChange} placeholder = "请选择账本" value = {`${this.defaultValue}`}>
         {
           this.optionData && this.optionData.map((item, key) => {
             return (
@@ -55,6 +55,10 @@ export default class Header extends Component {
         }
       </Select>
     );
+  }
+
+  handleSelectChange = (e) => {
+    this.defaultValue = this.optionData[e].value ? this.optionData[e].value : ''; 
   }
 
   @autobind
