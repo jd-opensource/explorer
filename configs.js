@@ -34,12 +34,12 @@
     ver: '20171107'
   },
   web: { //构建在web项目内，生产环境
-    resourcePath: './dist/resources/',
+    resourcePath: './src/main/resources/resources',
     distName: 'app',
     resourcesName: 'resources',
     webDomain: 'http://projectName.jd.com',
     indexExtName: '.html',
-    indexPath: './dist/pages',
+    indexPath: './src/main/resources/pages',
     bs: {
       proxy: 'http://projectName.jd.com',
       port: 3021,
