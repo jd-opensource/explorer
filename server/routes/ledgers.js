@@ -244,7 +244,7 @@ router.post('/keys', function(req, res) {
     });
   });
 // 区块高度
-router.get('/block/height/max/', function(req, res) {
+router.get('/block/height/max/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -292,7 +292,7 @@ router.get('/block/height/max/', function(req, res) {
   });
 });
 // 交易总数
-router.get('/tx-count/all', function(req, res) {
+router.get('/tx-count/all/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -337,7 +337,7 @@ router.get('/tx-count/all', function(req, res) {
   res.send(ret);
 });
 // 用户总数
-router.get('/user-count/all', function(req, res) {
+router.get('/user-count/all/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -385,7 +385,7 @@ router.get('/user-count/all', function(req, res) {
   });
 });
 // 账户总数
-router.get('/account-count/all', function(req, res) {
+router.get('/account-count/all/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -433,7 +433,7 @@ router.get('/account-count/all', function(req, res) {
   });
 });
 // 合约总数
-router.get('/contract-count/all', function(req, res) {
+router.get('/contract-count/all/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -2022,7 +2022,7 @@ router.get('/tx/*', function(req, res) {
     });
 });
 
-// 交易哈希
+// 账本哈希
 router.get('/hash/all', function(req, res) {
     res.type('json');
     let params = req.body,
@@ -2086,7 +2086,7 @@ router.get('/hash/all', function(req, res) {
 });
 
 // 用户身份
-router.get('/user/*', function(req, res) {
+router.get('/user/*/*', function(req, res) {
     res.type('json');
     let params = req.body,
       ret = {};
@@ -2145,7 +2145,7 @@ router.get('/user/*', function(req, res) {
 });
 
 // 合约账户
-router.get('/contract/*', function(req, res) {
+router.get('/contract/*/*', function(req, res) {
     res.type('json');
     let params = req.body,
       ret = {};

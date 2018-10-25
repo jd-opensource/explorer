@@ -52,17 +52,17 @@ app.use('/ledgers', ledgers);
 app.use('data-account/*', ledgers);
 app.use('/keys', ledgers);
 app.use('/hash/all', ledgers);
-app.use('/block/height/max', overview);
-app.use('/tx-count/all', overview);
-app.use('/user-count/all', overview);
-app.use('/account-count/all', overview);
-app.use('/contract-count/all', overview);
+app.use('/block/height/max/*', overview);
+app.use('/tx-count/all/*', overview);
+app.use('/user-count/all/*', overview);
+app.use('/account-count/all/*', overview);
+app.use('/contract-count/all/*', overview);
 app.use('/ledger', overview);
 app.use('/account-count/new', overview);
 app.use('/tx-count/new', overview);
 app.use('/ledger/participants', overview);
-app.use('/user/*', user);
-app.use('/contract/*', contract);
+app.use('/user/*/*', user);
+app.use('/contract/*/*', contract);
 //{pages}//
 
 app.post('/common/getLoginInfo', function(req, res) {

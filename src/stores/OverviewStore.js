@@ -40,7 +40,7 @@ export default class OverviewStore {
   @autobind
   @action
   getBlockHeight() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/block/height/max`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/block/height/max/${localStorage.defaultValue}`,
       this.setBlockHeight,
       '', { 
         method: 'get',
@@ -64,7 +64,7 @@ export default class OverviewStore {
   @autobind
   @action
   getTransactionTotal() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/tx-count/all`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/tx-count/all/${localStorage.defaultValue}`,
       this.setTransactionTotal,
       '', { 
         method: 'get',
@@ -89,7 +89,7 @@ export default class OverviewStore {
   @autobind
   @action
   getUserTotal() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/user-count/all`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/user-count/all/${localStorage.defaultValue}`,
       this.setUserTotal,
       '', { 
         method: 'get',
@@ -114,7 +114,7 @@ export default class OverviewStore {
   @autobind
   @action
   getLedgerTotal() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/account-count/all`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/account-count/all/${localStorage.defaultValue}`,
       this.setLedgerTotal,
       '', { 
         method: 'get',
@@ -139,7 +139,7 @@ export default class OverviewStore {
   @autobind
   @action
   getContractTotal() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/contract-count/all`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/contract-count/all/${localStorage.defaultValue}`,
       this.setContractTotal,
       '', { 
         method: 'get',

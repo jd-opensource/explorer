@@ -12,7 +12,7 @@ export default class UserStore {
   @action
   getUserData(e) {
     console.log(e);
-    fetchData(`${G_WEB_DOMAIN}/ledgers/user/`+`${e}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/user/${localStorage.defaultValue}/${e}`,
       this.setUserData,
       '', { 
         method: 'get',
