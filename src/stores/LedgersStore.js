@@ -16,7 +16,7 @@ export default class LedgersStore {
   @action
   getLedgerData(e) {
     console.log(e);
-    fetchData(`${G_WEB_DOMAIN}/ledgers`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/data-account/${e}`,
       this.setLedgerData,
       '', { method: 'get',}
     ).catch(error => {

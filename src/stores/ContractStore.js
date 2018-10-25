@@ -18,7 +18,7 @@ export default class ContractStore {
   @action
   getContractData(e) {
     console.log(e);
-    fetchData(`${G_WEB_DOMAIN}/contract`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/contract/${e}`,
       this.setContractData,
       '', { 
         method: 'get',

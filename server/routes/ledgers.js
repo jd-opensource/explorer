@@ -107,6 +107,64 @@ router.get('', function(req, res) {
   });
 });
 
+router.get('/data-account/*', function(req, res) {
+    res.type('json');
+    let params = req.body,
+      ret = {};
+  
+    const datas = _.times(100, function(i) {
+      let num = i + 1;
+  
+      return {
+        test1: num + 100000,
+        test2: '测试' + num,
+        test4: _.random(10, 90) + '%',
+        test5: _.random(10, 90) + '%',
+        test6: _.random(10, 90) + '%',
+        test8: _.random(1, 10),
+        test9: _.random(1, 10),
+        test10: _.random(1, 10),
+        test11: _.random(1, 10),
+        test12: _.random(1, 10),
+        test14: _.random(10, 90) + '%',
+        test15: _.random(10, 90) + '%',
+        test16: _.random(1, 24),
+        test17: _.random(10, 90) + '%',
+        test18: _.random(1, 100000)
+      };
+    });
+  
+    const pageIndex = params.currentPage,
+      pageSize = params.pageSize,
+      start = (pageIndex - 1) * pageSize,
+      end = pageIndex * pageSize,
+      data = datas.filter((obj, i) => {
+        if (i >= start && i < end) {
+          return true;
+        }
+      });
+  
+    Object.assign({
+      "data": {
+          "address": "www.jd.com",
+          "pubKey": {
+              "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+          }
+      },
+      "success": true
+    });
+  
+    res.send({
+      "data": {
+          "address": "www.jd.com",
+          "pubKey": {
+              "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+          }
+      },
+      "success": true
+    });
+});
+
 // 获取数据账户中某些Key的结果
 router.post('/keys', function(req, res) {
     res.type('json');
@@ -186,7 +244,7 @@ router.post('/keys', function(req, res) {
     });
   });
 // 区块高度
-router.get('/blockHeight', function(req, res) {
+router.get('/block/height/max/', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -234,7 +292,7 @@ router.get('/blockHeight', function(req, res) {
   });
 });
 // 交易总数
-router.get('/transactionAccount', function(req, res) {
+router.get('/tx-count/all', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -279,7 +337,7 @@ router.get('/transactionAccount', function(req, res) {
   res.send(ret);
 });
 // 用户总数
-router.get('/userTotal', function(req, res) {
+router.get('/user-count/all', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -327,7 +385,7 @@ router.get('/userTotal', function(req, res) {
   });
 });
 // 账户总数
-router.get('/dataLedgersTotal', function(req, res) {
+router.get('/account-count/all', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -375,7 +433,7 @@ router.get('/dataLedgersTotal', function(req, res) {
   });
 });
 // 合约总数
-router.get('/contractTotal', function(req, res) {
+router.get('/contract-count/all', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -423,7 +481,7 @@ router.get('/contractTotal', function(req, res) {
   });
 });
 // 账本信息
-router.get('/ledgerInformation', function(req, res) {
+router.get('/ledger', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -575,7 +633,7 @@ router.get('/ledgerInformation', function(req, res) {
   });
 });
 // 新增账户数量
-router.get('/accountCount', function(req, res) {
+router.get('/account-count/new', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -623,7 +681,7 @@ router.get('/accountCount', function(req, res) {
   });
 });
 // 新增交易数量
-router.get('/transactionCount', function(req, res) {
+router.get('/tx-count/new', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -671,7 +729,7 @@ router.get('/transactionCount', function(req, res) {
   });
 });
 // 成员列表
-router.get('/userTable', function(req, res) {
+router.get('/ledger/participants', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -1965,7 +2023,7 @@ router.get('/transactionHash', function(req, res) {
 });
 
 // 交易哈希
-router.get('/options', function(req, res) {
+router.get('/hash/all', function(req, res) {
     res.type('json');
     let params = req.body,
       ret = {};
@@ -2024,6 +2082,126 @@ router.get('/options', function(req, res) {
             }
         ],
         "success": true
+    });
+});
+
+// 用户身份
+router.get('/user/*', function(req, res) {
+    res.type('json');
+    let params = req.body,
+      ret = {};
+  
+    const datas = _.times(100, function(i) {
+      let num = i + 1;
+  
+      return {
+        test1: num + 100000,
+        test2: '测试' + num,
+        test4: _.random(10, 90) + '%',
+        test5: _.random(10, 90) + '%',
+        test6: _.random(10, 90) + '%',
+        test8: _.random(1, 10),
+        test9: _.random(1, 10),
+        test10: _.random(1, 10),
+        test11: _.random(1, 10),
+        test12: _.random(1, 10),
+        test14: _.random(10, 90) + '%',
+        test15: _.random(10, 90) + '%',
+        test16: _.random(1, 24),
+        test17: _.random(10, 90) + '%',
+        test18: _.random(1, 100000)
+      };
+    });
+  
+    const pageIndex = params.currentPage,
+      pageSize = params.pageSize,
+      start = (pageIndex - 1) * pageSize,
+      end = pageIndex * pageSize,
+      data = datas.filter((obj, i) => {
+        if (i >= start && i < end) {
+          return true;
+        }
+      });
+  
+    Object.assign({
+      "data": {
+        "address": "www.jd.com",
+        "pubKey": {
+          "value": "sR4AF"
+        }
+      },
+      "success": true
+    });
+  
+    res.send({
+      "data": {
+        "address": "www.jd.com",
+        "pubKey": {
+          "value": "sR4AF"
+        }
+      },
+      "success": true
+    });
+});
+
+// 合约账户
+router.get('/contract/*', function(req, res) {
+    res.type('json');
+    let params = req.body,
+      ret = {};
+  
+    const datas = _.times(100, function(i) {
+      let num = i + 1;
+  
+      return {
+        test1: num + 100000,
+        test2: '测试' + num,
+        test4: _.random(10, 90) + '%',
+        test5: _.random(10, 90) + '%',
+        test6: _.random(10, 90) + '%',
+        test8: _.random(1, 10),
+        test9: _.random(1, 10),
+        test10: _.random(1, 10),
+        test11: _.random(1, 10),
+        test12: _.random(1, 10),
+        test14: _.random(10, 90) + '%',
+        test15: _.random(10, 90) + '%',
+        test16: _.random(1, 24),
+        test17: _.random(10, 90) + '%',
+        test18: _.random(1, 100000)
+      };
+    });
+  
+    const pageIndex = params.currentPage,
+      pageSize = params.pageSize,
+      start = (pageIndex - 1) * pageSize,
+      end = pageIndex * pageSize,
+      data = datas.filter((obj, i) => {
+        if (i >= start && i < end) {
+          return true;
+        }
+      });
+  
+    Object.assign({
+      "data": {
+        "chaincodeVersion": -1,
+        "address": "www.jd.com",
+        "pubKey": {
+          "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+        }
+      },
+      "success": true
+    });
+  
+    res.send({
+      "data": {
+        "chaincodeVersion": -1,
+        "address": "www.jd.com",
+        "pubKey": {
+          "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+        }
+      },
+      "success": true
     });
 });
 

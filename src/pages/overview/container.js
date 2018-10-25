@@ -24,7 +24,7 @@ const overviewStore = new OverviewStore();
 @observer
 class Container extends Component {
   componentDidMount() {
-    // console.log(overviewStore);
+    console.log(this.props);
     // const closeLoading = Message.loading('正在加载数据...', 0);
     // this.props.store.getTableData(1, this.props.store.pageSize).then(() => closeLoading());
   }

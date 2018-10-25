@@ -40,7 +40,7 @@ export default class OverviewStore {
   @autobind
   @action
   getBlockHeight() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/blockHeight`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/block/height/max`,
       this.setBlockHeight,
       '', { 
         method: 'get',
@@ -64,7 +64,7 @@ export default class OverviewStore {
   @autobind
   @action
   getTransactionTotal() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/transactionAccount`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/tx-count/all`,
       this.setTransactionTotal,
       '', { 
         method: 'get',
@@ -89,7 +89,7 @@ export default class OverviewStore {
   @autobind
   @action
   getUserTotal() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/userTotal`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/user-count/all`,
       this.setUserTotal,
       '', { 
         method: 'get',
@@ -114,7 +114,7 @@ export default class OverviewStore {
   @autobind
   @action
   getLedgerTotal() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/dataLedgersTotal`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/account-count/all`,
       this.setLedgerTotal,
       '', { 
         method: 'get',
@@ -139,7 +139,7 @@ export default class OverviewStore {
   @autobind
   @action
   getContractTotal() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/contractTotal`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/contract-count/all`,
       this.setContractTotal,
       '', { 
         method: 'get',
@@ -164,7 +164,7 @@ export default class OverviewStore {
   @autobind
   @action
   getUserList() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/userTable`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/ledger/participants`,
       this.setUserList,
       '', { 
         method: 'get',
@@ -193,7 +193,7 @@ export default class OverviewStore {
   @autobind
   @action
   getLedgerCurrent() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/ledgerInformation`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/ledger`,
       this.setLedgerCurrent,
       '', { 
         method: 'get',
@@ -220,7 +220,7 @@ export default class OverviewStore {
   @autobind
   @action
   getNewTransaction() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/transactionCount`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/tx-count/new`,
       this.setNewTransaction,
       '', { 
         method: 'get',
@@ -246,7 +246,7 @@ export default class OverviewStore {
   @autobind
   @action
   getNewLedger() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/accountCount`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/account-count/new`,
       this.setNewLedger,
       '', { 
         method: 'get',
