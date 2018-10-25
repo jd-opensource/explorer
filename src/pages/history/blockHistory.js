@@ -19,11 +19,10 @@ export default class BlockHistory extends Component {
     store.getBlockHistoryData();
   }
 
-  handleClickHeight = (e) => {
-    console.log(e);
+  handleClickHeightOne = () => {
     const { store } = this.props;
     Promise.all([
-      store.getBlockHeightData()
+      store.getBlockHeightData(store.one)
     ]).then(
 
     ).catch((err) => {
@@ -31,10 +30,120 @@ export default class BlockHistory extends Component {
     });
   }
 
-  handleClickHash = (e) => {
+  handleClickHeightFour = () => {
     const { store } = this.props;
     Promise.all([
-      store.getBlockHashData()
+      store.getBlockHeightData(store.four)
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  handleClickHeightSeven = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getBlockHeightData(store.seven)
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  handleClickHeightTen = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getBlockHeightData(store.ten)
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  handleClickHashTwo = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getBlockHashData(store.two)
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  handleClickHashThree = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getBlockHashData(store.three)
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  handleClickHashFive = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getBlockHashData(store.five)
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  handleClickHashSix = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getBlockHashData(store.six)
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  handleClickHashEight = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getBlockHashData(store.eight)
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  handleClickHashNine = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getBlockHashData(store.nine)
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  handleClickHashEleven = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getBlockHashData(store.eleven)
+    ]).then(
+
+    ).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  handleClickHashTwelve = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getBlockHashData(store.twelve)
     ]).then(
 
     ).catch((err) => {

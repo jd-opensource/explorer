@@ -147,6 +147,18 @@ export default class HistoryStore {
   @observable digests = []; // 终端签名节点算法
   @observable pubKeysNode = []; // 节点签名公钥算法
   @observable digestsNode = []; // 节点签名节点算法
+  @observable one = 0;
+  @observable two = '';
+  @observable three = '';
+  @observable four = 0;
+  @observable five = '';
+  @observable six = '';
+  @observable seven = 0;
+  @observable eight = '';
+  @observable nine = '';
+  @observable ten = 0;
+  @observable eleven = '';
+  @observable twelve = '';
   // @autobind
   // @action
   // setTransactionData() {
@@ -183,6 +195,18 @@ export default class HistoryStore {
     let response = result && result.data ? result.data : [];
     this.showHistoryState = 1;
     this.blockHistoryData = [...response];
+    this.one = this.blockHistoryData[0].height || 0;
+    this.two = this.blockHistoryData[0].hash.value || '';
+    this.three = this.blockHistoryData[0].previousHash.value || '';
+    this.four = this.blockHistoryData[1].height || 0;
+    this.five = this.blockHistoryData[1].hash.value || '';
+    this.six = this.blockHistoryData[1].previousHash.value || '';
+    this.seven = this.blockHistoryData[2].height || 0;
+    this.eight = this.blockHistoryData[2].hash.value || '';
+    this.nine = this.blockHistoryData[2].previousHash.value || '';
+    this.ten = this.blockHistoryData[3].height || 0;
+    this.eleven = this.blockHistoryData[3].hash.value || '';
+    this.twelve = this.blockHistoryData[3].previousHash.value || '';
     console.log(this.blockHistoryData);
   }
 
