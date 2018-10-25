@@ -36,11 +36,11 @@ export default class Header extends Component {
   }
 
   setOptionData = (result) => {
-    console.log(result);
     let response = result && result.data ? result.data : [];
     this.optionData = [...response];
     this.defaultValue = this.optionData[0].value ? this.optionData[0].value : ''; 
-    console.log(this.defaultValue);
+    localStorage.setItem('defaultValue', this.defaultValue);
+    console.log(localStorage);
   }
 
   selectItem = () => {
@@ -59,6 +59,8 @@ export default class Header extends Component {
 
   handleSelectChange = (e) => {
     this.defaultValue = this.optionData[e].value ? this.optionData[e].value : ''; 
+    localStorage.setItem('defaultValue', this.defaultValue);
+    console.log(localStorage);
   }
 
   getChildContext() {
