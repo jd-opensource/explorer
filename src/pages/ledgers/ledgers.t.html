@@ -35,7 +35,7 @@
           <div class="{styles.keyContent}">
             <#if {{store.showKeyList == 1}}>
               <p class="{styles.queryLedger}">
-                在账户&nbsp;<span>ESJKL1342j123NV</span>&nbsp;中查询
+                在账户&nbsp;<span>{{store.ledgerValue}}</span>&nbsp;中查询
               </p>
               <div class="{styles.inputQuery}">
                 <ant-input class="{styles.inputValue}" onChange={keyChange} placeholder="请输入键，多个键之间用英文“,”隔开" />

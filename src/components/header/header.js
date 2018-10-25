@@ -63,10 +63,6 @@ export default class Header extends Component {
     console.log(localStorage);
   }
 
-  getChildContext() {
-    return {color: 'red'};
-  }
-
   @autobind
   onSelect({ item, key, selectedKeys }) {
     location.href = '/pages/page' + key+'.html';

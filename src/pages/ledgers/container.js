@@ -70,7 +70,7 @@ class DataTable extends Component {
   queryKey = () => {
     const { store } = this.props;
     Promise.all([
-      store.getKeyData(this.keys)
+      store.getKeyData(this.keys, this.dataLedger)
     ]).then(
 
     ).catch((err) => {

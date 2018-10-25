@@ -166,7 +166,7 @@ router.get('/data-account/*/*', function(req, res) {
 });
 
 // 获取数据账户中某些Key的结果
-router.post('/keys', function(req, res) {
+router.post('/data-entries/*/*', function(req, res) {
     res.type('json');
     let params = req.body,
       ret = {};

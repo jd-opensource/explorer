@@ -11,6 +11,7 @@ export default class LedgersStore {
   @observable ledgerData = {};
   @observable algorithm = ''; // 公钥算法
   @observable keyData = [];
+  @observable ledgerValue = '';
 
   @autobind
   @action
@@ -29,15 +30,25 @@ export default class LedgersStore {
     this.showKeyList = 1;
     this.ledgerData = {...response};
     this.algorithm = tranBase58(this.ledgerData['pubKey']['value']);
+    this.ledgerValue = localStorage.defaultValue;
+    console.log(this.ledgerValue);
   }
 
   @autobind
   @action
-  getKeyData(e) {
-    console.log(e);
-    fetchData(`${G_WEB_DOMAIN}/ledgers/keys`,
-      this.setKeyData,
-      '', { method: 'post',}, {e}
+  getKeyData(e, f) {
+    let formdata = new FormData();
+    formdata.append('key', e); 
+    console.log(formdata);
+    fetchData(`${G_WEB_DOMAIN}/ledgers/data-entries/${localStorage.defaultValue}/${f}`,
+      this.setKeyData, {formdata},
+      { 
+        method: 'post',
+        headers:{
+    		  'Content-Type':'application/x-www-form-urlencoded'
+        },
+        body:formdata
+      }
     ).catch(error => {
       console.log(error);
     });

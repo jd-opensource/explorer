@@ -50,7 +50,7 @@ app.use('/contract', contract);
 const ledgers = require('./routes/ledgers');
 app.use('/ledgers', ledgers);
 app.use('data-account/*/*', ledgers);
-app.use('/keys', ledgers);
+app.use('/data-entries/*/*', ledgers);
 app.use('/hash/all', ledgers);
 app.use('/block/height/max/*', overview);
 app.use('/tx-count/all/*', overview);
