@@ -34,9 +34,9 @@
     ver: '20171107'
   },
   web: { //构建在web项目内，生产环境
-    resourcePath: './src/main/resources/resources/',
+    resourcePath: './src/main/resources/res/',
     distName: 'app',
-    resourcesName: 'resources',
+    resourcesName: 'res',
     webDomain: 'http://projectName.jd.com',
     indexExtName: '.html',
     indexPath: './src/main/resources/pages',
