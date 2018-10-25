@@ -827,7 +827,7 @@ router.get('/ledger/participants', function(req, res) {
   });
 });
 // 区块列表
-router.get('/blockList', function(req, res) {
+router.get('/blocks', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -1093,7 +1093,7 @@ router.get('/blockList', function(req, res) {
   });
 });
 // 区块高度
-router.get('/blockHeightData', function(req, res) {
+router.get('/block/height/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -1194,7 +1194,7 @@ router.get('/blockHeightData', function(req, res) {
 });
 
 // 区块哈希
-router.get('/blockHash', function(req, res) {
+router.get('/block/hash/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -1295,7 +1295,7 @@ router.get('/blockHash', function(req, res) {
 });
 
 // 交易列表
-router.get('/transactionList', function(req, res) {
+router.get('/txs/height', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -1742,7 +1742,7 @@ router.get('/transactionList', function(req, res) {
 });
 
 // 交易哈希
-router.get('/transactionHash', function(req, res) {
+router.get('/tx/*', function(req, res) {
     res.type('json');
     let params = req.body,
       ret = {};

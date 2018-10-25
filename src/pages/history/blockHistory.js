@@ -20,6 +20,7 @@ export default class BlockHistory extends Component {
   }
 
   handleChangeHeight = (e) => {
+    console.log(e);
     const { store } = this.props;
     Promise.all([
       store.getBlockHeightData()

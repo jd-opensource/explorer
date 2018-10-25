@@ -17,7 +17,7 @@ export default class ContractStore {
   @autobind
   @action
   getContractData(e) {
-    console.log(e);
+    console.log(e, this);
     fetchData(`${G_WEB_DOMAIN}/ledgers/contract/${e}`,
       this.setContractData,
       '', { 

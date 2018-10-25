@@ -67,7 +67,7 @@ class DataTable extends Component {
     if (this.inputValue != '') {
       if (this.radioValue == 'blockHeight') {
         Promise.all([
-          store.getBlockHeightData()
+          store.getBlockHeightData(this.inputValue)
         ]).then(
   
         ).catch((err) => {
@@ -75,7 +75,7 @@ class DataTable extends Component {
         });
       } else if (this.radioValue == 'blockHash') {
         Promise.all([
-          store.getBlockHashData()
+          store.getBlockHashData(this.inputValue)
         ]).then(
   
         ).catch((err) => {
@@ -83,7 +83,7 @@ class DataTable extends Component {
         });
       } else {
         Promise.all([
-          store.getTransactionHashData()
+          store.getTransactionHashData(this.inputValue)
         ]).then(
   
         ).catch((err) => {

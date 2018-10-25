@@ -61,6 +61,10 @@ export default class Header extends Component {
     this.defaultValue = this.optionData[e].value ? this.optionData[e].value : ''; 
   }
 
+  getChildContext() {
+    return {color: 'red'};
+  }
+
   @autobind
   onSelect({ item, key, selectedKeys }) {
     location.href = '/pages/page' + key+'.html';
