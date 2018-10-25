@@ -22,7 +22,7 @@ export default class Header extends Component {
 
   componentDidMount = () => {
     Promise.all([
-      fetchData(`${G_WEB_DOMAIN}/ledgers/hash/all`,
+      fetchData(`${G_WEB_DOMAIN}/ledgers`,
         this.setOptionData,
         '', { method: 'get',}
       ).catch(error => {

@@ -87,22 +87,26 @@ router.get('', function(req, res) {
     });
 
   Object.assign({
-    "data": {
-        "address": "www.jd.com",
-        "pubKey": {
-            "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+    "data": [
+        {
+            "value": "67nubBh1nBtv9otJTkWw89WXSq7XnxshL74u33f5ipNYS"
+        },
+        {
+            "value": "6EqXXS9c1njm6XPorwgstGLd1rdAywbQKrTfoaxe4SYY9"
         }
-    },
+    ],
     "success": true
   });
 
   res.send({
-    "data": {
-        "address": "www.jd.com",
-        "pubKey": {
-            "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+    "data": [
+        {
+            "value": "67nubBh1nBtv9otJTkWw89WXSq7XnxshL74u33f5ipNYS"
+        },
+        {
+            "value": "6EqXXS9c1njm6XPorwgstGLd1rdAywbQKrTfoaxe4SYY9"
         }
-    },
+    ],
     "success": true
   });
 });
@@ -2086,8 +2090,8 @@ router.get('/hash/all', function(req, res) {
     });
 });
 
-// 用户身份
-router.get('/user/*/*', function(req, res) {
+// 用户身份 V
+router.get('/*/users/*', function(req, res) {
     res.type('json');
     let params = req.body,
       ret = {};
@@ -2145,8 +2149,8 @@ router.get('/user/*/*', function(req, res) {
     });
 });
 
-// 合约账户
-router.get('/contract/*/*', function(req, res) {
+// 合约账户 V
+router.get('/*/contracts/*', function(req, res) {
     res.type('json');
     let params = req.body,
       ret = {};

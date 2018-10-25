@@ -49,7 +49,7 @@ const contract = require('./routes/contract');
 app.use('/contract', contract);
 const ledgers = require('./routes/ledgers');
 app.use('/ledgers', ledgers);
-app.use('data-account/*/*', ledgers);
+app.use('/data-account/*/*', ledgers);
 app.use('/data-entries/*/*', ledgers);
 app.use('/hash/all', ledgers);
 app.use('/block/height/max/*', overview);
@@ -62,8 +62,8 @@ app.use('/ledger/*', overview);
 app.use('/account-count/new/*', overview);
 app.use('/tx-count/new/*', overview);
 
-app.use('/user/*/*', user);
-app.use('/contract/*/*', contract);
+app.use('/*/users/*', user);
+app.use('/*/contracts/*', contract);
 //{pages}//
 
 app.post('/common/getLoginInfo', function(req, res) {
