@@ -23,7 +23,7 @@
     resourcesName: 'resources',
     webDomain: 'http://projectName.dev.jd.com',
     indexExtName: '.html',
-    indexPath: './dist/pages',
+    indexPath: './dist/pages/',
     bs: {
       proxy: 'http://projectName.dev.jd.com',
       port: 3021,
@@ -34,7 +34,7 @@
     ver: '20171107'
   },
   web: { //构建在web项目内，生产环境
-    resourcePath: './src/main/resources',
+    resourcePath: './src/main/resources/',
     distName: 'app',
     resourcesName: 'resources',
     webDomain: 'http://projectName.jd.com',
