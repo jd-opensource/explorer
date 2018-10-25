@@ -19,7 +19,7 @@ export default class BlockHistory extends Component {
     store.getBlockHistoryData();
   }
 
-  handleChangeHeight = (e) => {
+  handleClickHeight = (e) => {
     console.log(e);
     const { store } = this.props;
     Promise.all([
@@ -31,7 +31,7 @@ export default class BlockHistory extends Component {
     });
   }
 
-  handleChangeHash = (e) => {
+  handleClickHash = (e) => {
     const { store } = this.props;
     Promise.all([
       store.getBlockHashData()
@@ -51,7 +51,7 @@ export default class BlockHistory extends Component {
   }
 
   render() {
-    const { store } = this.props
+    const { store } = this.props;
     return tmpls.blockHistory(this.state, this.props, this, {
       store,
       styles
