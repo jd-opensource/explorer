@@ -159,6 +159,7 @@ export default class HistoryStore {
   @observable ten = 0;
   @observable eleven = '';
   @observable twelve = '';
+  @observable pubA = ''; // 公钥算法
   // @autobind
   // @action
   // setTransactionData() {
@@ -213,7 +214,7 @@ export default class HistoryStore {
   @autobind
   @action
   getBlockHeightData(e) {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/block/height/${localStorage.defaultValue}/${e}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/block/height/${e}`,
       this.setBlockHeightData,
       '', { method: 'get',}
     ).catch(error => {
@@ -228,13 +229,13 @@ export default class HistoryStore {
     let response = result && result.data ? result.data : {};
     this.showHistoryState = 2;
     this.blockData = {...response};
-    this.getTransactionList();
+    this.getTransactionList(this.blockData.height, 'height');
   }
 
   @autobind
   @action
   getBlockHashData(e) {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/block/hash/${localStorage.defaultValue}/${e}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/block/hash/${e}`,
       this.setBlockHashData,
       '', { method: 'get',}
     ).catch(error => {
@@ -249,13 +250,13 @@ export default class HistoryStore {
     let response = result && result.data ? result.data : {};
     this.showHistoryState = 2;
     this.blockData = {...response};
-    this.getTransactionList();
+    this.getTransactionList(this.blockData.hash.value, 'height');
   }
 
   @autobind
   @action
   getTransactionHashData(e) {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/tx/${localStorage.defaultValue}/${e}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/tx/${e}`,
       this.setTransactionHashData,
       '', { method: 'get',}
     ).catch(error => {
@@ -283,13 +284,13 @@ export default class HistoryStore {
       this.digestsNode.push(tranBase58(item['digest']['value']));
     });
     console.log(this.pubKeysNode, this.digestsNode);
-
+    this.pubA = tranBase58(this.transactionData.transactionContent.operations[1].addressSignature.pubKey.value) || '';
   }
 
   @autobind
   @action
-  getTransactionList() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/txs/height/${localStorage.defaultValue}/123/456/5`,
+  getTransactionList(e, text) {
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/blocks/${text}/${e}/`+'txs?fromIndex=1&count=5',
       this.setTransactionList,
       '', { method: 'get',}
     ).catch(error => {

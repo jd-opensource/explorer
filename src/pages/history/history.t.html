@@ -422,19 +422,28 @@
                 </div>
                 <div class="{styles.address}">
                   <span class="{styles.ledgerAddress}">账户地址 :&nbsp;&nbsp;</span>
-                  EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty
+                  <!-- EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty -->
+                  {store.transactionData.transactionContent.operations[0].accountAddress || ''}
                 </div>
                 <div class="{styles.kv}">
                   <div class="{styles.key}">
-                    键 :&nbsp;&nbsp;&nbsp;UPcaZ1JRCehRwvuNS8Ty
+                    键 :&nbsp;&nbsp;&nbsp;
+                    <!-- UPcaZ1JRCehRwvuNS8Ty -->
+                    {store.transactionData.transactionContent.operations[0].writeSet[0].key || ''}
                     <div 
                       class="{styles.arrow} {showValue ? (styles.arrowTop, styles.arrowBottom)}"
                       onClick={handleValueShow}
                     ></div>
                   </div>
                   <div class="{styles.value} {showValue ? (styles.show, styles.hide)}">
-                    <div><span>值 :</span>&nbsp;&nbsp;&nbsp;xUPcaZ1JRCehR</div>
-                    <div><span>预期版本 :</span>&nbsp;&nbsp;&nbsp;v2</div>
+                    <div><span>值 :</span>&nbsp;&nbsp;&nbsp;
+                      <!-- xUPcaZ1JRCehR -->
+                      {store.transactionData.transactionContent.operations[0].writeSet[0].value || ''}
+                    </div>
+                    <div><span>预期版本 :</span>&nbsp;&nbsp;&nbsp;
+                      <!-- v2 -->
+                      {store.transactionData.transactionContent.operations[0].writeSet[0].expectedVersion || ''}
+                    </div>
                   </div>
                 </div>
                 <!-- <div class="{styles.kv}">
@@ -460,35 +469,47 @@
                   <tbody>
                     <tr>
                       <td>签名算法 :</td>
-                      <td>EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</td>
+                      <td>
+                        {store.transactionData.transactionContent.operations[1].addressSignature.digest.algorithm || ''}
+                      </td>
                     </tr>
                     <tr>
                       <td>签名数据 :</td>
-                      <td>v1.0</td>
+                      <td>
+                        {store.transactionData.transactionContent.operations[1].addressSignature.digest.rawDigest || ''}
+                      </td>
                     </tr>
                     <tr>
                       <td>公钥算法 :</td>
-                      <td>UPcaZ1JRCehRwvuNS8Ty</td>
+                      <td>{store.pubA || 'ECDSA'}</td>
                     </tr>
                     <tr>
                       <td>公钥数据 :</td>
-                      <td>xUPcaZ1JRCehR</td>
+                      <td>
+                        {store.transactionData.transactionContent.operations[1].addressSignature.pubKey.value || ''}
+                      </td>
                     </tr>
                     <tr>
                       <td>合约事件操作 :</td>
-                      <td>EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</td>
+                      <td>
+                        EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty
+                      </td>
                     </tr>
                     <tr>
                       <td>args :</td>
-                      <td>v1.0</td>
+                      <td>
+                        {store.transactionData.transactionContent.operations[2].args || ''}
+                      </td>
                     </tr>
                     <tr>
                       <td>合约地址 :</td>
-                      <td>UPcaZ1JRCehRwvuNS8Ty</td>
+                      <td>
+                        {store.transactionData.transactionContent.operations[2].address || ''}
+                      </td>
                     </tr>
                     <tr>
                       <td>事件 :</td>
-                      <td>xUPcaZ1JRCehR</td>
+                      <td>{store.transactionData.transactionContent.operations[2].event || ''}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -503,35 +524,39 @@
                   <tbody>
                     <tr>
                       <td>账户地址 :</td>
-                      <td>EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</td>
+                      <td>
+                        {store.transactionData.transactionContent.operations[3].accountID.address || ''}
+                      </td>
                     </tr>
                     <tr>
                       <td>账户公钥算法 :</td>
-                      <td>v1.0</td>
+                      <td>
+                        ECDSA
+                      </td>
                     </tr>
                     <tr>
                       <td>账户公钥数据 :</td>
-                      <td>UPcaZ1JRCehRwvuNS8Ty</td>
+                      <td>{store.transactionData.transactionContent.operations[3].pubKey.value || ''}</td>
                     </tr>
                     <tr>
                       <td>签名算法 :</td>
-                      <td>xUPcaZ1JRCehR</td>
+                      <td>{store.transactionData.transactionContent.operations[3].addressSignature.digest.algorithm || ''}</td>
                     </tr>
                     <tr>
                       <td>签名数据 :</td>
-                      <td>EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</td>
+                      <td>{store.transactionData.transactionContent.operations[3].addressSignature.digest.rawDigest || ''}</td>
                     </tr>
                     <tr>
                       <td>签名公钥算法 :</td>
-                      <td>v1.0</td>
+                      <td>ECDSA</td>
                     </tr>
                     <tr>
                       <td>签名公钥数据 :</td>
-                      <td>UPcaZ1JRCehRwvuNS8Ty</td>
+                      <td>{store.transactionData.transactionContent.operations[3].addressSignature.pubKey.value || ''}</td>
                     </tr>
                     <tr>
                       <td>用户信息 :</td>
-                      <td>xUPcaZ1JRCehR</td>
+                      <td>{store.transactionData.transactionContent.operations[4].userID.address || ''}</td>
                     </tr>
                     <tr>
                       <td>用户地址 :</td>

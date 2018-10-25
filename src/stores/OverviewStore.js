@@ -194,7 +194,7 @@ export default class OverviewStore {
   @autobind
   @action
   getLedgerCurrent() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/ledger/${localStorage.defaultValue}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}`,
       this.setLedgerCurrent,
       '', { 
         method: 'get',

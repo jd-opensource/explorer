@@ -41,9 +41,11 @@ app.use('/user', user);
 const history = require('./routes/history');
 app.use('/history', history);
 app.use('/blocks/*', history);
-app.use('/block/height/*/*', history);
-app.use('/block/hash/*/*', history);
-app.use('/tx/*/*', history);
+
+app.use('/*/block/height/*', history);
+app.use('/*/block/hash/*', history);
+
+app.use('/*/tx/*', history);
 app.use('/txs/height/*/*/*/*', history);
 const contract = require('./routes/contract');
 app.use('/contract', contract);
@@ -63,7 +65,7 @@ app.use('/*/users/count', overview);
 app.use('/*/contracts/count', overview);
 app.use('/*/participants', overview);
 
-app.use('/ledger/*', overview);
+app.use('/*', overview);
 
 
 app.use('/*/txs/additional-count', overview);
