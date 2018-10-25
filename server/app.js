@@ -49,18 +49,24 @@ const contract = require('./routes/contract');
 app.use('/contract', contract);
 const ledgers = require('./routes/ledgers');
 app.use('/ledgers', ledgers);
-app.use('/data-account/*/*', ledgers);
-app.use('/data-entries/*/*', ledgers);
+app.use('/*/accounts/count', overview);
+app.use('/*/accounts/additional-count', overview);
+app.use('/*/accounts/*', ledgers);
+app.use('/*/accounts/*', ledgers);
+
 app.use('/hash/all', ledgers);
-app.use('/block/height/max/*', overview);
-app.use('/tx-count/all/*', overview);
-app.use('/user-count/all/*', overview);
-app.use('/account-count/all/*', overview);
-app.use('/contract-count/all/*', overview);
-app.use('/ledger/participants/*', overview);
+app.use('/*/blocks/latest', overview);
+
+app.use('/*/txs/count', overview);
+app.use('/*/users/count', overview);
+
+app.use('/*/contracts/count', overview);
+app.use('/*/participants', overview);
+
 app.use('/ledger/*', overview);
-app.use('/account-count/new/*', overview);
-app.use('/tx-count/new/*', overview);
+
+
+app.use('/*/txs/additional-count', overview);
 
 app.use('/*/users/*', user);
 app.use('/*/contracts/*', contract);

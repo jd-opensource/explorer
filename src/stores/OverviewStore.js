@@ -40,7 +40,7 @@ export default class OverviewStore {
   @autobind
   @action
   getBlockHeight() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/block/height/max/${localStorage.defaultValue}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/blocks/latest`,
       this.setBlockHeight,
       '', { 
         method: 'get',
@@ -57,14 +57,14 @@ export default class OverviewStore {
   @action
   setBlockHeight(result) {
     let response = result;
-    this.overviewHeadData.blockHeight = response && response.data ? response.data : 0; 
+    this.overviewHeadData.blockHeight = response && response.data && response.data.height ? response.data.height : 0; 
   }
 
   // 获取交易总数
   @autobind
   @action
   getTransactionTotal() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/tx-count/all/${localStorage.defaultValue}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/txs/count`,
       this.setTransactionTotal,
       '', { 
         method: 'get',
@@ -82,14 +82,14 @@ export default class OverviewStore {
   @action
   setTransactionTotal(result) {
     let response = result;
-    this.overviewHeadData.transactionTotal = response && response.totalCount ? response.totalCount : 0; 
+    this.overviewHeadData.transactionTotal = response && response.data ? response.data : 0; 
   }
 
   // 获取用户总数
   @autobind
   @action
   getUserTotal() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/user-count/all/${localStorage.defaultValue}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/users/count`,
       this.setUserTotal,
       '', { 
         method: 'get',
@@ -114,7 +114,7 @@ export default class OverviewStore {
   @autobind
   @action
   getLedgerTotal() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/account-count/all/${localStorage.defaultValue}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/accounts/count`,
       this.setLedgerTotal,
       '', { 
         method: 'get',
@@ -139,7 +139,7 @@ export default class OverviewStore {
   @autobind
   @action
   getContractTotal() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/contract-count/all/${localStorage.defaultValue}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/contracts/count`,
       this.setContractTotal,
       '', { 
         method: 'get',
@@ -164,7 +164,7 @@ export default class OverviewStore {
   @autobind
   @action
   getUserList() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/ledger/participants/${localStorage.defaultValue}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/participants`,
       this.setUserList,
       '', { 
         method: 'get',
@@ -221,7 +221,7 @@ export default class OverviewStore {
   @autobind
   @action
   getNewTransaction() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/tx-count/new/${localStorage.defaultValue}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/txs/additional-count`,
       this.setNewTransaction,
       '', { 
         method: 'get',
@@ -247,7 +247,7 @@ export default class OverviewStore {
   @autobind
   @action
   getNewLedger() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/account-count/new/${localStorage.defaultValue}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/accounts/additional-count`,
       this.setNewLedger,
       '', { 
         method: 'get',

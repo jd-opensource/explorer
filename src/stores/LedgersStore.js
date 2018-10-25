@@ -17,7 +17,7 @@ export default class LedgersStore {
   @action
   getLedgerData(e) {
     console.log(e);
-    fetchData(`${G_WEB_DOMAIN}/ledgers/data-account/${localStorage.defaultValue}/${e}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/accounts/${e}`,
       this.setLedgerData,
       '', { method: 'get',}
     ).catch(error => {
@@ -37,10 +37,20 @@ export default class LedgersStore {
   @autobind
   @action
   getKeyData(e, f) {
+    let str = '';
+    e.map((item, key) => {
+      if(key != e.length - 1) {
+        str += `key=${item}&`;
+      } else {
+        str += `key=${item}`
+      }
+      
+    });
+    console.log(str);
     let formdata = new FormData();
     formdata.append('key', e); 
     console.log(formdata.get('key'));
-    fetchData(`${G_WEB_DOMAIN}/ledgers/data-entries/${localStorage.defaultValue}/${f}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/accounts/${f}`+`entries?${str}`,
       this.setKeyData, {formdata},
       { 
         method: 'post',
