@@ -169,7 +169,7 @@ export default class HistoryStore {
   @autobind
   @action
   getBlockHistoryData() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/blocks`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/blocks/${localStorage.defaultValue}`,
       this.setBlockHistoryData,
       '', { method: 'get',}
     ).catch(error => {
@@ -189,7 +189,7 @@ export default class HistoryStore {
   @autobind
   @action
   getBlockHeightData(e) {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/block/height/${e}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/block/height/${localStorage.defaultValue}/${e}`,
       this.setBlockHeightData,
       '', { method: 'get',}
     ).catch(error => {
@@ -210,7 +210,7 @@ export default class HistoryStore {
   @autobind
   @action
   getBlockHashData(e) {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/block/hash/${e}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/block/hash/${localStorage.defaultValue}/${e}`,
       this.setBlockHashData,
       '', { method: 'get',}
     ).catch(error => {
@@ -231,7 +231,7 @@ export default class HistoryStore {
   @autobind
   @action
   getTransactionHashData(e) {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/tx/${e}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/tx/${localStorage.defaultValue}/${e}`,
       this.setTransactionHashData,
       '', { method: 'get',}
     ).catch(error => {
@@ -265,7 +265,7 @@ export default class HistoryStore {
   @autobind
   @action
   getTransactionList() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/txs/height`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/txs/height/${localStorage.defaultValue}/123/456/5`,
       this.setTransactionList,
       '', { method: 'get',}
     ).catch(error => {

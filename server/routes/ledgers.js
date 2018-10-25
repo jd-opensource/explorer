@@ -107,7 +107,7 @@ router.get('', function(req, res) {
   });
 });
 
-router.get('/data-account/*', function(req, res) {
+router.get('/data-account/*/*', function(req, res) {
     res.type('json');
     let params = req.body,
       ret = {};
@@ -480,160 +480,9 @@ router.get('/contract-count/all/*', function(req, res) {
     "success": true
   });
 });
-// 账本信息
-router.get('/ledger', function(req, res) {
-  res.type('json');
-  let params = req.body,
-    ret = {};
 
-  const datas = _.times(100, function(i) {
-    let num = i + 1;
-
-    return {
-      test1: num + 100000,
-      test2: '测试' + num,
-      test4: _.random(10, 90) + '%',
-      test5: _.random(10, 90) + '%',
-      test6: _.random(10, 90) + '%',
-      test8: _.random(1, 10),
-      test9: _.random(1, 10),
-      test10: _.random(1, 10),
-      test11: _.random(1, 10),
-      test12: _.random(1, 10),
-      test14: _.random(10, 90) + '%',
-      test15: _.random(10, 90) + '%',
-      test16: _.random(1, 24),
-      test17: _.random(10, 90) + '%',
-      test18: _.random(1, 100000)
-    };
-  });
-
-  const pageIndex = params.currentPage,
-    pageSize = params.pageSize,
-    start = (pageIndex - 1) * pageSize,
-    end = pageIndex * pageSize,
-    data = datas.filter((obj, i) => {
-      if (i >= start && i < end) {
-        return true;
-      }
-    });
-
-  Object.assign({
-    "data": {
-        "adminInfo": {
-            "metadata": {
-                "participantsHash": {
-                    "value": "F4evU3YyKryMCBNsrPg7NwBz1NX"
-                },
-                "seed": "amQ=",
-                "setting": {
-                    "consensusSetting": {
-                        "hostSettingValue": "Z2V0SG9zdFNldHRpbmdWYWx1ZQ==",
-                        "systemSettingValue": "Z2V0U3lzdGVtU2V0dGluZ1ZhbHVl"
-                    },
-                    "cryptoSetting": {
-                        "autoVerifyHash": false,
-                        "hashAlgorithm": "SHA256"
-                    }
-                }
-            },
-            "participantCount": 1234
-        },
-        "hash": {
-            "value": "3uqhFboGY1M"
-        },
-        "latestBlock": {
-            "adminAccountHash": {
-                "value": "SpXTn"
-            },
-            "contractAccountSetHash": {
-                "value": "SpXTq"
-            },
-            "dataAccountSetHash": {
-                "value": "SpXTo"
-            },
-            "hash": {
-                "value": "fPcnPW1xx"
-            },
-            "height": 1000,
-            "previousHash": {
-                "value": "2y1mCD6"
-            },
-            "transactionSetHash": {
-                "value": "3vZUqf6yrKn"
-            },
-            "userAccountSetHash": {
-                "value": "SpXTp"
-            }
-        },
-        "latestBlockHash": {
-            "value": "4BoCfJESYPMpDBZVNgKN1j9vuD"
-        },
-        "latestBlockHeight": 26266,
-        "nextBlockEditor": {}
-    },
-    "success": true
-  });
-
-  res.send({
-    "data": {
-        "adminInfo": {
-            "metadata": {
-                "participantsHash": {
-                    "value": "F4evU3YyKryMCBNsrPg7NwBz1NX"
-                },
-                "seed": "amQ=",
-                "setting": {
-                    "consensusSetting": {
-                        "hostSettingValue": "Z2V0SG9zdFNldHRpbmdWYWx1ZQ==",
-                        "systemSettingValue": "Z2V0U3lzdGVtU2V0dGluZ1ZhbHVl"
-                    },
-                    "cryptoSetting": {
-                        "autoVerifyHash": false,
-                        "hashAlgorithm": "SHA256"
-                    }
-                }
-            },
-            "participantCount": 1234
-        },
-        "hash": {
-            "value": "3uqhFboGY1M"
-        },
-        "latestBlock": {
-            "adminAccountHash": {
-                "value": "SpXTn"
-            },
-            "contractAccountSetHash": {
-                "value": "SpXTq"
-            },
-            "dataAccountSetHash": {
-                "value": "SpXTo"
-            },
-            "hash": {
-                "value": "fPcnPW1xx"
-            },
-            "height": 1000,
-            "previousHash": {
-                "value": "2y1mCD6"
-            },
-            "transactionSetHash": {
-                "value": "3vZUqf6yrKn"
-            },
-            "userAccountSetHash": {
-                "value": "SpXTp"
-            }
-        },
-        "latestBlockHash": {
-            "value": "4BoCfJESYPMpDBZVNgKN1j9vuD"
-        },
-        "latestBlockHeight": 26266,
-        "nextBlockEditor": {}
-    },
-    "success": true
-  });
-});
 // 新增账户数量
-router.get('/account-count/new', function(req, res) {
+router.get('/account-count/new/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -681,7 +530,7 @@ router.get('/account-count/new', function(req, res) {
   });
 });
 // 新增交易数量
-router.get('/tx-count/new', function(req, res) {
+router.get('/tx-count/new/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -729,7 +578,7 @@ router.get('/tx-count/new', function(req, res) {
   });
 });
 // 成员列表
-router.get('/ledger/participants', function(req, res) {
+router.get('/ledger/participants/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -826,8 +675,160 @@ router.get('/ledger/participants', function(req, res) {
     "success": true
   });
 });
+// 账本信息
+router.get(`/ledger/*`, function(req, res) {
+    res.type('json');
+    let params = req.body,
+      ret = {};
+  
+    const datas = _.times(100, function(i) {
+      let num = i + 1;
+  
+      return {
+        test1: num + 100000,
+        test2: '测试' + num,
+        test4: _.random(10, 90) + '%',
+        test5: _.random(10, 90) + '%',
+        test6: _.random(10, 90) + '%',
+        test8: _.random(1, 10),
+        test9: _.random(1, 10),
+        test10: _.random(1, 10),
+        test11: _.random(1, 10),
+        test12: _.random(1, 10),
+        test14: _.random(10, 90) + '%',
+        test15: _.random(10, 90) + '%',
+        test16: _.random(1, 24),
+        test17: _.random(10, 90) + '%',
+        test18: _.random(1, 100000)
+      };
+    });
+  
+    const pageIndex = params.currentPage,
+      pageSize = params.pageSize,
+      start = (pageIndex - 1) * pageSize,
+      end = pageIndex * pageSize,
+      data = datas.filter((obj, i) => {
+        if (i >= start && i < end) {
+          return true;
+        }
+      });
+  
+    Object.assign({
+      "data": {
+          "adminInfo": {
+              "metadata": {
+                  "participantsHash": {
+                      "value": "F4evU3YyKryMCBNsrPg7NwBz1NX"
+                  },
+                  "seed": "amQ=",
+                  "setting": {
+                      "consensusSetting": {
+                          "hostSettingValue": "Z2V0SG9zdFNldHRpbmdWYWx1ZQ==",
+                          "systemSettingValue": "Z2V0U3lzdGVtU2V0dGluZ1ZhbHVl"
+                      },
+                      "cryptoSetting": {
+                          "autoVerifyHash": false,
+                          "hashAlgorithm": "SHA256"
+                      }
+                  }
+              },
+              "participantCount": 1234
+          },
+          "hash": {
+              "value": "3uqhFboGY1M"
+          },
+          "latestBlock": {
+              "adminAccountHash": {
+                  "value": "SpXTn"
+              },
+              "contractAccountSetHash": {
+                  "value": "SpXTq"
+              },
+              "dataAccountSetHash": {
+                  "value": "SpXTo"
+              },
+              "hash": {
+                  "value": "fPcnPW1xx"
+              },
+              "height": 1000,
+              "previousHash": {
+                  "value": "2y1mCD6"
+              },
+              "transactionSetHash": {
+                  "value": "3vZUqf6yrKn"
+              },
+              "userAccountSetHash": {
+                  "value": "SpXTp"
+              }
+          },
+          "latestBlockHash": {
+              "value": "4BoCfJESYPMpDBZVNgKN1j9vuD"
+          },
+          "latestBlockHeight": 26266,
+          "nextBlockEditor": {}
+      },
+      "success": true
+    });
+  
+    res.send({
+      "data": {
+          "adminInfo": {
+              "metadata": {
+                  "participantsHash": {
+                      "value": "F4evU3YyKryMCBNsrPg7NwBz1NX"
+                  },
+                  "seed": "amQ=",
+                  "setting": {
+                      "consensusSetting": {
+                          "hostSettingValue": "Z2V0SG9zdFNldHRpbmdWYWx1ZQ==",
+                          "systemSettingValue": "Z2V0U3lzdGVtU2V0dGluZ1ZhbHVl"
+                      },
+                      "cryptoSetting": {
+                          "autoVerifyHash": false,
+                          "hashAlgorithm": "SHA256"
+                      }
+                  }
+              },
+              "participantCount": 1234
+          },
+          "hash": {
+              "value": "3uqhFboGY1M"
+          },
+          "latestBlock": {
+              "adminAccountHash": {
+                  "value": "SpXTn"
+              },
+              "contractAccountSetHash": {
+                  "value": "SpXTq"
+              },
+              "dataAccountSetHash": {
+                  "value": "SpXTo"
+              },
+              "hash": {
+                  "value": "fPcnPW1xx"
+              },
+              "height": 1000,
+              "previousHash": {
+                  "value": "2y1mCD6"
+              },
+              "transactionSetHash": {
+                  "value": "3vZUqf6yrKn"
+              },
+              "userAccountSetHash": {
+                  "value": "SpXTp"
+              }
+          },
+          "latestBlockHash": {
+              "value": "4BoCfJESYPMpDBZVNgKN1j9vuD"
+          },
+          "latestBlockHeight": 26266,
+          "nextBlockEditor": {}
+      },
+      "success": true
+    });
+});
 // 区块列表
-router.get('/blocks', function(req, res) {
+router.get('/blocks/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -1093,7 +1094,7 @@ router.get('/blocks', function(req, res) {
   });
 });
 // 区块高度
-router.get('/block/height/*', function(req, res) {
+router.get('/block/height/*/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -1194,7 +1195,7 @@ router.get('/block/height/*', function(req, res) {
 });
 
 // 区块哈希
-router.get('/block/hash/*', function(req, res) {
+router.get('/block/hash/*/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -1295,7 +1296,7 @@ router.get('/block/hash/*', function(req, res) {
 });
 
 // 交易列表
-router.get('/txs/height', function(req, res) {
+router.get('/txs/height/*/*/*/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -1742,7 +1743,7 @@ router.get('/txs/height', function(req, res) {
 });
 
 // 交易哈希
-router.get('/tx/*', function(req, res) {
+router.get('/tx/*/*', function(req, res) {
     res.type('json');
     let params = req.body,
       ret = {};

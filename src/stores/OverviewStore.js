@@ -164,7 +164,7 @@ export default class OverviewStore {
   @autobind
   @action
   getUserList() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/ledger/participants`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/ledger/participants/${localStorage.defaultValue}`,
       this.setUserList,
       '', { 
         method: 'get',
@@ -184,6 +184,7 @@ export default class OverviewStore {
     let response = result && result.data ? result.data : [];
     this.algorithms = [];
     this.userTable = [...response];
+    console.log(response);
     response && response.map((item, key) => {
       this.algorithms.push(tranBase58(item['pubKey']['value']));
     });
@@ -193,7 +194,7 @@ export default class OverviewStore {
   @autobind
   @action
   getLedgerCurrent() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/ledger`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/ledger/${localStorage.defaultValue}`,
       this.setLedgerCurrent,
       '', { 
         method: 'get',
@@ -220,7 +221,7 @@ export default class OverviewStore {
   @autobind
   @action
   getNewTransaction() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/tx-count/new`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/tx-count/new/${localStorage.defaultValue}`,
       this.setNewTransaction,
       '', { 
         method: 'get',
@@ -246,7 +247,7 @@ export default class OverviewStore {
   @autobind
   @action
   getNewLedger() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/account-count/new`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/account-count/new/${localStorage.defaultValue}`,
       this.setNewLedger,
       '', { 
         method: 'get',

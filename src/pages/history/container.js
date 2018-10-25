@@ -119,7 +119,7 @@ class BlockHeight extends Component {
         return (
           <span 
             className = {`${styles.hash}`}
-            onClick = {() => {this.handleTransactionShow(text);}}
+            onClick = {() => {this.handleTransactionShow(text.value);}}
           >
             {record && record['hash'] ? record['hash']['value'] : ''}
           </span>
@@ -138,10 +138,10 @@ class BlockHeight extends Component {
   }
 
   // 点击交易哈希执行根据当前交易哈希查询交易内容
-  handleTransactionShow = () => {
+  handleTransactionShow = (text) => {
     const { store } = this.props;
     Promise.all([
-      store.getTransactionHashData()
+      store.getTransactionHashData(text)
     ]).then(
 
     ).catch((err) => {
