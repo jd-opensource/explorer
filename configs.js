@@ -38,7 +38,7 @@
     distName: 'app',
     resourcesName: 'res',
     // webDomain: 'http://projectName.jd.com',
-    webDomain: 'http://127.0.0.1',
+    webDomain: '',
     indexExtName: '.html',
     indexPath: './src/main/resources/pages',
     bs: {
