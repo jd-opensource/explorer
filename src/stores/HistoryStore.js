@@ -159,7 +159,12 @@ export default class HistoryStore {
   @observable ten = 0;
   @observable eleven = '';
   @observable twelve = '';
+  @observable len = 0; 
   @observable pubA = ''; // 公钥算法
+  @observable pubB = '';
+  @observable pubC = '';
+  @observable pubD = '';
+  @observable shows = [];
   // @autobind
   // @action
   // setTransactionData() {
@@ -196,19 +201,21 @@ export default class HistoryStore {
     let response = result && result.data ? result.data : [];
     this.showHistoryState = 1;
     this.blockHistoryData = [...response];
-    this.one = this.blockHistoryData[0].height || 0;
-    this.two = this.blockHistoryData[0].hash.value || '';
-    this.three = this.blockHistoryData[0].previousHash.value || '';
-    this.four = this.blockHistoryData[1].height || 0;
-    this.five = this.blockHistoryData[1].hash.value || '';
-    this.six = this.blockHistoryData[1].previousHash.value || '';
-    this.seven = this.blockHistoryData[2].height || 0;
-    this.eight = this.blockHistoryData[2].hash.value || '';
-    this.nine = this.blockHistoryData[2].previousHash.value || '';
-    this.ten = this.blockHistoryData[3].height || 0;
-    this.eleven = this.blockHistoryData[3].hash.value || '';
-    this.twelve = this.blockHistoryData[3].previousHash.value || '';
     console.log(this.blockHistoryData);
+    this.one = this.blockHistoryData[0] && this.blockHistoryData[0].height ? this.blockHistoryData[0].height : 0;
+    this.two = this.blockHistoryData[0] && this.blockHistoryData[0].hash.value ? this.blockHistoryData[0].hash.value : '';
+    this.three = this.blockHistoryData[0] && this.blockHistoryData[0].previousHash.value ? this.blockHistoryData[0].previousHash.value : '';
+    this.four = this.blockHistoryData[1] && this.blockHistoryData[1].height ? this.blockHistoryData[1].height : 0;
+    this.five = this.blockHistoryData[1] && this.blockHistoryData[1].hash.value ? this.blockHistoryData[1].hash.value : '';
+    this.six = this.blockHistoryData[1] && this.blockHistoryData[1].previousHash.value ? this.blockHistoryData[1].previousHash.value : '';
+    this.seven = this.blockHistoryData[2] && this.blockHistoryData[2].height ? this.blockHistoryData[2].height : 0;
+    this.eight = this.blockHistoryData[2] && this.blockHistoryData[2].hash.value ? this.blockHistoryData[2].hash.value : '';
+    this.nine = this.blockHistoryData[2] && this.blockHistoryData[2].previousHash.value ? this.blockHistoryData[2].previousHash.value : '';
+    this.ten = this.blockHistoryData[3] && this.blockHistoryData[3].height ? this.blockHistoryData[3].height : 0;
+    this.eleven = this.blockHistoryData[3] && this.blockHistoryData[3].hash.value ? this.blockHistoryData[3].hash.value : '';
+    this.twelve = this.blockHistoryData[3] && this.blockHistoryData[3].previousHash.value ? this.blockHistoryData[3].previousHash.value : '';
+    this.len = this.blockHistoryData.length;
+    console.log(this.blockHistoryData, this.len);
   }
 
   @autobind
@@ -276,15 +283,39 @@ export default class HistoryStore {
     let arr = this.transactionData.endpointSignatures ? [...this.transactionData.endpointSignatures] : [];
     arr.map((item, key) => {
       this.pubKeys.push(tranBase58(item['pubKey']['value']));
-      this.digests.push(tranBase58(item['digest']['value']));
+      // this.digests.push(tranBase58(item['digest']['value']));
     });
     let arr1 = this.transactionData.nodeSignatures ? [...this.transactionData.nodeSignatures] : [];
     arr1.map((item, key) => {
+      // console.log(item)
       this.pubKeysNode.push(tranBase58(item['pubKey']['value']));
-      this.digestsNode.push(tranBase58(item['digest']['value']));
+      // this.digestsNode.push(tranBase58(item['digest']['value']));
     });
-    console.log(this.pubKeysNode, this.digestsNode);
+    this.transactionData.transactionContent.operations[0] && this.transactionData.transactionContent.operations[0].writeSet.map((item, key) => {
+      item['show'] = false;
+    });
+    this.mapShow(this.transactionData.transactionContent.operations[0].writeSet);
     this.pubA = tranBase58(this.transactionData.transactionContent.operations[1].addressSignature.pubKey.value) || '';
+    this.pubB = tranBase58(this.transactionData.transactionContent.operations[3].accountID.pubKey.value) || '';
+    this.pubC = tranBase58(this.transactionData.transactionContent.operations[3].addressSignature.pubKey.value) || '';
+    this.pubD = tranBase58(this.transactionData.transactionContent.operations[4].userID.pubKey.value) || '';
+    console.log(this.pubA, this.pubB, this.pubC, this.pubD);
+  }
+
+  @autobind
+  @action
+  setShow(key, e) {
+    this.shows[key] = !e;
+  }
+
+  @autobind
+  @action
+  mapShow(arr) {
+    console.log(arr);
+    for(let i = 0; i < arr.length; i++) {
+      this.shows[i] = false;
+    }
+    return this.shows;
   }
 
   @autobind

@@ -42,11 +42,12 @@ const history = require('./routes/history');
 app.use('/history', history);
 app.use('/*/blocks', history);
 
-app.use('/*/block/height/*', history);
-app.use('/*/block/hash/*', history);
+app.use('/*/blocks/height/*', history);
+app.use('/*/blocks/hash/*', history);
 
-app.use('/*/tx/*', history);
+
 app.use('/txs/height/*/*/*/*', history);
+app.use('/*/txs/*', history);
 const contract = require('./routes/contract');
 app.use('/contract', contract);
 const ledgers = require('./routes/ledgers');

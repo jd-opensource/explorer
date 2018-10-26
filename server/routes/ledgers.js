@@ -607,7 +607,7 @@ router.get('/*/participants', function(req, res) {
 
 
 // 区块高度
-router.get('/*/block/height/*', function(req, res) {
+router.get('/*/blocks/height/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -708,7 +708,7 @@ router.get('/*/block/height/*', function(req, res) {
 });
 
 // 区块哈希
-router.get('/*/block/hash/*', function(req, res) {
+router.get('/*/blocks/hash/*', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -1256,7 +1256,7 @@ router.get('/txs/height/*/*/*/*', function(req, res) {
 });
 
 // 交易哈希
-router.get('/*/tx/*', function(req, res) {
+router.get('/*/txs/*', function(req, res) {
     res.type('json');
     let params = req.body,
       ret = {};
@@ -1354,6 +1354,14 @@ router.get('/*/tx/*', function(req, res) {
                     "accountAddress": "31xnWp5RYLThS47S6yfwqbUW3toZrw5Mm3t",
                     "writeSet": [{
                         "expectedVersion": 25,
+                        "key": "Name",
+                        "value": "QUFB"
+                    },{
+                        "expectedVersion": 26,
+                        "key": "Name",
+                        "value": "QUFB"
+                    },{
+                        "expectedVersion": 27,
                         "key": "Name",
                         "value": "QUFB"
                     }]
@@ -1471,6 +1479,14 @@ router.get('/*/tx/*', function(req, res) {
                     "accountAddress": "31xnWp5RYLThS47S6yfwqbUW3toZrw5Mm3t",
                     "writeSet": [{
                         "expectedVersion": 25,
+                        "key": "Name",
+                        "value": "QUFB"
+                    },{
+                        "expectedVersion": 26,
+                        "key": "Name",
+                        "value": "QUFB"
+                    },{
+                        "expectedVersion": 27,
                         "key": "Name",
                         "value": "QUFB"
                     }]
@@ -1940,7 +1956,7 @@ router.get('/*/blocks', function(req, res) {
               "userAccountSetHash": {
                   "value": "SpXTp"
               },
-              "height": 0
+              "height": 1
           },
           {
               "adminAccountHash": {
@@ -1967,7 +1983,7 @@ router.get('/*/blocks', function(req, res) {
               "userAccountSetHash": {
                   "value": "SpXTp"
               },
-              "height": 0
+              "height": 2
           },
           {
               "adminAccountHash": {
@@ -1994,7 +2010,7 @@ router.get('/*/blocks', function(req, res) {
               "userAccountSetHash": {
                   "value": "SpXTp"
               },
-              "height": 0
+              "height": 3
           }
       ],
       "success": true
@@ -2054,7 +2070,7 @@ router.get('/*/blocks', function(req, res) {
               "userAccountSetHash": {
                   "value": "SpXTp"
               },
-              "height": 0
+              "height": 1
           },
           {
               "adminAccountHash": {
@@ -2081,7 +2097,7 @@ router.get('/*/blocks', function(req, res) {
               "userAccountSetHash": {
                   "value": "SpXTp"
               },
-              "height": 0
+              "height": 2
           },
           {
               "adminAccountHash": {
@@ -2108,7 +2124,7 @@ router.get('/*/blocks', function(req, res) {
               "userAccountSetHash": {
                   "value": "SpXTp"
               },
-              "height": 0
+              "height": 3
           }
       ],
       "success": true

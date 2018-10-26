@@ -175,7 +175,7 @@ class TransactionHash extends Component {
   @observable showNode = false; // 是否显示节点签名列表, 默认隐藏
   @observable showTrans = true; // 是否显示交易内容, 默认显示
   @observable showValue = false; // 是否显示value与预期版本
-
+  @observable shows = [];
   // 控制终端签名显示隐藏
   handleEndpointShow = () => {
     this.showEndpoint = !this.showEndpoint;
@@ -192,12 +192,42 @@ class TransactionHash extends Component {
   }
 
   // 控制值显示隐藏
-  handleValueShow = () => {
-    this.showValue = !this.showValue;
+  handleValueShow = (key, e) => {
+    const { store } = this.props;
+    store.setShow(key, e);
+  }
+
+  keyItem = () => {
+    const { store } = this.props;
+    let arr = [...store.transactionData.transactionContent.operations[0].writeSet];
+    return [
+      store.transactionData.transactionContent.operations[0].writeSet.map((item, key) => (
+        <div className={`${styles.kv}`}>
+          <div class={`${styles.key}`}>
+            键 :&nbsp;&nbsp;&nbsp;
+            {item.key || ''}
+            <div 
+              className = {`${styles.arrow} ${store.shows[key] ? styles.arrowTop : styles.arrowBottom}`}
+              onClick={() => this.handleValueShow(key, store.shows[key])}
+            ></div>
+          </div>
+          <div className = {`${styles.value} ${store.shows[key] ? styles.show : styles.hide}`}>
+            <div><span>值 :</span>&nbsp;&nbsp;&nbsp;
+              {item.value || ''}
+            </div>
+            <div><span>预期版本 :</span>&nbsp;&nbsp;&nbsp;
+              {item.expectedVersion || ''}
+            </div>
+          </div>
+        </div>
+      ))
+    ]
   }
 
   render() {
+    const { store } = this.props;
     return tmpls.transactionHash(this.state, this.props, this, {
+      store,
       styles
     });
   }

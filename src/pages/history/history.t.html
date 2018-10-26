@@ -57,127 +57,316 @@
 <!-- 历史页面default -->
 <template name="blockHistory">
   <div class="{styles.historyContent}">
-    <#if {{store.blockHistoryData[0]}}>
-      <div class="{styles.stateContent}">
-        <div class="{styles.triangle}"></div>
-        <div class="{styles.circle}"></div>
-        <div class="{styles.line}"></div>
-        <table>
-          <tbody>
-            <tr>
-              <td class="{styles.conBold}">区块高度：</td>
-              <td class="{styles.conBold} {styles.conCursor}">
-                <span onClick={handleClickHeightOne}>{store.blockHistoryData[0].height || 0}</span>
-              </td>
-            </tr>
-            <tr>
-              <td>区块哈希：</td>
-              <td class="{styles.conCursor}">
-                <span onClick={handleClickHashTwo}>{store.blockHistoryData[0].hash.value || ''}</span>
-              </td>
-            </tr>
-            <tr class="{styles.noBorder}">
-              <td>前置区块哈希：</td>
-              <td class="{styles.conCursor}">
-                <span onClick={handleClickHashThree}>{store.blockHistoryData[0].previousHash.value || ''}</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </#if>
-    
-    <#if {{store.blockHistoryData[1]}}>
-      <div class="{styles.stateContent}">
-        <div class="{styles.triangle}"></div>
-        <div class="{styles.circle}"></div>
-        <div class="{styles.line}"></div>
-        <table>
-          <tbody>
-            <tr>
-              <td class="{styles.conBold}">区块高度：</td>
-              <td class="{styles.conBold} {styles.conCursor}">
-                <span onClick={handleClickHeightFour}>{store.blockHistoryData[1].height || 0}</span>
-              </td>
-            </tr>
-            <tr>
-              <td>区块哈希：</td>
-              <td class="{styles.conCursor}">
-                <span onClick={handleClickHashFive}>{store.blockHistoryData[1].hash.value || ''}</span>
-              </td>
-            </tr>
-            <tr class="{styles.noBorder}">
-              <td>前置区块哈希：</td>
-              <td class="{styles.conCursor}">
-                <span onClick={handleClickHashSix}>{store.blockHistoryData[1].previousHash.value || ''}</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <#if {{store.len == 1}}>
+      <#if {{store.blockHistoryData[0]}}>
+        <div class="{styles.stateContent}">
+          <div class="{styles.triangle}"></div>
+          <div class="{styles.circle}"></div>
+          <!-- <div class="{styles.line}"></div> -->
+          <table>
+            <tbody>
+              <tr>
+                <td class="{styles.conBold}">区块高度：</td>
+                <td class="{styles.conBold} {styles.conCursor}">
+                  <span onClick={handleClickHeightOne}>{store.blockHistoryData[0].height || 0}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashTwo}>{store.blockHistoryData[0].hash.value || ''}</span>
+                </td>
+              </tr>
+              <tr class="{styles.noBorder}">
+                <td>前置区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashThree}>{store.blockHistoryData[0].previousHash.value || ''}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </#if>
     </#if>
 
-    <#if {{store.blockHistoryData[2]}}>
-      <div class="{styles.stateContent}">
-        <div class="{styles.triangle}"></div>
-        <div class="{styles.circle}"></div>
-        <div class="{styles.lineBottom}"></div>
-        <table>
-          <tbody>
-            <tr>
-              <td class="{styles.conBold}">区块高度：</td>
-              <td class="{styles.conBold} {styles.conCursor}">
-                <span onClick={handleClickHeightSeven}>{store.blockHistoryData[2].height || 0}</span>
-              </td>
-            </tr>
-            <tr>
-              <td>区块哈希：</td>
-              <td class="{styles.conCursor}">
-                <span onClick={handleClickHashEight}>{store.blockHistoryData[2].hash.value || ''}</span>
-              </td>
-            </tr>
-            <tr class="{styles.noBorder}">
-              <td>前置区块哈希：</td>
-              <td class="{styles.conCursor}">
-                <span onClick={handleClickHashNine}>{store.blockHistoryData[2].previousHash.value || ''}</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <#if {{store.len == 2}}>
+      <#if {{store.blockHistoryData[1]}}>
+        <div class="{styles.stateContent}">
+          <div class="{styles.triangle}"></div>
+          <div class="{styles.circle}"></div>
+          <div class="{styles.line}"></div>
+          <table>
+            <tbody>
+              <tr>
+                <td class="{styles.conBold}">区块高度：</td>
+                <td class="{styles.conBold} {styles.conCursor}">
+                  <span onClick={handleClickHeightFour}>{store.blockHistoryData[1].height || 0}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashFive}>{store.blockHistoryData[1].hash.value || ''}</span>
+                </td>
+              </tr>
+              <tr class="{styles.noBorder}">
+                <td>前置区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashSix}>{store.blockHistoryData[1].previousHash.value || ''}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </#if>
+      <#if {{store.blockHistoryData[0]}}>
+        <div class="{styles.stateContent}">
+          <div class="{styles.triangle}"></div>
+          <div class="{styles.circle}"></div>
+          <!-- <div class="{styles.line}"></div> -->
+          <table>
+            <tbody>
+              <tr>
+                <td class="{styles.conBold}">区块高度：</td>
+                <td class="{styles.conBold} {styles.conCursor}">
+                  <span onClick={handleClickHeightOne}>{store.blockHistoryData[0].height || 0}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashTwo}>{store.blockHistoryData[0].hash.value || ''}</span>
+                </td>
+              </tr>
+              <tr class="{styles.noBorder}">
+                <td>前置区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashThree}>{store.blockHistoryData[0].previousHash.value || ''}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </#if>
+    </#if>
+
+    <#if {{store.len == 3}}>
+      <#if {{store.blockHistoryData[2]}}>
+        <div class="{styles.stateContent}">
+          <div class="{styles.triangle}"></div>
+          <div class="{styles.circle}"></div>
+          <!-- <div class="{styles.lineBottom}"></div> -->
+          <div class="{styles.line}"></div>
+          <table>
+            <tbody>
+              <tr>
+                <td class="{styles.conBold}">区块高度：</td>
+                <td class="{styles.conBold} {styles.conCursor}">
+                  <span onClick={handleClickHeightSeven}>{store.blockHistoryData[2].height || 0}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashEight}>{store.blockHistoryData[2].hash.value || ''}</span>
+                </td>
+              </tr>
+              <tr class="{styles.noBorder}">
+                <td>前置区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashNine}>{store.blockHistoryData[2].previousHash.value || ''}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </#if>
+      <#if {{store.blockHistoryData[1]}}>
+        <div class="{styles.stateContent}">
+          <div class="{styles.triangle}"></div>
+          <div class="{styles.circle}"></div>
+          <div class="{styles.line}"></div>
+          <table>
+            <tbody>
+              <tr>
+                <td class="{styles.conBold}">区块高度：</td>
+                <td class="{styles.conBold} {styles.conCursor}">
+                  <span onClick={handleClickHeightFour}>{store.blockHistoryData[1].height || 0}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashFive}>{store.blockHistoryData[1].hash.value || ''}</span>
+                </td>
+              </tr>
+              <tr class="{styles.noBorder}">
+                <td>前置区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashSix}>{store.blockHistoryData[1].previousHash.value || ''}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </#if>
+      <#if {{store.blockHistoryData[0]}}>
+        <div class="{styles.stateContent}">
+          <div class="{styles.triangle}"></div>
+          <div class="{styles.circle}"></div>
+          <!-- <div class="{styles.line}"></div> -->
+          <table>
+            <tbody>
+              <tr>
+                <td class="{styles.conBold}">区块高度：</td>
+                <td class="{styles.conBold} {styles.conCursor}">
+                  <span onClick={handleClickHeightOne}>{store.blockHistoryData[0].height || 0}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashTwo}>{store.blockHistoryData[0].hash.value || ''}</span>
+                </td>
+              </tr>
+              <tr class="{styles.noBorder}">
+                <td>前置区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashThree}>{store.blockHistoryData[0].previousHash.value || ''}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </#if>
     </#if>
     
-    <#if {{store.blockHistoryData[3]}}>
-      <div class="{styles.bgGroup}">
-      </div>
+    <#if {{store.len == 4}}>
+      <#if {{store.blockHistoryData[3]}}>
+        </div>
+          <div class="{styles.stateContent}">
+          <div class="{styles.triangle}"></div>
+          <div class="{styles.circle}"></div>
+          <!-- <div class="{styles.lineBottom}"></div> -->
+          <div class="{styles.line}"></div>
+          <table>
+            <tbody>
+              <tr>
+                <td class="{styles.conBold}">区块高度：</td>
+                <td class="{styles.conBold} {styles.conCursor}">
+                  <span onClick={handleClickHeightTen}>{store.blockHistoryData[3].height || 0}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashEleven}>{store.blockHistoryData[3].hash.value || ''}</span>
+                </td>
+              </tr>
+              <tr class="{styles.noBorder}">
+                <td>前置区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashTwelve}>{store.blockHistoryData[3].previousHash.value || ''}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </#if>
+      <#if {{store.blockHistoryData[2]}}>
         <div class="{styles.stateContent}">
-        <div class="{styles.triangle}"></div>
-        <div class="{styles.circle}"></div>
-        <!-- <div class="{styles.line}"></div> -->
-        <table>
-          <tbody>
-            <tr>
-              <td class="{styles.conBold}">区块高度：</td>
-              <td class="{styles.conBold} {styles.conCursor}">
-                <span onClick={handleClickHeightTen}>{store.blockHistoryData[3].height || 0}</span>
-              </td>
-            </tr>
-            <tr>
-              <td>区块哈希：</td>
-              <td class="{styles.conCursor}">
-                <span onClick={handleClickHashEleven}>{store.blockHistoryData[3].hash.value || ''}</span>
-              </td>
-            </tr>
-            <tr class="{styles.noBorder}">
-              <td>前置区块哈希：</td>
-              <td class="{styles.conCursor}">
-                <span onClick={handleClickHashTwelve}>{store.blockHistoryData[3].previousHash.value || ''}</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          <div class="{styles.triangle}"></div>
+          <div class="{styles.circle}"></div>
+          <!-- <div class="{styles.lineBottom}"></div> -->
+          <div class="{styles.line}"></div>
+          <table>
+            <tbody>
+              <tr>
+                <td class="{styles.conBold}">区块高度：</td>
+                <td class="{styles.conBold} {styles.conCursor}">
+                  <span onClick={handleClickHeightSeven}>{store.blockHistoryData[2].height || 0}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashEight}>{store.blockHistoryData[2].hash.value || ''}</span>
+                </td>
+              </tr>
+              <tr class="{styles.noBorder}">
+                <td>前置区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashNine}>{store.blockHistoryData[2].previousHash.value || ''}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </#if>
+      <#if {{store.blockHistoryData[1]}}>
+        <div class="{styles.stateContent}">
+          <div class="{styles.triangle}"></div>
+          <div class="{styles.circle}"></div>
+          <div class="{styles.lineBottom}"></div>
+          <table>
+            <tbody>
+              <tr>
+                <td class="{styles.conBold}">区块高度：</td>
+                <td class="{styles.conBold} {styles.conCursor}">
+                  <span onClick={handleClickHeightFour}>{store.blockHistoryData[1].height || 0}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashFive}>{store.blockHistoryData[1].hash.value || ''}</span>
+                </td>
+              </tr>
+              <tr class="{styles.noBorder}">
+                <td>前置区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashSix}>{store.blockHistoryData[1].previousHash.value || ''}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </#if>
+      <#if {{store.blockHistoryData[0]}}>
+        <div class="{styles.bgGroup}"></div>
+        <div class="{styles.stateContent}">
+          <div class="{styles.triangle}"></div>
+          <div class="{styles.circle}"></div>
+          <!-- <div class="{styles.line}"></div> -->
+          <table>
+            <tbody>
+              <tr>
+                <td class="{styles.conBold}">区块高度：</td>
+                <td class="{styles.conBold} {styles.conCursor}">
+                  <span onClick={handleClickHeightOne}>{store.blockHistoryData[0].height || 0}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashTwo}>{store.blockHistoryData[0].hash.value || ''}</span>
+                </td>
+              </tr>
+              <tr class="{styles.noBorder}">
+                <td>前置区块哈希：</td>
+                <td class="{styles.conCursor}">
+                  <span onClick={handleClickHashThree}>{store.blockHistoryData[0].previousHash.value || ''}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </#if>
     </#if>
+
+    
+    
+
     
 
     
@@ -345,11 +534,11 @@
                   <tbody>
                     <tr>
                       <td>签名算法 :</td>
-                      <td>{store.digests[@index]}</td>
+                      <td>{@item['digest']['algorithm']}</td>
                     </tr>
                     <tr>
                       <td>签名数据 :</td>
-                      <td>{@item['digest']['value'] || ''}</td>
+                      <td>{@item['digest']['rawDigest'] || ''}</td>
                     </tr>
                     <tr>
                       <td>公钥算法 :</td>
@@ -384,15 +573,15 @@
                   <tbody>
                     <tr>
                       <td>签名算法 :</td>
-                      <td>{store.digestsNode[@index]}</td>
+                      <td>{@item['digest']['algorithm'] || ''}</td>
                     </tr>
                     <tr>
                       <td>签名数据 :</td>
-                      <td>{@item['digest']['value'] || ''}</td>
+                      <td>{@item['digest']['rawDigest'] || ''}</td>
                     </tr>
                     <tr>
                       <td>公钥算法 :</td>
-                      <td>{store.pubKeysNode[@index]}</td>
+                      <td>{store.pubKeysNode[@index] || ''}</td>
                     </tr>
                     <tr>
                       <td>公钥数据 :</td>
@@ -432,42 +621,9 @@
                 </div>
                 <div class="{styles.address}">
                   <span class="{styles.ledgerAddress}">账户地址 :&nbsp;&nbsp;</span>
-                  <!-- EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty -->
                   {store.transactionData.transactionContent.operations[0].accountAddress || ''}
                 </div>
-                <div class="{styles.kv}">
-                  <div class="{styles.key}">
-                    键 :&nbsp;&nbsp;&nbsp;
-                    <!-- UPcaZ1JRCehRwvuNS8Ty -->
-                    {store.transactionData.transactionContent.operations[0].writeSet[0].key || ''}
-                    <div 
-                      class="{styles.arrow} {showValue ? (styles.arrowTop, styles.arrowBottom)}"
-                      onClick={handleValueShow}
-                    ></div>
-                  </div>
-                  <div class="{styles.value} {showValue ? (styles.show, styles.hide)}">
-                    <div><span>值 :</span>&nbsp;&nbsp;&nbsp;
-                      <!-- xUPcaZ1JRCehR -->
-                      {store.transactionData.transactionContent.operations[0].writeSet[0].value || ''}
-                    </div>
-                    <div><span>预期版本 :</span>&nbsp;&nbsp;&nbsp;
-                      <!-- v2 -->
-                      {store.transactionData.transactionContent.operations[0].writeSet[0].expectedVersion || ''}
-                    </div>
-                  </div>
-                </div>
-                <!-- <div class="{styles.kv}">
-                  <div class="{styles.key}">
-                    键 :&nbsp;&nbsp;&nbsp;UPcaZ1JRCehRwvuNS8Ty
-                    <div class="{styles.arrow} {styles.arrowBottom}"></div>
-                  </div>
-                </div>
-                <div class="{styles.kv}">
-                  <div class="{styles.key}">
-                    键 :&nbsp;&nbsp;&nbsp;UPcaZ1JRCehRwvuNS8Ty
-                    <div class="{styles.arrow} {styles.arrowBottom}"></div>
-                  </div>
-                </div> -->
+                {keyItem()}
               </div>
 
               <div class="{styles.optionTitle}">
@@ -491,7 +647,7 @@
                     </tr>
                     <tr>
                       <td>公钥算法 :</td>
-                      <td>{store.pubA || 'ECDSA'}</td>
+                      <td>{store.pubA || ''}</td>
                     </tr>
                     <tr>
                       <td>公钥数据 :</td>
@@ -500,10 +656,10 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>合约事件操作 :</td>
-                      <td>
+                      <td style="font-weight: bold; color: #000">合约事件操作</td>
+                      <!-- <td>
                         EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty
-                      </td>
+                      </td> -->
                     </tr>
                     <tr>
                       <td>args :</td>
@@ -525,6 +681,33 @@
                 </table>
               </div>
 
+              <!-- <div class="{styles.optionTitle}">
+                合约事件操作
+              </div>
+
+              <div class="{styles.dataWrite}">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>参数 :</td>
+                      <td>
+                        {store.transactionData.transactionContent.operations[2].args || ''}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>合约地址 :</td>
+                      <td>
+                        {store.transactionData.transactionContent.operations[2].contractAddress || ''}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>事件 :</td>
+                      <td>{store.transactionData.transactionContent.operations[2].event || ''}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div> -->
+
               <div class="{styles.optionTitle}">
                 数据账户注册
               </div>
@@ -541,12 +724,12 @@
                     <tr>
                       <td>账户公钥算法 :</td>
                       <td>
-                        ECDSA
+                        {store.pubB || ''}
                       </td>
                     </tr>
                     <tr>
                       <td>账户公钥数据 :</td>
-                      <td>{store.transactionData.transactionContent.operations[3].pubKey.value || ''}</td>
+                      <td>{store.transactionData.transactionContent.operations[3].accountID.pubKey.value || ''}</td>
                     </tr>
                     <tr>
                       <td>签名算法 :</td>
@@ -558,16 +741,45 @@
                     </tr>
                     <tr>
                       <td>签名公钥算法 :</td>
-                      <td>ECDSA</td>
+                      <td>{store.pubC || ''}</td>
                     </tr>
                     <tr>
                       <td>签名公钥数据 :</td>
                       <td>{store.transactionData.transactionContent.operations[3].addressSignature.pubKey.value || ''}</td>
                     </tr>
                     <tr>
-                      <td>用户信息 :</td>
-                      <td>{store.transactionData.transactionContent.operations[4].userID.address || ''}</td>
+                      <td style="font-weight: bold; color: #000">用户信息 :</td>
+                      <td></td>
                     </tr>
+                    <tr>
+                      <td>用户地址 :</td>
+                      <td>
+                        {store.transactionData.transactionContent.operations[4].userID.address || ''}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>用户公钥算法 :</td>
+                      <td>
+                        {store.pubD || ''}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>用户公钥数据 :</td>
+                      <td>
+                        {store.transactionData.transactionContent.operations[4].userID.pubKey.value || ''}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- <div class="{styles.optionTitle}">
+                用户数据
+              </div>
+
+              <div class="{styles.dataWrite}">
+                <table>
+                  <tbody>
                     <tr>
                       <td>用户地址 :</td>
                       <td>EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</td>
@@ -586,7 +798,7 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
