@@ -152,7 +152,7 @@ class DataTable extends Component {
     let tableZero = store.userTable[`${zero}`] ? this.tableDataState(zero) : null;
     let tableOne = store.userTable[`${one}`] ? this.tableDataState(one) : null;
     let tableTwo = store.userTable[`${two}`] ? this.tableDataState(two) : null;
-    let tableThree = store.userTable[`${three}`] ? this.tableDataState(one) : null;
+    let tableThree = store.userTable[`${three}`] ? this.tableDataState(three) : null;
     let tableNull = this.dataNull();
     let tableNullO = this.dataNullO();
     // if (store.userTable[`${zero}`]) {
