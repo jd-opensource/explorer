@@ -40,7 +40,7 @@ const user = require('./routes/user');
 app.use('/user', user);
 const history = require('./routes/history');
 app.use('/history', history);
-app.use('/blocks/*', history);
+app.use('/*/blocks', history);
 
 app.use('/*/block/height/*', history);
 app.use('/*/block/hash/*', history);

@@ -182,7 +182,7 @@ export default class HistoryStore {
   @autobind
   @action
   getBlockHistoryData() {
-    fetchData(`${G_WEB_DOMAIN}/ledgers/blocks/${localStorage.defaultValue}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/blocks`,
       this.setBlockHistoryData,
       '', { method: 'get',}
     ).catch(error => {
