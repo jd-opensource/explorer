@@ -40,9 +40,9 @@ export default class LedgersStore {
     let str = '';
     e.map((item, key) => {
       if(key != e.length - 1) {
-        str += `key=${item}&`;
+        str += `keys=${item}&`;
       } else {
-        str += `key=${item}`
+        str += `keys=${item}`;
       }
       
     });

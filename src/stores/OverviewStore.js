@@ -25,6 +25,7 @@ export default class OverviewStore {
   @observable count = 0;
   @observable tableData = [];
   @observable __HOST = 'http://localhost:8000/';
+  @observable errorMessage = ''; // 错误信息
 
   @autobind
   @action
@@ -181,13 +182,19 @@ export default class OverviewStore {
   @autobind
   @action
   setUserList(result) {
-    let response = result && result.data ? result.data : [];
-    this.algorithms = [];
-    this.userTable = [...response];
-    console.log(response);
-    response && response.map((item, key) => {
-      this.algorithms.push(tranBase58(item['pubKey']['value']));
-    });
+    if (result.success) {
+      let response = result && result.data ? result.data : [];
+      this.algorithms = [];
+      this.userTable = [...response];
+      console.log(response);
+      response && response.map((item, key) => {
+        this.algorithms.push(tranBase58(item['pubKey']['value']));
+      });
+    } else {
+      let error = result && result.error ? result.error : {};
+      this.errorMessage = error && error.errorMessage ? error.errorMessage : '';
+    }
+    
   }
 
   // 获取当前账本信息

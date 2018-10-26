@@ -128,13 +128,16 @@ class DataTable extends Component {
     );
   }
 
-  dataNull = () => (
-    <div style={{'width': '100%', 'height':'474px', 'display': 'flex', 'justifyContent':'center', 'alignItems': 'center'}}>
-      <div>
-        暂无数据！！
+  dataNull = () => {
+    const { store } = this.props;
+    return (
+      <div style={{'width': '100%', 'height':'474px', 'display': 'flex', 'justifyContent':'center', 'alignItems': 'center'}}>
+        <div>
+          {store.errorMessage ? store.errorMessage : '暂无数据!!'}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 
   dataNullO = () => (
     <div style={{'width': '100%', 'height':'237px'}}>

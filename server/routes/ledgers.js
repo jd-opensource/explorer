@@ -541,66 +541,69 @@ router.get('/*/participants', function(req, res) {
       }
     });
 
-  Object.assign({
-    "data": [
-        {
-            "hostAddress": {
-                "host": "172.62.35.230",
-                "port": 6666,
-                "secure": false
+  Object.assign(
+      {
+        "data": [
+            {
+                "consensusAddress": {
+                    "host": "172.62.35.230",
+                    "port": 6666,
+                    "secure": false
+                },
+                "pubKey": {
+                    "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+                },
+                "id": 0,
+                "name": "jd-zhangsan"
             },
-            "pubKey": {
-                "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
-            },
-            "id": 0,
-            "name": "jd-zhangsan"
-        },
-        {
-            "hostAddress": {
-                "host": "172.62.35.230",
-                "port": 6666,
-                "secure": false
-            },
-            "pubKey": {
-                "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
-            },
-            "id": 1,
-            "name": "jd-lisi"
-        }
-    ],
-    "success": true
-  });
+            {
+                "consensusAddress": {
+                    "host": "172.62.35.230",
+                    "port": 6666,
+                    "secure": false
+                },
+                "pubKey": {
+                    "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+                },
+                "id": 1,
+                "name": "jd-lisi"
+            }
+        ],
+        "success": true
+    }
+    );
 
-  res.send({
-    "data": [
-        {
-            "hostAddress": {
-                "host": "172.62.35.230",
-                "port": 6666,
-                "secure": false
+  res.send(
+    {
+        "data": [
+            {
+                "consensusAddress": {
+                    "host": "172.62.35.230",
+                    "port": 6666,
+                    "secure": false
+                },
+                "pubKey": {
+                    "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+                },
+                "id": 0,
+                "name": "jd-zhangsan"
             },
-            "pubKey": {
-                "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
-            },
-            "id": 0,
-            "name": "jd-zhangsan"
-        },
-        {
-            "hostAddress": {
-                "host": "172.62.35.230",
-                "port": 6666,
-                "secure": false
-            },
-            "pubKey": {
-                "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
-            },
-            "id": 1,
-            "name": "jd-lisi"
-        }
-    ],
-    "success": true
-  });
-});
+            {
+                "consensusAddress": {
+                    "host": "172.62.35.230",
+                    "port": 6666,
+                    "secure": false
+                },
+                "pubKey": {
+                    "value": "UUi8Ku8aypHYnNkJRuFnkEYSuXT"
+                },
+                "id": 1,
+                "name": "jd-lisi"
+            }
+        ],
+        "success": true
+    }
+);});
 
 
 // 区块高度
