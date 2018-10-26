@@ -49,7 +49,7 @@
                       <p>版本号&nbsp;:&nbsp;{{version}}</p>
                       <p>值&nbsp;:&nbsp;</p>
                       <ant-TextArea class="{styles.keyText}" value={{value}}/>
-                      <#if {{@item.value != ''}}>
+                      <#if {{@item.value != '' && version != -1}}>
                         <p>查看方式&nbsp;:&nbsp;
                           {selectItem()}
                         </p>

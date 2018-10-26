@@ -26,12 +26,14 @@ export default class LedgersStore {
   }
 
   setLedgerData = (result) => {
-    let response = result && result.data ? result.data : {};
-    this.showKeyList = 1;
-    this.ledgerData = {...response};
-    this.algorithm = tranBase58(this.ledgerData['pubKey']['value']);
-    this.ledgerValue = localStorage.defaultValue;
-    console.log(this.ledgerValue);
+    if (result.success) {
+      let response = result && result.data ? result.data : {};
+      this.showKeyList = 1;
+      this.ledgerData = {...response};
+      this.algorithm = tranBase58(this.ledgerData['pubKey']['value']);
+      this.ledgerValue = localStorage.defaultValue;
+      console.log(this.ledgerValue);
+    }
   }
 
   @autobind
