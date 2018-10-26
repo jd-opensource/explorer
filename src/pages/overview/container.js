@@ -105,7 +105,7 @@ class DataTable extends Component {
               <span className={`${styles.val}`}>
                 {store.userTable && 
                   store.userTable[`${num}`] && 
-                    `${store.userTable[`${num}`]['consensusAddress']['host']}:${store.userTable[`${num}`]['consensus']['port']}` 
+                    `${store.userTable[`${num}`]['consensusAddress']['host']}:${store.userTable[`${num}`]['consensusAddress']['port']}` 
                       || ''
                 }
               </span>
