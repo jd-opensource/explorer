@@ -181,8 +181,6 @@ class TransactionHash extends Component {
     this.showEndpoint = !this.showEndpoint;
   }
 
-  
-
   // 控制节点签名显示隐藏
   handleNodeShow = () => {
     this.showNode = !this.showNode;
