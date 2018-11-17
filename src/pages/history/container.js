@@ -121,7 +121,7 @@ class BlockHeight extends Component {
             className = {`${styles.hash}`}
             onClick = {() => {this.handleTransactionShow(text.value);}}
           >
-            {record && record['hash'] ? record['hash']['value'] : ''}
+            {record && record['transactionContent'] && record['transactionContent']['hash'] && record['transactionContent']['hash']['value'] ? record['transactionContent']['hash']['value'] : ''}
           </span>
         )
       }
