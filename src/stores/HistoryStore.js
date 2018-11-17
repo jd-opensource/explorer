@@ -204,16 +204,16 @@ export default class HistoryStore {
     console.log(this.blockHistoryData);
     this.one = this.blockHistoryData[0] && this.blockHistoryData[0].height ? this.blockHistoryData[0].height : 0;
     this.two = this.blockHistoryData[0] && this.blockHistoryData[0].hash.value ? this.blockHistoryData[0].hash.value : '';
-    this.three = this.blockHistoryData[0] && this.blockHistoryData[0].previousHash.value ? this.blockHistoryData[0].previousHash.value : '';
+    this.three = this.blockHistoryData[0] && this.blockHistoryData[0].previousHash.value ? this.blockHistoryData[0].previousHash.value || '' : '';
     this.four = this.blockHistoryData[1] && this.blockHistoryData[1].height ? this.blockHistoryData[1].height : 0;
     this.five = this.blockHistoryData[1] && this.blockHistoryData[1].hash.value ? this.blockHistoryData[1].hash.value : '';
-    this.six = this.blockHistoryData[1] && this.blockHistoryData[1].previousHash.value ? this.blockHistoryData[1].previousHash.value : '';
+    this.six = this.blockHistoryData[1] && this.blockHistoryData[1].previousHash.value ? this.blockHistoryData[1].previousHash.value || '' : '';
     this.seven = this.blockHistoryData[2] && this.blockHistoryData[2].height ? this.blockHistoryData[2].height : 0;
     this.eight = this.blockHistoryData[2] && this.blockHistoryData[2].hash.value ? this.blockHistoryData[2].hash.value : '';
-    this.nine = this.blockHistoryData[2] && this.blockHistoryData[2].previousHash.value ? this.blockHistoryData[2].previousHash.value : '';
+    this.nine = this.blockHistoryData[2] && this.blockHistoryData[2].previousHash.value ? this.blockHistoryData[2].previousHash.value || '' : '';
     this.ten = this.blockHistoryData[3] && this.blockHistoryData[3].height ? this.blockHistoryData[3].height : 0;
     this.eleven = this.blockHistoryData[3] && this.blockHistoryData[3].hash.value ? this.blockHistoryData[3].hash.value : '';
-    this.twelve = this.blockHistoryData[3] && this.blockHistoryData[3].previousHash.value ? this.blockHistoryData[3].previousHash.value : '';
+    this.twelve = this.blockHistoryData[3] && this.blockHistoryData[3].previousHash.value ? this.blockHistoryData[3].previousHash.value || '' : '';
     this.len = this.blockHistoryData.length;
     console.log(this.blockHistoryData, this.len);
   }
