@@ -52,7 +52,7 @@ export default class LedgersStore {
     let formdata = new FormData();
     formdata.append('key', e); 
     console.log(formdata.get('key'));
-    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/accounts/${f}`+`entries?${str}`,
+    fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/accounts/${f}/entries?${str}`,
       this.setKeyData, {formdata},
       { 
         method: 'post',
