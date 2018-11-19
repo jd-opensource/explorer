@@ -116,6 +116,7 @@ class BlockHeight extends Component {
       dataIndex: 'hash',
       width: '90%',
       render: (text, record) => {
+        console.log(record);
         return (
           <span 
             className = {`${styles.hash}`}
@@ -199,9 +200,7 @@ class TransactionHash extends Component {
 
   keyItem = () => {
     const { store } = this.props;
-    let arr = store.transactionData && store.transactionData.transactionContent 
-      && store.transactionData.transactionContent.operations && store.transactionData.transactionContent.operations.lendth != 0 
-      ? [...store.transactionData.transactionContent.operations[0].writeSet] : [];
+    let arr = store.writes && store.writes.writeSet;
     return [
       arr && arr.length != 0 && arr.map((item, key) => (
         <div className={`${styles.kv}`}>

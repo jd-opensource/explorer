@@ -612,74 +612,103 @@
                 {store.transactionData.transactionContent.ledgerHash.value || ''}
               </div>
               <!-- 待确认 -->
-              <div class="{styles.optionTitle}">
-                数据写入
-              </div>
-              <div class="{styles.dataWrite}">
-                <div class="{styles.writes}">
-                  写集
+              <#if {{JSON.stringify(store.writes) != '{}'}}>
+                <div class="{styles.optionTitle}">
+                  数据写入
                 </div>
-                <div class="{styles.address}">
-                  <span class="{styles.ledgerAddress}">账户地址 :&nbsp;&nbsp;</span>
-                  {store.transactionData.transactionContent.operations[0].accountAddress || ''}
+                <div class="{styles.dataWrite}">
+                  <div class="{styles.writes}">
+                    写集
+                  </div>
+                  <div class="{styles.address}">
+                    <span class="{styles.ledgerAddress}">账户地址 :&nbsp;&nbsp;</span>
+                    {store.writes.accountAddress || ''}
+                  </div>
+                  {keyItem()}
                 </div>
-                {keyItem()}
-              </div>
+              </#if>
+              
+              <#if {{JSON.stringify(store.contracts) != '{}'}}>
+                <div class="{styles.optionTitle}">
+                  合约发布
+                </div>
+                <div class="{styles.dataWrite}">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>合约地址 :</td>
+                        <td>
+                          {store.contracts.contractID.address || ''}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>合约公钥算法 :</td>
+                        <td>
+                          {store.pubE || ''}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>合约公钥数据 :</td>
+                        <td>
+                          {store.contracts.contractID.pubKey.value || ''}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>链码 :</td>
+                        <td>
+                          {store.contracts.chainCode || ''}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>签名算法 :</td>
+                        <td>
+                          {store.contracts.addressSignature.digest.algorithm || ''}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>签名数据 :</td>
+                        <td>
+                          {store.contracts.addressSignature.digest.rawDigest || ''}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>公钥算法 :</td>
+                        <td>{store.pubA || ''}</td>
+                      </tr>
+                      <tr>
+                        <td>公钥数据 :</td>
+                        <td>
+                          {store.contracts.addressSignature.pubKey.value || ''}
+                        </td>
+                      </tr>
+                      <#if {{JSON.stringify(store.events) != '{}'}}>
+                        <tr>
+                          <td style="font-weight: bold; color: #000">合约事件操作</td>
+                        </tr>
+                        <tr>
+                          <td>args :</td>
+                          <td>
+                            {store.events.args || ''}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>合约地址 :</td>
+                          <td>
+                            {store.events.contractAddress || ''}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>事件 :</td>
+                          <td>{store.events.event || ''}</td>
+                        </tr>
+                      </#if>
+                    </tbody>
+                  </table>
+                </div>
+              </#if>
+              
 
-              <div class="{styles.optionTitle}">
-                合约发布
-              </div>
-
-              <div class="{styles.dataWrite}">
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>签名算法 :</td>
-                      <td>
-                        {store.transactionData.transactionContent.operations[1].addressSignature.digest.algorithm || ''}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>签名数据 :</td>
-                      <td>
-                        {store.transactionData.transactionContent.operations[1].addressSignature.digest.rawDigest || ''}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>公钥算法 :</td>
-                      <td>{store.pubA || ''}</td>
-                    </tr>
-                    <tr>
-                      <td>公钥数据 :</td>
-                      <td>
-                        {store.transactionData.transactionContent.operations[1].addressSignature.pubKey.value || ''}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="font-weight: bold; color: #000">合约事件操作</td>
-                      <!-- <td>
-                        EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty
-                      </td> -->
-                    </tr>
-                    <tr>
-                      <td>args :</td>
-                      <td>
-                        {store.transactionData.transactionContent.operations[2].args || ''}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>合约地址 :</td>
-                      <td>
-                        {store.transactionData.transactionContent.operations[2].contractAddress || ''}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>事件 :</td>
-                      <td>{store.transactionData.transactionContent.operations[2].event || ''}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              
 
               <!-- <div class="{styles.optionTitle}">
                 合约事件操作
@@ -707,98 +736,103 @@
                   </tbody>
                 </table>
               </div> -->
+              <#if {{store.accounts}}>
+                <div class="{styles.optionTitle}">
+                  数据账户注册
+                </div>
+                <div class="{styles.dataWrite}">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>账户地址 :</td>
+                        <td>
+                          {store.accounts.accountID.address || ''}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>账户公钥算法 :</td>
+                        <td>
+                          {store.pubB || ''}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>账户公钥数据 :</td>
+                        <td>{store.accounts.accountID.pubKey.value || ''}</td>
+                      </tr>
+                      <tr>
+                        <td>签名算法 :</td>
+                        <td>{store.accounts.addressSignature.digest.algorithm || ''}</td>
+                      </tr>
+                      <tr>
+                        <td>签名数据 :</td>
+                        <td>{store.accounts.addressSignature.digest.rawDigest || ''}</td>
+                      </tr>
+                      <tr>
+                        <td>签名公钥算法 :</td>
+                        <td>{store.pubC || ''}</td>
+                      </tr>
+                      <tr>
+                        <td>签名公钥数据 :</td>
+                        <td>{store.accounts.addressSignature.pubKey.value || ''}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </#if>
 
-              <div class="{styles.optionTitle}">
-                数据账户注册
-              </div>
-
-              <div class="{styles.dataWrite}">
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>账户地址 :</td>
-                      <td>
-                        {store.transactionData.transactionContent.operations[3].accountID.address || ''}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>账户公钥算法 :</td>
-                      <td>
-                        {store.pubB || ''}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>账户公钥数据 :</td>
-                      <td>{store.transactionData.transactionContent.operations[3].accountID.pubKey.value || ''}</td>
-                    </tr>
-                    <tr>
-                      <td>签名算法 :</td>
-                      <td>{store.transactionData.transactionContent.operations[3].addressSignature.digest.algorithm || ''}</td>
-                    </tr>
-                    <tr>
-                      <td>签名数据 :</td>
-                      <td>{store.transactionData.transactionContent.operations[3].addressSignature.digest.rawDigest || ''}</td>
-                    </tr>
-                    <tr>
-                      <td>签名公钥算法 :</td>
-                      <td>{store.pubC || ''}</td>
-                    </tr>
-                    <tr>
-                      <td>签名公钥数据 :</td>
-                      <td>{store.transactionData.transactionContent.operations[3].addressSignature.pubKey.value || ''}</td>
-                    </tr>
-                    <tr>
-                      <td style="font-weight: bold; color: #000">用户信息 :</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>用户地址 :</td>
-                      <td>
-                        {store.transactionData.transactionContent.operations[4].userID.address || ''}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>用户公钥算法 :</td>
-                      <td>
-                        {store.pubD || ''}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>用户公钥数据 :</td>
-                      <td>
-                        {store.transactionData.transactionContent.operations[4].userID.pubKey.value || ''}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <!-- <div class="{styles.optionTitle}">
-                用户数据
-              </div>
-
-              <div class="{styles.dataWrite}">
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>用户地址 :</td>
-                      <td>EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</td>
-                    </tr>
-                    <tr>
-                      <td>用户信息 :</td>
-                      <td>v1.0</td>
-                    </tr>
-                    <tr>
-                      <td>用户公钥算法 :</td>
-                      <td>UPcaZ1JRCehRwvuNS8Ty</td>
-                    </tr>
-                    <tr>
-                      <td>用户公钥数据 :</td>
-                      <td>xUPcaZ1JRCehR</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div> -->
+              <#if {{store.users}}>
+                <div class="{styles.optionTitle}">
+                  用户信息
+                </div>
+                <div class="{styles.dataWrite}">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>用户地址 :</td>
+                        <td>
+                          {store.users.userID.address || ''}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>用户公钥算法 :</td>
+                        <td>
+                          {store.pubD || ''}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>用户公钥数据 :</td>
+                        <td>
+                          {store.users.userID.pubKey.value || ''}
+                        </td>
+                      </tr>
+                      <#if {{store.users.addressSignature.digest.algorithm}}>
+                        <tr>
+                          <td>签名算法 :</td>
+                          <td>{store.users.addressSignature.digest.algorithm || ''}</td>
+                        </tr>
+                      </#if>
+                      <#if {{store.users.addressSignature.digest.rawDigest}}>
+                        <tr>
+                          <td>签名数据 :</td>
+                          <td>{store.users.addressSignature.digest.rawDigest || ''}</td>
+                        </tr>
+                      </#if>
+                      <#if {{store.pubF}}>
+                        <tr>
+                          <td>签名公钥算法 :</td>
+                          <td>{store.pubF || ''}</td>
+                        </tr>
+                      </#if>
+                      <#if {{condition}}>
+                        <tr>
+                          <td>签名公钥数据 :</td>
+                          <td>{store.users.addressSignature.pubKey.value || ''}</td>
+                        </tr>
+                      </#if>
+                    </tbody>
+                  </table>
+                </div>
+              </#if>
             </div>
           </div>
         </div>

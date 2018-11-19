@@ -11,7 +11,14 @@ import template from './sider.t.html';
 @registerTmpl('Sider')
 @observer
 export default class Sider extends Component {
+  @observable href = 'overview.html';
+  componentDidMount = () => {
+    let arr = window.location.href.split('/');
+    let len = arr.length;
+    this.href = arr[`${len - 1}`];
+    console.log(this.href);
+  }
   render() {
-    return template({ styles });
+    return template(this.state, this, { styles });
   }
 }
