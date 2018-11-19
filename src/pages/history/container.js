@@ -119,7 +119,7 @@ class BlockHeight extends Component {
         return (
           <span 
             className = {`${styles.hash}`}
-            onClick = {() => {this.handleTransactionShow(text.value);}}
+            onClick = {() => this.handleTransactionShow(record['transactionContent'] && record['transactionContent']['hash'] && record['transactionContent']['hash']['value'])}
           >
             {record && record['transactionContent'] && record['transactionContent']['hash'] && record['transactionContent']['hash']['value'] ? record['transactionContent']['hash']['value'] : ''}
           </span>
@@ -199,9 +199,11 @@ class TransactionHash extends Component {
 
   keyItem = () => {
     const { store } = this.props;
-    let arr = [...store.transactionData.transactionContent.operations[0].writeSet];
+    let arr = store.transactionData && store.transactionData.transactionContent 
+      && store.transactionData.transactionContent.operations && store.transactionData.transactionContent.operations.lendth != 0 
+      ? [...store.transactionData.transactionContent.operations[0].writeSet] : [];
     return [
-      store.transactionData.transactionContent.operations[0].writeSet.map((item, key) => (
+      arr && arr.length != 0 && arr.map((item, key) => (
         <div className={`${styles.kv}`}>
           <div class={`${styles.key}`}>
             键 :&nbsp;&nbsp;&nbsp;
