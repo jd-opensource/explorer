@@ -265,15 +265,19 @@ export default class HistoryStore {
     let response = result && result.data ? result.data : {};
     this.pubKeys = [];
     this.digests = [];
+    this.pubKeysNode = [];
+    this.digestsNode = [];
     this.showHistoryState = 3;
     this.transactionData = {...response};
     let arr = this.transactionData.endpointSignatures ? [...this.transactionData.endpointSignatures] : [];
     arr.length != 0 && arr.map((item, key) => {
       this.pubKeys.push(tranBase58(item['pubKey']['value']));
+      this.digests.push(tranBase58(item['digest']['value']));
     });
     let arr1 = this.transactionData.nodeSignatures ? [...this.transactionData.nodeSignatures] : [];
     arr1.length != 0 && arr1.map((item, key) => {
       this.pubKeysNode.push(tranBase58(item['pubKey']['value']));
+      this.digestsNode.push(tranBase58(item['digest']['value']));
     });
     let arr2 = this.transactionData.transactionContent && this.transactionData.transactionContent.operations ? this.transactionData.transactionContent.operations : []; 
     arr2.length != 0 && arr2.map((item, key) => {
@@ -281,12 +285,23 @@ export default class HistoryStore {
         this.writes = {...item};
       } else if (item.contractID && JSON.stringify(item.contractID) != '{}') {
         this.contracts = {...item};
+        this.contracts.addressSignature.digest['algotithm'] = tranBase58(this.contracts.addressSignature.digest['value']);
+        this.pubA = tranBase58(this.contracts.addressSignature.pubKey.value) || '';
+        this.pubE = tranBase58(this.contracts.contractID.pubKey.value) || '';
       } else if (item.args && item.args != '') {
         this.events = {...item};
+        // this.events.addressSignature.digest['algotithms'] = tranBase58(this.events.addressSignature.digest['value']);
       } else if (item.accountID && JSON.stringify(item.accountID) != '{}') {
         this.accounts = {...item};
+        this.accounts.addressSignature.digest['algotithm'] = tranBase58(this.accounts.addressSignature.digest['value']);
+        this.pubB = tranBase58(this.accounts.accountID.pubKey.value) || '';
+        this.pubC = tranBase58(this.accounts.addressSignature.pubKey.value) || '';         
       } else if (item.userID && JSON.stringify(item.userID) != '{}') {
         this.users = {...item};
+        this.users.addressSignature.digest['algotithm'] = tranBase58(this.users.addressSignature.digest['value']);
+        this.pubD = tranBase58(this.users.userID.pubKey.value) || '';
+        this.pubF = tranBase58(this.users.addressSignature.pubKey.value) || '';
+
       } else {
 
       }
@@ -299,12 +314,6 @@ export default class HistoryStore {
     });
 
     this.mapShow(this.writes.writeSet);
-    this.pubA = tranBase58(this.contracts.addressSignature.pubKey.value) || '';
-    this.pubB = tranBase58(this.accounts.accountID.pubKey.value) || '';
-    this.pubC = tranBase58(this.accounts.addressSignature.pubKey.value) || '';
-    this.pubD = tranBase58(this.users.userID.pubKey.value) || '';
-    this.pubE = tranBase58(this.contracts.contractID.pubKey.value) || '';
-    this.pubF = tranBase58(this.users.addressSignature.pubKey.value) || '';
   }
 
   @autobind
