@@ -534,7 +534,7 @@
                   <tbody>
                     <tr>
                       <td>签名算法 :</td>
-                      <td>{@item['digest']['algorithm']}</td>
+                      <td>{@item['digest']['algorithm'] || ''}</td>
                     </tr>
                     <tr>
                       <td>签名数据 :</td>
@@ -542,7 +542,7 @@
                     </tr>
                     <tr>
                       <td>公钥算法 :</td>
-                      <td>{store.pubKeys[@index]}</td>
+                      <td>{store.pubKeys[@index] || ''}</td>
                     </tr>
                     <tr>
                       <td>公钥数据 :</td>
@@ -772,33 +772,6 @@
                   </tbody>
                 </table>
               </div>
-
-              <!-- <div class="{styles.optionTitle}">
-                用户数据
-              </div>
-
-              <div class="{styles.dataWrite}">
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>用户地址 :</td>
-                      <td>EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</td>
-                    </tr>
-                    <tr>
-                      <td>用户信息 :</td>
-                      <td>v1.0</td>
-                    </tr>
-                    <tr>
-                      <td>用户公钥算法 :</td>
-                      <td>UPcaZ1JRCehRwvuNS8Ty</td>
-                    </tr>
-                    <tr>
-                      <td>用户公钥数据 :</td>
-                      <td>xUPcaZ1JRCehR</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div> -->
             </div>
           </div>
         </div>
