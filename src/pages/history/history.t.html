@@ -736,7 +736,7 @@
                   </tbody>
                 </table>
               </div> -->
-              <#if {{store.accounts}}>
+              <#if {{JSON.stringify(store.accounts) != '{}'}}>
                 <div class="{styles.optionTitle}">
                   数据账户注册
                 </div>
@@ -780,7 +780,7 @@
                 </div>
               </#if>
 
-              <#if {{store.users}}>
+              <#if {{JSON.stringify(store.users) != '{}'}}>
                 <div class="{styles.optionTitle}">
                   用户信息
                 </div>
