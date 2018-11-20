@@ -780,72 +780,6 @@
                 </div>
               </#if>
 
-<<<<<<< HEAD
-              <div class="{styles.optionTitle}">
-                数据账户注册
-              </div>
-
-              <div class="{styles.dataWrite}">
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>账户地址 :</td>
-                      <td>
-                        {store.transactionData.transactionContent.operations[3].accountID.address || ''}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>账户公钥算法 :</td>
-                      <td>
-                        {store.pubB || ''}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>账户公钥数据 :</td>
-                      <td>{store.transactionData.transactionContent.operations[3].accountID.pubKey.value || ''}</td>
-                    </tr>
-                    <tr>
-                      <td>签名算法 :</td>
-                      <td>{store.transactionData.transactionContent.operations[3].addressSignature.digest.algorithm || ''}</td>
-                    </tr>
-                    <tr>
-                      <td>签名数据 :</td>
-                      <td>{store.transactionData.transactionContent.operations[3].addressSignature.digest.rawDigest || ''}</td>
-                    </tr>
-                    <tr>
-                      <td>签名公钥算法 :</td>
-                      <td>{store.pubC || ''}</td>
-                    </tr>
-                    <tr>
-                      <td>签名公钥数据 :</td>
-                      <td>{store.transactionData.transactionContent.operations[3].addressSignature.pubKey.value || ''}</td>
-                    </tr>
-                    <tr>
-                      <td style="font-weight: bold; color: #000">用户信息 :</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>用户地址 :</td>
-                      <td>
-                        {store.transactionData.transactionContent.operations[4].userID.address || ''}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>用户公钥算法 :</td>
-                      <td>
-                        {store.pubD || ''}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>用户公钥数据 :</td>
-                      <td>
-                        {store.transactionData.transactionContent.operations[4].userID.pubKey.value || ''}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-=======
               <#if {{store.users}}>
                 <div class="{styles.optionTitle}">
                   用户信息
@@ -899,7 +833,6 @@
                   </table>
                 </div>
               </#if>
->>>>>>> 36f72a273b53a38d9118f83b263c14d10756aa4e
             </div>
           </div>
         </div>
