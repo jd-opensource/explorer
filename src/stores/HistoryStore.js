@@ -11,31 +11,31 @@ export default class HistoryStore {
   @observable showTransactionTable = 1; // 1-正确 0-错误 -1-无数据
   @observable blockHistoryData = []; // 区块历史数据
   @observable blockData = {
-    transactionSetHash: {
-      value: '3vZUqf6yrKn'
-    },
-    userAccountSetHash: {
-      value: 'SpXTp'
-    },
-    dataAccountSetHash: {
-      value: 'SpXTo'
-    },
-    ledgerHash: {
-      value: '6GNP3H3WjGeQ7kbyu6LFhRtpmkdiTi7ENEpuLW1FJjwgu'
-    },
-    contractAccountSetHash: {
-      value: 'SpXTq'
-    },
-    hash: {
-      value: 'fPcnPW1xx'
-    },
-    height: 12358,
-    previousHash: {
-      value: '2y1mCD6'
-    },
-    adminAccountHash: {
-      value: 'SpXTn'
-    }
+    // transactionSetHash: {
+    //   value: '3vZUqf6yrKn'
+    // },
+    // userAccountSetHash: {
+    //   value: 'SpXTp'
+    // },
+    // dataAccountSetHash: {
+    //   value: 'SpXTo'
+    // },
+    // ledgerHash: {
+    //   value: '6GNP3H3WjGeQ7kbyu6LFhRtpmkdiTi7ENEpuLW1FJjwgu'
+    // },
+    // contractAccountSetHash: {
+    //   value: 'SpXTq'
+    // },
+    // hash: {
+    //   value: 'fPcnPW1xx'
+    // },
+    // height: 12358,
+    // previousHash: {
+    //   value: '2y1mCD6'
+    // },
+    // adminAccountHash: {
+    //   value: 'SpXTn'
+    // }
   }; // 区块高度/哈希数据
   @observable transactionList = []; // 交易列表数据
   @observable transactionData = {
@@ -246,7 +246,7 @@ export default class HistoryStore {
     let response = result && result.data ? result.data : {};
     this.showHistoryState = 2;
     this.blockData = {...response};
-    this.getTransactionList(this.blockData.hash.value, 'height');
+    this.getTransactionList(this.blockData.hash.value, 'hash');
   }
 
   @autobind
