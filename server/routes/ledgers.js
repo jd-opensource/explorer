@@ -1307,16 +1307,14 @@ router.get('/*/txs/*', function(req, res) {
             },
             "endpointSignatures": [{
                 "digest": {
-                    "algorithm": "ED25519",
-                    "rawDigest": "emhhbmdzYW4="
+                    "value": "41EAKo3Kx9K3Q7gf2Lj93SBisqdk5UzVMmnZYSZ8wnjJsqWuDcntspYTw8pCT4Ur4agTwkwEWH3Vqiih6ECW2jYMf"
                 },
                 "pubKey": {
                     "value": "S76SHyu8p164"
                 }
             }, {
                 "digest": {
-                    "algorithm": "ED25519",
-                    "rawDigest": "bGlzaQ=="
+                    "value": "41EAKo3Kx9K3Q7gf2Lj93SBisqdk5UzVMmnZYSZ8wnjJsqWuDcntspYTw8pCT4Ur4agTwkwEWH3Vqiih6ECW2jYMf"
                 },
                 "pubKey": {
                     "value": "S76SHz1gLqEL"
@@ -1328,16 +1326,14 @@ router.get('/*/txs/*', function(req, res) {
             },
             "nodeSignatures": [{
                 "digest": {
-                    "algorithm": "ED25519",
-                    "rawDigest": "d2FuZ3d1"
+                    "value": "41EAKo3Kx9K3Q7gf2Lj93SBisqdk5UzVMmnZYSZ8wnjJsqWuDcntspYTw8pCT4Ur4agTwkwEWH3Vqiih6ECW2jYMf"
                 },
                 "pubKey": {
                     "value": "S76SHz8DsfNc"
                 }
             }, {
                 "digest": {
-                    "algorithm": "ED25519",
-                    "rawDigest": "emhhb2xpdQ=="
+                    "value": "41EAKo3Kx9K3Q7gf2Lj93SBisqdk5UzVMmnZYSZ8wnjJsqWuDcntspYTw8pCT4Ur4agTwkwEWH3Vqiih6ECW2jYMf"
                 },
                 "pubKey": {
                     "value": "S76SHzEmQVWt"
@@ -1368,8 +1364,7 @@ router.get('/*/txs/*', function(req, res) {
                 }, {
                     "addressSignature": {
                         "digest": {
-                            "algorithm": "ED25519",
-                            "rawDigest": "d2FuZ3d1"
+                            "value": "41EAKo3Kx9K3Q7gf2Lj93SBisqdk5UzVMmnZYSZ8wnjJsqWuDcntspYTw8pCT4Ur4agTwkwEWH3Vqiih6ECW2jYMf"
                         },
                         "pubKey": {
                             "value": "6gtyw9HjZbi"
@@ -1395,8 +1390,7 @@ router.get('/*/txs/*', function(req, res) {
                     },
                     "addressSignature": {
                         "digest": {
-                            "algorithm": "ED25519",
-                            "rawDigest": "emhhb2xpdQ=="
+                            "value": "41EAKo3Kx9K3Q7gf2Lj93SBisqdk5UzVMmnZYSZ8wnjJsqWuDcntspYTw8pCT4Ur4agTwkwEWH3Vqiih6ECW2jYMf"
                         },
                         "pubKey": {
                             "value": "6gtyw9HjZbi"
@@ -1432,16 +1426,14 @@ router.get('/*/txs/*', function(req, res) {
             },
             "endpointSignatures": [{
                 "digest": {
-                    "algorithm": "ED25519",
-                    "rawDigest": "emhhbmdzYW4="
+                    "value": "41EAKo3Kx9K3Q7gf2Lj93SBisqdk5UzVMmnZYSZ8wnjJsqWuDcntspYTw8pCT4Ur4agTwkwEWH3Vqiih6ECW2jYMf"
                 },
                 "pubKey": {
                     "value": "S76SHyu8p164"
                 }
             }, {
                 "digest": {
-                    "algorithm": "ED25519",
-                    "rawDigest": "bGlzaQ=="
+                    "value": "41EAKo3Kx9K3Q7gf2Lj93SBisqdk5UzVMmnZYSZ8wnjJsqWuDcntspYTw8pCT4Ur4agTwkwEWH3Vqiih6ECW2jYMf"
                 },
                 "pubKey": {
                     "value": "S76SHz1gLqEL"
@@ -1453,16 +1445,14 @@ router.get('/*/txs/*', function(req, res) {
             },
             "nodeSignatures": [{
                 "digest": {
-                    "algorithm": "ED25519",
-                    "rawDigest": "d2FuZ3d1"
+                    "value": "41EAKo3Kx9K3Q7gf2Lj93SBisqdk5UzVMmnZYSZ8wnjJsqWuDcntspYTw8pCT4Ur4agTwkwEWH3Vqiih6ECW2jYMf"
                 },
                 "pubKey": {
                     "value": "S76SHz8DsfNc"
                 }
             }, {
                 "digest": {
-                    "algorithm": "ED25519",
-                    "rawDigest": "emhhb2xpdQ=="
+                    "value": "41EAKo3Kx9K3Q7gf2Lj93SBisqdk5UzVMmnZYSZ8wnjJsqWuDcntspYTw8pCT4Ur4agTwkwEWH3Vqiih6ECW2jYMf"
                 },
                 "pubKey": {
                     "value": "S76SHzEmQVWt"
@@ -1493,8 +1483,7 @@ router.get('/*/txs/*', function(req, res) {
                 }, {
                     "addressSignature": {
                         "digest": {
-                            "algorithm": "ED25519",
-                            "rawDigest": "d2FuZ3d1"
+                            "value": "41EAKo3Kx9K3Q7gf2Lj93SBisqdk5UzVMmnZYSZ8wnjJsqWuDcntspYTw8pCT4Ur4agTwkwEWH3Vqiih6ECW2jYMf"
                         },
                         "pubKey": {
                             "value": "6gtyw9HjZbi"
@@ -1520,8 +1509,7 @@ router.get('/*/txs/*', function(req, res) {
                     },
                     "addressSignature": {
                         "digest": {
-                            "algorithm": "ED25519",
-                            "rawDigest": "emhhb2xpdQ=="
+                            "value": "41EAKo3Kx9K3Q7gf2Lj93SBisqdk5UzVMmnZYSZ8wnjJsqWuDcntspYTw8pCT4Ur4agTwkwEWH3Vqiih6ECW2jYMf"
                         },
                         "pubKey": {
                             "value": "6gtyw9HjZbi"

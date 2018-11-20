@@ -534,11 +534,11 @@
                   <tbody>
                     <tr>
                       <td>签名算法 :</td>
-                      <td>{@item['digest']['algorithm'] || ''}</td>
+                      <td>{store.digests[@index]}</td>
                     </tr>
                     <tr>
                       <td>签名数据 :</td>
-                      <td>{@item['digest']['rawDigest'] || ''}</td>
+                      <td>{@item['digest']['value'] || ''}</td>
                     </tr>
                     <tr>
                       <td>公钥算法 :</td>
@@ -573,11 +573,11 @@
                   <tbody>
                     <tr>
                       <td>签名算法 :</td>
-                      <td>{@item['digest']['algorithm'] || ''}</td>
+                      <td>{store.digestsNode[@index] || ''}</td>
                     </tr>
                     <tr>
                       <td>签名数据 :</td>
-                      <td>{@item['digest']['rawDigest'] || ''}</td>
+                      <td>{@item['digest']['value'] || ''}</td>
                     </tr>
                     <tr>
                       <td>公钥算法 :</td>
@@ -662,13 +662,13 @@
                       <tr>
                         <td>签名算法 :</td>
                         <td>
-                          {store.contracts.addressSignature.digest.algorithm || ''}
+                          {store.contracts.addressSignature.digest['algotithm'] || ''}
                         </td>
                       </tr>
                       <tr>
                         <td>签名数据 :</td>
                         <td>
-                          {store.contracts.addressSignature.digest.rawDigest || ''}
+                          {store.contracts.addressSignature.digest.value || ''}
                         </td>
                       </tr>
                       <tr>
@@ -761,11 +761,11 @@
                       </tr>
                       <tr>
                         <td>签名算法 :</td>
-                        <td>{store.accounts.addressSignature.digest.algorithm || ''}</td>
+                        <td>{store.accounts.addressSignature.digest['algotithm'] || ''}</td>
                       </tr>
                       <tr>
                         <td>签名数据 :</td>
-                        <td>{store.accounts.addressSignature.digest.rawDigest || ''}</td>
+                        <td>{store.accounts.addressSignature.digest.value || ''}</td>
                       </tr>
                       <tr>
                         <td>签名公钥算法 :</td>
@@ -805,16 +805,16 @@
                           {store.users.userID.pubKey.value || ''}
                         </td>
                       </tr>
-                      <#if {{store.users.addressSignature.digest.algorithm}}>
+                      <#if {{store.users.addressSignature.digest['algotithm']}}>
                         <tr>
                           <td>签名算法 :</td>
-                          <td>{store.users.addressSignature.digest.algorithm || ''}</td>
+                          <td>{store.users.addressSignature.digest['algotithm'] || ''}</td>
                         </tr>
                       </#if>
-                      <#if {{store.users.addressSignature.digest.rawDigest}}>
+                      <#if {{store.users.addressSignature.digest.value}}>
                         <tr>
                           <td>签名数据 :</td>
-                          <td>{store.users.addressSignature.digest.rawDigest || ''}</td>
+                          <td>{store.users.addressSignature.digest.value || ''}</td>
                         </tr>
                       </#if>
                       <#if {{store.pubF}}>
