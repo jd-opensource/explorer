@@ -51,7 +51,7 @@
                       <ant-TextArea class="{styles.keyText}" value={{value}}/>
                       <#if {{@item.value != '' && version != -1}}>
                         <p>查看方式&nbsp;:&nbsp;
-                          {selectItem()}
+                          {selectItem(@item)}
                         </p>
                       </#if>
                     </div>

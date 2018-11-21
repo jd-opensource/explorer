@@ -1756,14 +1756,14 @@ router.post('/*/accounts/*', function(req, res) {
     Object.assign({
         "data": [
             {
-                "value": "value1",
+                "value": "706172616d3156616c",
                 "nil": false,
                 "key": "key1",
                 "type": "TEXT",
                 "version": 1
             },
             {
-                "value": "value2",
+                "value": "706172616d3156616c",
                 "nil": false,
                 "key": "key2",
                 "type": "TEXT",
@@ -1776,14 +1776,14 @@ router.post('/*/accounts/*', function(req, res) {
     res.send({
         "data": [
             {
-                "value": "value1",
+                "value": "706172616d3156616c",
                 "nil": false,
                 "key": "key1",
                 "type": "TEXT",
                 "version": 1
             },
             {
-                "value": "value2",
+                "value": "706172616d3156616c",
                 "nil": false,
                 "key": "key2",
                 "type": "TEXT",

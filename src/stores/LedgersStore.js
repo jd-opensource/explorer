@@ -68,7 +68,11 @@ export default class LedgersStore {
 
   setKeyData = (result) => {
     let response = result && result.data ? result.data : [];
-    console.log(result, response);
-    this.keyData = {...response};
+    this.keyData = [...response];
+    console.log(this.keyData);
+    this.keyData.length != 0 && this.keyData.map((item, key) => {
+      item['isUtf8'] = false;
+    });
+    return this.keyData;
   }
 }

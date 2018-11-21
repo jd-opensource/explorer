@@ -79,12 +79,34 @@ class DataTable extends Component {
   }
 
   // 待确认
-  selectItem = () => (
-    <Select defaultValue = "1">
+  selectItem = (item) => (
+    <Select onChange = {(e) => this.handleSelectChange(e, item)} defaultValue = "1">
       <Option value = "1">原始内容</Option>
       <Option value = "2">UTF-8</Option>
     </Select>
   )
+
+  handleSelectChange = (e, item) => {
+    console.log(e, item);
+    item.value = e == '1' ? this.enc(item.value) : this.dec(item.value);
+    return item.value;
+  }
+
+  enc = (str) => {
+    let val = '';
+    for (let i = 0; i < str.length; i++) {
+      val += str.charCodeAt(i).toString(16);
+    }
+    return val;
+  }
+
+  dec = (s1) => {
+    var tmp2='';
+    for(let i=0; i<s1.length;){
+      tmp2+='%'+s1.substring (i,i+=2);
+    }
+    return decodeURI(tmp2);
+  }
 
   render() {
     const { store } = this.props;
