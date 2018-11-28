@@ -73,6 +73,8 @@ app.use('/*/txs/additional-count', overview);
 
 app.use('/*/users/*', user);
 app.use('/*/contracts/*', contract);
+const search = require('./routes/search');
+app.use('/search', search);
 //{pages}//
 
 app.post('/common/getLoginInfo', function(req, res) {

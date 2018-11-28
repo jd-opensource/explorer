@@ -105,6 +105,11 @@ app.get('/pages/ledgers.html', function(req, res) {
   res.render('ledgers', { page: 'ledgers/', title: 'Ledgers' });
 });
 
+app.get('/pages/search.html', function(req, res) {
+  res.type('html');
+  res.render('search', { page: 'search/', title: 'Search' });
+});
+
 //{pages}//
 
 app.get('/checkUser', function(req, res) {
