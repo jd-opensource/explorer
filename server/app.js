@@ -79,6 +79,91 @@ app.use('/search', search);
 
 app.post('/common/getLoginInfo', function(req, res) {
   res.type('json');
+  let params = req.body,
+    ret = {};
+
+  const datas = _.times(100, function(i) {
+    let num = i + 1;
+
+    return {
+      test1: num + 100000,
+      test2: '测试' + num,
+      test4: _.random(10, 90) + '%',
+      test5: _.random(10, 90) + '%',
+      test6: _.random(10, 90) + '%',
+      test8: _.random(1, 10),
+      test9: _.random(1, 10),
+      test10: _.random(1, 10),
+      test11: _.random(1, 10),
+      test12: _.random(1, 10),
+      test14: _.random(10, 90) + '%',
+      test15: _.random(10, 90) + '%',
+      test16: _.random(1, 24),
+      test17: _.random(10, 90) + '%',
+      test18: _.random(1, 100000)
+    };
+  });
+
+  const pageIndex = params.currentPage,
+    pageSize = params.pageSize,
+    start = (pageIndex - 1) * pageSize,
+    end = pageIndex * pageSize,
+    data = datas.filter((obj, i) => {
+      if (i >= start && i < end) {
+        return true;
+      }
+    });
+
+  Object.assign({
+    "message": "OK",
+    "data": {
+      "blocks": [{
+        "hash_id": "6Kw7g7pXTF89UXUNrbC4GQtjwrhguTSvCJicAbBCTiJMG",
+        "height": 1
+      }, {
+        "hash_id": "68WiytpLnQYZamD9HSAaPGToUu2i7q3MZnSHQVD1tBhN4",
+        "height": 2
+      }, {
+        "hash_id": "682tzY4JXr6ZByH5hMfKX4w8CJYUH3gKskNRP6UNgT7si",
+        "height": 3
+      }, {
+        "hash_id": "682nAtP3QaisaQ5ZBXjMTeNPCEn27jJrB7zMF2wt3ScGB",
+        "height": 4
+      }, {
+        "hash_id": "682FXSCzrgES1MQQthyuWFbyMpLDTHv5MbcK5M2hD2ucn",
+        "height": 5
+      }],
+      "txs": null
+    }
+  });
+
+  res.send({
+    "message": "OK",
+    "data": {
+      "blocks": [{
+        "hash_id": "6Kw7g7pXTF89UXUNrbC4GQtjwrhguTSvCJicAbBCTiJMG",
+        "height": 1
+      }, {
+        "hash_id": "68WiytpLnQYZamD9HSAaPGToUu2i7q3MZnSHQVD1tBhN4",
+        "height": 2
+      }, {
+        "hash_id": "682tzY4JXr6ZByH5hMfKX4w8CJYUH3gKskNRP6UNgT7si",
+        "height": 3
+      }, {
+        "hash_id": "682nAtP3QaisaQ5ZBXjMTeNPCEn27jJrB7zMF2wt3ScGB",
+        "height": 4
+      }, {
+        "hash_id": "682FXSCzrgES1MQQthyuWFbyMpLDTHv5MbcK5M2hD2ucn",
+        "height": 5
+      }],
+      "txs": null
+    }
+  });
+
+});
+
+app.get('/api/v1/search', function(req, res) {
+  res.type('json');
   let ret = {};
 
   Object.assign(ret, resultData, {
@@ -86,7 +171,7 @@ app.post('/common/getLoginInfo', function(req, res) {
   });
 
   res.send(ret);
-});
+})
 
 let server = app.listen(configs.port, function() {
   let host = server.address().address;
