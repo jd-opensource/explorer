@@ -77,7 +77,7 @@ const search = require('./routes/search');
 app.use('/search', search);
 //{pages}//
 
-app.post('/common/getLoginInfo', function(req, res) {
+app.get('/api/v1/search', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -162,16 +162,16 @@ app.post('/common/getLoginInfo', function(req, res) {
 
 });
 
-app.get('/api/v1/search', function(req, res) {
-  res.type('json');
-  let ret = {};
+// app.get('/api/v1/search', function(req, res) {
+//   res.type('json');
+//   let ret = {};
 
-  Object.assign(ret, resultData, {
-    data: 'test_user'
-  });
+//   Object.assign(ret, resultData, {
+//     data: 'test_user'
+//   });
 
-  res.send(ret);
-})
+//   res.send(ret);
+// })
 
 let server = app.listen(configs.port, function() {
   let host = server.address().address;

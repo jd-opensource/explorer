@@ -15,6 +15,7 @@ import ContainerHoc from '../../components/higherOrders/container';
 import styles from './search.m.less';
 import tmpls from './search.t.html';
 import SearchStore from '../../stores/SearchStore';
+import { observable } from 'mobx';
 const searchStore = new SearchStore();
 const Option = Select.Option;
 
@@ -23,8 +24,6 @@ const Option = Select.Option;
 @observer
 class Container extends Component {
   componentDidMount() {
-    const closeLoading = Message.loading('正在加载数据...', 0);
-    this.props.store.getTableData(1, this.props.store.pageSize).then(() => closeLoading());
   }
 
   render() {
@@ -39,20 +38,40 @@ ContainerHoc('Container', Container, searchStore);
 @inject('store')
 @observer
 class DataTable extends Component {
-  searchItem = () => (
-    <Input addonBefore = {this.selectBefore()} className = {`${styles.inputTable}`}/>
-  )
+  @observable searchSpan = '';
+  @observable searchParam = '';
 
-  selectBefore = () => (
-    <Select defaultValue="all">
-      <Option value="all">全部</Option>
-      <Option value="blockchain">区块</Option>
-      <Option value="transaction">交易</Option>
-    </Select>
-  )
+  componentDidMount = () => {
+  }
+
+  inputChange = (e) => {
+    this.searchSpan = e.target.value;
+    if (this.searchSpan.indexOf('(') != -1) {
+      // if (s) {
+      this.searchParam = `$${str.substring(1)}`;
+      console.log(this.searchParam);
+      // }
+    } else {
+      this.searchParam = this.searchSpan;
+      console.log(this.searchParam);
+    }
+  }
+
+  query = () => {
+    const { store } = this.props;
+    Promise.all([
+      store.getBlockData(this.searchParam)
+    ]).then(
+
+    ).catch(
+
+    );
+  }
 
   render() {
+    const { store } = this.props;
     return tmpls.dataTable(this.state, this.props, this, {
+      store,
       styles
     });
   }

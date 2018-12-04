@@ -1,5 +1,45 @@
 <template name="dataTable" class="{styles.content}">
-  <div>
-    123
-  </div>
+  <#if {{store.showSummary}}>
+    <div>
+      123
+    </div>
+    <#else>
+      <div style="min-height:800px; display: flex; align-items: center">
+        <div style="width: 1000px; margin: 0 auto">
+          <p style="text-align: center; font-size: 40px; font-weight: bold; color: #000">
+            区块链搜索
+          </p>
+          <ant-input style="height: 36px" placeholder="关键字" onChange={inputChange}/>
+          <p style="color: gray; font-size: 13px; text-align: center; margin-top: 10px">
+            高级技巧: 
+            <span style="color: black;padding-left: 3px;padding-right: 0px;font-weight: 500;">(block=1-5)</span> 
+            搜索高度为1到5的区块; 
+            <span style="color: black;padding-left: 3px;padding-right: 0px;font-weight: 500;">(block=1&tx=1-5)</span> 
+            搜索区块1中的排序1到5的交易
+          </p>
+          <p style="text-align: center">
+            <ant-Button icon="search" onClick={query} 
+              style="width: 120px; color: #fff; max-width: 120px; padding: 5px 12px; background: #00b89c"
+            >搜索</ant-Button>
+          </p>
+        </div>
+      </div>
+    </#else>
+    <!-- <div style="min-height:800px; display: flex; align-items: center">
+      <div style="width: 1000px; margin: 0 auto">
+        <p style="text-align: center; font-size: 40px; font-weight: bold; color: #000">
+          区块链搜索
+        </p>
+        <ant-input style="height: 36px" placeholder="关键字" onChange={inputChange}/>
+        <p style="color: gray; font-size: 13px; text-align: center; margin-top: 10px">
+          高级技巧： (block=1-5) 搜索高度为1到5的区块; (block=1&tx=1-5) 搜索区块1中的排序1到5的交易
+        </p>
+        <p style="text-align: center">
+          <ant-Button icon="search" onClick={query} 
+            style="width: 120px; color: #fff; max-width: 120px; padding: 5px 12px; background: #00b89c"
+          >搜索</ant-Button>
+        </p>
+      </div>
+    </div> -->  
+  </#if>
 </template>
