@@ -7,6 +7,8 @@ import 'flarej/lib/components/antd/button';
 import 'flarej/lib/components/antd/input';
 import 'flarej/lib/components/antd/breadcrumb';
 import 'flarej/lib/components/antd/table';
+import 'flarej/lib/components/antd/tabs';
+import 'flarej/lib/components/antd/pagination';
 import { autobind } from 'core-decorators';
 import '../../components/header';
 import '../../components/sider';
@@ -48,7 +50,7 @@ class DataTable extends Component {
     this.searchSpan = e.target.value;
     if (this.searchSpan.indexOf('(') != -1) {
       // if (s) {
-      this.searchParam = `$${str.substring(1)}`;
+      this.searchParam = `$${this.searchSpan.substring(1)}`;
       console.log(this.searchParam);
       // }
     } else {

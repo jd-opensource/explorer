@@ -133,7 +133,16 @@ app.get('/api/v1/search', function(req, res) {
         "hash_id": "682FXSCzrgES1MQQthyuWFbyMpLDTHv5MbcK5M2hD2ucn",
         "height": 5
       }],
-      "txs": null
+      "txs": [{
+        "hash_id": "6M4x2UdYoy3XWj3QZ8pYfmy8Hv6dGSyLtU6d53zwxbWsn",
+        "index_in_block": 0,
+        "block_height": 1,
+        "block_detail": {
+          "hash_id": "6Kw7g7pXTF89UXUNrbC4GQtjwrhguTSvCJicAbBCTiJMG",
+          "height": 1
+        },
+        "kv_pairs": null
+      }]
     }
   });
 
@@ -156,7 +165,16 @@ app.get('/api/v1/search', function(req, res) {
         "hash_id": "682FXSCzrgES1MQQthyuWFbyMpLDTHv5MbcK5M2hD2ucn",
         "height": 5
       }],
-      "txs": null
+      "txs": [{
+        "hash_id": "6M4x2UdYoy3XWj3QZ8pYfmy8Hv6dGSyLtU6d53zwxbWsn",
+        "index_in_block": 0,
+        "block_height": 1,
+        "block_detail": {
+          "hash_id": "6Kw7g7pXTF89UXUNrbC4GQtjwrhguTSvCJicAbBCTiJMG",
+          "height": 1
+        },
+        "kv_pairs": null
+      }]
     }
   });
 

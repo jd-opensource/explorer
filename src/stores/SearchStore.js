@@ -1,4 +1,4 @@
-﻿import { observable, computed, action, transaction } from 'mobx';
+﻿import { observable, computed, action, transaction, toJS } from 'mobx';
 import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import { autobind } from 'core-decorators';
 import { Notification } from 'flarej/lib/components/antd/notification';
@@ -14,11 +14,14 @@ export default class SearchStore {
   @autobind
   @action
   getBlockData(inputVal) {
+    // http://192.168.151.39:10001/api/v1/search
     console.log(inputVal);
     fetchData(`${G_WEB_DOMAIN}/api/v1/search?q=${inputVal}`,
+    // fetchData(`http://192.168.151.39:10001/api/v1/search?q=${inputVal}`,
       this.setBlockData,
-      '', { 
+      { 
         method: 'get',
+        // mode: 'no-cors',
       }
     ).catch(error => {
       console.log(error);
@@ -43,6 +46,9 @@ export default class SearchStore {
           this.allData = undefined;
         }
       }
+      this.total = this.allData ? toJS(this.allData).length : 0;
+      console.log(this.total);
+      this.transNum = this.transData ? toJS(this.transData).length : 0;
     }
   }
 }
