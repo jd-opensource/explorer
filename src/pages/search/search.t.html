@@ -25,10 +25,6 @@
                 <#each {{store.allData}}>
                   <div key={@index}>
                     <article style="padding: 10px; min-height: 100px; border-bottom: 1px solid #eaecf3">
-                      <!-- <p>哈希值(HASH)</p>
-                      <p>{{hash_id}}</p>
-                      <p>高度</p>
-                      <p>{{height}}</p> -->
                       <p style="margin-bottom: 2em">
                         <span style="font-size: 18px; color: #999">哈希值(HASH):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <span style="font-size: 18px; color: #5a77d3; cursor: pointer">{{hash_id}}</span>
@@ -47,7 +43,18 @@
                           <span style="font-size: 14px; color: #333">{{block_detail.hash_id}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </#if>
                       </p>
-                      
+                      <p>
+                        <#if {{@item.endpoint_public_key}}>
+                          <span style="font-size: 14px; color: #999">签名者公钥:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <span style="font-size: 14px; color: #333">{{endpoint_public_key}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </#if>
+                      </p>
+                      <p>
+                        <#if {{@item.node_public_key}}>
+                          <span style="font-size: 14px; color: #999">节点公钥:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <span style="font-size: 14px; color: #333">{{node_public_key}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </#if>
+                      </p>
                     </article>
                   </div>
                 </#each>
@@ -100,6 +107,18 @@
                     <#if {{@item.block_detail}}>
                       <span style="font-size: 14px; color: #999">所在区块哈希值(HASH):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <span style="font-size: 14px; color: #333">{{block_detail.hash_id}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </#if>
+                  </p>
+                  <p>
+                    <#if {{@item.endpoint_public_key}}>
+                      <span style="font-size: 14px; color: #999">签名者公钥:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span style="font-size: 14px; color: #333">{{endpoint_public_key}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </#if>
+                  </p>
+                  <p>
+                    <#if {{@item.node_public_key}}>
+                      <span style="font-size: 14px; color: #999">节点公钥:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span style="font-size: 14px; color: #333">{{node_public_key}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </#if>
                   </p>
                 </div>

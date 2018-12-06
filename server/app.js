@@ -141,7 +141,9 @@ app.get('/api/v1/search', function(req, res) {
           "hash_id": "6Kw7g7pXTF89UXUNrbC4GQtjwrhguTSvCJicAbBCTiJMG",
           "height": 1
         },
-        "kv_pairs": null
+        "kv_pairs": null,
+        "node_public_key": "mb3iAYgF6bW8ohkTWYJWkLG1Tovb1oFErTCq2uUMfLAF2D",
+        "endpoint_public_key": "mb3iAYgF6bW8ohkTWYJWkLG1Tovb1oFErTCq2uUMfLAF2D"
       }]
     }
   });
@@ -173,7 +175,9 @@ app.get('/api/v1/search', function(req, res) {
           "hash_id": "6Kw7g7pXTF89UXUNrbC4GQtjwrhguTSvCJicAbBCTiJMG",
           "height": 1
         },
-        "kv_pairs": null
+        "kv_pairs": null,
+        "node_public_key": "mb3iAYgF6bW8ohkTWYJWkLG1Tovb1oFErTCq2uUMfLAF2D",
+        "endpoint_public_key": "mb3iAYgF6bW8ohkTWYJWkLG1Tovb1oFErTCq2uUMfLAF2D"
       }]
     }
   });
