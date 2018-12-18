@@ -194,7 +194,7 @@ export default class OverviewStore {
       let error = result && result.error ? result.error : {};
       this.errorMessage = error && error.errorMessage ? error.errorMessage : '';
     }
-    
+    debugger;
   }
 
   // 获取当前账本信息

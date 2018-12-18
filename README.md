@@ -6,7 +6,7 @@
 ## 构建命令
 
 ```sh
-npm run dev             #启动node端本地调试server，然后使用http://localhost:3021访问页面
+npm run start             #启动node端本地调试server，然后使用http://localhost:3001/pages/search.html访问页面
 npm run build           #构建全部代码到node端本地server目录
 npm run build-web-dev   #构建全部代码到dist目录，使用开发环境配置
 npm run build-web       #构建全部代码到dist目录，使用生产环境配置

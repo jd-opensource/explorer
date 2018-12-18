@@ -8,10 +8,10 @@
     "resources/"
   ],
   "author": {
-    "name": "joe_sky"
+    "name": "doctor"
   },
   "scripts": {
-    "dev": "npm run server | npm run devServer",
+    "start": "npm run server | npm run devServer",
     "dev-web": "gulp bs --web --dev",
     "build": "gulp",
     "build-web-dev": "gulp --web --dev --p",
