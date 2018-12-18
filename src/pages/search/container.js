@@ -47,22 +47,40 @@ class DataTable extends Component {
   }
 
   inputChange = (e) => {
-    this.searchSpan = e.target.value;
-    if (this.searchSpan.indexOf('(') != -1) {
-      // if (s) {
-      this.searchParam = `$${this.searchSpan.substring(1)}`;
-      console.log(this.searchParam);
-      // }
-    } else {
-      this.searchParam = this.searchSpan;
+    this.searchParam =''+e.target.value.trim();
+    if (this.searchParam!='') {
+      if (this.searchParam.indexOf('(') != -1) {
+        this.searchParam =('q='+this.searchParam.replace('(','&')).replace(')','');
+        console.log(this.searchParam);
+      } 
+      else {
+        this.searchParam = 'q='+this.searchParam;
+        console.log(this.searchParam);
+      }
+    }
+    else {
+      this.searchParam = this.searchParam;
       console.log(this.searchParam);
     }
   }
-
+  getQueryVariable=(variable)=>
+  {
+    let query= this.searchParam;
+    let vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+      var pair = vars[i].split("=");
+      if(pair[0] == variable){return pair[1];}
+    }
+    return('');
+  }
   query = () => {
     const { store } = this.props;
     Promise.all([
-      store.getBlockData(this.searchParam)
+      store.getBlockData({
+        q: this.getQueryVariable('q'),
+        block:this.getQueryVariable('block'),
+        tx:this.getQueryVariable('tx'),
+      })
     ]).then(
 
     ).catch(
