@@ -16,9 +16,9 @@ export default class SearchStore {
   getBlockData(inputVal) {
     // http://192.168.151.39:10001/api/v1/search
     console.log(inputVal);
-    fetchData(`${G_WEB_DOMAIN}/api/v1/search?q=${inputVal}`,
+    fetchData(`${G_WEB_DOMAIN}/api/v1/search`,
     // fetchData(`http://192.168.151.39:10001/api/v1/search?q=${inputVal}`,
-      this.setBlockData,
+      this.setBlockData,{q:inputVal},
       { 
         method: 'get',
         // mode: 'no-cors',
