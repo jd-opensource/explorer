@@ -11,7 +11,6 @@ import 'flarej/lib/components/antd/tabs';
 import 'flarej/lib/components/antd/pagination';
 import { autobind } from 'core-decorators';
 import '../../components/header';
-import '../../components/sider';
 import { Input, Select, Icon, Message } from 'antd';
 import ContainerHoc from '../../components/higherOrders/container';
 import styles from './search.m.less';

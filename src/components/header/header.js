@@ -6,6 +6,7 @@ import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import 'flarej/lib/components/antd/menu';
 import 'flarej/lib/components/antd/select';
+import 'flarej/lib/components/antd/icon';
 import { Select } from 'flarej/lib/components/antd/select';
 import styles from './header.m.less';
 import template from './header.t.html';
@@ -65,7 +66,7 @@ export default class Header extends Component {
 
   @autobind
   onSelect({ item, key, selectedKeys }) {
-    location.href = '/pages/page' + key+'.html';
+    location.href = key;
   }
 
   render() {

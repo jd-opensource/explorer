@@ -117,5 +117,8 @@
   },
   "njCliConfig": {
     "templateType": "multi-page"
+  },
+  "dependencies": {
+    "antd": "^3.7.3"
   }
 }
