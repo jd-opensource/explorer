@@ -1,6 +1,5 @@
 ﻿.site-header {
   font-size: 16px;
-  background: #fff;
   height: 79px;
   border-bottom: 1px solid #ebebeb;
   position: fixed;
@@ -8,12 +7,45 @@
   z-index: 100;
   transition: all 0.5s ease-out;
   box-shadow: 0 1px 3px 0 rgba(0, 34, 77, 0.05);
+  background: linear-gradient(90deg,#5a77d3,#3c4c9c);
+  display: flex;
 
-  ul {
-    padding-left: 80px;
-    transition: all 0.5s ease-out;
+  .nav {
+    font-size: 0.875rem;
+    margin-left: 15px;
+    float: left;
+    height: 70px;
+    background: transparent;
+    color: #fff;
+    border: 0;
+    line-height: 68px;
+    flex:1;
+    li{
+      color: #fff !important;
+      &:hover{
+        border-bottom-color: #fff !important;
+      } 
+    }
   }
-
+  .logo {
+    margin: 0;
+    float: left;
+    height: 70px;
+    background-position: 40px center; 
+    width: 273px;
+    background-image: url('../../images/logo.png');
+    background-repeat: no-repeat;
+  }
+  .note{
+    color: #fff;
+    float:right;
+    padding-right: 30px;
+    .value{
+      width: 200px;
+      border: 1px solid #ADC6FF;
+      border-radius: 4px;
+    }
+  }
   &.isMenuOpen > ul {
     padding-left: 0;
   }

@@ -11,28 +11,7 @@ class Bundle extends Component {
   }
 
   componentWillMount() {
-    const { store, isPc, loadBundles } = this.props;
-    if (store && !store.common.userInfo) { //获取用户登录信息
-      const fetchs = [store.common.getCurrentUserInfo()];
-      if (isPc) {
-        store.sider.setCurrentMenu();
-      }
-      Promise.all(fetchs).then(() => {
-        if (isPc) {
-          const current = capitalize(store.sider.current);
-          this.load({
-            load: loadBundles[`load${current.indexOf('/') >= 0 ? current.split('/')[0] : current}`]
-          });
-        } else {
-          this.load(this.props);
-        }
-      });
-    } else {
-      if (isPc) {
-        store.sider.setCurrentMenu();
-      }
       this.load(this.props);
-    }
   }
 
   componentWillReceiveProps(nextProps) {

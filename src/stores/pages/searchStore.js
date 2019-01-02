@@ -1,10 +1,10 @@
 import { types } from 'mobx-state-tree';
 import { observable, toJS } from 'mobx';
-import { fetchData } from 'flarej/lib/utils/fetchConfig';
+import fetchData from 'flarej/lib/utils/fetchData';
 import Notification from '../../utils/notification';
 
-const Page1Store = types
-  .model('Page1Store', {
+const SearchStore = types
+  .model('SearchStore', {
     isDisable: types.optional(types.boolean, true),
     activeKey: types.optional(types.string, 'tab1'),
     addModalVisible: false,
@@ -142,7 +142,7 @@ const Page1Store = types
     },
 
     getRoleMenuTree(params) {
-      return fetchData(`${__HOST}/page1/getRoleMenuTree`,
+      return fetchData(`${__HOST}/search/getRoleMenuTree`,
         self.setRoleMenuTree,
         params, { method: 'get' })
         .catch((ex) => {
@@ -167,7 +167,7 @@ const Page1Store = types
     },
 
     getRoleManagementData(params) {
-      return fetchData(`${__HOST}/page1/getRoleManagementData`,
+      return fetchData(`${__HOST}/search/getRoleManagementData`,
         self.setRoleManagementData,
         params, { method: 'get' })
         .catch((ex) => {
@@ -191,7 +191,7 @@ const Page1Store = types
     },
 
     searchRole(params) {
-      return fetchData(`${__HOST}/page1/searchRole`,
+      return fetchData(`${__HOST}/search/searchRole`,
         self.setSearchRole,
         params, { method: 'get' })
         .catch((ex) => {
@@ -215,7 +215,7 @@ const Page1Store = types
     },
 
     saveRole(params) {
-      return fetchData(`${__HOST}/page1/saveRole`,
+      return fetchData(`${__HOST}/search/saveRole`,
         self.setSaveRole,
         params, { method: 'post' })
         .catch((ex) => {
@@ -242,7 +242,7 @@ const Page1Store = types
     },
 
     saveRolePermission(params) {
-      return fetchData(`${__HOST}/page1/saveRolePermission`,
+      return fetchData(`${__HOST}/search/saveRolePermission`,
         self.setSaveRolePermission,
         params, { method: 'post' })
         .catch((ex) => {
@@ -265,7 +265,7 @@ const Page1Store = types
     },
 
     deleteRole(params) {
-      return fetchData(`${__HOST}/page1/deleteRole`,
+      return fetchData(`${__HOST}/search/deleteRole`,
         self.setDeleteRole,
         params, { method: 'post' })
         .catch((ex) => {
@@ -285,4 +285,4 @@ const Page1Store = types
     }
   }));
 
-export default Page1Store;
+export default SearchStore;
