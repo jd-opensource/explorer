@@ -1,65 +1,203 @@
 <template name="container">
   <div class="{styles.search}">
-    <h2>角色管理 search</h2>
-    <div class="{styles.handlerBox}">
-      <span class="{styles.lable}">角色名称</span>
-      <ant-input class="{styles.input}" value="{inputRole}" onChange={onInputRole}/>
-      <ant-Button class="btn" onClick={onSearch}>查询</ant-Button>
-      <ant-Button class="btn" onClick={onAddRole}>新增</ant-Button>
-      <ant-Button class="btn" onClick={onDeleteRole}>删除</ant-Button>
+    <div class="{styles.main}">
+      <p class="{styles.headtitle}">JD Chain</p>
+      <div class="{styles.action}">
+        <div class="{styles.bg}">
+          <span class="{styles.title}">输入搜索:</span>
+          <ant-Input class="{styles.input}"/>
+          <ant-Button  class="{styles.btn}" icon="search">搜索</ant-Button>
+        </div>
+      
+      </div>
+      <div class="{styles.summary}">
+        <div class="{styles.tabs} {styles.blockHeight}">
+          <div class="{styles.span}">
+            <div class="{styles.left}">
+              <p class="{styles.title}">区块高度</p>
+              <p class="{styles.data}">{search.blockHeight || 0}</p>
+            </div>
+            <div class="{styles.right}">
+              <div class="{styles.logo} {styles.logoBH}">
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="{styles.tabs} {styles.transactions}">
+          <div class="{styles.span}">
+            <div class="{styles.left}">
+              <p class="{styles.title}">交易总数</p>
+              <p class="{styles.data}">{store.overviewHeadData.transactionTotal || 0}</p>
+            </div>
+            <div class="{styles.right}">
+              <div class="{styles.logo} {styles.logoTR}">
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="{styles.tabs} {styles.users}">
+          <div class="{styles.span}">
+            <div class="{styles.left}">
+              <p class="{styles.title}">用户总数</p>
+              <p class="{styles.data}">{store.overviewHeadData.userTotal || 0}</p>
+            </div>
+            <div class="{styles.right}">
+              <div class="{styles.logo} {styles.logoUS}">
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="{styles.tabs} {styles.ledgers}">
+          <div class="{styles.span}">
+            <div class="{styles.left}">
+              <p class="{styles.title}">数据账户总数</p>
+              <p class="{styles.data}">{store.overviewHeadData.dataLedgersTotal || 0}</p>
+            </div>
+            <div class="{styles.right}">
+              <div class="{styles.logo} {styles.logoLE}">
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="{styles.tabs} {styles.contracts}">
+          <div class="{styles.span}">
+            <div class="{styles.left}">
+              <p class="{styles.title}">合约总数</p>
+              <p class="{styles.data}">{store.overviewHeadData.contractTotal || 0}</p>
+            </div>
+            <div class="{styles.right}">
+              <div class="{styles.logo} {styles.logoCO}">
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="{styles.list}">
+        <div style="font-size: 12px; color: gray">
+          找到相关的<span style="color: #000; font-weight: bold">{store.total}</span>个区块,&nbsp;&nbsp; 
+          <span style="color: #000; font-weight: bold">{store.transNum}</span>个交易,&nbsp;&nbsp;
+          <span style="color: #000; font-weight: bold">{store.transNum}</span>条交易内容
+        </div>
+        <ant-Tabs>
+          <ant-TabPane tab="全部" key='0'>
+            <div>
+              <#if {{store.allData}}>
+                <#each {{store.allData}}>
+                  <div key={@index}>
+                    <article style="padding: 10px; min-height: 100px; border-bottom: 1px solid #eaecf3">
+                      <p style="margin-bottom: 2em">
+                        <span style="font-size: 18px; color: #999">哈希值(HASH):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span style="font-size: 18px; color: #5a77d3; cursor: pointer">{{hash_id}}</span>
+                      </p>
+                      <p>
+                        <#if {{@item.height}}>
+                          <span style="font-size: 14px; color: #999">高度:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <span style="font-size: 14px; color: #333">{{height}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </#if>
+                        <#if {{@item.block_height}}>
+                          <span style="font-size: 14px; color: #999">所在区块高度(Height):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <span style="font-size: 14px; color: #333">{{block_height}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </#if>
+                        <#if {{@item.block_detail}}>
+                          <span style="font-size: 14px; color: #999">所在区块哈希值(HASH):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <span style="font-size: 14px; color: #333">{{block_detail.hash_id}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </#if>
+                      </p>
+                      <p>
+                        <#if {{@item.endpoint_public_key}}>
+                          <span style="font-size: 14px; color: #999">签名者公钥:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <span style="font-size: 14px; color: #333">{{endpoint_public_key}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </#if>
+                      </p>
+                      <p>
+                        <#if {{@item.node_public_key}}>
+                          <span style="font-size: 14px; color: #999">节点公钥:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <span style="font-size: 14px; color: #333">{{node_public_key}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </#if>
+                      </p>
+                    </article>
+                  </div>
+                </#each>
+                <div style="padding: 30px 0; text-align: right">
+                  <ant-Pagination showQuickjumper={true} hideOnSinglePage={true} defaultCurrent={2} total={{store.total}}/>
+                </div>
+              </#if>
+            </div>
+          </ant-TabPane>
+          <ant-TabPane tab="区块" key='1'>
+            <div>
+              <#if {{store.blockData}}>
+                <#each {{store.blockData}}>
+                  <div key={@index}>
+                    <article style="padding: 10px; min-height: 100px; border-bottom: 1px solid #eaecf3">
+                      <p style="margin-bottom: 2em">
+                        <span style="font-size: 18px; color: #999">哈希值(HASH):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span style="font-size: 18px; color: #5a77d3; cursor: pointer">{{hash_id}}</span>
+                      </p>
+                      <p>
+                        <span style="font-size: 14px; color: #999">高度:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span style="font-size: 14px; color: #999">{{height}}</span>
+                      </p>
+                    </article>
+                  </div>
+                </#each>
+                <div style="padding: 30px 0; text-align: right">
+                  <ant-Pagination showQuickjumper={true} hideOnSinglePage={true} defaultCurrent={2} total={{store.total}}/>
+                </div>
+              </#if>
+            </div>
+          </ant-TabPane>
+          <ant-TabPane tab="交易" key='2'>
+            <#if {{store.transData}}>
+              <#each {{store.transData}}>
+                <div key={@index}>
+                  <p style="margin-bottom: 2em">
+                    <span style="font-size: 18px; color: #999">哈希值(HASH):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="font-size: 18px; color: #5a77d3; cursor: pointer">{{hash_id}}</span>
+                  </p>
+                  <p>
+                    <#if {{@item.height}}>
+                      <span style="font-size: 14px; color: #999">高度:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span style="font-size: 14px; color: #333">{{height}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </#if>
+                    <#if {{@item.block_height}}>
+                      <span style="font-size: 14px; color: #999">所在区块高度(Height):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span style="font-size: 14px; color: #333">{{block_height}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </#if>
+                    <#if {{@item.block_detail}}>
+                      <span style="font-size: 14px; color: #999">所在区块哈希值(HASH):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span style="font-size: 14px; color: #333">{{block_detail.hash_id}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </#if>
+                  </p>
+                  <p>
+                    <#if {{@item.endpoint_public_key}}>
+                      <span style="font-size: 14px; color: #999">签名者公钥:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span style="font-size: 14px; color: #333">{{endpoint_public_key}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </#if>
+                  </p>
+                  <p>
+                    <#if {{@item.node_public_key}}>
+                      <span style="font-size: 14px; color: #999">节点公钥:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span style="font-size: 14px; color: #333">{{node_public_key}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </#if>
+                  </p>
+                </div>
+              </#each>
+              <div style="padding: 30px 0; text-align: right">
+                <ant-Pagination showQuickjumper={true} hideOnSinglePage={true} defaultCurrent={2} total={{store.total}}/>
+              </div>
+              <#else>
+                暂无数据  
+              </#else>
+            </#if>
+          </ant-TabPane>
+        </ant-Tabs>             
+      </div>
     </div>
-
-    <ant-Table rowSelection={rowSelection}
-               columns={toJS(tableColumns)}
-               dataSource={toJS(tableData)}
-               bordered />
-
-    <ModalFormSearch tabName="增加角色" />
-    <ModalFormSearch tabName="编辑角色" />
-    <ModalDetailSearch />
   </div>
-</template>
-
-<template name="modalForm">
-  <ant-Modal width={500} visible="{tabName == '增加角色' ?: (search.addModalVisible, search.editModalVisible)}" footer={null} onCancel={onAddModalCancel}>
-    <ant-Tabs activeKey={search.activeKey} onChange={onTabChange}>
-      <ant-TabPane tab="增加角色" key="tab1">
-        <ul class="frombox">
-          <li>角色名称 <span class="red"></span></li>
-          <li><ant-input onChange={onAddInputRoleChange} value="{search.addInputRole}"/></li>
-          <li>角色描述</li>
-          <li><ant-TextArea rows={4} onChange={onAddInputDesChange} class="textarea" value="{search.addInputDes}" /></li>
-          <li class="{styles.btnArea}">
-            <ant-Button class="btn" onClick={onAddSaveRole}>保存</ant-Button>
-            <ant-Button class="btn" onClick={onAddCancel}>取消</ant-Button>
-          </li>
-        </ul>
-      </ant-TabPane>
-      <ant-TabPane tab="配置权限" key="tab2" disabled="{tabName == '增加角色' ?: search.isDisable}">
-        <div class="{styles.treeWrap}">
-          <ant-Tree checkable
-                    onExpand={onExpand}
-                    expandedKeys={toJS(search.expandedKeys)}
-                    {autoExpandParent}
-                    onCheck={onCheck}
-                    checkedKeys={toJS(search.checkedKeys)}>
-            {loop(treeData)}
-          </ant-Tree>
-        </div>
-        <div class="{styles.btnArea}">
-          <ant-Button class="btn" onClick={onSavePermission} disabled="{tabName == '编辑角色' ?: search.saveBtnDisabled}">保存</ant-Button>
-          <ant-Button class="btn" onClick={onAddCancel}>取消</ant-Button>
-        </div>
-      </ant-TabPane>
-    </ant-Tabs>
-  </ant-Modal>
-</template>
-
-<template name="modalDetail">
-  <ant-Modal width={800} visible={search.detailModalVisible} footer={null} onCancel={onDetailModalCancel}>
-    <@title>
-      <div class={styles.modalTitle}>用户明细</div>
-    </@title>
-    <ant-Table pagination={true} columns={toJS(detailColumns)} dataSource={toJS(search.detailData)} rowKey={getDetailRowKey} bordered />
-  </ant-Modal>
 </template>

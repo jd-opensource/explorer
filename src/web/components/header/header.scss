@@ -2,13 +2,13 @@
   font-size: 16px;
   height: 79px;
   border-bottom: 1px solid #ebebeb;
-  position: fixed;
   width: 100%;
   z-index: 100;
   transition: all 0.5s ease-out;
   box-shadow: 0 1px 3px 0 rgba(0, 34, 77, 0.05);
   background: linear-gradient(90deg,#5a77d3,#3c4c9c);
   display: flex;
+  flex: auto 0 0;
 
   .nav {
     font-size: 0.875rem;
@@ -39,7 +39,7 @@
   .note{
     color: #fff;
     float:right;
-    padding-right: 30px;
+    padding: 22px;
     .value{
       width: 200px;
       border: 1px solid #ADC6FF;
@@ -54,7 +54,7 @@
     float: left;
     text-align: center;
     line-height: 80px;
-    margin-left: 60px;
+    margin-left: 20px;
     position: relative;
     height: 79px;
     overflow: hidden;
@@ -124,4 +124,20 @@
       }
     }
   }
+
+  .footContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #999999;
+    .linker {
+      text-decoration: none;
+      color: #5A77D3;
+    }
+    .linker:hover {
+      color: #5A77D3;
+    }
+} 
 }

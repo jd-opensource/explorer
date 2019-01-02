@@ -14,8 +14,10 @@ import template from './header.t.html';
 export default class Header extends Component {
 
   render() {
+    const { store: { common } } = this.props;
     return template(this.props, this, {
       styles,
+      common,
       headerPic: require('../../images/pic-header.png')
     });
   }

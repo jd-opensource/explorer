@@ -8,6 +8,7 @@
 const isProd = process.env.NODE_ENV == 'production';
 const isTest = process.env.NODE_ENV == 'test';
 const isLocal = process.env.Project == 'local';
+const isSelf  = true;// true使用代理服务，false不使用
 const pxToRem = require('postcss-pxtorem');
 const VERSION = '20170928';
 const modifyVars = Object.assign({});
@@ -204,6 +205,18 @@ module.exports = {
         ]
       }
     ]
+  },
+  devServer: {
+    proxy: [
+      {
+        context: ['/auth', '/api'],
+        target: 'http://192.168.151.39:10001',
+      },
+      {
+        context: ['/ledgers'],
+        target: 'http://192.168.151.45:8081',
+      },
+    ]
   }
 };
 
@@ -240,7 +253,7 @@ module.exports.plugins = [
   new webpack.NamedModulesPlugin(),
   new webpack.DefinePlugin({
     __ENV: isProd || isTest ? "'pro'" : "'dev'",
-    __HOST: isProd || isTest ? "''" : "'http://localhost:8089'",
+    __HOST: isProd || isTest || isSelf ? "''" : "'http://localhost:8088'",
     'process.env': {
       NODE_ENV: JSON.stringify(isProd ? 'production' : 'development')
     }

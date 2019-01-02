@@ -1,6 +1,6 @@
 import { types } from 'mobx-state-tree';
 import { observable, toJS } from 'mobx';
-import fetchData from 'flarej/lib/utils/fetchData';
+import { fetchData } from '../../utils/fetchConfig';
 import Notification from '../../utils/notification';
 
 const SearchStore = types
@@ -27,53 +27,8 @@ const SearchStore = types
     menuIds: null,
     authTreeData: null,
     menuData: null,
-    detailData: []
-  }))
-  .views(self => ({
-    //获取树节点的展开形式
-    getExpandedKeys(arr) {
-      return arr.filter(n => n.level == 1 || n.level == 2).map(m => {
-        return m.id.toString();
-      });
-    },
-
-    getDefaultCheckedKeys() {
-      let keys = [];
-      self.menuData.filter(n => n.level == 3)
-        .forEach(item => {
-          if (item.selected) {
-            keys.push(item.id.toString());
-          }
-        });
-      return keys;
-    },
-
-    getAuthTreeDataMap(authList) {
-      const authTreeDataMap = {};
-      authList.forEach(node => {
-        authTreeDataMap[node.id] = node;
-      });
-
-      return authTreeDataMap;
-    },
-
-    getAuthTreeData(authList, authMap, level = 1, node, pids = []) {
-      if (level == 4) {
-        return null;
-      }
-
-      return authList
-        .filter(n => n.level == level && (!node ? true : n.pid == node.id.toString()))
-        .map(n => {
-          authMap[n.id].pids = pids;
-
-          return {
-            key: n.id.toString(),
-            title: n.name,
-            children: self.getAuthTreeData(authList, authMap, level + 1, n, [...pids, n.id.toString()])
-          };
-        });
-    }
+    detailData: [],
+    blockHeight:0,// 区块高度
   }))
   .actions(self => ({
     afterCreate() {
@@ -167,7 +122,7 @@ const SearchStore = types
     },
 
     getRoleManagementData(params) {
-      return fetchData(`${__HOST}/search/getRoleManagementData`,
+      return fetchData(`${__HOST}/api/v1/search`,
         self.setRoleManagementData,
         params, { method: 'get' })
         .catch((ex) => {
@@ -282,7 +237,111 @@ const SearchStore = types
       } else {
         Notification.error({ description: '删除角色数据异常:' + result.message, duration: null });
       }
-    }
+    },
+    // 获取区块高度
+    getBlockHeight(param) {
+      fetchData(`${__HOST}/ledgers/${param}/blocks/latest`,
+        self.setBlockHeight,
+        '', { 
+          method: 'get',
+          headers: {
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+
+    setBlockHeight(result) {
+      if (result&&result.success) {
+        self.blockHeight=result.data.height||0;
+      }
+      // let response = result;
+      // this.overviewHeadData.blockHeight = response && response.data && response.data.height ? response.data.height : 0; 
+    },
+
+    // 获取交易总数
+    getTransactionTotal() {
+      fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/txs/count`,
+        this.setTransactionTotal,
+        '', { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+ 
+    setTransactionTotal(result) {
+      let response = result;
+      this.overviewHeadData.transactionTotal = response && response.data ? response.data : 0; 
+    },
+
+    // 获取用户总数
+    getUserTotal() {
+      fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/users/count`,
+        this.setUserTotal,
+        '', { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+    setUserTotal(result) {
+      let response = result;
+      this.overviewHeadData.userTotal = response && response.data ? response.data : 0; 
+    },
+
+   // 获取数据账户总数
+    getLedgerTotal() {
+      fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/accounts/count`,
+        this.setLedgerTotal,
+        '', { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+    
+    setLedgerTotal(result) {
+      let response = result;
+      this.overviewHeadData.dataLedgersTotal = response && response.data ? response.data : 0; 
+    },
+
+    // 合约总数
+    getContractTotal() {
+      fetchData(`${G_WEB_DOMAIN}/ledgers/${localStorage.defaultValue}/contracts/count`,
+        this.setContractTotal,
+        '', { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+    setContractTotal(result) {
+      let response = result;
+      this.overviewHeadData.contractTotal = response && response.data ? response.data : 0;
+    },
   }));
 
 export default SearchStore;

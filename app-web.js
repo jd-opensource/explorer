@@ -47,6 +47,10 @@ const renderApp = appRoutes => {
           <div id="outer-container">
             <${HeaderWithRouter} />
             ${appRoutes()}
+            <div class="footContent">
+              Copyright © 2004-2019 JD.COM 京东版权所有 Power by
+              <a href="http://ledger.jd.com/" target="_blank" class="linker" title="京东区块链">&nbsp;京东区块链平台</a>
+            </div>
           </div>
         </HashRouter>
       </mobx-Provider>

@@ -82,7 +82,7 @@ app.get('/common/logout', function(req, res) {
   res.redirect('http://localhost:8080/dist/web/home.html');
 });
 
-let server = app.listen(8089, function() {
+let server = app.listen(8088, function() {
   let host = server.address().address;
   let port = server.address().port;
 
