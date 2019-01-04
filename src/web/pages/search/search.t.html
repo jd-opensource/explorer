@@ -1,16 +1,16 @@
 <template name="container">
   <div class="{styles.search}">
     <div class="{styles.main}">
-      <p class="{styles.headtitle}">JD Chain</p>
+      <p class="{styles.headtitle}"  #show={!flagSerch}>JD Chain</p>
       <div class="{styles.action}">
         <div class="{styles.bg}">
           <span class="{styles.title}">输入搜索:</span>
-          <ant-Input class="{styles.input}"/>
-          <ant-Button  class="{styles.btn}" icon="search">搜索</ant-Button>
+          <ant-Input class="{styles.input}" value="{searchParamInput}" onChange={onChangeInput}/>
+          <ant-Button  class="{styles.btn}" icon="search" onClick={Search}>搜索</ant-Button>
         </div>
       
       </div>
-      <div class="{styles.summary}">
+      <div class="{styles.summary}"  #show={!flagSerch}>
         <div class="{styles.tabs} {styles.blockHeight}">
           <div class="{styles.span}">
             <div class="{styles.left}">
@@ -28,7 +28,7 @@
           <div class="{styles.span}">
             <div class="{styles.left}">
               <p class="{styles.title}">交易总数</p>
-              <p class="{styles.data}">{store.overviewHeadData.transactionTotal || 0}</p>
+              <p class="{styles.data}">{search.transactionTotal || 0}</p>
             </div>
             <div class="{styles.right}">
               <div class="{styles.logo} {styles.logoTR}">
@@ -41,7 +41,7 @@
           <div class="{styles.span}">
             <div class="{styles.left}">
               <p class="{styles.title}">用户总数</p>
-              <p class="{styles.data}">{store.overviewHeadData.userTotal || 0}</p>
+              <p class="{styles.data}">{search.userTotal || 0}</p>
             </div>
             <div class="{styles.right}">
               <div class="{styles.logo} {styles.logoUS}">
@@ -54,7 +54,7 @@
           <div class="{styles.span}">
             <div class="{styles.left}">
               <p class="{styles.title}">数据账户总数</p>
-              <p class="{styles.data}">{store.overviewHeadData.dataLedgersTotal || 0}</p>
+              <p class="{styles.data}">{search.dataLedgersTotal || 0}</p>
             </div>
             <div class="{styles.right}">
               <div class="{styles.logo} {styles.logoLE}">
@@ -67,7 +67,7 @@
           <div class="{styles.span}">
             <div class="{styles.left}">
               <p class="{styles.title}">合约总数</p>
-              <p class="{styles.data}">{store.overviewHeadData.contractTotal || 0}</p>
+              <p class="{styles.data}">{search.contractTotal || 0}</p>
             </div>
             <div class="{styles.right}">
               <div class="{styles.logo} {styles.logoCO}">
@@ -77,119 +77,115 @@
           </div>
         </div>
       </div>
-      <div class="{styles.list}">
-        <div style="font-size: 12px; color: gray">
-          找到相关的<span style="color: #000; font-weight: bold">{store.total}</span>个区块,&nbsp;&nbsp; 
-          <span style="color: #000; font-weight: bold">{store.transNum}</span>个交易,&nbsp;&nbsp;
-          <span style="color: #000; font-weight: bold">{store.transNum}</span>条交易内容
+      <div class="{styles.list}" #show={flagSerch}>
+        <div class="{styles.listdesc}">
+          找到相关的<span>{search.total}</span>个区块,<span>{search.transNum}</span>个交易,<span>{search.transNum}</span>条交易内容
         </div>
         <ant-Tabs>
           <ant-TabPane tab="全部" key='0'>
-            <div>
-              <#if {{store.allData}}>
-                <#each {{store.allData}}>
-                  <div key={@index}>
-                    <article style="padding: 10px; min-height: 100px; border-bottom: 1px solid #eaecf3">
-                      <p style="margin-bottom: 2em">
-                        <span style="font-size: 18px; color: #999">哈希值(HASH):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span style="font-size: 18px; color: #5a77d3; cursor: pointer">{{hash_id}}</span>
-                      </p>
-                      <p>
-                        <#if {{@item.height}}>
-                          <span style="font-size: 14px; color: #999">高度:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <span style="font-size: 14px; color: #333">{{height}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </#if>
-                        <#if {{@item.block_height}}>
-                          <span style="font-size: 14px; color: #999">所在区块高度(Height):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <span style="font-size: 14px; color: #333">{{block_height}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </#if>
-                        <#if {{@item.block_detail}}>
-                          <span style="font-size: 14px; color: #999">所在区块哈希值(HASH):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <span style="font-size: 14px; color: #333">{{block_detail.hash_id}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </#if>
-                      </p>
-                      <p>
-                        <#if {{@item.endpoint_public_key}}>
-                          <span style="font-size: 14px; color: #999">签名者公钥:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <span style="font-size: 14px; color: #333">{{endpoint_public_key}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </#if>
-                      </p>
-                      <p>
-                        <#if {{@item.node_public_key}}>
-                          <span style="font-size: 14px; color: #999">节点公钥:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <span style="font-size: 14px; color: #333">{{node_public_key}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </#if>
-                      </p>
-                    </article>
-                  </div>
-                </#each>
-                <div style="padding: 30px 0; text-align: right">
-                  <ant-Pagination showQuickjumper={true} hideOnSinglePage={true} defaultCurrent={2} total={{store.total}}/>
-                </div>
-              </#if>
-            </div>
-          </ant-TabPane>
-          <ant-TabPane tab="区块" key='1'>
-            <div>
-              <#if {{store.blockData}}>
-                <#each {{store.blockData}}>
-                  <div key={@index}>
-                    <article style="padding: 10px; min-height: 100px; border-bottom: 1px solid #eaecf3">
-                      <p style="margin-bottom: 2em">
-                        <span style="font-size: 18px; color: #999">哈希值(HASH):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span style="font-size: 18px; color: #5a77d3; cursor: pointer">{{hash_id}}</span>
-                      </p>
-                      <p>
-                        <span style="font-size: 14px; color: #999">高度:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span style="font-size: 14px; color: #999">{{height}}</span>
-                      </p>
-                    </article>
-                  </div>
-                </#each>
-                <div style="padding: 30px 0; text-align: right">
-                  <ant-Pagination showQuickjumper={true} hideOnSinglePage={true} defaultCurrent={2} total={{store.total}}/>
-                </div>
-              </#if>
-            </div>
-          </ant-TabPane>
-          <ant-TabPane tab="交易" key='2'>
-            <#if {{store.transData}}>
-              <#each {{store.transData}}>
-                <div key={@index}>
-                  <p style="margin-bottom: 2em">
-                    <span style="font-size: 18px; color: #999">哈希值(HASH):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span style="font-size: 18px; color: #5a77d3; cursor: pointer">{{hash_id}}</span>
+            <#if {{search.allData.length > 0}}>
+              <#each {{search.allData}}>
+                <article key={@index} class="{styles.option}">
+                  <p class="{styles.title}">
+                    <span>哈希值(HASH):</span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash_id)}"></span>
                   </p>
-                  <p>
+                  <p class="{styles.content}">
                     <#if {{@item.height}}>
-                      <span style="font-size: 14px; color: #999">高度:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <span style="font-size: 14px; color: #333">{{height}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span>高度:</span>
+                      <span>{{height}}</span>
                     </#if>
                     <#if {{@item.block_height}}>
-                      <span style="font-size: 14px; color: #999">所在区块高度(Height):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <span style="font-size: 14px; color: #333">{{block_height}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span>所在区块高度(Height):</span>
+                      <span>{{block_height}}</span>
                     </#if>
                     <#if {{@item.block_detail}}>
-                      <span style="font-size: 14px; color: #999">所在区块哈希值(HASH):</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <span style="font-size: 14px; color: #333">{{block_detail.hash_id}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span>所在区块哈希值(HASH):</span>
+                      <span>{{block_detail.hash_id}}</span>
                     </#if>
                   </p>
                   <p>
                     <#if {{@item.endpoint_public_key}}>
-                      <span style="font-size: 14px; color: #999">签名者公钥:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <span style="font-size: 14px; color: #333">{{endpoint_public_key}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span>签名者公钥:</span>
+                      <span>{{endpoint_public_key}}</span>
                     </#if>
                   </p>
                   <p>
                     <#if {{@item.node_public_key}}>
-                      <span style="font-size: 14px; color: #999">节点公钥:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <span style="font-size: 14px; color: #333">{{node_public_key}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span>节点公钥:</span>
+                      <span>{{node_public_key}}</span>
                     </#if>
                   </p>
-                </div>
+                </article>
+              </#each>
+              <#else>
+                暂无数据  
+              </#else>
+              <div style="padding: 30px 0; text-align: right" hidden>
+                <ant-Pagination showQuickJumper  total={search.total}/>
+              </div>
+            </#if>
+          </ant-TabPane>
+          <ant-TabPane tab="区块" key='1'>
+            <#if {{search.blockData.length > 0}}>
+              <#each {{search.blockData}}>
+                  <article  key={@index}  class="{styles.option}">
+                    <p class="{styles.title}">
+                      <span>哈希值(HASH):</span>
+                      <span :dangerouslySetInnerHTML="{__html:highLIght(hash_id)}"></span>
+                    </p>
+                    <p class="{styles.content}">
+                      <span>高度:</span>
+                      <span>{{height}}</span>
+                    </p>
+                  </article>
+              </#each>
+              <#else>
+                暂无数据  
+              </#else>
+              <div style="padding: 30px 0; text-align: right" hidden>
+                <ant-Pagination showQuickjumper={true} hideOnSinglePage={true} defaultCurrent={2} total={{search.total}}/>
+              </div>
+            </#if>
+          </ant-TabPane>
+          <ant-TabPane tab="交易" key='2'>
+            <#if {{search.transData.length > 0}}>
+              <#each {{search.transData}}>
+                <article  key={@index}  class="{styles.option}">
+                  <p class="{styles.title}">
+                    <span>哈希值(HASH):</span>
+                    <span :dangerouslySetInnerHTML="{__html:highLIght(hash_id)}"></span>
+                  </p>
+                  <p class="{styles.content}">
+                    <#if {{@item.height}}>
+                      <span>高度:</span>
+                      <span>{{height}}</span>
+                    </#if>
+                    <#if {{@item.block_height}}>
+                      <span>所在区块高度(Height):</span>
+                      <span>{{block_height}}</span>
+                    </#if>
+                    <#if {{@item.block_detail}}>
+                      <span>所在区块哈希值(HASH):</span>
+                      <span>{{block_detail.hash_id}}</span>
+                    </#if>
+                  </p>
+                  <p>
+                    <#if {{@item.endpoint_public_key}}>
+                      <span>签名者公钥:</span>
+                      <span>{{endpoint_public_key}}</span>
+                    </#if>
+                  </p>
+                  <p>
+                    <#if {{@item.node_public_key}}>
+                      <span>节点公钥:</span>
+                      <span>{{node_public_key}}</span>
+                    </#if>
+                  </p>
+                </article>
               </#each>
               <div style="padding: 30px 0; text-align: right">
-                <ant-Pagination showQuickjumper={true} hideOnSinglePage={true} defaultCurrent={2} total={{store.total}}/>
+                <ant-Pagination showQuickjumper={true} hideOnSinglePage={true} defaultCurrent={2} total={{search.total}}/>
               </div>
               <#else>
                 暂无数据  

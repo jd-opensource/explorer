@@ -13,6 +13,16 @@ import template from './header.t.html';
 @observer
 export default class Header extends Component {
 
+  // 菜单
+  @observable menuData=[{
+
+  }];
+  // 切换菜单
+  @autobind
+  CheckMenu({key}){
+    window.location.hash="#"+key;
+  }
+
   render() {
     const { store: { common } } = this.props;
     return template(this.props, this, {

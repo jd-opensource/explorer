@@ -1,0 +1,14 @@
+<template name="container">
+  <div class="{styles.user}">
+    <h2>
+      用户
+    </h2>
+    <div class="{styles.datapanel}">
+      <ant-Table rowSelection={rowSelection}
+        columns={toJS(tableColumns)}
+        dataSource={toJS(tableData)}
+        :pagination="{showQuickJumper:true}"
+        bordered />
+    </div>
+  </div>
+</template>

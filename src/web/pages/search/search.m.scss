@@ -155,6 +155,40 @@
       background: #fff;
       border-radius: 4px;
       padding: 30px;
+      margin-top: 30px;
+      .listdesc{
+        font-size: 12px;
+        color: gray;
+        span{
+          color: #000;
+           font-weight: bold;
+        }
+      }
+      .option{
+        padding: 10px; 
+        min-height: 100px; 
+        border-bottom: 1px solid #eaecf3;
+        .title{
+          font-size: 18px;
+          margin-bottom: 20px;
+          color: #999;
+          span{
+            margin-right: 10px;
+            i{
+              margin-right:unset;
+              color:#5a77d3;
+              font-weight: bold;
+            }
+          }
+        }
+        .content{
+          font-size: 14px;
+          color: #999;
+          span{
+            margin-right: 10px;
+          }
+        }
+      }
     }
   }
 }

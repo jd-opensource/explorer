@@ -16,7 +16,8 @@ class Bundle extends Component {
     Message.destroy();
     notification.destroy();
     // 初始化全局数据
-    const { store:{common} } = this.props;debugger;
+    const { store:{common,header} } = this.props;
+    // 设置菜单高亮
     if (common&&common.ledgers.length==0) {
       Promise.all([
         common.getLedgersInfo("")

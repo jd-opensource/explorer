@@ -1,12 +1,15 @@
 <header class="site-header">
   <div class="logo">
   </div>
-  <ant-Menu mode="horizontal" class="nav" defaultValue="1">
-    <ant-MenuItem key="1"> <ant-Icon type="home" />首页</ant-MenuItem>
-    <ant-MenuItem key="2"> <ant-Icon type="switcher" />数据账户</ant-MenuItem>
+  <ant-Menu mode="horizontal" class="nav" selectedKeys={store.header.selectMenu} onClick={CheckMenu}>
+    <!-- <ant-MenuItem key="search"> <ant-Icon type="home" />首页</ant-MenuItem>
+    <ant-MenuItem key="account"> <ant-Icon type="switcher" />数据账户</ant-MenuItem>
     <ant-MenuItem key="3"> <ant-Icon type="block" />区块</ant-MenuItem>
     <ant-MenuItem key="4"> <ant-Icon type="swap" />交易</ant-MenuItem>
-    <ant-MenuItem key="5"> <ant-Icon type="user" />用户</ant-MenuItem>
+    <ant-MenuItem key="user"> <ant-Icon type="user" />用户</ant-MenuItem> -->
+    <#each {store.header.menuData}>
+      <ant-MenuItem key={path}> <ant-Icon type={icon} />{name}</ant-MenuItem>
+    </#each>
   </ant-Menu>
    <div class="note">
     账本：
@@ -15,7 +18,7 @@
     </ant-Select> -->
     <ant-Select  value="{common.defaultledger}" style="width:300px;" >
       <#each {{common.ledgers}}>
-        <ant-Option value="{{value}}">{{value}}</ant-Option>
+        <ant-Option key="{@index}" value="{{value}}">{{value}}</ant-Option>
       </#each>
     </ant-Select>
   </div>

@@ -24,18 +24,48 @@ import tmpls from './search.t.html';
 @inject('store')
 @observer
 export default class Search extends Component {
-  @observable detailModalVisible = false;
-  @observable inputRole = '';
-  @observable detailData = [];
-  @observable selectedRowKeys = [];
-  @observable selectedRows = [];
+  
+  @observable searchParamInput = '';// 搜索的值
+  @observable flagSerch = false;
 
-  componentDidMount() {
+  // 获取输入内容
+  @autobind
+  onChangeInput(e){
+    this.searchParamInput=e.target.value.trim();
+  }
+
+  // 搜索
+  @autobind
+  Search(){
     const { store: { search } } = this.props;
-
     const closeLoading = Message.loading('正在获取数据...', 0);
     Promise.all([
-      search.getBlockHeight(this.props.store.common.getDefaultLedger()),
+      search.getBlockData(
+        {
+          q: this.searchParamInput,
+        }),
+    ]).then(() => {
+      this.flagSerch=true;
+      closeLoading();
+    });
+  }
+
+  // 高亮文字
+  highLIght=(content)=>{
+    return content.replace(this.searchParamInput,"<i>"+this.searchParamInput+"</i>");
+  }
+
+  componentDidMount() {
+    const { store: { search,header } } = this.props;
+    header.setSelectMenu(['search']);
+    const closeLoading = Message.loading('正在获取数据...', 0);
+    let legder=this.props.store.common.getDefaultLedger();
+    Promise.all([
+      search.getBlockHeight(legder),
+      search.getTransactionTotal(legder),
+      search.getUserTotal(legder),
+      search.getLedgerTotal(legder),
+      search.getContractTotal(legder),
     ]).then(() => {
       closeLoading();
     });

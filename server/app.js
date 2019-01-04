@@ -35,6 +35,15 @@ app.use('/page2', page2);
 const search = require('./routes/search');
 app.use('/search', search);
 
+const account = require('./routes/account');
+app.use('/account', account);
+
+const user = require('./routes/user');
+app.use('/user', user);
+
+const block = require('./routes/block');
+app.use('/block', block);
+
 //{pages}//
 
 const { resultData } = require('./common/utils');
