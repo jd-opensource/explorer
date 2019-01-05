@@ -1,286 +1,85 @@
 import { types } from 'mobx-state-tree';
 import { observable, toJS } from 'mobx';
-import fetchData from 'flarej/lib/utils/fetchData';
+import { fetchData } from '../../utils/fetchConfig';
 import Notification from '../../utils/notification';
 
 const BlockStore = types
   .model('BlockStore', {
-    isDisable: types.optional(types.boolean, true),
-    activeKey: types.optional(types.string, 'tab1'),
-    addModalVisible: false,
-    editModalVisible: false,
-    saveBtnDisabled: false,
-    addInputRole: '',
-    addInputDes: '',
-    roleId: 0,
-    expandedKeys: types.optional(types.array(types.string), []),
-    checkedKeys: types.optional(types.array(types.string), []),
-    detailModalVisible: false
   })
   .volatile(self => ({
-    tableData: null,
-    tableDataO: null,
-    searchData: null,
-    addRoleData: null,
-    treeData: null,
-    addRoleId: null,
-    menuIds: null,
-    authTreeData: null,
-    menuData: null,
-    detailData: []
-  }))
-  .views(self => ({
-    //获取树节点的展开形式
-    getExpandedKeys(arr) {
-      return arr.filter(n => n.level == 1 || n.level == 2).map(m => {
-        return m.id.toString();
-      });
-    },
-
-    getDefaultCheckedKeys() {
-      let keys = [];
-      self.menuData.filter(n => n.level == 3)
-        .forEach(item => {
-          if (item.selected) {
-            keys.push(item.id.toString());
-          }
-        });
-      return keys;
-    },
-
-    getAuthTreeDataMap(authList) {
-      const authTreeDataMap = {};
-      authList.forEach(node => {
-        authTreeDataMap[node.id] = node;
-      });
-
-      return authTreeDataMap;
-    },
-
-    getAuthTreeData(authList, authMap, level = 1, node, pids = []) {
-      if (level == 4) {
-        return null;
-      }
-
-      return authList
-        .filter(n => n.level == level && (!node ? true : n.pid == node.id.toString()))
-        .map(n => {
-          authMap[n.id].pids = pids;
-
-          return {
-            key: n.id.toString(),
-            title: n.name,
-            children: self.getAuthTreeData(authList, authMap, level + 1, n, [...pids, n.id.toString()])
-          };
-        });
-    }
+    transactionList: [],
   }))
   .actions(self => ({
-    afterCreate() {
-      self.authTreeDataMap = null;
+    // 获取区块高度
+    getBlockHeight(param) {
+      fetchData(`${__HOST}/ledgers/${param}/blocks/latest`,
+        self.setBlockHeight,
+        '', { 
+          method: 'get',
+          headers: {
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+      });
     },
 
-    setAddModalVisible(v) {
-      self.addModalVisible = v;
-    },
-
-    setEditModalVisible(v) {
-      self.editModalVisible = v;
-    },
-
-    setSaveBtnDisabled(v) {
-      self.saveBtnDisabled = v;
-    },
-
-    setAddInputRole(v) {
-      self.addInputRole = v;
-    },
-
-    setAddInputDes(v) {
-      self.addInputDes = v;
-    },
-
-    setRoleId(v) {
-      self.roleId = v;
-    },
-
-    setExpandedKeys(v) {
-      self.expandedKeys = v;
-    },
-
-    setCheckedKeys(v) {
-      self.checkedKeys = v;
-    },
-
-    setDetailModalVisible(v) {
-      self.detailModalVisible = v;
-    },
-
-    setDetailData(v) {
-      self.detailData = v;
-    },
-
-    setMenuIds(checkeds) {
-      self.menuIds = checkeds.join();
-    },
-
-    setTableData(value) {
-      self.tableData = value;
-    },
-
-    setDisable(value) {
-      self.isDisable = value;
-    },
-
-    setActiveKey(value) {
-      self.activeKey = value;
-    },
-
-    initTree() {
-      self.expandedKeys = self.getExpandedKeys(toJS(self.menuData));
-      self.checkedKeys = self.getDefaultCheckedKeys();
-    },
-
-    getRoleMenuTree(params) {
-      return fetchData(`${__HOST}/block/getRoleMenuTree`,
-        self.setRoleMenuTree,
-        params, { method: 'get' })
-        .catch((ex) => {
-          Notification.error({
-            description: '获取角色权限数据异常:' + ex,
-            duration: null
-          });
-        });
-    },
-
-    setRoleMenuTree(result) {
-      if (result.success) {
-        self.menuData = result.data;
-        self.authTreeDataMap = self.getAuthTreeDataMap(result.data);
-        self.authTreeData = self.getAuthTreeData(result.data, self.authTreeDataMap);
-      } else {
-        Notification.error({
-          description: '获取角色权限数据错误:' + result.message,
-          duration: null
-        });
+    setBlockHeight(result) {
+      if (result&&result.success) {
+        self.blockHeight=result.data.height||0;
       }
-    },
+      let total=695;
+      let num=0;
 
-    getRoleManagementData(params) {
-      return fetchData(`${__HOST}/block/getRoleManagementData`,
-        self.setRoleManagementData,
-        params, { method: 'get' })
-        .catch((ex) => {
-          Notification.error({
-            description: '获取角色管理数据异常:' + ex,
-            duration: null
-          });
-        });
-    },
+      
 
-    setRoleManagementData(result) {
-      if (result.success) {
-        const data = result.data;
-        self.tableDataO = self.tableData = data.length > 0 ? data : [];
-      } else {
-        Notification.error({
-          description: '获取角色管理度数据异常:' + result.message,
-          duration: null
-        });
+    },
+    // 查找交易
+    getTransaction(param) {
+      fetchData(`${__HOST}/api/v1/query/tx/range`,
+        self.setTransaction,param,
+        { 
+          method: 'get',
+        }
+      ).catch(error => {
+      });
+    },
+  
+    setTransaction(result){
+      self.transactionList=[];
+      if (result.message == 'OK')
+      {
+        self.transactionList = result.data && result.data.txs || [];// 交易数据
+      } 
+      else{
+        self.transactionList=[];
       }
+      let s=Math.floor(Math.random()*10);
+      if (s>5) {
+        self.transactionList=[1,2,3];
+      } 
+      
     },
 
-    searchRole(params) {
-      return fetchData(`${__HOST}/block/searchRole`,
-        self.setSearchRole,
-        params, { method: 'get' })
-        .catch((ex) => {
-          Notification.error({
-            description: '获取角色数据异常:' + ex,
-            duration: null
-          });
-        });
+    // 查找交易详情
+    getTransactionMore(param) {
+      fetchData(`${__HOST}/api/v1/query/writeset/tx`,
+        self.setTransactionMore,param,
+        { 
+          method: 'get',
+        }
+      ).catch(error => {
+      });
     },
-
-    setSearchRole(result) {
-      if (result.success) {
-        const data = result.data;
-        self.searchData = data;
-      } else {
-        Notification.error({
-          description: '获取角色数据异常:' + result.message,
-          duration: null
-        });
-      }
-    },
-
-    saveRole(params) {
-      return fetchData(`${__HOST}/block/saveRole`,
-        self.setSaveRole,
-        params, { method: 'post' })
-        .catch((ex) => {
-          Notification.error({
-            description: '添加角色数据异常:' + ex,
-            duration: null
-          });
-        });
-    },
-
-    setSaveRole(result) {
-      if (result.success) {
-        const data = result.data;
-        self.addRoleId = data.roleId;
-        Notification.success({ description: '添加角色成功！', duration: 2 });
-        self.setDisable(false);
-
-      } else {
-        Notification.error({
-          description: '添加角色数据异常:' + result.message,
-          duration: null
-        });
-      }
-    },
-
-    saveRolePermission(params) {
-      return fetchData(`${__HOST}/block/saveRolePermission`,
-        self.setSaveRolePermission,
-        params, { method: 'post' })
-        .catch((ex) => {
-          Notification.error({
-            description: '添加角色权限数据异常:' + ex,
-            duration: null
-          });
-        });
-    },
-
-    setSaveRolePermission(result) {
-      if (result.success) {
-        Notification.success({ description: '添加角色权限成功！', duration: 2 });
-      } else {
-        Notification.error({
-          description: '添加角色权限数据异常:' + result.message,
-          duration: null
-        });
-      }
-    },
-
-    deleteRole(params) {
-      return fetchData(`${__HOST}/block/deleteRole`,
-        self.setDeleteRole,
-        params, { method: 'post' })
-        .catch((ex) => {
-          Notification.error({
-            description: '删除角色数据异常:' + ex,
-            duration: null
-          });
-        });
-    },
-
-    setDeleteRole(result) {
-      if (result.success) {
-        Notification.success({ description: '删除角色成功！', duration: null });
-      } else {
-        Notification.error({ description: '删除角色数据异常:' + result.message, duration: null });
+  
+    setTransactionMore(result){debugger;
+      if (result.message == 'OK')
+      {
+        console.log(result.data && result.data.kvs || []);
+        return result.data && result.data.kvs || [];
+      } 
+      else{
+        return [];
       }
     }
   }));

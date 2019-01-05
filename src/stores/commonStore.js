@@ -1,5 +1,5 @@
 import { types } from 'mobx-state-tree';
-import { fetchData } from 'flarej/lib/utils/fetchConfig';
+import { fetchData } from '../utils/fetchConfig';
 import Notification from '../utils/notification';
 
 export const UserInfo = types.model('UserInfo', {
@@ -27,7 +27,7 @@ export const CommonStore = types
       self.defaultledger=v;
     },
     getDefaultLedger(){
-      return localStorage.getItem("clusterID");
+      return localStorage.getItem("defaultledger");
     },
     getCurrentUserInfo() {
       return fetchData(`${__HOST}/common/getCurrentUserInfo`,

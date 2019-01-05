@@ -1,0 +1,6 @@
+<template name="blockList">
+  <div style="border: 1px solid #f3f3f3;margin: 20px auto;padding: 10px;">
+        <p style="margin:10px auto;">交易哈希：{hash_id}</p>
+        <ant-Table style="width:70%;" columns={toJS(tableColumns)}   dataSource={toJS(tableData)} pagination={false}/>
+      </div>
+</template>

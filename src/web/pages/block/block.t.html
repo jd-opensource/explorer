@@ -5,7 +5,7 @@
         <div class="{styles.span}">
           <div class="{styles.left}">
             <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">{search.blockHeight || 0}</p>
+            <p class="{styles.data}">693</p>
           </div>
           <div class="{styles.right}">
             <div class="{styles.logo} {styles.logoBH}">
@@ -18,7 +18,7 @@
         <div class="{styles.span}">
           <div class="{styles.left}">
             <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">{search.blockHeight || 0}</p>
+            <p class="{styles.data}">692</p>
           </div>
           <div class="{styles.right}">
             <div class="{styles.logo} {styles.logoBH}">
@@ -31,7 +31,7 @@
         <div class="{styles.span}">
           <div class="{styles.left}">
             <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">{search.blockHeight || 0}</p>
+            <p class="{styles.data}">691</p>
           </div>
           <div class="{styles.right}">
             <div class="{styles.logo} {styles.logoBH}">
@@ -44,7 +44,20 @@
         <div class="{styles.span}">
           <div class="{styles.left}">
             <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">{search.blockHeight || 0}</p>
+            <p class="{styles.data}">690</p>
+          </div>
+          <div class="{styles.right}">
+            <div class="{styles.logo} {styles.logoBH}">
+            
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="{styles.tabs} {styles.blockHeight} {styles.dark}" onClick={onSearch}>
+        <div class="{styles.span}">
+          <div class="{styles.left}">
+            <p class="{styles.title}">区块高度</p>
+            <p class="{styles.data}">689</p>
           </div>
           <div class="{styles.right}">
             <div class="{styles.logo} {styles.logoBH}">
@@ -57,7 +70,7 @@
         <div class="{styles.span}">
           <div class="{styles.left}">
             <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">{search.blockHeight || 0}</p>
+            <p class="{styles.data}">688</p>
           </div>
           <div class="{styles.right}">
             <div class="{styles.logo} {styles.logoBH}">
@@ -70,20 +83,7 @@
         <div class="{styles.span}">
           <div class="{styles.left}">
             <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">{search.blockHeight || 0}</p>
-          </div>
-          <div class="{styles.right}">
-            <div class="{styles.logo} {styles.logoBH}">
-            
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="{styles.tabs} {styles.blockHeight} {styles.dark}">
-        <div class="{styles.span}">
-          <div class="{styles.left}">
-            <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">{search.blockHeight || 0}</p>
+            <p class="{styles.data}">687</p>
           </div>
           <div class="{styles.right}">
             <div class="{styles.logo} {styles.logoBH}">
@@ -93,11 +93,16 @@
         </div>
       </div>
     </div>
-    <div style="display: flex;align-items: center;float: right;padding-right: 30px;">
-      跳转到
-      <ant-Input style="width:100px;margin:10px;"/>
-      区块
-    </div>
+    <fj-Row>
+      <fj-Col l=12>
+        <div style="display: flex;align-items: center;padding-right: 30px;">
+          跳转到
+          <ant-Input style="width:100px;margin:10px;"/>
+          区块
+        </div>
+      </fj-Col>
+    </fj-Row>
+  
     <div class="{styles.datapanel}">
       <fj-Row>
         <fj-Col l=4>
@@ -106,66 +111,11 @@
         <fj-Col l=4>
           区块哈希：sdfldsfjldsfjldsfjlsdfdsfds
         </fj-Col>
-        <fj-Col l=4>
-          交易数量：34
-        </fj-Col>
       </fj-Row>
-      <div style="border: 1px solid #f3f3f3;margin: 20px auto;padding: 10px;">
-        <p style="margin:10px auto;">交易哈希：dsfudsoiufodsfudsoifupds</p>
-        <ant-Table style="width:70%;" columns={toJS(tableColumns)}   dataSource={toJS(tableData)} pagination={false}/>
-      </div>
-      <div style="border: 1px solid #f3f3f3;margin: 20px auto;padding: 10px;">
-        <p style="margin:10px auto;">交易哈希：dsfudsoiufodsfudsoifupds</p>
-        <ant-Table  columns={toJS(tableColumns)} />
-      </div>
-      <div style="border: 1px solid #f3f3f3;margin: 20px auto;padding: 10px;">
-        <p style="margin:10px auto;">交易哈希：dsfudsoiufodsfudsoifupds</p>
-        <ant-Table  columns={toJS(tableColumns)} />
-      </div>
+      <#each {{block.transactionList}}>
+        <BlockList key={@index} source="{{this}}"/>
+      </#each>
     </div>
+
   </div>
-</template>
-
-<template name="modalForm">
-  <ant-Modal width={500} visible="{tabName == '增加角色' ?: (block.addModalVisible, block.editModalVisible)}" footer={null} onCancel={onAddModalCancel}>
-    <ant-Tabs activeKey={block.activeKey} onChange={onTabChange}>
-      <ant-TabPane tab="增加角色" key="tab1">
-        <ul class="frombox">
-          <li>角色名称 <span class="red"></span></li>
-          <li><ant-input onChange={onAddInputRoleChange} value="{block.addInputRole}"/></li>
-          <li>角色描述</li>
-          <li><ant-TextArea rows={4} onChange={onAddInputDesChange} class="textarea" value="{block.addInputDes}" /></li>
-          <li class="{styles.btnArea}">
-            <ant-Button class="btn" onClick={onAddSaveRole}>保存</ant-Button>
-            <ant-Button class="btn" onClick={onAddCancel}>取消</ant-Button>
-          </li>
-        </ul>
-      </ant-TabPane>
-      <ant-TabPane tab="配置权限" key="tab2" disabled="{tabName == '增加角色' ?: block.isDisable}">
-        <div class="{styles.treeWrap}">
-          <ant-Tree checkable
-                    onExpand={onExpand}
-                    expandedKeys={toJS(block.expandedKeys)}
-                    {autoExpandParent}
-                    onCheck={onCheck}
-                    checkedKeys={toJS(block.checkedKeys)}>
-            {loop(treeData)}
-          </ant-Tree>
-        </div>
-        <div class="{styles.btnArea}">
-          <ant-Button class="btn" onClick={onSavePermission} disabled="{tabName == '编辑角色' ?: block.saveBtnDisabled}">保存</ant-Button>
-          <ant-Button class="btn" onClick={onAddCancel}>取消</ant-Button>
-        </div>
-      </ant-TabPane>
-    </ant-Tabs>
-  </ant-Modal>
-</template>
-
-<template name="modalDetail">
-  <ant-Modal width={800} visible={block.detailModalVisible} footer={null} onCancel={onDetailModalCancel}>
-    <@title>
-      <div class={styles.modalTitle}>用户明细</div>
-    </@title>
-    <ant-Table pagination={true} columns={toJS(detailColumns)} dataSource={toJS(block.detailData)} rowKey={getDetailRowKey} bordered />
-  </ant-Modal>
 </template>
