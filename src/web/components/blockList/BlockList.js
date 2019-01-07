@@ -7,6 +7,7 @@ import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import JSONTree from 'react-json-tree';
 import { fetchData } from '../../../utils/fetchConfig';
+import {isJsonString} from '../../../utils/util';
 import styles from './BlockList.m.scss';
 import tmpls from './BlockList.t.html';
 import 'flarej/lib/components/antd/input';
@@ -64,19 +65,10 @@ export default class BlockList extends Component {
     this.show=true;
     this.jsondata=record.value;
   }
- isJsonString(str) {
-    try {
-      if (typeof JSON.parse(str) == "object") {
-          return true;
-      }
-    } catch(e) {
-    }
-    return false;
-}
 
   Jsontree=()=>{
     // let json=this.jsondata&&JSON.parse(this.jsondata)||'';
-    if (this.isJsonString(this.jsondata)) {
+    if (isJsonString(this.jsondata)) {
       return <JSONTree 
         data={JSON.parse(this.jsondata)}
       />  

@@ -17,6 +17,7 @@ import Tree from 'flarej/lib/components/antd/tree';
 import Input from 'flarej/lib/components/antd/input';
 import Message from 'flarej/lib/components/antd/message';
 import Notification from '../../../utils/notification';
+import {isNotANumber} from '../../../utils/util';
 import styles from './block.m.scss';
 import tmpls from './block.t.html';
 import BlockList from '../../components/blockList';
@@ -44,12 +45,15 @@ export default class Block extends Component {
 
   @autobind
   onInputRole(e) {
-    this.inputRole = e.target.value;
+    if (isNotANumber(e.target.value)) {
+      this.inputRole = e.target.value;
+    }
   }
 
   @autobind
   onPressEnterInputRole(){
     this.Search();
+    this.searchTransaction(this.inputRole);
   }
 
   @autobind
@@ -116,26 +120,30 @@ export default class Block extends Component {
     });
   }
  
+  searchTransaction(height){
+    const { store: { block } } = this.props;
+    Promise.all([
+      block.getTransaction({
+        height:height,
+        from:0,
+        to:60,
+        ledgers:this.props.store.common.getDefaultLedger()
+      }),
+      block.getTransactionHash({
+        from:height,
+        to:height,
+        ledgers:this.props.store.common.getDefaultLedger()
+      })
+    ]).then(() => {
+    });
+  }
+
   @autobind
   onClickSearch(height){
     return e => {
-      const { store: { block } } = this.props;
       this.inputRole=height;
       this.Search();
-      Promise.all([
-        block.getTransaction({
-          height:height,
-          from:0,
-          to:60,
-          ledgers:this.props.store.common.getDefaultLedger()
-        }),
-        block.getTransactionHash({
-          from:height,
-          to:height,
-          ledgers:this.props.store.common.getDefaultLedger()
-        })
-      ]).then(() => {
-      });
+      this.searchTransaction(height);
     }   
     
   }
