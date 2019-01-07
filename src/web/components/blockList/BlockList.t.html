@@ -3,4 +3,14 @@
         <p style="margin:10px auto;">交易哈希：{hash_id}</p>
         <ant-Table style="width:70%;" columns={toJS(tableColumns)}   dataSource={toJS(tableData)} pagination={false}/>
       </div>
+      <ant-Modal
+          title="详细信息"
+          visible={show}
+          cancelText="关闭"
+          onCancel={handleCancel}
+          footer={null}
+          width={800}
+        >
+                 {Jsontree()}
+        </ant-Modal>
 </template>

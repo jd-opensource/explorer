@@ -1,19 +1,5 @@
 import querystring from 'querystring';
 export function handleErrors(response) {
-  if (response.status*1==401) {
-    var keys=document.cookie.match(/[^ =;]+(?=\=)/g); 
-    if (keys) { 
-      for (var i = keys.length; i--;) {
-        document.cookie=keys[i]+'="";expires=' + new Date(0).toUTCString()+";path=/;";
-        document.cookie=keys[i]+'="";expires=' + new Date(0).toUTCString()+";path=/;domain=."+window.location.hostname;
-      } 
-    }
-    window.location.href="https://"+window.location.host+"/login";
-    return;
-  }
-  if (response.status*1==400) {
-    return response;
-  }
   if (!response.ok) {
     throw Error(response.statusText);
   }
@@ -67,8 +53,7 @@ export function fetchData(url, callback, params, cfgs) {
 
   return fetch(url, configs)
     .then(handleErrors)
-    .then((response) => {
+    .then(function (response) {
       return response.json();
-    })
-    .then(callback);
+    }).then(callback);
 }

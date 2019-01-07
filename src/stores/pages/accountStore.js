@@ -12,9 +12,9 @@ const AccountStore = types
   .actions(self => ({
     // 数据账户
     getAccount(param) {
-      fetchData(`${__HOST}/api/v1/query/dataset?keyword=_all_`,
+      return fetchData(`${__HOST}/api/v1/query/dataset`,
         self.setAccount,
-        '', { 
+        param, { 
           method: 'get',
           headers: {
             // accept: 'application/json',

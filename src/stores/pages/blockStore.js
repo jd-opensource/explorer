@@ -8,11 +8,13 @@ const BlockStore = types
   })
   .volatile(self => ({
     transactionList: [],
+    blockHeight:0,// 区块高度
+    blockHash:''
   }))
   .actions(self => ({
     // 获取区块高度
     getBlockHeight(param) {
-      fetchData(`${__HOST}/ledgers/${param}/blocks/latest`,
+      return fetchData(`${__HOST}/ledgers/${param}/blocks/latest`,
         self.setBlockHeight,
         '', { 
           method: 'get',
@@ -26,17 +28,15 @@ const BlockStore = types
 
     setBlockHeight(result) {
       if (result&&result.success) {
-        self.blockHeight=result.data.height||0;
+        return result.data.height||0;
       }
-      let total=695;
-      let num=0;
-
-      
-
+      else{
+        return 0;
+      }
     },
     // 查找交易
     getTransaction(param) {
-      fetchData(`${__HOST}/api/v1/query/tx/range`,
+      return fetchData(`${__HOST}/api/v1/query/tx/range`,
         self.setTransaction,param,
         { 
           method: 'get',
@@ -46,24 +46,18 @@ const BlockStore = types
     },
   
     setTransaction(result){
-      self.transactionList=[];
       if (result.message == 'OK')
       {
         self.transactionList = result.data && result.data.txs || [];// 交易数据
       } 
       else{
         self.transactionList=[];
-      }
-      let s=Math.floor(Math.random()*10);
-      if (s>5) {
-        self.transactionList=[1,2,3];
-      } 
-      
+      }      
     },
 
     // 查找交易详情
     getTransactionMore(param) {
-      fetchData(`${__HOST}/api/v1/query/writeset/tx`,
+      return fetchData(`${__HOST}/api/v1/query/writeset/tx`,
         self.setTransactionMore,param,
         { 
           method: 'get',
@@ -72,15 +66,32 @@ const BlockStore = types
       });
     },
   
-    setTransactionMore(result){debugger;
+    setTransactionMore(result){
       if (result.message == 'OK')
       {
-        console.log(result.data && result.data.kvs || []);
         return result.data && result.data.kvs || [];
       } 
       else{
         return [];
       }
+    },
+    // 获取交易Hash
+    getTransactionHash(param) {
+      return fetchData(`${__HOST}/api/v1/query/block/range`,
+        self.setTransactionHash,param,
+        { 
+          method: 'get',
+        }
+      ).catch(error => {
+      });
+    },
+  
+    setTransactionHash(result){
+      if (result.message == 'OK')
+      {
+        self.blockHash=result.data && result.data.blocks && result.data.blocks.length>0 && result.data.blocks[0]['hash_id'] || '';
+        self.blockHeight=result.data && result.data.blocks && result.data.blocks.length>0 && result.data.blocks[0]['height'] || 0;
+      } 
     }
   }));
 

@@ -1,103 +1,27 @@
 <template name="container">
   <div class="{styles.block}">
     <div class="{styles.summary}"  #show={!flagSerch}>
-      <div class="{styles.tabs} {styles.blockHeight} {styles.dark}">
-        <div class="{styles.span}">
-          <div class="{styles.left}">
-            <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">693</p>
-          </div>
-          <div class="{styles.right}">
-            <div class="{styles.logo} {styles.logoBH}">
-            
+      <#each {{blockList}}>
+        <div class="{styles.tabs} {styles.blockHeight} {!check && styles.dark}" onClick={onClickSearch(height)} data-height={{height}} key={{height}}>
+          <div class="{styles.span}">
+            <div class="{styles.left}">
+              <p class="{styles.title}">区块高度</p>
+              <p class="{styles.data}">{{height}}</p>
+            </div>
+            <div class="{styles.right}">
+              <div class="{styles.logo} {styles.logoBH}">
+              
+              </div>
             </div>
           </div>
-        </div>
       </div>
-      <div class="{styles.tabs} {styles.blockHeight} {styles.dark}">
-        <div class="{styles.span}">
-          <div class="{styles.left}">
-            <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">692</p>
-          </div>
-          <div class="{styles.right}">
-            <div class="{styles.logo} {styles.logoBH}">
-            
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="{styles.tabs} {styles.blockHeight} {styles.dark}">
-        <div class="{styles.span}">
-          <div class="{styles.left}">
-            <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">691</p>
-          </div>
-          <div class="{styles.right}">
-            <div class="{styles.logo} {styles.logoBH}">
-            
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="{styles.tabs} {styles.blockHeight}">
-        <div class="{styles.span}">
-          <div class="{styles.left}">
-            <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">690</p>
-          </div>
-          <div class="{styles.right}">
-            <div class="{styles.logo} {styles.logoBH}">
-            
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="{styles.tabs} {styles.blockHeight} {styles.dark}" onClick={onSearch}>
-        <div class="{styles.span}">
-          <div class="{styles.left}">
-            <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">689</p>
-          </div>
-          <div class="{styles.right}">
-            <div class="{styles.logo} {styles.logoBH}">
-            
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="{styles.tabs} {styles.blockHeight} {styles.dark}">
-        <div class="{styles.span}">
-          <div class="{styles.left}">
-            <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">688</p>
-          </div>
-          <div class="{styles.right}">
-            <div class="{styles.logo} {styles.logoBH}">
-            
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="{styles.tabs} {styles.blockHeight} {styles.dark}">
-        <div class="{styles.span}">
-          <div class="{styles.left}">
-            <p class="{styles.title}">区块高度</p>
-            <p class="{styles.data}">687</p>
-          </div>
-          <div class="{styles.right}">
-            <div class="{styles.logo} {styles.logoBH}">
-            
-            </div>
-          </div>
-        </div>
-      </div>
+      </#each>
     </div>
     <fj-Row>
       <fj-Col l=12>
         <div style="display: flex;align-items: center;padding-right: 30px;">
           跳转到
-          <ant-Input style="width:100px;margin:10px;"/>
+          <ant-Input style="width:100px;margin:10px;" value={inputRole} onChange={onInputRole} onPressEnter={onPressEnterInputRole}/>
           区块
         </div>
       </fj-Col>
@@ -105,15 +29,13 @@
   
     <div class="{styles.datapanel}">
       <fj-Row>
-        <fj-Col l=4>
-          区块高度：4
-        </fj-Col>
-        <fj-Col l=4>
-          区块哈希：sdfldsfjldsfjldsfjlsdfdsfds
+        <fj-Col l=12>
+          <span>区块高度：{block.blockHeight}</span>
+          <span>区块哈希：{block.blockHash}</span>
         </fj-Col>
       </fj-Row>
       <#each {{block.transactionList}}>
-        <BlockList key={@index} source="{{this}}"/>
+        <BlockList key={{@item.hash_id}} source="{{this}}"/>
       </#each>
     </div>
 

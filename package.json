@@ -115,6 +115,7 @@
     "react-burger-menu": "^2.1.3",
     "react-d3-tree": "^1.3.2",
     "react-dom": "^16.4.1",
+    "react-json-tree": "^0.11.2",
     "react-mixin": "^2.0.2",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",

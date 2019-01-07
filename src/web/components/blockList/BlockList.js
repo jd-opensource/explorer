@@ -5,10 +5,12 @@ import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
+import JSONTree from 'react-json-tree';
 import { fetchData } from '../../../utils/fetchConfig';
 import styles from './BlockList.m.scss';
 import tmpls from './BlockList.t.html';
 import 'flarej/lib/components/antd/input';
+import 'flarej/lib/components/antd/modal';
 
 @registerTmpl('BlockList')
 @inject('store')
@@ -19,35 +21,20 @@ export default class BlockList extends Component {
   }
   @observable data=[];
   @observable hash_id='';
-  transactionMore=(result)=>{debugger;
-    if (result.message == 'OK')
-    {
-      this.data = result.data && result.data.kvs || [];
-    } 
-    else{
-      this.data =  [];
-    }
-  }
+  @observable show=false;
+  @observable jsondata=false;
+ 
   componentDidMount(){
     const { store: { block } } = this.props;
     this.hash_id=this.props.source.hash_id;
-    debugger;
-    fetchData(`${__HOST}/api/v1/query/writeset/tx`,
-      this.transactionMore,{
-            keyword:this.props.source.hash_id
-          },
-      { 
-        method: 'get',
-      }
-    ).catch(error => {
+    Promise.all([
+      block.getTransactionMore({
+        keyword:this.props.source.hash_id,
+        ledgers:this.props.store.common.getDefaultLedger()
+      }),
+    ]).then((success) => {
+      this.data =success[0];// 最高区块
     });
-    // Promise.all([
-    //   block.getTransactionMore({
-    //     keyword:'641UtzqGsxLzM2w7qtXYV2fieM43roWRMxGC7tWDbGzAR'
-    //   }),
-    // ]).then(data => {
-    //   debugger;
-    // });
   }
 
   @computed get tableColumns() {
@@ -61,19 +48,51 @@ export default class BlockList extends Component {
       title: '值',
       dataIndex: 'value',
       render: (text, record, index) => nj `
-      <span>${text}</span>
+      <span>${text.length>60 && (text.substring(0,50)+'...') || text}</span>
       `()
     },
     {
       title: '',
       dataIndex: '',
-      key: 'cTime',
       render: (text, record, index) => nj `
-      <span>详细</span>
+      <a href="javascript:;" onClick=${()=>this.onShow(record, index)} className="btn-link">详细</a>
       `()
     }];
   }
-  
+  @autobind
+  onShow(record, index){
+    this.show=true;
+    this.jsondata=record.value;
+  }
+ isJsonString(str) {
+    try {
+      if (typeof JSON.parse(str) == "object") {
+          return true;
+      }
+    } catch(e) {
+    }
+    return false;
+}
+
+  Jsontree=()=>{
+    // let json=this.jsondata&&JSON.parse(this.jsondata)||'';
+    if (this.isJsonString(this.jsondata)) {
+      return <JSONTree 
+        data={JSON.parse(this.jsondata)}
+      />  
+    }
+    else{
+      return <JSONTree 
+        data={this.jsondata}
+      />
+    }
+  }
+
+  // 关闭
+  @autobind
+  handleCancel(){
+    this.show=false;
+  }
   render() {
     return tmpls.blockList(this.props, this, { 
       styles,

@@ -36,7 +36,10 @@ export default class Account extends Component {
     header.setSelectMenu(['account']);
     const closeLoading = Message.loading('正在获取数据...', 0);
     Promise.all([
-      account.getAccount(),
+      account.getAccount({
+        keyword:'_all_',
+        ledgers:this.props.store.common.getDefaultLedger()
+      }),
     ]).then(() => {
       closeLoading();
     });

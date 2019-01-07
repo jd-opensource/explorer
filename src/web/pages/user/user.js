@@ -32,7 +32,10 @@ export default class User extends Component {
   componentDidMount() {
     const { store: { user, header } } = this.props;
     header.setSelectMenu(['user']);
-    user.getUser();
+    user.getUser({
+      ledgers:this.props.store.common.getDefaultLedger(),
+      keyword:'_all_'
+    });
   }
 
   @computed get tableColumns() {

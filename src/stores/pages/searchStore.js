@@ -16,12 +16,16 @@ const SearchStore = types
     total:0,// 区块数量
     transNum:0,// 交易数量
     blockData:[],// 区块数据
-    transData:[],// 交易数据
+    txsData:[],// 交易数据
+    usersData:[],// 用户数据
+    kvsData:[],// 写操作数据
+    datasetsData:[],// 数据账户
+    contractsData:[],// 合约数据
   }))
   .actions(self => ({
     // 获取区块高度
     getBlockHeight(param) {
-      fetchData(`${__HOST}/ledgers/${param}/blocks/latest`,
+      return fetchData(`${__HOST}/ledgers/${param}/blocks/latest`,
         self.setBlockHeight,
         '', { 
           method: 'get',
@@ -41,7 +45,7 @@ const SearchStore = types
 
     // 获取交易总数
     getTransactionTotal(param) {
-      fetchData(`${__HOST}/ledgers/${param}/txs/count`,
+      return fetchData(`${__HOST}/ledgers/${param}/txs/count`,
         self.setTransactionTotal,
         '', { 
           method: 'get',
@@ -63,7 +67,7 @@ const SearchStore = types
 
     // 获取用户总数
     getUserTotal(param) {
-      fetchData(`${__HOST}/ledgers/${param}/users/count`,
+      return fetchData(`${__HOST}/ledgers/${param}/users/count`,
         self.setUserTotal,
         '', { 
           method: 'get',
@@ -84,7 +88,7 @@ const SearchStore = types
 
     // 获取数据账户总数
     getLedgerTotal(param) {
-      fetchData(`${__HOST}/ledgers/${param}/accounts/count`,
+      return fetchData(`${__HOST}/ledgers/${param}/accounts/count`,
         self.setLedgerTotal,
         '', { 
           method: 'get',
@@ -106,7 +110,7 @@ const SearchStore = types
 
     // 合约总数
     getContractTotal(param) {
-      fetchData(`${__HOST}/ledgers/${param}/contracts/count`,
+      return fetchData(`${__HOST}/ledgers/${param}/contracts/count`,
         self.setContractTotal,
         '', { 
           method: 'get',
@@ -127,7 +131,7 @@ const SearchStore = types
 
     // 搜索交易
     getBlockData(param) {
-      fetchData(`${__HOST}/api/v1/search`,
+      return fetchData(`${__HOST}/api/v1/search`,
         self.setBlockData,param,
         { 
           method: 'get',
@@ -139,15 +143,23 @@ const SearchStore = types
     setBlockData(result){
       if (result.message == 'OK')
       {
-        self.blockData = result.data && result.data.blocks || [];// 区块数据
-        self.transData = result.data && result.data.txs || [];// 交易数据
-        self.allData=[...self.blockData,...self.transData];
-        self.total = self.allData.length;
+        self.blockData=result.data && result.data.blocks || [];// 区块数据
+        self.txsData= result.data && result.data.txs || [];// 交易数据
+        self.usersData=result.data && result.data.users ||[];// 用户数据
+        self.kvsData=result.data && result.data.kvs ||[];// 写操作数据
+        self.datasetsData=result.data && result.data.datasets ||[];// 数据账户
+        self.contractsData=result.data && result.data.contracts || [];// 合约数据
+        self.allData=[...self.blockData,...self.txsData,...self.usersData,...self.kvsData,...self.datasetsData,...self.contractsData];
+        self.total = self.blockData.length;
         self.transNum = self.transData.length;
       } 
       else{
-        self.blockData=[];
-        self.transData=[];
+        self.blockData=[];// 区块数据
+        self.txsData=[];// 交易数据
+        self.usersData=[];// 用户数据
+        self.kvsData=[];// 写操作数据
+        self.datasetsData=[];// 数据账户
+        self.contractsData=[];// 合约数据
         self.allData=[];
         self.total =0;
         self.transNum = 0;

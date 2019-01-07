@@ -43,6 +43,7 @@ export default class Search extends Component {
       search.getBlockData(
         {
           q: this.searchParamInput,
+          ledgers:this.props.store.common.getDefaultLedger()
         }),
     ]).then(() => {
       this.flagSerch=true;
@@ -52,7 +53,7 @@ export default class Search extends Component {
 
   // 高亮文字
   highLIght=(content)=>{
-    return content.replace(this.searchParamInput,"<i>"+this.searchParamInput+"</i>");
+     return content.replace(this.searchParamInput,"<i>"+this.searchParamInput+"</i>");
   }
 
   componentDidMount() {

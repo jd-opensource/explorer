@@ -20,9 +20,9 @@ const UserStore = types
 
     // 用户信息
     getUser(param) {
-      fetchData(`${__HOST}/api/v1/query/user?keyword=_all_`,
+      return fetchData(`${__HOST}/api/v1/query/user`,
         self.setUser,
-        '', { 
+        param, { 
           method: 'get',
           headers: {
             // accept: 'application/json',
