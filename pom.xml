@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.jd.blockchain</groupId>
+    <artifactId>browser</artifactId>
+    <version>0.5.9-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>browser</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <destinationDir>${project.build.outputDirectory}/META-INF/resources</destinationDir>
+    </properties>
+    <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <targetPath>${destinationDir}</targetPath>
+            </resource>
+        </resources>
+        <plugins>
+        </plugins>
+    </build>
+
+    <!--<distributionManagement>-->
+    <!--<snapshotRepository>-->
+    <!--<id>nexus-snapshots</id>-->
+    <!--<name>JD maven2 repository-snapshots</name>-->
+    <!--<url>http://192.168.151.39:7890/content/repositories/snapshots/</url>-->
+    <!--</snapshotRepository>-->
+    <!--</distributionManagement>-->
+</project>
