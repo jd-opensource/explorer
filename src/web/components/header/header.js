@@ -23,6 +23,20 @@ export default class Header extends Component {
     window.location.hash="#"+key;
   }
 
+  handleSelectChange = (e) => {
+    const { store: { common, search } } = this.props;
+    common.setDefaultLedger(e);
+    Promise.all([
+      search.getBlockHeight(common.defaultledger),
+      search.getTransactionTotal(common.defaultledger),
+      search.getUserTotal(common.defaultledger),
+      search.getLedgerTotal(common.defaultledger),
+      search.getContractTotal(common.defaultledger),
+    ]).then(() => {
+      closeLoading();
+    });
+  }
+
   render() {
     const { store: { common } } = this.props;
     return template(this.props, this, {
