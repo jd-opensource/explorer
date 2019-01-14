@@ -1,7 +1,7 @@
 <template name="container">
   <div class="{styles.block}">
     <div class="{styles.summary}"  #show={!flagSerch}>
-      <#each {{blockList}}>
+      <#each {{block.blockList}}>
         <div class="{styles.tabs} {styles.blockHeight} {!check && styles.dark}" onClick={onClickSearch(height)} data-height={{height}} key={{height}}>
           <div class="{styles.span}">
             <div class="{styles.left}">
@@ -21,7 +21,7 @@
       <fj-Col l=12>
         <div style="display: flex;align-items: center;padding-right: 30px;">
           跳转到
-          <ant-Input style="width:100px;margin:10px;" value={inputRole} onChange={onInputRole} onPressEnter={onPressEnterInputRole}/>
+          <ant-Input style="width:100px;margin:10px;" value={block.inputRole} onChange={onInputRole} onPressEnter={onPressEnterInputRole}/>
           区块
         </div>
       </fj-Col>

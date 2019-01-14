@@ -27,7 +27,7 @@ export const CommonStore = types
       self.defaultledger=v;
     },
     getDefaultLedger(){
-      return localStorage.getItem("defaultledger");
+      return self.defaultledger || localStorage.getItem("defaultledger");
     },
     getCurrentUserInfo() {
       return fetchData(`${__HOST}/common/getCurrentUserInfo`,

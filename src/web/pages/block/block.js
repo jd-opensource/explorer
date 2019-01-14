@@ -29,13 +29,15 @@ import Search from 'antd/lib/transfer/search';
 @observer
 export default class Block extends Component {
   @observable detailModalVisible = false;
-  @observable inputRole = 0;
   @observable detailData = [];
   @observable selectedRowKeys = [];
   @observable selectedRows = [];
-  @observable blockList = [];
   @observable optionBlockHeight=0;
   @observable optionBlockHash='';
+
+  // jinlong12
+  // @observable inputRole = 0;
+  // @observable blockList = [];
 
   componentDidMount() {
     const { store: { header } } = this.props;
@@ -45,15 +47,22 @@ export default class Block extends Component {
 
   @autobind
   onInputRole(e) {
+    const { store: { block } } = this.props;
+
     if (isNotANumber(e.target.value)) {
-      this.inputRole = e.target.value;
+      // this.inputRole = e.target.value;
+
+      block.setInputRole(e.target.value);
     }
   }
 
   @autobind
   onPressEnterInputRole(){
+    const { store: { block } } = this.props;
+
     this.Search();
-    this.searchTransaction(this.inputRole);
+    // this.searchTransaction(this.inputRole);
+    this.searchTransaction(block.inputRole);
   }
 
   @autobind
@@ -64,58 +73,59 @@ export default class Block extends Component {
     Promise.all([
       block.getBlockHeight(legder),
     ]).then((success) => {
-      let totalBlock=success[0];// 最高区块
-      let searchBlock=this.inputRole*1; // 将要搜索的区块
-      if(this.inputRole==0){
-        searchBlock=totalBlock-3; // 将要搜索的区块
-      }
-      this.inputRole=searchBlock;
-      // 验证区块是否超过最大区块
-      if (searchBlock>totalBlock) {
-        searchBlock= totalBlock;
-      }
-      // 验证区块是否小于1
-      if (searchBlock<1) {
-        searchBlock=1;
-      }
-      let interval=3,// 区块列表显示数量前后间隔
-        length=7,// 区块列表显示数量
-        startBlock=searchBlock-3,// 区块列表显示起始高度
-        endBlock=searchBlock+3;// 区块列表显示终止高度
-      // 起始高度是开始的情况
-      if (startBlock<=1) {
-        // 计算起始高度
-        for (let i = 0; i < length; i++) {
-          if (startBlock<1) {
-            startBlock++;
-            endBlock++;
-          }
-        }
-        // 计算终止高度
-        for (let i = 0; i <length; i++) {
-          if (endBlock>totalBlock) {
-            endBlock--;
-          }
-        }
-      } else if(endBlock>=totalBlock){
-        // 计算起始高度
-        for (let i = 0; i < length; i++) {
-          if (endBlock>totalBlock) {
+      // let totalBlock=success[0];// 最高区块
+      // let searchBlock=this.inputRole*1; // 将要搜索的区块
+      // if(this.inputRole==0){
+      //   searchBlock=totalBlock-3; // 将要搜索的区块
+      // }
+      // this.inputRole=searchBlock;
+      // // 验证区块是否超过最大区块
+      // if (searchBlock>totalBlock) {
+      //   searchBlock= totalBlock;
+      // }
+      // // 验证区块是否小于1
+      // if (searchBlock<1) {
+      //   searchBlock=1;
+      // }
+      // let interval=3,// 区块列表显示数量前后间隔
+      //   length=7,// 区块列表显示数量
+      //   startBlock=searchBlock-3,// 区块列表显示起始高度
+      //   endBlock=searchBlock+3;// 区块列表显示终止高度
+      // // 起始高度是开始的情况
+      // if (startBlock<=1) {
+      //   // 计算起始高度
+      //   for (let i = 0; i < length; i++) {
+      //     if (startBlock<1) {
+      //       startBlock++;
+      //       endBlock++;
+      //     }
+      //   }
+      //   // 计算终止高度
+      //   for (let i = 0; i <length; i++) {
+      //     if (endBlock>totalBlock) {
+      //       endBlock--;
+      //     }
+      //   }
+      // } else if(endBlock>=totalBlock){
+      //   // 计算起始高度
+      //   for (let i = 0; i < length; i++) {
+      //     if (endBlock>totalBlock) {
             
-            startBlock>1&&startBlock--;
-            endBlock--;
-          }
-        }
-      }
-      this.blockList=[];
-      for (let i = startBlock; i <= endBlock; i++) {
-        this.blockList.push({
-          height:i,
-          check:i==searchBlock
-        });
+      //       startBlock>1&&startBlock--;
+      //       endBlock--;
+      //     }
+      //   }
+      // }
+      // this.blockList=[];
+      // for (let i = startBlock; i <= endBlock; i++) {
+      //   this.blockList.push({
+      //     height:i,
+      //     check:i==searchBlock
+      //   });
         
-      }
-      // this.blockList=this.blockList.reverse();
+      // }
+      // // this.blockList=this.blockList.reverse();
+      block.searchData(success);
       closeLoading();
     });
   }
