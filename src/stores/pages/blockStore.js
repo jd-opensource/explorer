@@ -19,8 +19,8 @@ const BlockStore = types
       self.inputRole = e;
     },
 
-    searchData(success) {
-      console.log(success)
+    searchData(success, ledger) {
+      console.log(success, ledger)
       let totalBlock=success[0];// 最高区块
       let searchBlock=self.inputRole*1; // 将要搜索的区块
       console.log(totalBlock, searchBlock);
@@ -75,6 +75,20 @@ const BlockStore = types
       }
       // this.blockList=this.blockList.reverse();
       // closeLoading();
+      Promise.all([
+        self.getTransaction({
+          height:self.inputRole,
+          from:0,
+          to:60,
+          ledgers:ledger
+        }),
+        self.getTransactionHash({
+          from:self.inputRole,
+          to:self.inputRole,
+          ledgers:ledger
+        })
+      ]).then(() => {
+      });
     },
 
     // 获取区块高度

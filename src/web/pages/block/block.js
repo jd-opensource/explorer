@@ -67,9 +67,11 @@ export default class Block extends Component {
 
   @autobind
   Search(){
-    const { store: { block } } = this.props;
+    const { store: { block, common } } = this.props;
     const closeLoading = Message.loading('正在获取数据...', 0);
     let legder=this.props.store.common.getDefaultLedger();
+    // let legder = common.defaultledger;
+    console.log(legder);
     Promise.all([
       block.getBlockHeight(legder),
     ]).then((success) => {
@@ -125,7 +127,7 @@ export default class Block extends Component {
         
       // }
       // // this.blockList=this.blockList.reverse();
-      block.searchData(success);
+      block.searchData(success, legder);
       closeLoading();
     });
   }
@@ -150,8 +152,10 @@ export default class Block extends Component {
 
   @autobind
   onClickSearch(height){
+    const { store: { block } } = this.props;
     return e => {
-      this.inputRole=height;
+      // this.inputRole=height;
+      block.setInputRole(height);
       this.Search();
       this.searchTransaction(height);
     }   

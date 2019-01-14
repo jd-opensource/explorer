@@ -62,7 +62,7 @@ export default class Header extends Component {
         Promise.all([
           block.getBlockHeight(common.defaultledger),
         ]).then((success) => {
-          block.searchData(success);
+          block.searchData(success, common.defaultledger);
         }).catch((err) => {
 
         });
