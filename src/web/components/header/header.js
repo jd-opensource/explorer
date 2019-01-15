@@ -23,6 +23,7 @@ export default class Header extends Component {
     let hashArr = location.hash.split('/');
     this.hash = hashArr[1];
     console.log(this.hash);
+    console.log('版本号:  v0.1.15');
   }
 
   // 切换菜单

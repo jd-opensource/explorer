@@ -73,6 +73,7 @@ const BlockStore = types
         });
         
       }
+      console.log(self.blockList);
       // this.blockList=this.blockList.reverse();
       // closeLoading();
       Promise.all([
