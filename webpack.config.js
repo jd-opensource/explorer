@@ -212,10 +212,15 @@ module.exports = {
         context: ['/auth', '/api'],
         target: 'http://192.168.151.39:10001',
       },
+      // {
+      //   context: ['/ledgers'],
+      //   target: 'http://192.168.151.45:8081',
+      // },
       {
         context: ['/ledgers'],
-        target: 'http://192.168.151.45:8081',
+        target: 'http://192.168.151.39:8081',
       },
+
     ]
   }
 };
