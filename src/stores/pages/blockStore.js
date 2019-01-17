@@ -24,7 +24,7 @@ const BlockStore = types
       let totalBlock=success[0];// 最高区块
       let searchBlock=self.inputRole*1; // 将要搜索的区块
       console.log(totalBlock, searchBlock);
-      if(self.inputRole==0){
+      if(self.inputRole<0){
         searchBlock=totalBlock-3; // 将要搜索的区块
       }
       self.inputRole=searchBlock;
@@ -33,8 +33,8 @@ const BlockStore = types
         searchBlock= totalBlock;
       }
       // 验证区块是否小于1
-      if (searchBlock<1) {
-        searchBlock=1;
+      if (searchBlock<0) {
+        searchBlock=0;
       }
       let interval=3,// 区块列表显示数量前后间隔
         length=7,// 区块列表显示数量
@@ -44,7 +44,7 @@ const BlockStore = types
       if (startBlock<=1) {
         // 计算起始高度
         for (let i = 0; i < length; i++) {
-          if (startBlock<1) {
+          if (startBlock<0) {
             startBlock++;
             endBlock++;
           }

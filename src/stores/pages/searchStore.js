@@ -152,6 +152,7 @@ const SearchStore = types
         self.allData=[...self.blockData,...self.txsData,...self.usersData,...self.kvsData,...self.datasetsData,...self.contractsData];
         self.total = self.blockData.length;
         self.transNum = self.transData.length;
+        console.log(self.datasetsData);
       } 
       else{
         self.blockData=[];// 区块数据
