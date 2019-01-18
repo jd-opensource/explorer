@@ -11,7 +11,7 @@ const BlockStore = types
     blockHeight:0,// 区块高度
     blockHash:'',
     // jinlong12
-    inputRole: 0,
+    inputRole: -1,
     blockList: [],
   }))
   .actions(self => ({
@@ -26,6 +26,8 @@ const BlockStore = types
       console.log(totalBlock, searchBlock);
       if(self.inputRole<0){
         searchBlock=totalBlock-3; // 将要搜索的区块
+      } else if (self.inputRole=0) {
+        searchBlock=0;
       }
       self.inputRole=searchBlock;
       // 验证区块是否超过最大区块

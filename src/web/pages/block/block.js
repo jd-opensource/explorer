@@ -51,7 +51,6 @@ export default class Block extends Component {
 
     if (isNotANumber(e.target.value)) {
       // this.inputRole = e.target.value;
-
       block.setInputRole(e.target.value);
     }
   }
@@ -133,6 +132,7 @@ export default class Block extends Component {
   }
  
   searchTransaction(height){
+    console.log(height);
     const { store: { block } } = this.props;
     Promise.all([
       block.getTransaction({
