@@ -23,7 +23,7 @@ export default class Header extends Component {
     let hashArr = location.hash.split('/');
     this.hash = hashArr[1];
     console.log(this.hash);
-    console.log('版本号:  v0.1.18');
+    console.log('版本号:  v0.1.22');
   }
 
   // 切换菜单
@@ -59,7 +59,7 @@ export default class Header extends Component {
         });
         break;
       case 'block':
-        block.setInputRole(0);
+        block.setInputRole(-1);
         Promise.all([
           block.getBlockHeight(common.defaultledger),
         ]).then((success) => {
