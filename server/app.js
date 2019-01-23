@@ -44,6 +44,9 @@ app.use('/user', user);
 const block = require('./routes/block');
 app.use('/block', block);
 
+const contract = require('./routes/contract');
+app.use('/contract', contract);
+
 //{pages}//
 
 const { resultData } = require('./common/utils');

@@ -1,0 +1,12 @@
+<template name="container">
+  <div class="{styles.contract}">
+    <h2>合约</h2>
+    <div class="{styles.datapanel}">
+      <ant-Table rowSelection={rowSelection}
+        columns={toJS(tableColumns)}
+        dataSource={toJS(tableData)}
+        :pagination="{showQuickJumper:true}"
+        bordered />
+    </div>
+  </div>
+</template>

@@ -23,7 +23,7 @@ export default class Header extends Component {
     let hashArr = location.hash.split('/');
     this.hash = hashArr[1];
     console.log(this.hash);
-    console.log('版本号:  v0.1.22');
+    console.log('版本号:  v0.1.23');
   }
 
   // 切换菜单
@@ -75,6 +75,15 @@ export default class Header extends Component {
             ledgers:common.defaultledger,
             keyword:'_all_'
           })
+        ]).then(() => {
+
+        }).catch(() => {
+
+        });
+        break;
+      case 'contract':
+        Promise.all([
+          
         ]).then(() => {
 
         }).catch(() => {

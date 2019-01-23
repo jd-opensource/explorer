@@ -8,6 +8,7 @@ import loadSearch from 'bundle-loader?lazy&name=[name]!./src/web/pages/search/se
 import loadAccount from 'bundle-loader?lazy&name=[name]!./src/web/pages/account/account.js';
 import loadUser from 'bundle-loader?lazy&name=[name]!./src/web/pages/user/user.js';
 import loadBlock from 'bundle-loader?lazy&name=[name]!./src/web/pages/block/block.js';
+import loadContract from 'bundle-loader?lazy&name=[name]!./src/web/pages/contract/contract.js';
 //{importLoadPage}//
 
 // prettier-ignore
@@ -16,6 +17,7 @@ const loadBundles = {
   loadAccount,
   loadUser,
   loadBlock,
+  loadContract,
   //{loadPage}//
 };
 
@@ -83,6 +85,22 @@ const Block = inject('store')(
   `)
 );
 
+/**
+ * 页面contract
+ */
+const Contract = inject('store')(
+  observer(({ store }) => t`
+    <${PageWrap}>
+      <${Bundle} load=${loadContract} store=${store} isPc loadBundles=${loadBundles}>${
+        (_Contract) => {
+          const Contract = withRouter(_Contract)
+          return t`<${Contract} />`;
+        }
+      }</${Bundle}>
+    </${PageWrap}>
+  `)
+);
+
 //{pageComponent}//
 
 const PageWrap = inject('store')(
@@ -104,6 +122,8 @@ const routes = () => t`
     <Route exact path="/User" component=${User} />
     
     <Route exact path="/Block" component=${Block} />
+    
+    <Route exact path="/Contract" component=${Contract} />
     <!--//{route}//-->
     <Redirect from="*" to="/"/>
   </router-Switch>

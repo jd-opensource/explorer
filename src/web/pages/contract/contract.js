@@ -16,50 +16,48 @@ import 'flarej/lib/components/antd/checkbox';
 import Message from 'flarej/lib/components/antd/message';
 import Notification from 'flarej/lib/components/antd/notification';
 
-import styles from './user.m.scss';
-import tmpls from './user.t.html';
+import styles from './contract.m.scss';
+import tmpls from './contract.t.html';
 
 // 页面容器组件
-@registerTmpl('User')
+@registerTmpl('Contract')
 @inject('store')
 @observer
-export default class User extends Component {
+export default class Contract extends Component {
 
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    const { store: { user, header } } = this.props;
-    header.setSelectMenu(['user']);
-    user.getUser({
-      ledgers:this.props.store.common.getDefaultLedger(),
-      keyword:'_all_'
-    });
   }
 
   @computed get tableColumns() {
     return [{
-      title: '用户公钥',
-      dataIndex: 'public_key',
+      title: '合约公钥',
+      dataIndex: 'publicKey',
       key:'name'
     }, {
-      title: '用户地址',
+      title: '合约地址',
       dataIndex: 'address',
       key:'describe'
     }, {
-      title: '用户公钥算法',
+      title: '合约公钥算法',
+      dataIndex: '',
+      key:''
     }, {
-      title: '用户根哈希'
+      title: '合约根哈希',
+      dataIndex: '',
+      key:''
     }];
   }
 
   render() {
-    const { store: { user } } = this.props;
+    const { store: { contract } } = this.props;
     return tmpls.container(this.state, this.props, this, {
       styles,
-      user,
-      tableData: toJS(user.tableData),
+      contract,
+      tableData: toJS(contract.tableData),
     });
   }
 }

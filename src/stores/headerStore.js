@@ -15,6 +15,10 @@ const HeaderStore = types
       name:'数据账户',
       icon:'switcher'
     },{
+      path:'contract',
+      name:'合约',
+      icon:'profile',
+    },{
       path:'block',
       name:'区块',
       icon:'block',
