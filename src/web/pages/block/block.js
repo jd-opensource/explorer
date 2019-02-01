@@ -70,7 +70,6 @@ export default class Block extends Component {
     const closeLoading = Message.loading('正在获取数据...', 0);
     let legder=this.props.store.common.getDefaultLedger();
     // let legder = common.defaultledger;
-    console.log(legder);
     Promise.all([
       block.getBlockHeight(legder),
     ]).then((success) => {

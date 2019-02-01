@@ -13,13 +13,10 @@ const SearchStore = types
     dataLedgersTotal:0,// 数据账户总数
     contractTotal:0,// 合约总数
     allData:null,// 区块的数据
-    total:0,// 区块数量
-    transNum:0,// 交易数量
     blockData:[],// 区块数据
     txsData:[],// 交易数据
     usersData:[],// 用户数据
-    kvsData:[],// 写操作数据
-    datasetsData:[],// 数据账户
+    accountsData:[],// 数据账户
     contractsData:[],// 合约数据
   }))
   .actions(self => ({
@@ -130,8 +127,8 @@ const SearchStore = types
     },
 
     // 搜索交易
-    getBlockData(param) {
-      return fetchData(`${__HOST}/api/v1/search`,
+    getBlockData(param,ledger) {
+      return fetchData(`${__HOST}/ledgers/${ledger}/all/search`,
         self.setBlockData,param,
         { 
           method: 'get',
@@ -146,13 +143,9 @@ const SearchStore = types
         self.blockData=result.data && result.data.blocks || [];// 区块数据
         self.txsData= result.data && result.data.txs || [];// 交易数据
         self.usersData=result.data && result.data.users ||[];// 用户数据
-        self.kvsData=result.data && result.data.kvs ||[];// 写操作数据
-        self.datasetsData=result.data && result.data.datasets ||[];// 数据账户
+        self.accountsData=result.data && result.data.accounts ||[];// 数据账户
         self.contractsData=result.data && result.data.contracts || [];// 合约数据
-        self.allData=[...self.blockData,...self.txsData,...self.usersData,...self.kvsData,...self.datasetsData,...self.contractsData];
-        self.total = self.blockData.length;
-        self.transNum = self.transData.length;
-        console.log(self.datasetsData);
+        self.allData=[...self.blockData,...self.txsData,...self.usersData,...self.accountsData,...self.contractsData];
       } 
       else{
         self.blockData=[];// 区块数据
@@ -162,8 +155,6 @@ const SearchStore = types
         self.datasetsData=[];// 数据账户
         self.contractsData=[];// 合约数据
         self.allData=[];
-        self.total =0;
-        self.transNum = 0;
       }
     }
   }));

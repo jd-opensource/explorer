@@ -42,9 +42,8 @@ export default class Search extends Component {
     Promise.all([
       search.getBlockData(
         {
-          q: this.searchParamInput,
-          ledgers:this.props.store.common.getDefaultLedger()
-        }),
+          keyword: this.searchParamInput,
+        },this.props.store.common.getDefaultLedger()),
     ]).then(() => {
       this.flagSerch=true;
       closeLoading();

@@ -26,11 +26,8 @@ app.all('*', function(req, res, next) {
   else next();
 });
 
-const page1 = require('./routes/page1');
-app.use('/page1', page1);
-
-const page2 = require('./routes/page2');
-app.use('/page2', page2);
+const ledgers = require('./routes/ledgers');
+app.use('/ledgers', ledgers);
 
 const search = require('./routes/search');
 app.use('/search', search);
@@ -48,51 +45,6 @@ const contract = require('./routes/contract');
 app.use('/contract', contract);
 
 //{pages}//
-
-const { resultData } = require('./common/utils');
-
-app.get('/', function(req, res) {
-  res.redirect('/index');
-});
-
-app.get('/index', function(req, res) {
-  res.type('html');
-  res.render('index');
-});
-
-app.get('/checkUser', function(req, res) {
-  res.type('html');
-  res.sendFile('views/checkUser.html', { root: __dirname });
-});
-
-app.get('/common/getLoginInfo', function(req, res) {
-  res.type('json');
-  let ret = {};
-
-  Object.assign(ret, resultData, {
-    data: 'test_user'
-  });
-
-  res.send(ret);
-});
-
-app.post('/common/getCurrentUserInfo', function(req, res) {
-  res.type('json');
-  let ret = {};
-  
-  Object.assign(ret, resultData, {
-    data: {
-      "pin": "testUser",
-      "name": "testUser",
-    }
-  });
-
-  res.send(ret);
-});
-
-app.get('/common/logout', function(req, res) {
-  res.redirect('http://localhost:8080/dist/web/home.html');
-});
 
 let server = app.listen(8088, function() {
   let host = server.address().address;

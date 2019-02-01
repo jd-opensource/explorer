@@ -35,6 +35,7 @@ export default class Header extends Component {
 
   handleSelectChange = (e) => {
     const { store: { account, block, common, search, user } } = this.props;
+    localStorage.setItem('defaultledger',e);
     // jinlong12
     common.setDefaultLedger(e);
     switch(this.hash) {

@@ -20,7 +20,6 @@ const BlockStore = types
     },
 
     searchData(success, ledger) {
-      console.log(success, ledger)
       let totalBlock=success[0];// 最高区块
       let searchBlock=self.inputRole*1; // 将要搜索的区块
       console.log(totalBlock, searchBlock);

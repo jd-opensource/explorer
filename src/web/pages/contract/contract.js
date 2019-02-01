@@ -30,6 +30,8 @@ export default class Contract extends Component {
   }
 
   componentDidMount() {
+    const { store: { header } } = this.props;
+    header.setSelectMenu(['contract']);
   }
 
   @computed get tableColumns() {

@@ -79,7 +79,13 @@
       </div>
       <div class="{styles.list}" #show={flagSerch}>
         <div class="{styles.listdesc}">
-          找到相关的<span>{search.total}</span>个区块,<span>{search.transNum}</span>个交易,<span>{search.transNum}</span>条交易内容
+          找到相关的
+          <span>{search.blockData.length}</span>个区块，
+          <span>{search.txsData.length}</span>个交易，
+          <span>{search.txsData.length}</span>条交易内容，
+          <span>{search.contractsData.length}</span>条合约数据，
+          <span>{search.accountsData.length}</span>条数据账户，
+          <span>{search.usersData.length}</span>条用户数据
         </div>
         <ant-Tabs>
           <ant-TabPane tab="全部" key='0'>
@@ -89,11 +95,7 @@
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>哈希值：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash_id)}"></span>
-                  </p>
-                   <p class="{styles.title}">
-                    <span>高度：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(height)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}"></span>
                   </p>
                 </article>
               </#each>
@@ -102,58 +104,7 @@
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>哈希值：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash_id)}"></span>
-                  </p>
-                  <p class="{styles.title}">
-                    <span>在区块中的索引：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(index_in_block)}"></span>
-                  </p>
-                   <p class="{styles.title}">
-                    <span>高度：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(block_height)}"></span>
-                  </p>
-                </article>
-              </#each>
-              <!-- 用户数据 -->
-              <#each {{search.usersData}}>
-                <article key={@index} class="{styles.option}">
-                  <p class="{styles.title}">
-                    <span>地址：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
-                  </p>
-                  <p class="{styles.title}">
-                    <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(public_key)}"></span>
-                  </p>
-                </article>
-              </#each>
-              <!-- 写操作 -->
-              <#each {{search.kvsData}}>
-                <article key={@index} class="{styles.option}">
-                  <p class="{styles.title}">
-                    <span>键：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(key)}"></span>
-                  </p>
-                  <p class="{styles.title}">
-                    <span>值：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(value)}"></span>
-                  </p>
-                  <p class="{styles.title}">
-                    <span>版本：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(version)}"></span>
-                  </p>
-                </article>
-              </#each>
-              <!-- 数据账户 -->
-              <#each {{search.datasetsData}}>
-                <article key={@index} class="{styles.option}">
-                  <p class="{styles.title}">
-                    <span>地址：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
-                  </p>
-                  <p class="{styles.title}">
-                    <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(public_key)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}"></span>
                   </p>
                 </article>
               </#each>
@@ -166,7 +117,33 @@
                   </p>
                   <p class="{styles.title}">
                     <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(public_key)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(publicKey)}"></span>
+                  </p>
+                </article>
+              </#each>
+              <!-- 数据账户 -->
+              <#each {{search.accountsData}}>
+                <article key={@index} class="{styles.option}">
+                  <p class="{styles.title}">
+                    <span>地址：</span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
+                  </p>
+                  <p class="{styles.title}">
+                    <span>公钥：</span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(publicKey)}"></span>
+                  </p>
+                </article>
+              </#each>
+              <!-- 用户数据 -->
+              <#each {{search.usersData}}>
+                <article key={@index} class="{styles.option}">
+                  <p class="{styles.title}">
+                    <span>地址：</span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
+                  </p>
+                  <p class="{styles.title}">
+                    <span>公钥：</span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(publicKey)}"></span>
                   </p>
                 </article>
               </#each>
@@ -184,11 +161,7 @@
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>哈希值：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash_id)}"></span>
-                  </p>
-                   <p class="{styles.title}">
-                    <span>高度：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(height)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}"></span>
                   </p>
                 </article>
               </#each>
@@ -206,15 +179,7 @@
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>哈希值：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash_id)}"></span>
-                  </p>
-                  <p class="{styles.title}">
-                    <span>在区块中的索引：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(index_in_block)}"></span>
-                  </p>
-                   <p class="{styles.title}">
-                    <span>高度：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(block_height)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}"></span>
                   </p>
                 </article>
               </#each>
@@ -236,7 +201,7 @@
                   </p>
                   <p class="{styles.title}">
                     <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(public_key)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(publicKey)}"></span>
                   </p>
                 </article>
               </#each>
@@ -249,8 +214,8 @@
             </#if>
           </ant-TabPane>
           <ant-TabPane tab="数据账户" key='4'>
-            <#if {{search.datasetsData.length > 0}}>
-              <#each {{search.datasetsData}}>
+            <#if {{search.accountsData.length > 0}}>
+              <#each {{search.accountsData}}>
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>地址：</span>
@@ -258,7 +223,7 @@
                   </p>
                   <p class="{styles.title}">
                     <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(public_key)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(publicKey)}"></span>
                   </p>
                 </article>
               </#each>
@@ -280,33 +245,7 @@
                   </p>
                   <p class="{styles.title}">
                     <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(public_key)}"></span>
-                  </p>
-                </article>
-              </#each>
-              <div style="padding: 30px 0; text-align: right">
-                <ant-Pagination showQuickjumper={true} hideOnSinglePage={true} defaultCurrent={2} total={{search.total}}/>
-              </div>
-              <#else>
-                暂无数据  
-              </#else>
-            </#if>
-          </ant-TabPane>
-          <ant-TabPane tab="写操作" key='6'>
-           <#if {{search.kvsData.length > 0}}>
-              <#each {{search.kvsData}}>
-                <article key={@index} class="{styles.option}">
-                  <p class="{styles.title}">
-                    <span>键：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(key)}"></span>
-                  </p>
-                  <p class="{styles.title}">
-                    <span>值：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(value)}"></span>
-                  </p>
-                  <p class="{styles.title}">
-                    <span>版本：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(version)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(publicKey)}"></span>
                   </p>
                 </article>
               </#each>
