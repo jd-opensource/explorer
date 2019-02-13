@@ -22,6 +22,8 @@ import styles from './block.m.scss';
 import tmpls from './block.t.html';
 import BlockList from '../../components/blockList';
 import Search from 'antd/lib/transfer/search';
+import Swiper from 'swiper/dist/js/swiper.js';
+import 'swiper/dist/css/swiper.min.css';
 
 //页面容器组件
 @registerTmpl('Block')
@@ -34,6 +36,7 @@ export default class Block extends Component {
   @observable selectedRows = [];
   @observable optionBlockHeight=0;
   @observable optionBlockHash='';
+  @observable mySwiper='';
 
   // jinlong12
   // @observable inputRole = 0;
@@ -43,6 +46,41 @@ export default class Block extends Component {
     const { store: { header } } = this.props;
     header.setSelectMenu(['block']);
     this.Search();
+    this.mySwiper = new Swiper('.swiper-container', {
+      slidesPerView : 7,
+      // slidesPerGroup : 7,
+      mousewheel: true,
+      virtual: {
+        slides: (function () {
+          var slides = [];
+          for (var i = 0; i < 66; i += 1) {
+            slides.push(i);
+          }
+          return slides;
+        }()),
+        renderSlide:(slide, index)=>{
+          return `<div class="swiper-slide" data-abc="${slide}"> 
+                    <div class="${styles.tabs} ${styles.blockHeight} ${styles.dark}">
+                      <p class="${styles.blockHeightTitle}"> 区块高度</p>
+                      <p class="${styles.blockHeightValue}">${slide}</p>
+                    </div>
+                  </div>`;
+        },
+   
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      slideActiveClass : 'swiper-slide-active',
+      slideToClickedSlide: true,
+      // on:{
+      //   click: function(e){debugger;
+      //     alert('你点了Swiper');
+      //   },
+      // },
+      //或者 virtual: true,
+    });
   }
 
   @autobind
@@ -62,6 +100,7 @@ export default class Block extends Component {
     this.Search();
     // this.searchTransaction(this.inputRole);
     this.searchTransaction(block.inputRole);
+    this.mySwiper.slideTo(300);        
   }
 
   @autobind

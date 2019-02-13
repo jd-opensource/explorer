@@ -243,9 +243,18 @@ div.fj-area-chart-area {
   flex: auto;
 }
 .ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected {
-  border-bottom: 2px solid #ffffff;
-  color: #ffffff;
+  border-bottom: 0;
+  background: #3C4C9C;
 }
 .ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu {
   top: 0px;
+}
+.ant-select-selection--single {
+  height: 32px;
+  position: relative;
+  cursor: pointer;
+  background: #5A77D3;
+  border: 1px solid #ADC6FF;
+  border-radius: 4px;
+  color: #fff;
 }

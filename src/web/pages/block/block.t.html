@@ -1,43 +1,47 @@
 <template name="container">
   <div class="{styles.block}">
-    <div class="{styles.summary}"  #show={!flagSerch}>
-      <#each {{block.blockList}}>
-        <div class="{styles.tabs} {styles.blockHeight} {!check && styles.dark}" onClick={onClickSearch(height)} data-height={{height}} key={{height}}>
-          <div class="{styles.span}">
-            <div class="{styles.left}">
-              <p class="{styles.title}">区块高度</p>
-              <p class="{styles.data}">{{height}}</p>
-            </div>
-            <div class="{styles.right}">
-              <div class="{styles.logo} {styles.logoBH}">
-              
-              </div>
-            </div>
-          </div>
-      </div>
-      </#each>
-    </div>
-    <fj-Row>
-      <fj-Col l=12>
-        <div style="display: flex;align-items: center;padding-right: 30px;">
-          跳转到
-          <ant-Input style="width:100px;margin:10px;" value={block.inputRole} onChange={onInputRole} onPressEnter={onPressEnterInputRole}/>
-          区块
-        </div>
-      </fj-Col>
-    </fj-Row>
-  
-    <div class="{styles.datapanel}">
-      <fj-Row>
-        <fj-Col l=12>
-          <span>区块高度：{block.blockHeight}</span>
-          <span>区块哈希：{block.blockHash}</span>
-        </fj-Col>
-      </fj-Row>
-      <#each {{block.transactionList}}>
-        <BlockList key={{@item.hash_id}} source="{{this}}"/>
-      </#each>
+    <h2>区块</h2>
+    <div>
+      <span>区块高度：</span>
+      <ant-Input style="width:200px;margin:32px 20px 0 10px" value={block.inputRole} onChange={onInputRole} onPressEnter={onPressEnterInputRole}/>
+      <ant-Button icon="search" type="primary" class="{styles.btn}" onClick={onSet}>查询</ant-Button>
     </div>
 
+
+    <div style="background:#fff;padding:40px;box-sizing:border-box;margin-top:32px;">
+      <div class="swiper-container">
+        <div class="swiper-wrapper"></div>
+        <div class="swiper-button-prev"></div><!--左箭头-->
+        <div class="swiper-button-next"></div><!--右箭头-->
+      </div>
+      <!-- <div class="{styles.summary}"  #show={!flagSerch}>
+        <#each {{block.blockList}}>
+          <div class="{styles.tabs} {styles.blockHeight} {!check && styles.dark}" onClick={onClickSearch(height)} data-height={{height}} key={{height}}>
+            <div class="{styles.span}">
+              <div class="{styles.left}">
+                <p class="{styles.title}">区块高度</p>
+                <p class="{styles.data}">{{height}}</p>
+              </div>
+              <div class="{styles.right}">
+                <div class="{styles.logo} {styles.logoBH}">
+                
+                </div>
+              </div>
+            </div>
+        </div>
+        </#each>
+      </div> -->
+      <div class="{styles.datapanel}">
+        <fj-Row>
+          <fj-Col l=12>
+            <span>区块高度：{block.blockHeight}</span>
+            <span>区块哈希：{block.blockHash}</span>
+          </fj-Col>
+        </fj-Row>
+        <#each {{block.transactionList}}>
+          <BlockList key={{@item.hash_id}} source="{{this}}"/>
+        </#each>
+      </div>              
+    </div>
   </div>
 </template>

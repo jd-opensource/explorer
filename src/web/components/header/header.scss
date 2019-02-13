@@ -1,50 +1,57 @@
 ﻿.site-header {
   font-size: 16px;
-  height: 79px;
+  height: 62px;
   border-bottom: 1px solid #ebebeb;
   width: 100%;
   z-index: 100;
   transition: all 0.5s ease-out;
-  box-shadow: 0 1px 3px 0 rgba(0, 34, 77, 0.05);
-  background: linear-gradient(90deg,#5a77d3,#3c4c9c);
+  background-image: linear-gradient(90deg, #5A77D3 5%, #3C4C9C 100%);
+  box-shadow: 0 2px 6px 0 rgba(90,119,211,0.40);
   display: flex;
   flex: auto 0 0;
 
   .nav {
     font-size: 0.875rem;
-    margin-left: 15px;
+    margin-left: 50px;
     float: left;
-    height: 70px;
     background: transparent;
     color: #fff;
     border: 0;
-    line-height: 68px;
-    flex:1;
-    li{
-      color: #fff !important;
-      &:hover{
-        border-bottom-color: #fff !important;
+    flex: 1;
+      
+      li {
+        color: #fff !important;
+        font-size: 16px;
+        line-height: 61px;
+        margin: 0px;
+        &:hover{
+          background: #3C4C9C !important;
       } 
     }
   }
   .logo {
-    margin: 0;
+    margin: 16px 0 16px 24px;
     float: left;
-    height: 70px;
-    background-position: 40px center; 
-    width: 273px;
+    height: 32px;
+    width: 159px;
     background-image: url('../../images/logo.png');
     background-repeat: no-repeat;
   }
   .note{
     color: #fff;
     float:right;
-    padding: 22px;
+    padding: 15px;
+    font-size: 14px;
+    color: #ADC6FF;
+    line-height: 14px;
     .value{
       width: 200px;
       border: 1px solid #ADC6FF;
       border-radius: 4px;
     }
+    .ant-select-arrow svg {
+      color: #fff;
+  }
   }
   &.isMenuOpen > ul {
     padding-left: 0;
@@ -53,10 +60,8 @@
   li {
     float: left;
     text-align: center;
-    line-height: 80px;
     margin-left: 20px;
     position: relative;
-    height: 79px;
     overflow: hidden;
     cursor: pointer;
 
