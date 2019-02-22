@@ -68,6 +68,29 @@ router.get('/:ledger/blocks/latest', function(req, res) {
   res.send(ret);
 });
 
+//3.5 根据哈希查询区块
+// GET ledgers/{ledger}/blocks/search?keyword={keyword}&fromIndex={start_index}&count={count}
+router.get('/:ledger/blocks/search', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data": {
+      "blocks": [
+        {
+          "hash": "6D5MJZnybT69bXET5QdCZdLGT16rZBJEjxLkANmDuykcb"
+        }
+      ],
+      "height": 66,
+      "txCount":123
+    },
+  });
+
+  res.send(ret);
+});
+
+
 // 4 交易
 // 4.1 获取账本交易总数
 // GET /ledgers/{ledger}/txs/count
@@ -82,7 +105,109 @@ router.get('/:ledger/txs/count', function(req, res) {
 
   res.send(ret);
 });
+``
+// 4.4 获取指定高度的区块交易列表
+// GET /ledgers/{ledger}/blocks/height/{height}/txs?fromIndex={start_index}&count={count}
+router.get('/:ledger/blocks/height/:height/txs', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
 
+  Object.assign(ret, resultData,{
+    "data": [
+      {
+        "blockHeight": 1,
+        "executionState": "SUCCESS",
+        "transactionContent": {
+          "ledgerHash": {
+            "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
+          },
+          "operations": [
+            {
+              "userID": {
+                "address": {
+                  "value": "5SmBgzsrnY6u9Y7DgSSkXfTkCgp83hiFin3v"
+                },
+                "pubKey": {
+                  "value": "mb5kukaqjWtXyAerfHU1JDtVwabSeBU5c3khMZbNh7R8VJ"
+                }
+              }
+            },
+            {
+              "accountID": {
+                "address": {
+                  "value": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha"
+                },
+                "pubKey": {
+                  "value": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
+                }
+              }
+            },
+            {
+              "contractID": {
+                "address": {
+                  "value": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha"
+                },
+                "pubKey": {
+                  "value": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
+                }
+              },
+              "chainCode": "----------"
+            },
+            {
+              "contractAddress": {
+                "value": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
+              },
+              "event": "----------",
+              "args": "----------"
+            },
+            {
+              "writeSet": [{
+                "key": "jdchain",
+                "value": {
+                  "type": "TEXT",
+                  "value": {
+                    "value": "----------"
+                  }
+                },
+                "expectedVersion": 0
+              }],
+              "accountAddress": {
+                "value": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
+              }
+            }
+          ],
+          "hash": {
+            "value": "6BLtM1agb7ERKoN5AJgZKiTjzdS7BpjgzQNYK8ZeDqotA"
+          }
+        },
+        "endpointSignatures": [
+          {
+            "digest": {
+              "value": "42pbfM5YKnf39Gitr4UsjTCzhhnJjwNyi8MnLFYgP4VKewTLzHitzArHEMrCt3hZYUe5ex9XvqtmiCoWpeAbdc31F"
+            },
+            "pubKey": {
+              "value": "mb5kbwzACnhK9P1dVxgMPB2ySJLFyJKQbHpH7T9oRK3LpS"
+            }
+          }
+        ],
+        "nodeSignatures": [
+          {
+            "digest": {
+              "value": "66SQ95SbDaApAJhN2NsFx5sfAQTxsWhMW26D5iPqXc1jZU9rJEhRnqT1nzt62ZAcCvsfrjEsay3MxqXYA5tWPoA2U"
+            },
+            "pubKey": {
+              "value": "mb5kbwzACnhK9P1dVxgMPB2ySJLFyJKQbHpH7T9oRK3LpS"
+            }
+          }
+        ]
+      }
+    ],
+    "success": true
+  });
+
+  res.send(ret);
+});
 // 5 用户
 // 5.1 获取用户总数
 // GET /ledgers/{ledger}/users/count

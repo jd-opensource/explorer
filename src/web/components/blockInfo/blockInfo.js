@@ -7,8 +7,6 @@ import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import { Drawer} from 'antd';
 import { BlockCollapse,BlockCollapseSmall,BlockCollapsePanel } from '../../components/blockCollapse';
-import BlockInfo from '../../components/blockInfo';
-import TransactionInfo from '../../components/transactionInfo';
 import 'flarej/lib/components/antd/table';
 import 'flarej/lib/components/antd/input';
 import 'flarej/lib/components/antd/button';
@@ -20,8 +18,8 @@ import 'flarej/lib/components/antd/collapse';
 import Message from 'flarej/lib/components/antd/message';
 import Notification from '../../../utils/notification';
 import {isNotANumber} from '../../../utils/util';
-import styles from './block.m.scss';
-import tmpls from './block.t.html';
+import styles from './blockInfo.m.scss';
+import tmpls from './blockInfo.t.html';
 import BlockList from '../../components/blockList';
 import Search from 'antd/lib/transfer/search';
 import Swiper from 'swiper/dist/js/swiper.js';
@@ -31,7 +29,7 @@ import 'swiper/dist/css/swiper.min.css';
 @registerTmpl('Block')
 @inject('store')
 @observer
-export default class Block extends Component {
+export default class BlockInfo extends Component {
   @observable detailModalVisible = false;
   @observable detailData = [];
   @observable selectedRowKeys = [];
@@ -40,56 +38,20 @@ export default class Block extends Component {
   @observable optionBlockHash='';
   @observable mySwiper='';
   @observable blockDetails=false;
+  @observable show=false;
   // jinlong12
   // @observable inputRole = 0;
   // @observable blockList = [];
 
   componentDidMount() {
     const { store: { header,block } } = this.props;
-    header.setSelectMenu(['block']);
-    this.Search();
-    this.mySwiper = new Swiper('.swiper-container', {
-      slidesPerView : 8,
-      slidesPerGroup : 8,
-      mousewheel: true,
-      virtual: {
-        slides: (function () {
-          var slides = [];
-          for (var i = 0; i <= 63; i++) {
-            slides.push(i);
-          }
-          return slides;
-        }()),
-        renderSlide:(slide, index)=>{
-          return `<div class="swiper-slide" data-con="${slide}""> 
-                    <div class="${styles.tabs} ${styles.blockHeight} ${styles.dark} bg">
-                      <p class="${styles.blockHeightTitle}"> 区块高度</p>
-                      <p class="${styles.blockHeightValue}">${slide}</p>
-                    </div>
-                  </div>`;
-        },
-   
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-    this.mySwiper.slideTo(block.inputRole*1);
-    $('.swiper-slide').each(function(){
-      if ($(this).attr('data-con')*1==block.inputRole*1) {
-        $('.swiper-slide').removeClass('lights');
-        $(this).addClass('lights');
-      }
-    });
-    let now=this;
-    $('.swiper-wrapper').on('click','.swiper-slide',function(){
-      $('.swiper-slide').removeClass('lights');
-      $(this).addClass('lights');
-      now.Search();
-    });
-  } 
 
+  }
+
+  @autobind
+  onClose(visible){
+    this.show=visible;
+  }
   @autobind
   onCloseblockDetails(){
     this.blockDetails=!this.blockDetails;
@@ -121,7 +83,6 @@ export default class Block extends Component {
     });
   }
 
-  // 搜索区块信息
   @autobind
   Search(){
     const { store: { block, common } } = this.props;
@@ -221,7 +182,7 @@ export default class Block extends Component {
 
   @autobind
   onShowBlockDetails(record,index){
-    this.blockDetails=!this.blockDetails;
+    this.show=!this.show;
   }
 
   @computed get tableColumns() {
@@ -257,8 +218,6 @@ export default class Block extends Component {
         'BlockCollapse':BlockCollapse,
         'BlockCollapseSmall':BlockCollapseSmall,
         'BlockCollapsePanel':BlockCollapsePanel,
-        'BlockInfo':BlockInfo,
-        'TransactionInfo':TransactionInfo
       }
     },this.props, this, {
       styles,

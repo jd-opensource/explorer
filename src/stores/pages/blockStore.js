@@ -7,8 +7,11 @@ const BlockStore = types
   .model('BlockStore', {
   })
   .volatile(self => ({
-    transactionList: [],
     blockHeight:0,// 区块高度
+    txCount:0,//区块内的交易数量
+    blockInformation:{},//区块信息
+    transactionList:[],//交易列表
+    transactionInfo:{},//交易详细信息
     blockHash:'',
     // jinlong12
     inputRole: -1,
@@ -113,6 +116,67 @@ const BlockStore = types
         return 0;
       }
     },
+
+    // 根据哈希查询交易数量
+    getTxCount(param) {
+      return fetchData(`${__HOST}/ledgers/${param}/blocks/search`,
+        self.setTxCount,
+        '', { 
+          method: 'get',
+          headers: {
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+      });
+    },
+
+    setTxCount(result) {
+      if (result&&result.success) {
+        self.txCount= result.data.txCount||0;
+      }
+    },
+
+    // 根据区块的详细信息
+    getBlockInformation(param) {
+      return fetchData(`${__HOST}/ledgers/${param}/blocks/search`,
+        self.setBlockInformation,
+        '', { 
+          method: 'get',
+          headers: {
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+      });
+    },
+
+    setBlockInformation(result) {
+      if (result&&result.success) {
+        self.txCount= result.data.txCount||0;
+      }
+    },
+
+    // 根据区块的详细信息
+    getBlockInformation(param) {
+      return fetchData(`${__HOST}/ledgers/${param}/blocks/search`,
+        self.setBlockInformation,
+        '', { 
+          method: 'get',
+          headers: {
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+      });
+    },
+
+    setBlockInformation(result) {
+      if (result&&result.success) {
+        self.txCount= result.data.txCount||0;
+      }
+    },
+
     // 查找交易
     getTransaction(param) {
       return fetchData(`${__HOST}/api/v1/query/tx/range`,

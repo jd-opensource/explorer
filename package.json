@@ -93,7 +93,7 @@
     "webpack-hot-middleware": "^2.17.1"
   },
   "dependencies": {
-    "antd": "3.11.6",
+    "antd": "3.13.2",
     "array-from": "^2.1.1",
     "bundle-loader": "^0.5.5",
     "console-polyfill": "^0.3.0",

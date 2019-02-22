@@ -1,0 +1,131 @@
+<template name="container">
+   <ant-Drawer
+      title="交易详情"
+      width={600}
+      placement="right"
+      closable={true}
+      visible={visible}
+      maskClosable={true}
+      onClose={onCloseblockDetails}
+    >
+        <div class="{styles.option}">
+          交易哈希：64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty 
+        </div>
+        <div class="{styles.option}">
+          执行状态： 成功
+        </div>
+        <BlockCollapse title="终端签名列表">
+         <BlockCollapseSmall  title="签名：UPcaZ1JRCehRwvuNS8Ty">
+              值：xUPcaZ1JRCehR<br>
+              预期版本：v2<br>
+              类型：JSON
+          </BlockCollapseSmall>
+           <BlockCollapseSmall  title="签名：UPcaZ1JRCehRwvuNS8Ty">
+              值：xUPcaZ1JRCehR<br>
+              预期版本：v2<br>
+              类型：JSON
+            </BlockCollapseSmall>
+        </BlockCollapse>
+        <BlockCollapse title="节点签名列表">
+         <BlockCollapseSmall  title="签名：UPcaZ1JRCehRwvuNS8Ty">
+              值：xUPcaZ1JRCehR<br>
+              预期版本：v2<br>
+              类型：JSON
+            </BlockCollapseSmall>
+        </BlockCollapse>
+        <BlockCollapse  title="交易内容">
+          <BlockCollapsePanel title="数据写入">
+            <h4 style="font-size: 14px;color: #333333;line-height: 14px;    font-weight: bold;margin:16px 0;">写入
+            </h4>
+            <fj-Row style="margin:16px 0;">
+            <fj-Col l=2>账户地址：</fj-Col>
+            <fj-Col l=10>EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty </fj-Col>
+            </fj-Row>
+            <BlockCollapseSmall  title="键：UPcaZ1JRCehRwvuNS8Ty">
+              值：xUPcaZ1JRCehR<br>
+              预期版本：v2<br>
+              类型：JSON
+            </BlockCollapseSmall>
+            <BlockCollapseSmall  title="键：UPcaZ1JRCehRwvuNS8Ty">
+              值：xUPcaZ1JRCehR<br>
+              预期版本：v2<br>
+              类型：JSON
+            </BlockCollapseSmall>
+            <BlockCollapseSmall title="键：UPcaZ1JRCehRwvuNS8Ty">
+              值：xUPcaZ1JRCehR<br>
+              预期版本：v2<br>
+              类型：JSON
+            </BlockCollapseSmall>
+          </BlockCollapsePanel>
+          <BlockCollapsePanel title="合约发布">
+            <table style="line-height:41px;">
+              <tr>
+                <td>合约地址：</td>
+                <td>EP5HU2bM
+                WmNxUPcaZ1JRCehRwvuNS8Ty</td>
+              </tr>
+               <tr>
+                <td>合约公钥算法：</td>
+                <td>EP5hRwvuNS8Ty</td>
+              </tr>
+               <tr>
+                <td>合约公钥：</td>
+                <td>EP5HU2b1JRCehRwvuNS8Ty</td>
+              </tr>
+               <tr>
+                <td>合约内容：</td>
+                <td>EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</td>
+              </tr>
+            </table>
+          </BlockCollapsePanel>
+          <BlockCollapsePanel title="合约事件操作">
+            <table style="line-height:41px;">
+              <tr>
+                <td>args：</td>
+                <td>v1.0</td>
+              </tr>
+               <tr>
+                <td>合约地址：</td>
+                <td>UPcaZ1JRCehRwvuNS8Ty </td>
+              </tr>
+               <tr>
+                <td>事件：</td>
+                <td>xUPcaZ1JRCehR</td>
+              </tr>
+            </table>
+          </BlockCollapsePanel>
+          <BlockCollapsePanel title="数据账户注册">
+            <table style="line-height:41px;">
+              <tr>
+                <td>数据账户地址：</td>
+                <td>EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</td>
+              </tr>
+               <tr>
+                <td>账户公钥算法：</td>
+                <td>UPcaZ1JRCehRwvuNS8Ty </td>
+              </tr>
+               <tr>
+                <td>账户公钥：</td>
+                <td>xUPcaZ1JRCehR</td>
+              </tr>
+            </table>
+          </BlockCollapsePanel>
+          <BlockCollapsePanel title="注册用户">
+            <table style="line-height:41px;">
+              <tr>
+                <td>用户地址：</td>
+                <td>EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</td>
+              </tr>
+               <tr>
+                <td>用户公钥算法：</td>
+                <td>UPcaZ1JRCehRwvuNS8Ty </td>
+              </tr>
+               <tr>
+                <td>用户公钥数据：</td>
+                <td>xUPcaZ1JRCehR</td>
+              </tr>
+            </table>
+          </BlockCollapsePanel>
+        </BlockCollapse>
+        </ant-Drawer>
+</template>
