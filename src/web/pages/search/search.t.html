@@ -77,7 +77,7 @@
           </div>
         </div>
       </div>
-      <div class="{styles.list}" #show={flagSerch}>
+      <div class="{styles.list}" #show={resultShow}>
         <div class="{styles.listdesc}">
           找到相关的
           <span>{search.blockData.length}</span>个区块，
@@ -95,7 +95,7 @@
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>哈希值：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}"  onClick="{showBlock}"></span>
                   </p>
                 </article>
               </#each>
@@ -104,7 +104,7 @@
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>哈希值：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}" onClick={onShowBlockDetails}></span>
                   </p>
                 </article>
               </#each>
@@ -179,7 +179,7 @@
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>哈希值：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}" onClick={onShowBlockDetails}></span>
                   </p>
                 </article>
               </#each>
@@ -257,8 +257,15 @@
               </#else>
             </#if>
           </ant-TabPane>
-        </ant-Tabs>             
+        </ant-Tabs>     
       </div>
+      <div class="{styles.nav}"  #show={navShow}>
+        <label onClick={gobackResult}>搜索结果</label>  >  <span>区块详情</span>
+      </div>
+      <div  #show={blockShow} >
+          <BlockInfo key={123} txCount={block.txCount} transactionList={block.transactionList} blockinfo={block.blockInformation} />      
+        </div> 
+         <TransactionInfo key="123" data={transactioninfoData} visible={show} onClose={onClose}/> 
     </div>
   </div>
 </template>

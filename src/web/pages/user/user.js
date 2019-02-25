@@ -32,25 +32,22 @@ export default class User extends Component {
   componentDidMount() {
     const { store: { user, header } } = this.props;
     header.setSelectMenu(['user']);
-    user.getUser({
-      ledgers:this.props.store.common.getDefaultLedger(),
-      keyword:'_all_'
-    });
+    user.getUser(this.props.store.common.getDefaultLedger());
   }
 
   @computed get tableColumns() {
     return [{
       title: '用户公钥',
-      dataIndex: 'public_key',
-      key:'name'
+      dataIndex: 'pubKey.value',
+      key:'pubKey'
     }, {
       title: '用户地址',
-      dataIndex: 'address',
-      key:'describe'
-    }, {
-      title: '用户公钥算法',
-    }, {
-      title: '用户根哈希'
+      dataIndex: 'address.value',
+      key:'address'
+    },{
+      title: '默克尔树根哈希',
+      dataIndex: 'rootHash.value',
+      key:'rootHash'
     }];
   }
 
