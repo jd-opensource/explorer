@@ -119,7 +119,7 @@ const BlockStore = types
 
     // 根据哈希查询交易数量
     getTxCount(param) {
-      return fetchData(`${__HOST}/ledgers/${param}/blocks/search`,
+      return fetchData(`${__HOST}/ledgers/${param}/txs/count`,
         self.setTxCount,
         '', { 
           method: 'get',
@@ -133,13 +133,13 @@ const BlockStore = types
 
     setTxCount(result) {
       if (result&&result.success) {
-        self.txCount= result.data.txCount||0;
+        self.txCount= result.data||0;
       }
     },
 
     // 根据区块的详细信息
     getBlockInformation(param) {
-      return fetchData(`${__HOST}/ledgers/${param}/blocks/search`,
+      return fetchData(`${__HOST}/ledgers/${param}/blocks/latest`,
         self.setBlockInformation,
         '', { 
           method: 'get',
@@ -153,33 +153,33 @@ const BlockStore = types
 
     setBlockInformation(result) {
       if (result&&result.success) {
-        self.txCount= result.data.txCount||0;
+        self.transactionInfo= result.data;
       }
     },
 
     // 根据区块的详细信息
-    getBlockInformation(param) {
-      return fetchData(`${__HOST}/ledgers/${param}/blocks/search`,
-        self.setBlockInformation,
-        '', { 
-          method: 'get',
-          headers: {
-            cookie: document.cookie,
-          } 
-        }
-      ).catch(error => {
-      });
-    },
+    // getBlockInformation(param) {
+    //   return fetchData(`${__HOST}/ledgers/${param}/blocks/search`,
+    //     self.setBlockInformation,
+    //     '', { 
+    //       method: 'get',
+    //       headers: {
+    //         cookie: document.cookie,
+    //       } 
+    //     }
+    //   ).catch(error => {
+    //   });
+    // },
 
-    setBlockInformation(result) {
-      if (result&&result.success) {
-        self.txCount= result.data.txCount||0;
-      }
-    },
+    // setBlockInformation(result) {
+    //   if (result&&result.success) {
+    //     self.txCount= result.data.txCount||0;
+    //   }
+    // },
 
     // 查找交易
     getTransaction(param) {
-      return fetchData(`${__HOST}/api/v1/query/tx/range`,
+      return fetchData(`${__HOST}/ledgers/${param.ledger}/blocks/height/${param.height}/txs`,
         self.setTransaction,param,
         { 
           method: 'get',
@@ -189,18 +189,14 @@ const BlockStore = types
     },
   
     setTransaction(result){
-      if (result.message == 'OK')
-      {
-        self.transactionList = result.data && result.data.txs || [];// 交易数据
-      } 
-      else{
-        self.transactionList=[];
-      }      
+      if (result&&result.success) {
+        self.transactionList = result.data || [];// 交易数据
+      }     
     },
 
     // 查找交易详情
     getTransactionMore(param) {
-      return fetchData(`${__HOST}/api/v1/query/writeset/tx`,
+      return fetchData(`${__HOST}/ledgers/${param.ledger}/txs/hash/${param.tx_hash}`,
         self.setTransactionMore,param,
         { 
           method: 'get',
@@ -210,13 +206,10 @@ const BlockStore = types
     },
   
     setTransactionMore(result){
-      if (result.message == 'OK')
-      {
-        return result.data && result.data.kvs || [];
-      } 
-      else{
-        return [];
-      }
+      
+      if (result&&result.success) {
+        self.transactionInfo = result.data || [];// 交易数据
+      }  
     },
     // 获取交易Hash
     getTransactionHash(param) {

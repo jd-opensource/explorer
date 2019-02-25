@@ -8,7 +8,6 @@ import { autobind } from 'core-decorators';
 import { Drawer} from 'antd';
 import { BlockCollapse,BlockCollapseSmall,BlockCollapsePanel } from '../../components/blockCollapse';
 import BlockInfo from '../../components/blockInfo';
-import TransactionInfo from '../../components/transactionInfo';
 import 'flarej/lib/components/antd/table';
 import 'flarej/lib/components/antd/input';
 import 'flarej/lib/components/antd/button';
@@ -130,6 +129,9 @@ export default class Block extends Component {
     // let legder = common.defaultledger;
     Promise.all([
       block.getBlockHeight(legder),
+      block.getBlockInformation(legder),
+      block.getTxCount(legder),
+      block.getTransaction({"getTransaction":legder,height:2}),
     ]).then((success) => {
       // let totalBlock=success[0];// 最高区块
       // let searchBlock=this.inputRole*1; // 将要搜索的区块
@@ -251,24 +253,9 @@ export default class Block extends Component {
 
   render() {
     const { store: { block } } = this.props;
-    return tmpls.container({
-      components: {
-        'ant-Drawer': Drawer,
-        'BlockCollapse':BlockCollapse,
-        'BlockCollapseSmall':BlockCollapseSmall,
-        'BlockCollapsePanel':BlockCollapsePanel,
-        'BlockInfo':BlockInfo,
-        'TransactionInfo':TransactionInfo
-      }
-    },this.props, this, {
+    return tmpls.container(this.props, this, {
       styles,
       block,
-      tableData: [{"address":'64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty ',"public_key":'成功'},
-        {"address":'64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty ',"public_key":'成功'},
-        {"address":'64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty ',"public_key":'成功'},
-        {"address":'64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty ',"public_key":'成功'},
-        {"address":'64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty ',"public_key":'成功'},
-        {"address":'64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty ',"public_key":'成功'}],
-    });
+      });
   }
 }

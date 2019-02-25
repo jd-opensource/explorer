@@ -15,7 +15,7 @@
         <div class="swiper-button-prev"></div><!--左箭头-->
         <div class="swiper-button-next"></div><!--右箭头-->
       </div>
-      <BlockInfo />
+      <BlockInfo key={123} blockinfo={block.blockInformation} txCount={block.txCount} transactionList={block.transactionList}/>
       <!-- <div class="{styles.summary}"  #show={!flagSerch}>
         <#each {{block.blockList}}>
           <div class="{styles.tabs} {styles.blockHeight} {!check && styles.dark}" onClick={onClickSearch(height)} data-height={{height}} key={{height}}>

@@ -4,49 +4,49 @@
     <fj-Row class="{styles.gl}">
       <fj-Col l=1>区块高度
       </fj-Col>
-      <fj-Col l=3>12345
+      <fj-Col l=3>{blockdata && blockdata.height || 0 }
       </fj-Col>
       <fj-Col l=1>交易数量
       </fj-Col>
-      <fj-Col l=3>145
+      <fj-Col l=3>{txCount || 0}
       </fj-Col>
       <fj-Col l=1>区块哈希
       </fj-Col>
-      <fj-Col l=3>64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty 
+      <fj-Col l=3>{blockdata && blockdata.hash && blockdata.hash.value || ''}
       </fj-Col>
     </fj-Row>
     <fj-Row class="{styles.gl}">
       <fj-Col l=1>账本哈希
       </fj-Col>
-      <fj-Col l=3>64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty
+      <fj-Col l=3>{blockdata && blockdata.ledgerHash && blockdata.ledgerHash.value || ''}
       </fj-Col>
       <fj-Col l=1>前置区块哈希
       </fj-Col>
-      <fj-Col l=3>64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty
+      <fj-Col l=3>{blockdata && blockdata.previousHash && blockdata.previousHash.value || ''}
       </fj-Col>
       <fj-Col l=1>交易集哈希
       </fj-Col>
-      <fj-Col l=3>64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty 
+      <fj-Col l=3>{blockdata && blockdata.transactionSetHash && blockdata.transactionSetHash.value || ''} 
       </fj-Col>
     </fj-Row>
     <fj-Row class="{styles.gl}">
       <fj-Col l=1>用户集哈希
       </fj-Col>
-      <fj-Col l=3>64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty
+      <fj-Col l=3>{blockdata && blockdata.userAccountSetHash && blockdata.userAccountSetHash.value || ''} 
       </fj-Col>
       <fj-Col l=1>合约集哈希
       </fj-Col>
-      <fj-Col l=3>EP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty 
+      <fj-Col l=3>{blockdata && blockdata.contractAccountSetHash && blockdata.contractAccountSetHash.value || ''} 
       </fj-Col>
       <fj-Col l=1>管理员集哈希
       </fj-Col>
-      <fj-Col l=3>64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty 
+      <fj-Col l=3>{blockdata && blockdata.adminAccountHash && blockdata.adminAccountHash.value || ''}  
       </fj-Col>
     </fj-Row>
     <fj-Row class="{styles.gl}">
       <fj-Col l=1>数据账户集哈希
       </fj-Col>
-      <fj-Col l=3>64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty
+      <fj-Col l=3>{blockdata && blockdata.dataAccountSetHash && blockdata.dataAccountSetHash.value || ''}  
       </fj-Col>
       <fj-Col l=1>
       </fj-Col>
@@ -61,9 +61,9 @@
   <h3>交易</h3>
   <ant-Table rowSelection={rowSelection}
     columns={toJS(tableColumns)}
-    dataSource={toJS(tableData)}
+    dataSource={toJS(transactionList)}
     :pagination="{showQuickJumper:true}"
     bordered />
-  <TransactionInfo key="123" data={[]} visible={show} onClose={onClose}/>
+  <TransactionInfo key="123" data={transactioninfoData} visible={show} onClose={onClose}/>
 </div>
 </template>

@@ -35,7 +35,7 @@ export default class TransactionInfo extends Component {
     return this.props.onClose(!this.props.visible);
   }
   render() {
-    const { data,visible } = this.props;
+    const { data,visible} = this.props;
     return tmpls.container({
       components: {
         'ant-Drawer': Drawer,
