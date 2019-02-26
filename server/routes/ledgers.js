@@ -61,13 +61,90 @@ router.get('/:ledger/blocks/latest', function(req, res) {
       "hash": {
         "value": "67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL"
       },
-      "height": 66
+      "height": 666
     },
   });
 
   res.send(ret);
 });
+// 3.2 根据区块哈希获取区块详细信息
+// GET /ledgers/{ledger}/blocks/hash/{block_hash}
+router.get('/:ledger/blocks/hash/:block_hash', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
 
+  Object.assign(ret, resultData,{
+    "data": {
+      "ledgerHash": {
+        "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
+      },
+      "previousHash": {
+        "value": "6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T"
+      },
+      "transactionSetHash": {
+        "value": "6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN"
+      },
+      "userAccountSetHash": {
+        "value": "67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p"
+      },
+      "contractAccountSetHash": {
+        "value": "67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN"
+      },
+      "adminAccountHash": {
+        "value": "69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa"
+      },
+      "dataAccountSetHash": {
+        "value": "6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ"
+      },
+      "hash": {
+        "value": "67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL"
+      },
+      "height": 666
+    },
+  });
+
+  res.send(ret);
+});
+// 3.3 根据区块高度获取区块详细信息
+// GET /ledgers/{ledger}/blocks/height/{block_height}
+router.get('/:ledger/blocks/height/:block_height', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data": {
+      "ledgerHash": {
+        "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
+      },
+      "previousHash": {
+        "value": "6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T"
+      },
+      "transactionSetHash": {
+        "value": "6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN"
+      },
+      "userAccountSetHash": {
+        "value": "67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p"
+      },
+      "contractAccountSetHash": {
+        "value": "67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN"
+      },
+      "adminAccountHash": {
+        "value": "69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa"
+      },
+      "dataAccountSetHash": {
+        "value": "6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ"
+      },
+      "hash": {
+        "value": "67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL"
+      },
+      "height": 666
+    },
+  });
+
+  res.send(ret);
+});
 //3.5 根据哈希查询区块
 // GET ledgers/{ledger}/blocks/search?keyword={keyword}&fromIndex={start_index}&count={count}
 router.get('/:ledger/blocks/search', function(req, res) {
@@ -105,7 +182,32 @@ router.get('/:ledger/txs/count', function(req, res) {
 
   res.send(ret);
 });
-``
+// 4.2 根据区块高度查询区块内的交易数量
+// GET /ledgers/{ledger}/blocks/height/{block_height}/txs/additional-count
+router.get('/:ledger//blocks/height/:block_height/txs/additional-count', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data": 88
+  });
+
+  res.send(ret);
+});
+// 4.3 根据区块哈希查询区块内的交易数量
+// GET /ledgers/{ledger}/blocks/hash/{block_hash}/txs/additional-count
+router.get('/:ledger//blocks/hash/:block_hash/txs/additional-count', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data": 88
+  });
+
+  res.send(ret);
+});
 // 4.4 获取指定高度的区块交易列表
 // GET /ledgers/{ledger}/blocks/height/{height}/txs?fromIndex={start_index}&count={count}
 router.get('/:ledger/blocks/height/:height/txs', function(req, res) {
@@ -208,7 +310,108 @@ router.get('/:ledger/blocks/height/:height/txs', function(req, res) {
 
   res.send(ret);
 });
+// 4.5 获取指定哈希的区块的交易列表
+// GET /ledgers/{ledger}/blocks/hash/{block_hash}/txs?fromIndex={start_index}&count={count}
+router.get('/:ledger/blocks/hash/:block_hash/txs', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
 
+  Object.assign(ret, resultData,{
+    "data": [
+      {
+        "blockHeight": 1,
+        "executionState": "SUCCESS",
+        "transactionContent": {
+          "ledgerHash": {
+            "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
+          },
+          "operations": [
+            {
+              "userID": {
+                "address": {
+                  "value": "5SmBgzsrnY6u9Y7DgSSkXfTkCgp83hiFin3v"
+                },
+                "pubKey": {
+                  "value": "mb5kukaqjWtXyAerfHU1JDtVwabSeBU5c3khMZbNh7R8VJ"
+                }
+              }
+            },
+            {
+              "accountID": {
+                "address": {
+                  "value": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha"
+                },
+                "pubKey": {
+                  "value": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
+                }
+              }
+            },
+            {
+              "contractID": {
+                "address": {
+                  "value": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha"
+                },
+                "pubKey": {
+                  "value": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
+                }
+              },
+              "chainCode": "----------"
+            },
+            {
+              "contractAddress": {
+                "value": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
+              },
+              "event": "----------",
+              "args": "----------"
+            },
+            {
+              "writeSet": [{
+                "key": "jdchain",
+                "value": {
+                  "type": "TEXT",
+                  "value": {
+                    "value": "----------"
+                  }
+                },
+                "expectedVersion": 0
+              }],
+              "accountAddress": {
+                "value": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
+              }
+            }
+          ],
+          "hash": {
+            "value": "6BLtM1agb7ERKoN5AJgZKiTjzdS7BpjgzQNYK8ZeDqotA"
+          }
+        },
+        "endpointSignatures": [
+          {
+            "digest": {
+              "value": "42pbfM5YKnf39Gitr4UsjTCzhhnJjwNyi8MnLFYgP4VKewTLzHitzArHEMrCt3hZYUe5ex9XvqtmiCoWpeAbdc31F"
+            },
+            "pubKey": {
+              "value": "mb5kbwzACnhK9P1dVxgMPB2ySJLFyJKQbHpH7T9oRK3LpS"
+            }
+          }
+        ],
+        "nodeSignatures": [
+          {
+            "digest": {
+              "value": "66SQ95SbDaApAJhN2NsFx5sfAQTxsWhMW26D5iPqXc1jZU9rJEhRnqT1nzt62ZAcCvsfrjEsay3MxqXYA5tWPoA2U"
+            },
+            "pubKey": {
+              "value": "mb5kbwzACnhK9P1dVxgMPB2ySJLFyJKQbHpH7T9oRK3LpS"
+            }
+          }
+        ]
+      }
+    ],
+    "success": true
+  });
+
+  res.send(ret);
+});
 // 4.6 获取交易详细信息
 // GET /ledgers/{ledger}/txs/hash/{tx_hash}
 router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
@@ -431,6 +634,29 @@ router.get('/:ledger/all/search', function(req, res) {
 });
 
 // 8 合约
+// 8.1 获取合约列表
+// GET /ledgers/{ledger}/contracts?fromIndex={start_index}&count={count}
+router.get('/:ledger/contracts', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data": [{
+      "address": {
+        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+      },
+      "rootHash": {
+        "value": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM"
+      },
+      "pubKey": {
+        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
+      }
+    }],
+  });
+
+  res.send(ret);
+});
 // 8.3 获取合约总数
 // GET /ledgers/{ledger}/contracts/count
 router.get('/:ledger/contracts/count', function(req, res) {

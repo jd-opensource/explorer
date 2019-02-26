@@ -1,7 +1,7 @@
 <template name="container">
   <div class="{styles.search}">
     <div class="{styles.main}">
-      <p class="{styles.headtitle}"  #show={!flagSerch}>JD Chain</p>
+      <p class="{styles.headtitle}"  #show={!flagSerchShow}>JD Chain</p>
       <div class="{styles.action}">
         <div class="{styles.bg}">
           <span class="{styles.title}">输入搜索:</span>
@@ -10,7 +10,7 @@
         </div>
       
       </div>
-      <div class="{styles.summary}"  #show={!flagSerch}>
+      <div class="{styles.summary}"  #show={!flagSerchShow}>
         <div class="{styles.tabs} {styles.blockHeight}">
           <div class="{styles.span}">
             <div class="{styles.left}">
@@ -113,11 +113,9 @@
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>地址：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
-                  </p>
-                  <p class="{styles.title}">
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
                     <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(publicKey)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value)}"></span>
                   </p>
                 </article>
               </#each>
@@ -126,11 +124,9 @@
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>地址：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
-                  </p>
-                  <p class="{styles.title}">
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
                     <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(publicKey)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value)}"></span>
                   </p>
                 </article>
               </#each>
@@ -139,11 +135,9 @@
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>地址：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
-                  </p>
-                  <p class="{styles.title}">
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
                     <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(publicKey)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value)}"></span>
                   </p>
                 </article>
               </#each>
@@ -161,7 +155,7 @@
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>哈希值：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}" onClick="{showBlock}"></span>
                   </p>
                 </article>
               </#each>
@@ -194,14 +188,12 @@
           <ant-TabPane tab="合约" key='3'>
             <#if {{search.contractsData.length > 0}}>
               <#each {{search.contractsData}}>
-                <article key={@index} class="{styles.option}">
+               <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>地址：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
-                  </p>
-                  <p class="{styles.title}">
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
                     <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(publicKey)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value)}"></span>
                   </p>
                 </article>
               </#each>
@@ -215,15 +207,13 @@
           </ant-TabPane>
           <ant-TabPane tab="数据账户" key='4'>
             <#if {{search.accountsData.length > 0}}>
-              <#each {{search.accountsData}}>
+               <#each {{search.accountsData}}>
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
                     <span>地址：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
-                  </p>
-                  <p class="{styles.title}">
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
                     <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(publicKey)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value)}"></span>
                   </p>
                 </article>
               </#each>
@@ -242,8 +232,6 @@
                   <p class="{styles.title}">
                     <span>地址：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
-                  </p>
-                  <p class="{styles.title}">
                     <span>公钥：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(publicKey)}"></span>
                   </p>
@@ -260,7 +248,7 @@
         </ant-Tabs>     
       </div>
       <div class="{styles.nav}"  #show={navShow}>
-        <label onClick={gobackResult}>搜索结果</label>  >  <span>区块详情</span>
+        <label onClick={gobackResult} style=" cursor: pointer;">搜索结果</label>  >  <span>区块详情</span>
       </div>
       <div  #show={blockShow} >
           <BlockInfo key={123} txCount={block.txCount} transactionList={block.transactionList} blockinfo={block.blockInformation} />      

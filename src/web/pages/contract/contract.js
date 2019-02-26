@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
-
+import {tranBase58} from '../../../utils/util';
 import 'flarej/lib/components/antd/table';
 import 'flarej/lib/components/antd/pagination';
 import 'flarej/lib/components/antd/radio';
@@ -30,27 +30,39 @@ export default class Contract extends Component {
   }
 
   componentDidMount() {
-    const { store: { header } } = this.props;
+    const { store: { header,contract } } = this.props;
     header.setSelectMenu(['contract']);
+    
+    const closeLoading = Message.loading('正在获取数据...', 0);
+    Promise.all([
+      contract.getContracts({
+        ledgers:this.props.store.common.getDefaultLedger()
+      }),
+    ]).then(() => {
+      closeLoading();
+    });
   }
 
   @computed get tableColumns() {
     return [{
       title: '合约公钥',
-      dataIndex: 'publicKey',
-      key:'name'
+      dataIndex: 'pubKey.value',
+      key:'pubKey'
     }, {
       title: '合约地址',
-      dataIndex: 'address',
-      key:'describe'
+      dataIndex: 'address.value',
+      key:'address'
     }, {
       title: '合约公钥算法',
-      dataIndex: '',
-      key:''
+      dataIndex: 'pubKey.value',
+      render: (text, record, index) => nj `
+      ${tranBase58(text)}
+      `()
+      
     }, {
       title: '合约根哈希',
-      dataIndex: '',
-      key:''
+      dataIndex: 'rootHash.value',
+      key:'rootHash'
     }];
   }
 

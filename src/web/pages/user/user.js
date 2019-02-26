@@ -44,10 +44,6 @@ export default class User extends Component {
       title: '用户地址',
       dataIndex: 'address.value',
       key:'address'
-    },{
-      title: '默克尔树根哈希',
-      dataIndex: 'rootHash.value',
-      key:'rootHash'
     }];
   }
 

@@ -138,7 +138,7 @@ const SearchStore = types
     },
   
     setBlockData(result){
-      if (result.message == 'OK')
+      if (result&&result.success)
       {
         self.blockData=result.data && result.data.blocks || [];// 区块数据
         self.txsData= result.data && result.data.txs || [];// 交易数据

@@ -6,14 +6,7 @@
     color: #374159;
     line-height: 25px;
   }
-
-  h3 {
-    font-size: 20px;
-    color: #374159;
-    line-height: 20px;
-    margin: 40px 0 24px 0;
-  }
-
+  
   .blockHeight {
     background: #5A77D2;
     background-image: url('../../images/overview_bg.png');
@@ -21,7 +14,14 @@
     background-size: 100% !important;
   }
 
-  .tabs {
+  .dark {
+    background: #C5CBD5;
+    background-image: url('../../images/overview_bg.png');
+    background-repeat: no-repeat;
+  }
+
+
+  .blockSwiper {
     height: 94px;
     width: 180px;
     padding: 24px;
@@ -31,24 +31,6 @@
     margin: auto;
     &:hover{
       box-shadow: 0 0 10px #C5CBD5;
-    }
-     .span {
-        display: flex;
-        flex-direction: row;
-         .left {
-            width: 75%;
-        }
-         .right {
-             .logo {
-                min-width: 60px;
-                background-size: 60px 67px;
-                width: 100%;
-                height: 160px;
-            }
-             .logoBH {
-                background: url('../../images/blockheightIcon.svg') no-repeat;
-            }
-        }
     }
     .blockHeightTitle{
       font-size: 14px;
@@ -62,79 +44,7 @@
       text-align: center;
       line-height: 40px;
     }
-  }
-  .dark {
-    background: #C5CBD5;
-    background-image: url('../../images/overview_bg.png');
-    background-repeat: no-repeat;
-  }
-  .summary {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    // 区块高度等页签样式
-     
 
-     .blockHeight {
-        background: #5A77D2;
-        background-image: url('../../images/overview_bg.png');
-        background-repeat: no-repeat;
-        background-size: 250px;
-    }
-    
-    .dark{
-      background: #5f5f5f;
-    }
-     .title {
-        font-size: 14px;
-        color: #FFFFFF;
-        line-height: 14px;
-    }
-
-     .data {
-        font-family: ArialMT;
-        font-size: 3em;
-        color: #FFFFFF;
-        line-height: 54px;
-        margin-top: 27px;
-    }
-    
-  }
-  
-  .datapanel {
-    background: #fff;
-    padding: 30px;
-    border-radius: 3px;
-    margin-top:30px;
-    span{
-      margin-right: 30px;
-    }
-  }
-
-  .gl {
-    word-break: break-all;
-    border-right: 1px solid #DFE1EA;
-    border-bottom: 1px solid #DFE1EA;
-    margin-top: -1px;
-
-    div {
-      min-height: 56px;
-      border-left: 1px solid #DFE1EA;
-      border-top: 1px solid #DFE1EA;
-      display: flex;
-      align-items: center;
-      padding: 0 10px;
-    }
-
-    div:nth-child(odd) {
-      background: #FAFAFA;
-      color: #7E8697;
-    }
-
-    div:nth-child(even) {
-      color: #354259;
-    }
   }
 }
 

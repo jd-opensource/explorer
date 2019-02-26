@@ -11,10 +11,7 @@ const ContractStore = types
   })
   .volatile(self => ({
     modData: null,
-    tableData: [{
-      "address": "5Sm2AU76zG87TyQuDHgMYYB5nEAd4hggEpxW", 
-      "publicKey": "maxTXMJHviDWiYKfkaxdTciHeXPDDmGesMWfzV7iip2VxH"
-    }],
+    tableData: [],
   }))
   .views(self => ({
 
@@ -22,6 +19,27 @@ const ContractStore = types
   .actions(self => ({
     afterCreate() {
 
+    },
+    // 合约
+    getContracts(param) {
+      return fetchData(`${__HOST}/ledgers/${param.ledgers}/contracts`,
+        self.setContracts,
+        '', { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+    setContracts(result) {
+      if (result&&result.success) {
+        self.tableData=result.data||[];
+
+      }
     },
   }));
 

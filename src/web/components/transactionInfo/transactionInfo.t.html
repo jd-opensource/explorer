@@ -9,7 +9,7 @@
     onClose={onCloseblockDetails}
   >
     <div class="{styles.option}">
-      交易哈希：{data.transactionContent.ledgerHash.value}
+      交易哈希：{data.transactionContent.hash.value}
     </div>
     <div class="{styles.option}">
       执行状态： {data.executionState}
@@ -17,9 +17,9 @@
     <#if {{data.endpointSignatures}}>
       <BlockCollapse title="终端签名列表">
         <#each {{data.endpointSignatures}}>
-          <BlockCollapseSmall  title="签名：{{this.pubKey.value}}">
-            值：{{this.pubKey.value}}<br>
-            digest：{{this.digest.value}}
+          <BlockCollapseSmall  title="签名：{{this.digest.value}}">
+            公钥：{{tranBase58(this.pubKey.value)}}<br>
+            公钥算法：{{this.pubKey.value}}
           </BlockCollapseSmall>
         </#each>
       </BlockCollapse>
@@ -27,9 +27,9 @@
     <#if {{data.nodeSignatures}}>
       <BlockCollapse title="节点签名列表">
         <#each {{data.nodeSignatures}}>
-          <BlockCollapseSmall  title="签名：{{this.pubKey.value}}">
-            值：{{this.pubKey.value}}<br>
-            digest：{{this.digest.value}}
+          <BlockCollapseSmall  title="签名：{{this.digest.value}}">
+           公钥：{{tranBase58(this.pubKey.value)}}<br>
+            公钥算法：{{this.pubKey.value}}
           </BlockCollapseSmall>
         </#each>
       </BlockCollapse>
@@ -47,7 +47,8 @@
               </fj-Row>
               <#each {{this.writeSet}}>
                 <BlockCollapseSmall  title="键：{{this.key}}">
-                  值：{{this.key}}<br>
+                  值：{{this.value.value.value}}<br>
+                  预期版本：{{this.expectedVersion}}<br>
                   类型：{{this.value.type}}
                 </BlockCollapseSmall>
               </#each>
@@ -61,8 +62,16 @@
                   <td>{{this.contractID.address.value}}</td>
                 </tr>
                 <tr>
+                  <td>合约公钥算法：</td>
+                  <td>{{tranBase58(this.contractID.pubKey.value)}}</td>
+                </tr>
+                <tr>
                   <td>合约公钥：</td>
                   <td>{{this.contractID.pubKey.value}}</td>
+                </tr>
+                <tr>
+                  <td>合约内容：</td>
+                  <td>{{this.chainCode}}</td>
                 </tr>
               </table>
             </BlockCollapsePanel>
@@ -93,6 +102,10 @@
                   <td>{{this.accountID.address.value}}</td>
                 </tr>
                 <tr>
+                  <td>账户公钥算法：</td>
+                  <td>{{tranBase58(this.accountID.pubKey.value)}}</td>
+                </tr>
+                <tr>
                   <td>账户公钥：</td>
                   <td>{{this.accountID.pubKey.value}}</td>
                 </tr>
@@ -105,6 +118,10 @@
                 <tr>
                   <td>用户地址：</td>
                   <td>{{this.userID.address.value}}</td>
+                </tr>
+                 <tr>
+                  <td>用户公钥算法：</td>
+                  <td>{{tranBase58(this.userID.pubKey.value)}}</td>
                 </tr>
                 <tr>
                   <td>用户公钥数据：</td>

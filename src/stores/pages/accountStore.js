@@ -14,7 +14,7 @@ const AccountStore = types
     getAccount(param) {
       return fetchData(`${__HOST}/ledgers/${param.ledgers}/accounts`,
         self.setAccount,
-        param, { 
+        '', { 
           method: 'get',
           headers: {
             // accept: 'application/json',
@@ -26,7 +26,7 @@ const AccountStore = types
       });
     },
     setAccount(result) {
-      if (result&&result.message=="OK") {
+      if (result&&result.success) {
         self.tableData=result.data||[];
 
       }

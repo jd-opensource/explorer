@@ -28,8 +28,8 @@ import tmpls from './search.t.html';
 export default class Search extends Component {
   
   @observable searchParamInput = '';// 搜索的值
-  @observable flagSerch = false;
-  @observable blockShow = false;  
+  @observable flagSerchShowShow = false;// 显示搜索框
+  @observable blockShow = false;  // 显示搜索结果
   @observable blockDetails=false;
   @observable show=false;
   @observable transactioninfoData={};
@@ -53,8 +53,8 @@ export default class Search extends Component {
           keyword: this.searchParamInput,
         },this.props.store.common.getDefaultLedger()),
     ]).then(() => {
-      this.flagSerch=true;
-      this.resultShow=!this.resultShow;
+      this.flagSerchShow=true;
+      this.resultShow=true;
       closeLoading();
     });
   }
@@ -83,14 +83,16 @@ export default class Search extends Component {
   //查看区块详情
   @autobind
   showBlock(e){
+    
     const { store: { block, common } } = this.props;
     const closeLoading = Message.loading('正在获取数据...', 0);
-    let legder=this.props.store.common.getDefaultLedger();
+    let ledger =this.props.store.common.getDefaultLedger();
+    let hash=e.target.innerText;
+    let param={ledger:ledger,hash:hash};
     Promise.all([
-     // block.getBlockHeight(legder),
-      block.getBlockInformation(legder),
-      block.getTxCount(legder),
-      block.getTransaction({legder:legder,height:2}),
+      block.getBlockInformationOfHash(param),
+      block.getTxCountOfHash(param),
+      block.getTransactionOfHash(param),
     ]).then((success) => {
       this.navShow=!this.navShow;
       this.blockShow=!this.blockShow;
@@ -114,15 +116,17 @@ gobackResult(){
 
   //查看交易详情
   @autobind
-  onShowBlockDetails(hash){
+  onShowBlockDetails(e){
     const { store: { block }} = this.props;
     let legder=this.props.store.common.getDefaultLedger();
+    let hash=e.target.innerText;
     Promise.all([
       block.getTransactionMore({"ledger":legder,'tx_hash':hash}),
     ]).then((success) => {
       this.show=!this.show;
       this.transactioninfoData=block.transactionInfo;
     });
+
   }
   render() {
     const { store: { search,block } } = this.props;

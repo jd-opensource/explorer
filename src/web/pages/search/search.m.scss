@@ -1,13 +1,5 @@
 .search {
-  padding:0 30px;
-
-  h2 {
-    margin-bottom: 25px;
-    font-size: 20px;
-    line-height: 70px;
-    height: 70px;
-    border-bottom: 1px solid #e8e8e9;
-  }
+  padding:30px;
 
   .main{
     margin: 100px auto 0 auto;
@@ -171,14 +163,15 @@
       .option{
         border-bottom: 1px solid #eaecf3;
         .title{
-          font-size: 18px;
+          font-size: 16px;
           color: #999;
           margin: 10px auto;
           span{
             margin-right: 10px;
+            cursor: pointer;
             i{
               margin-right:unset;
-              color:#5a77d3;
+              color:#ed2929;
               font-weight: bold;
             }
           }
