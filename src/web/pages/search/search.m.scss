@@ -169,13 +169,11 @@
         }
       }
       .option{
-        padding: 10px; 
-        min-height: 100px; 
         border-bottom: 1px solid #eaecf3;
         .title{
           font-size: 18px;
-          margin-bottom: 20px;
           color: #999;
+          margin: 10px auto;
           span{
             margin-right: 10px;
             i{
@@ -193,6 +191,16 @@
           }
         }
       }
+    }
+  }
+  .nav{
+    font-size: 14px;
+    color: #374159;
+    border-bottom: 1px solid #DEDEDE;
+    line-height: 60px;
+    margin-bottom: 20px;
+    span{
+      color: #3F0000;
     }
   }
 }

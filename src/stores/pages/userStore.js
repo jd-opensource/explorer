@@ -20,9 +20,9 @@ const UserStore = types
 
     // 用户信息
     getUser(param) {
-      return fetchData(`${__HOST}/api/v1/query/user`,
+      return fetchData(`${__HOST}/ledgers/${param}/users`,
         self.setUser,
-        param, { 
+        '', { 
           method: 'get',
           headers: {
             // accept: 'application/json',
@@ -34,8 +34,8 @@ const UserStore = types
       });
     },
     setUser(result) {
-      if (result&&result.code==0) {
-        self.tableData=result.data.users||[];
+      if (result&&result.success) {
+        self.tableData=result.data||[];
 
       }
     },

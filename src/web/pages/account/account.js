@@ -47,20 +47,17 @@ export default class Account extends Component {
 
   @computed get tableColumns() {
     return [{
-      title: '数据集地址',
-      dataIndex: 'address',
-      key:'name'
+      title: '账户地址',
+      dataIndex: 'address.value',
+      key:'address'
     }, {
-      title: '数据集公钥',
-      dataIndex: 'public_key',
-      key:'describe'
+      title: '账户公钥',
+      dataIndex: 'pubKey.value',
+      key:'pubKey'
     }, {
-      title: '交易数量',
-      dataIndex: '',
-      key: 'cTime',
-      render: (text, record, index) => nj `
-      <span>10</span>
-      `()
+      title: '默克尔树根哈希',
+      dataIndex: 'rootHash.value',
+      key: 'rootHash',
     }];
   }
 

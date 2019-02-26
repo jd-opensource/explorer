@@ -96,6 +96,7 @@ export default class BlockInfo extends Component {
 
   render() {
     const { store: { block },blockinfo,txCount,transactionList } = this.props;
+    
     return tmpls.container(this.props, this, {
       styles,
       block,

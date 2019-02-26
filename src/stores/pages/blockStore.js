@@ -137,7 +137,7 @@ const BlockStore = types
       }
     },
 
-    // 根据区块的详细信息
+    // 获取区块的详细信息
     getBlockInformation(param) {
       return fetchData(`${__HOST}/ledgers/${param}/blocks/latest`,
         self.setBlockInformation,
@@ -153,29 +153,9 @@ const BlockStore = types
 
     setBlockInformation(result) {
       if (result&&result.success) {
-        self.transactionInfo= result.data;
+        self.blockInformation= result.data;
       }
     },
-
-    // 根据区块的详细信息
-    // getBlockInformation(param) {
-    //   return fetchData(`${__HOST}/ledgers/${param}/blocks/search`,
-    //     self.setBlockInformation,
-    //     '', { 
-    //       method: 'get',
-    //       headers: {
-    //         cookie: document.cookie,
-    //       } 
-    //     }
-    //   ).catch(error => {
-    //   });
-    // },
-
-    // setBlockInformation(result) {
-    //   if (result&&result.success) {
-    //     self.txCount= result.data.txCount||0;
-    //   }
-    // },
 
     // 查找交易
     getTransaction(param) {

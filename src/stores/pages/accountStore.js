@@ -12,7 +12,7 @@ const AccountStore = types
   .actions(self => ({
     // 数据账户
     getAccount(param) {
-      return fetchData(`${__HOST}/api/v1/query/dataset`,
+      return fetchData(`${__HOST}/ledgers/${param.ledgers}/accounts`,
         self.setAccount,
         param, { 
           method: 'get',
@@ -27,7 +27,7 @@ const AccountStore = types
     },
     setAccount(result) {
       if (result&&result.message=="OK") {
-        self.tableData=result.data.datasets||[];
+        self.tableData=result.data||[];
 
       }
     },

@@ -323,7 +323,30 @@ router.get('/:ledger/users/count', function(req, res) {
 
   res.send(ret);
 });
+// 5.2 获取用户列表
+// GET /ledgers/{ledger}/users?fromIndex={start_index}&count={count}
+router.get('/:ledger/users', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
 
+  Object.assign(ret, resultData,{
+    "data":[{
+      "address": {
+        "value": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
+      },
+      "pubKey": {
+        "value": "mb5kbwzACnhK9P1dVxgMPB2ySJLFyJKQbHpH7T9oRK3LpS"
+      },
+      "rootHash": {
+        "value": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
+      }
+    }],
+    "success": true
+  });
+
+  res.send(ret);
+});
 // 6 数据账户
 // 6.3 获取账户总数
 // GET /ledgers/{ledger}/accounts/count
@@ -334,6 +357,30 @@ router.get('/:ledger/accounts/count', function(req, res) {
 
   Object.assign(ret, resultData,{
     "data": 18
+  });
+
+  res.send(ret);
+});
+// 6.1 获取账户列表
+// GET /ledgers/{ledger}/accounts?fromIndex={start_index}&count={count}
+router.get('/:ledger/accounts', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data":[{
+      "address": {
+        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+      },
+      "rootHash": {
+        "value": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM"
+      },
+      "pubKey": {
+        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
+      }
+    }],
+    "success": true
   });
 
   res.send(ret);
