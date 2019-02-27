@@ -37,6 +37,7 @@ export default class BlockInfo extends Component {
   onShowBlockDetails(record,index){
     const { store: { block }} = this.props;
     let legder=this.props.store.common.getDefaultLedger();
+    this.transactioninfoData={};
     Promise.all([
       block.getTransactionMore({"ledger":legder,'tx_hash':record.transactionContent.hash.value}),
     ]).then((success) => {

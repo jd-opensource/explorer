@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
-
+import {tranBase58} from '../../../utils/util';
 import 'flarej/lib/components/antd/table';
 import 'flarej/lib/components/antd/pagination';
 import 'flarej/lib/components/antd/radio';
@@ -40,7 +40,14 @@ export default class User extends Component {
       title: '用户公钥',
       dataIndex: 'pubKey.value',
       key:'pubKey'
-    }, {
+    },, {
+      title: '用户公钥算法',
+      dataIndex: 'pubKey.value',
+      render: (text, record, index) => nj `
+      ${tranBase58(text)}
+      `()
+      
+    },  {
       title: '用户地址',
       dataIndex: 'address.value',
       key:'address'

@@ -23,6 +23,7 @@ import Swiper from 'swiper/dist/js/swiper.js';
 export default class Block extends Component {
 
   @observable blockSwiper='';//区块查看Swiper
+  @observable dom='swiper-container';
 
   // 初始化数据
   componentDidMount() {
@@ -52,37 +53,44 @@ export default class Block extends Component {
   @autobind
   onPressEnterInputRole(){
     const { store: { block } } = this.props;
-    this.blockSwiper.slideTo(block.inputRole*1);
-    $('.swiper-slide').each(function(){
-      if ($(this).attr('data-con')*1==block.inputRole*1) {
-        $('.swiper-slide').removeClass('lights');
-        $(this).addClass('lights');
-      }
-    });
+    this.blockSwiper.virtual.cache=[];//清除cache内的虚拟slide
+    this.blockSwiper.destroy(false); //销毁swiper
+    $('#blockswiper').html('');//清空Swiper
     //搜索区块数据
     this.Search(block.inputRole*1);
+    this.InitBlockShow();
   }
 
   // 初始化区块展示
   @autobind
   InitBlockShow(){
     const { store: { block} } = this.props;
-    let blockheight=block.blockHeight*1,//区块总高度
+    let blockheight=block.blockHeight,//区块总高度
         blockNew=block.inputRole*1,//当前区块
         blcokInterval=5000,//将要展示的区块范围
         blcokShowStart=0,//将要展示的区块范围--开始值
         blcokShowEnd=blockheight;//将要展示的区块范围--结束值
+    this.dom="swiper-container"+new Date().getTime();
+    let bw=`<div class="swiper-container ${this.dom}" >
+              <div class="swiper-wrapper"></div>
+              <div class="swiper-button-prev"></div><!--左箭头-->
+              <div class="swiper-button-next"></div><!--右箭头-->
+            </div>`;
+    $('#blockswiper').html(bw);
     // 处理显示方式
+    if(blockNew>blockheight){
+      blockNew=blockheight;
+    }
     blcokShowStart= (blockNew-blcokInterval)>0 && (blockNew-blcokInterval) || 0;
-    blcokShowEnd= (blockNew+blcokInterval)>blcokShowEnd && blcokShowEnd ||(blockNew+blcokInterval-blockNew);
-    this.blockSwiper = new Swiper('.swiper-container', {
-      slidesPerView :8,
-      slidesPerGroup : 8,
+    blcokShowEnd= (blcokShowStart+2*blcokInterval)>blcokShowEnd && blcokShowEnd ||(blcokShowStart+2*blcokInterval);
+    this.blockSwiper = new Swiper("."+this.dom, {
+      slidesPerView :7,
+      slidesPerGroup : 7,
       mousewheel: true,
       virtual: {
         slides: (function () {
           var slides = [];
-          for (var i = 0; i <= blockheight; i++) {
+          for (var i = blcokShowStart; i <= blcokShowEnd; i++) {
             slides.push(i);
           }
           return slides;
@@ -103,7 +111,7 @@ export default class Block extends Component {
         prevEl: '.swiper-button-prev',
       },
     });
-    this.blockSwiper.slideTo(block.inputRole*1);
+    this.blockSwiper.slideTo(block.inputRole*1-blcokShowStart);
     $('.swiper-slide').each(function(){
       if ($(this).attr('data-con')*1==block.inputRole*1) {
         $('.swiper-slide').removeClass('lights');
