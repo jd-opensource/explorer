@@ -82,7 +82,7 @@ export default class Block extends Component {
       blockNew=blockheight;
     }
     blcokShowStart= (blockNew-blcokInterval)>0 && (blockNew-blcokInterval) || 0;
-    blcokShowEnd= (blcokShowStart+2*blcokInterval)>blcokShowEnd && blcokShowEnd ||(blcokShowStart+2*blcokInterval);
+    blcokShowEnd= (blcokShowStart+2*blcokInterval)<=blcokShowEnd && (blcokShowStart+2*blcokInterval) || blcokShowEnd;
     this.blockSwiper = new Swiper("."+this.dom, {
       slidesPerView :7,
       slidesPerGroup : 7,
