@@ -588,7 +588,34 @@ router.get('/:ledger/accounts', function(req, res) {
 
   res.send(ret);
 });
+// 6.3 获取账户总数
+// GET /ledgers/{ledger}/accounts/count
+router.get('/:ledger/accounts/count', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
 
+  Object.assign(ret, resultData,{
+    "data":"18",
+    "success": true
+  });
+
+  res.send(ret);
+});
+// 6.6 获取某数据账户KV总数
+//   GET /ledgers/{ledger}/accounts/address/{address}/entries/count
+router.get('/:ledger//accounts/address/:address/entries/count', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data":66,
+    "success": true
+  });
+
+  res.send(ret);
+});
 // 7 搜索
 // 7.1 搜索区块链
 // GET /ledgers/{ledger}/all/search?keyword={keyword}&fromIndex={start_index}&count={count}

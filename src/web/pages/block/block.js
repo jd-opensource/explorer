@@ -38,6 +38,12 @@ export default class Block extends Component {
       //搜索区块数据
       this.Search(data[0]);
     });
+    window.onresize=()=>{  
+      this.blockSwiper.virtual.cache=[];//清除cache内的虚拟slide
+    this.blockSwiper.destroy(false); //销毁swiper
+    $('#blockswiper').html('');//清空Swiper
+    this.InitBlockShow();
+    }
   } 
 
   // 获取区块高度输入框的值
@@ -84,8 +90,8 @@ export default class Block extends Component {
     blcokShowStart= (blockNew-blcokInterval)>0 && (blockNew-blcokInterval) || 0;
     blcokShowEnd= (blcokShowStart+2*blcokInterval)<=blcokShowEnd && (blcokShowStart+2*blcokInterval) || blcokShowEnd;
     this.blockSwiper = new Swiper("."+this.dom, {
-      slidesPerView :7,
-      slidesPerGroup : 7,
+      slidesPerView:parseInt(document.body.clientWidth/250),
+      slidesPerGroup: parseInt(document.body.clientWidth/250),
       mousewheel: true,
       virtual: {
         slides: (function () {

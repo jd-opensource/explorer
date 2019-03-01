@@ -20,7 +20,6 @@
     background-repeat: no-repeat;
   }
 
-
   .blockSwiper {
     height: 94px;
     width: 180px;
@@ -29,16 +28,20 @@
     border-radius: 4px;
     cursor: pointer;
     margin: auto;
-    &:hover{
+
+    &:hover {
       box-shadow: 0 0 10px #C5CBD5;
     }
-    .blockHeightTitle{
+
+    .blockHeightTitle {
       font-size: 14px;
       color: #FFFFFF;
       text-align: center;
-      line-height: 14px;margin-bottom:8px;
+      line-height: 14px;
+      margin-bottom: 8px;
     }
-    .blockHeightValue{
+
+    .blockHeightValue {
       font-size: 40px;
       color: #FFFFFF;
       text-align: center;

@@ -79,7 +79,11 @@ body {
 
 body,
 html {
-  min-width: 1780px;
+  // min-width: 1780px;
+}
+
+* {
+  word-break: break-all !important;
 }
 
 .clearfix:after,

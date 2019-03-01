@@ -7,7 +7,13 @@
       <ant-Table rowSelection={rowSelection}
         columns={toJS(tableColumns)}
         dataSource={toJS(tableData)}
-        :pagination="{showQuickJumper:true}"
+        :pagination="{
+          current: account.accountcurrent,
+          pageSize: pageSize,
+          total: account.accountcount,
+          onChange: onPageChange,
+          showQuickJumper:true
+        }"
         bordered />
     </div>
   </div>
