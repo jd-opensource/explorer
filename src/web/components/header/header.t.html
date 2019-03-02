@@ -16,7 +16,7 @@
     <!-- <ant-Select placeholder="请选择账本" class={styles.value} >
       <ant-Option value="64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty" >64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</ant-Option>
     </ant-Select> -->
-    <ant-Select  value="{common.defaultledger}" style="width:300px;" onChange={handleSelectChange}>
+    <ant-Select  value="{common.defaultledger}" onChange={handleSelectChange}>
       <#each {{common.ledgers}}>
         <ant-Option key="{@index}" value="{{value}}">{{value}}</ant-Option>
       </#each>

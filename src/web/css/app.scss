@@ -292,7 +292,9 @@ div.fj-area-chart-area {
 .ant-table-thead > tr.ant-table-row-hover:not(.ant-table-expanded-row) > td, .ant-table-tbody > tr.ant-table-row-hover:not(.ant-table-expanded-row) > td, .ant-table-thead > tr:hover:not(.ant-table-expanded-row) > td, .ant-table-tbody > tr:hover:not(.ant-table-expanded-row) > td {
   background: rgba(90,119,211,0.15);
 }
-
+.site-header li:after{
+  background: unset !important;
+}
 .lights {
   .bg {
     background: #5A77D2 !important;
