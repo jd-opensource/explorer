@@ -94,7 +94,7 @@
               <#each {{search.blockData}}>
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
-                    <span>哈希值：</span>
+                    <span>区块哈希：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}"  onClick="{showBlock}"></span>
                   </p>
                 </article>
@@ -103,7 +103,7 @@
               <#each {{search.txsData}}>
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
-                    <span>哈希值：</span>
+                    <span>交易哈希：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}" onClick={onShowBlockDetails}></span>
                   </p>
                 </article>
@@ -112,10 +112,12 @@
               <#each {{search.contractsData}}>
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
-                    <span>地址：</span>
+                    <span>合约地址：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
-                    <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value)}"></span>
+                    <span>合约公钥：</span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value) }"></span>
+                    <span>合约公钥算法：</span>
+                    <span :dangerouslySetInnerHTML="{__html: tranBase58(pubKey.value) }"></span>
                   </p>
                 </article>
               </#each>
@@ -123,10 +125,12 @@
               <#each {{search.accountsData}}>
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
-                    <span>地址：</span>
+                    <span>数据账户地址：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
-                    <span>公钥：</span>
+                    <span>数据账户公钥：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value)}"></span>
+                    <span>数据账户公钥算法：</span>
+                    <span :dangerouslySetInnerHTML="{__html: tranBase58(pubKey.value)}"></span>
                   </p>
                 </article>
               </#each>
@@ -134,10 +138,12 @@
               <#each {{search.usersData}}>
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
-                    <span>地址：</span>
+                    <span>用户地址：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
-                    <span>公钥：</span>
+                    <span>用户公钥：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value)}"></span>
+                     <span>用户公钥算法：</span>
+                    <span :dangerouslySetInnerHTML="{__html: tranBase58(pubKey.value)}"></span>
                   </p>
                 </article>
               </#each>
@@ -154,8 +160,8 @@
               <#each {{search.blockData}}>
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
-                    <span>哈希值：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}" onClick="{showBlock}"></span>
+                    <span>区块哈希：</span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}"  onClick="{showBlock}"></span>
                   </p>
                 </article>
               </#each>
@@ -172,7 +178,7 @@
                <#each {{search.txsData}}>
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
-                    <span>哈希值：</span>
+                    <span>交易哈希：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}" onClick={onShowBlockDetails}></span>
                   </p>
                 </article>
@@ -190,10 +196,12 @@
               <#each {{search.contractsData}}>
                <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
-                    <span>地址：</span>
+                    <span>合约地址：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
-                    <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value)}"></span>
+                    <span>合约公钥：</span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value) }"></span>
+                    <span>合约公钥算法：</span>
+                    <span :dangerouslySetInnerHTML="{__html: tranBase58(pubKey.value) }"></span>
                   </p>
                 </article>
               </#each>
@@ -209,11 +217,13 @@
             <#if {{search.accountsData.length > 0}}>
                <#each {{search.accountsData}}>
                 <article key={@index} class="{styles.option}">
-                  <p class="{styles.title}">
-                    <span>地址：</span>
+                 <p class="{styles.title}">
+                    <span>数据账户地址：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
-                    <span>公钥：</span>
+                    <span>数据账户公钥：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value)}"></span>
+                    <span>数据账户公钥算法：</span>
+                    <span :dangerouslySetInnerHTML="{__html: tranBase58(pubKey.value)}"></span>
                   </p>
                 </article>
               </#each>
@@ -230,10 +240,12 @@
               <#each {{search.usersData}}>
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title}">
-                    <span>地址：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
-                    <span>公钥：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(publicKey)}"></span>
+                    <span>用户地址：</span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
+                    <span>用户公钥：</span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value)}"></span>
+                     <span>用户公钥算法：</span>
+                    <span :dangerouslySetInnerHTML="{__html: tranBase58(pubKey.value)}"></span>
                   </p>
                 </article>
               </#each>

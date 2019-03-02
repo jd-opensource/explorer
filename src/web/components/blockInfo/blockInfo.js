@@ -32,6 +32,15 @@ export default class BlockInfo extends Component {
     
   }
 
+  // 跳转到前置区块
+  @autobind
+  goBlock(e){debugger;
+    const {goPrev}= this.props;
+    if (goPrev) {
+      goPrev(e.target.innerText);
+    }
+  }
+
   // 查看详细信息
   @autobind
   onShowBlockDetails(record,index){

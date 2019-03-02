@@ -7,7 +7,7 @@ import { autobind } from 'core-decorators';
 import {tranBase58} from '../../../utils/util';
 import 'flarej/lib/components/antd/table';
 import 'flarej/lib/components/antd/pagination';
-import 'flarej/lib/components/antd/radio';
+import 'flarej/lib/components/antd/input';
 import 'flarej/lib/components/antd/button';
 import 'flarej/lib/components/antd/cascader';
 import 'flarej/lib/components/antd/datePicker';
@@ -25,40 +25,64 @@ import tmpls from './contract.t.html';
 @observer
 export default class Contract extends Component {
 
+  @observable pageSize = 10;
+
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    const { store: { header,contract } } = this.props;
+    const { store: { header } } = this.props;
     header.setSelectMenu(['contract']);
-    
+    this.Search();
+  }
+
+  // 搜索
+  Search(){
+    const { store: {contract } } = this.props;
     const closeLoading = Message.loading('正在获取数据...', 0);
+    let leader=this.props.store.common.getDefaultLedger(),
+    param={
+      fromIndex:(contract.accountcurrent-1)*this.pageSize,
+      count:this.pageSize,
+    }
     Promise.all([
-      contract.getContracts({
-        ledgers:this.props.store.common.getDefaultLedger()
-      }),
+      contract.getContractsCount(leader)     
     ]).then(() => {
-      closeLoading();
+      if(contract.accountcount>0){
+        Promise.all([ contract.getContracts(leader,
+          param
+          ),
+        ]).then(() => {
+          closeLoading();
+        });
+      }
+      else{
+        closeLoading();
+      }
     });
+  }
+
+  ////分页切换
+  @autobind
+  onPageChange(page, pageSize) {
+    const { store: { contract } } = this.props;
+    contract.setCurrent(page);
+    this.Search();
   }
 
   @computed get tableColumns() {
     return [{
-      title: '合约公钥',
-      dataIndex: 'pubKey.value',
-      key:'pubKey'
-    }, {
       title: '合约地址',
       dataIndex: 'address.value',
       key:'address'
     }, {
-      title: '合约公钥算法',
+      title: '合约公钥',
       dataIndex: 'pubKey.value',
+      key:'pubKey',
       render: (text, record, index) => nj `
-      ${tranBase58(text)}
+      ${text}<br/>算法：${tranBase58(text)}
       `()
-      
     }, {
       title: '合约根哈希',
       dataIndex: 'rootHash.value',

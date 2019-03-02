@@ -12,17 +12,24 @@ const UserStore = types
   .volatile(self => ({
     modData: null, 
     tableData: [],
+    accountcount:0,//数据账户总条数
+    accountcurrent:1,//当前选中页码
   }))
   .views(self => ({
 
   }))
   .actions(self => ({
 
-    // 用户信息
-    getUser(param) {
-      return fetchData(`${__HOST}/ledgers/${param}/users`,
+    // 设置页码
+    setCurrent(v){
+      self.accountcurrent=v;
+    },
+    
+    // 用户信息列表
+    getUser(ledger,param) {
+      return fetchData(`${__HOST}/ledgers/${ledger}/users`,
         self.setUser,
-        '', { 
+        param, { 
           method: 'get',
           headers: {
             // accept: 'application/json',
@@ -36,7 +43,26 @@ const UserStore = types
     setUser(result) {
       if (result&&result.success) {
         self.tableData=result.data||[];
-
+      }
+    },
+    // 用户信息列表总数
+    getUserCount(ledger) {
+      return fetchData(`${__HOST}/ledgers/${ledger}/users/count`,
+        self.setUserCount,
+        '', { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+    setUserCount(result) {
+      if (result&&result.success) {
+        self.accountcount=result.data||0;
       }
     },
   }));

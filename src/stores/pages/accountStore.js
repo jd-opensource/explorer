@@ -11,7 +11,6 @@ const AccountStore = types
     accountcount:0,//数据账户总条数
     accountcurrent:1,//当前选中页码
     ledger:'',
-    count:0,
   }))
   .actions(self => ({
     // 设置页码

@@ -44,6 +44,9 @@ app.use('/block', block);
 const contract = require('./routes/contract');
 app.use('/contract', contract);
 
+const transaction = require('./routes/transaction');
+app.use('/transaction', transaction);
+
 //{pages}//
 
 let server = app.listen(8088, function() {

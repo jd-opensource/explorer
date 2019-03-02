@@ -1,7 +1,7 @@
 <template name="container">
   <ant-Drawer
     title="交易详情"
-    width={800}
+    width={600}
     placement="right"
     closable={true}
     visible={visible}
@@ -18,9 +18,8 @@
     <#if {{data.endpointSignatures}}>
       <BlockCollapse title="终端签名列表">
         <#each {{data.endpointSignatures}}>
-          <BlockCollapseSmall  title="签名：{{this.digest.value}}">
-            公钥：{{tranBase58(this.pubKey.value)}}<br>
-            公钥算法：{{this.pubKey.value}}
+          <BlockCollapseSmall  title=" 公钥：{{this.pubKey.value}}，公钥签名：{{tranBase58(this.pubKey.value)}}">
+            签名：{{this.digest.value}}
           </BlockCollapseSmall>
         </#each>
       </BlockCollapse>
@@ -28,9 +27,8 @@
     <#if {{data.nodeSignatures}}>
       <BlockCollapse title="节点签名列表">
         <#each {{data.nodeSignatures}}>
-          <BlockCollapseSmall  title="签名：{{this.digest.value}}">
-           公钥：{{tranBase58(this.pubKey.value)}}<br>
-            公钥算法：{{this.pubKey.value}}
+           <BlockCollapseSmall  title=" 公钥：{{this.pubKey.value}}，公钥签名：{{tranBase58(this.pubKey.value)}}">
+            签名：{{this.digest.value}}
           </BlockCollapseSmall>
         </#each>
       </BlockCollapse>
@@ -81,7 +79,7 @@
             <BlockCollapsePanel title="合约事件操作">
               <table style="line-height:41px;">
                 <tr>
-                  <td>args：</td>
+                  <td>合约参数：</td>
                   <td>{{this.args}}</td>
                 </tr>
                 <tr>
@@ -89,7 +87,7 @@
                   <td>{{this.contractAddress.value}} </td>
                 </tr>
                 <tr>
-                  <td>事件：</td>
+                  <td>合约事件：</td>
                   <td>{{this.event}}</td>
                 </tr>
               </table>

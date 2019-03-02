@@ -180,7 +180,27 @@ const BlockStore = types
         self.blockInformation= result.data;
       }
     },
-
+    //根据hash获取区块的高度
+    getBlockHeightOfHash(param) {
+      return fetchData(`${__HOST}/ledgers/${param.ledger}/blocks/hash/${param.hash}`,
+        self.setBlockHeightOfHash,
+        '', { 
+          method: 'get',
+          headers: {
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+      });
+    },
+    setBlockHeightOfHash(result) {
+      if (result&&result.success) {
+       return result.data.height;
+      }
+      else{
+        return 0;
+      }
+    },
     // 根据高度查找交易
     getTransaction(param) {
       return fetchData(`${__HOST}/ledgers/${param.ledger}/blocks/height/${param.height}/txs`,

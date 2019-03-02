@@ -40,9 +40,9 @@ export default class Block extends Component {
     });
     window.onresize=()=>{  
       this.blockSwiper.virtual.cache=[];//清除cache内的虚拟slide
-    this.blockSwiper.destroy(false); //销毁swiper
-    $('#blockswiper').html('');//清空Swiper
-    this.InitBlockShow();
+      this.blockSwiper.destroy(false); //销毁swiper
+      $('#blockswiper').html('');//清空Swiper
+      this.InitBlockShow();
     }
   } 
 
@@ -148,6 +148,23 @@ export default class Block extends Component {
     });
   }
 
+  // 跳转到前置区块
+  @autobind
+  goPrev(v){
+    const { store: { block } } = this.props;
+    let ledger=this.props.store.common.getDefaultLedger();
+    let param={ledger:ledger,hash:v};
+    Promise.all([
+      block.getBlockHeightOfHash(param),
+    ]).then((success) => {
+      let height=success[0];
+      if(height>=0){
+        block.setInputRole(height);
+        this.onPressEnterInputRole();
+      }
+    });
+  }
+  
   render() {
     const { store: { block } } = this.props;
     return tmpls.container(this.props, this, {

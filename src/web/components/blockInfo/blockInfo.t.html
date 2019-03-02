@@ -6,27 +6,30 @@
       </fj-Col>
       <fj-Col l=3>{blockdata && blockdata.height || 0 }
       </fj-Col>
+       <fj-Col l=1>区块哈希
+      </fj-Col>
+      <fj-Col l=3>{blockdata && blockdata.hash && blockdata.hash.value || ''}
+      </fj-Col>
+      <fj-Col l=1>前置区块哈希
+      </fj-Col>
+      <fj-Col l=3>
+        <span  style="cursor: pointer;" onClick={goBlock}>
+          {blockdata && blockdata.previousHash && blockdata.previousHash.value || ''}
+        </span>
+      </fj-Col>
+    </fj-Row>
+    <fj-Row class="{styles.gl}">
       <fj-Col l=1>交易数量
       </fj-Col>
       <fj-Col l=3>{txCount || 0}
       </fj-Col>
-      <fj-Col l=1>区块哈希
+       <fj-Col l=1>交易集哈希
       </fj-Col>
-      <fj-Col l=3>{blockdata && blockdata.hash && blockdata.hash.value || ''}
+      <fj-Col l=3>{blockdata && blockdata.transactionSetHash && blockdata.transactionSetHash.value || ''} 
       </fj-Col>
-    </fj-Row>
-    <fj-Row class="{styles.gl}">
       <fj-Col l=1>账本哈希
       </fj-Col>
       <fj-Col l=3>{blockdata && blockdata.ledgerHash && blockdata.ledgerHash.value || ''}
-      </fj-Col>
-      <fj-Col l=1>前置区块哈希
-      </fj-Col>
-      <fj-Col l=3>{blockdata && blockdata.previousHash && blockdata.previousHash.value || ''}
-      </fj-Col>
-      <fj-Col l=1>交易集哈希
-      </fj-Col>
-      <fj-Col l=3>{blockdata && blockdata.transactionSetHash && blockdata.transactionSetHash.value || ''} 
       </fj-Col>
     </fj-Row>
     <fj-Row class="{styles.gl}">
@@ -38,7 +41,7 @@
       </fj-Col>
       <fj-Col l=3>{blockdata && blockdata.contractAccountSetHash && blockdata.contractAccountSetHash.value || ''} 
       </fj-Col>
-      <fj-Col l=1>管理员集哈希
+      <fj-Col l=1>配置集哈希
       </fj-Col>
       <fj-Col l=3>{blockdata && blockdata.adminAccountHash && blockdata.adminAccountHash.value || ''}  
       </fj-Col>

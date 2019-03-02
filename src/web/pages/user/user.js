@@ -7,7 +7,7 @@ import { autobind } from 'core-decorators';
 import {tranBase58} from '../../../utils/util';
 import 'flarej/lib/components/antd/table';
 import 'flarej/lib/components/antd/pagination';
-import 'flarej/lib/components/antd/radio';
+import 'flarej/lib/components/antd/input';
 import 'flarej/lib/components/antd/button';
 import 'flarej/lib/components/antd/cascader';
 import 'flarej/lib/components/antd/datePicker';
@@ -25,32 +25,64 @@ import tmpls from './user.t.html';
 @observer
 export default class User extends Component {
 
+  @observable pageSize = 10;
+
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    const { store: { user, header } } = this.props;
+    const { store: { header } } = this.props;
     header.setSelectMenu(['user']);
-    user.getUser(this.props.store.common.getDefaultLedger());
+    this.Search();
   }
 
+  Search(){
+    const { store: { user } } = this.props;
+    const closeLoading = Message.loading('正在获取数据...', 0);
+    let leader=this.props.store.common.getDefaultLedger(),
+    param={
+      fromIndex:(user.accountcurrent-1)*this.pageSize,
+      count:this.pageSize,
+    }
+    Promise.all([
+      user.getUserCount(leader)     
+    ]).then(() => {
+      if(user.accountcount>0){
+        Promise.all([ user.getUser(leader,
+          param
+          ),
+        ]).then(() => {
+          closeLoading();
+        });
+      }
+      else{
+        closeLoading();
+      }
+    });
+  }
+
+  ////分页切换
+  @autobind
+  onPageChange(page, pageSize) {
+    const { store: { user } } = this.props;
+    user.setCurrent(page);
+    this.Search();
+  }
+
+
   @computed get tableColumns() {
-    return [{
-      title: '用户公钥',
-      dataIndex: 'pubKey.value',
-      key:'pubKey'
-    },, {
-      title: '用户公钥算法',
-      dataIndex: 'pubKey.value',
-      render: (text, record, index) => nj `
-      ${tranBase58(text)}
-      `()
-      
-    },  {
+    return [ {
       title: '用户地址',
       dataIndex: 'address.value',
       key:'address'
+    },{
+      title: '用户公钥',
+      dataIndex: 'pubKey.value',
+      key:'pubKey',
+      render: (text, record, index) => nj `
+      ${text}<br>算法：${tranBase58(text)}
+      `()
     }];
   }
 

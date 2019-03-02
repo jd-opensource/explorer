@@ -5,6 +5,7 @@ import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
+import {tranBase58} from '../../../utils/util';
 import 'flarej/lib/components/antd/table';
 import 'flarej/lib/components/antd/input';
 import 'flarej/lib/components/antd/button';
@@ -77,15 +78,21 @@ export default class Account extends Component {
     return [{
       title: '账户地址',
       dataIndex: 'address.value',
-      key:'address'
+      key:'address',
+      width:'25%'
     }, {
       title: '账户公钥',
       dataIndex: 'pubKey.value',
-      key:'pubKey'
+      key:'pubKey',
+      width:'25%',
+      render: (text, record, index) => nj `
+       ${text}<br/>算法：${tranBase58(text)}
+      `()
     }, {
       title: '默克尔树根哈希',
       dataIndex: 'rootHash.value',
       key: 'rootHash',
+      width:'25%'
     },
     {
       title: 'KV',

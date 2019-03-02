@@ -3,11 +3,21 @@
     <h2>
       用户
     </h2>
+    <div style="margin-bottom:20px;">
+      <ant-Input style="width:200px;margin-right:20px" />
+      <ant-Button icon="search" type="primary" class="{styles.btn}" >查询</ant-Button>
+    </div>
     <div class="{styles.datapanel}">
       <ant-Table rowSelection={rowSelection}
         columns={toJS(tableColumns)}
         dataSource={toJS(tableData)}
-        :pagination="{showQuickJumper:true}"
+        :pagination="{
+          current: user.accountcurrent,
+          pageSize: pageSize,
+          total: user.accountcount,
+          onChange: onPageChange,
+          showQuickJumper:true
+        }"
         bordered />
     </div>
   </div>

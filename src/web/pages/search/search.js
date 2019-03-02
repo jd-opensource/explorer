@@ -5,6 +5,7 @@ import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
+import {tranBase58} from '../../../utils/util';
 import 'flarej/lib/components/antd/table';
 import 'flarej/lib/components/antd/input';
 import 'flarej/lib/components/antd/button';
@@ -134,6 +135,7 @@ gobackResult(){
       styles,
       search,
       block,
+      tranBase58
     });
   }
 }
