@@ -43,9 +43,30 @@ const ContractStore = types
         console.log(error);
       });
     },
+    // 合约列表--模糊查询
+    getContractsVague(ledger,param) {
+      return fetchData(`${__HOST}/ledgers/${ledger}/contracts/search`,
+        self.setContractsVague,
+        param, { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
     setContracts(result) {
       if (result&&result.success) {
         self.tableData=result.data||[];
+
+      }
+    },
+    setContractsVague(result) {
+      if (result&&result.success) {
+        self.tableData=result.data.contracts||[];
 
       }
     },
@@ -64,10 +85,45 @@ const ContractStore = types
         console.log(error);
       });
     },
+    // 合约列表总数--模糊查询
+    getContractsCountVague(ledger,keyword) {
+      return fetchData(`${__HOST}/ledgers/${ledger}/contracts/count/search`,
+        self.setContractsCount,
+        {keyword:keyword}, { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
     setContractsCount(result) {
       if (result&&result.success) {
         self.accountcount=result.data||0;
 
+      }
+    },
+    // 根据合约地址查询详细信息
+    getContractsByAddress(param) {
+      return fetchData(`${__HOST}/ledgers/${param.ledger}/contracts/address/${param.address}`,
+        self.setContractsByAddress,
+        '', { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+    setContractsByAddress(result) {
+      if (result&&result.success) {
+        return result.data||[];
       }
     },
   }));

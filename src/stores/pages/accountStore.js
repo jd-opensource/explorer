@@ -33,9 +33,30 @@ const AccountStore = types
         console.log(error);
       });
     },
+    // 数据账户列表--模糊查询
+    getAccountVague(ledger,param) {
+      self.ledger=ledger;
+      return fetchData(`${__HOST}/ledgers/${ledger}/accounts/search`,
+        self.setAccountVague,
+        param, { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
     setAccount(result) {
       if (result&&result.success) {
         self.tableData=result.data||[];
+      }
+    },
+    setAccountVague(result) {
+      if (result&&result.success) {
+        self.tableData=result.data.accounts||[];
       }
     },
     // 数据账户列表总数
@@ -43,6 +64,21 @@ const AccountStore = types
       return fetchData(`${__HOST}/ledgers/${ledgers}/accounts/count`,
         self.setAccountCount,
         '', { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+    // 数据账户列表总数--模糊查询
+    getAccountCountVague(ledgers,keyword) {
+      return fetchData(`${__HOST}/ledgers/${ledgers}/accounts/count/search`,
+        self.setAccountCount,
+        {keyword:keyword}, { 
           method: 'get',
           headers: {
             // accept: 'application/json',
@@ -79,6 +115,49 @@ const AccountStore = types
       }
       else{
         return 0;
+      }
+    },
+    // 数据账户KV列表
+    getEntries(ledger,address,param) {
+      return fetchData(`${__HOST}/ledgers/${ledger}/accounts/address/${address}/entries`,
+        self.setEntries,
+        param, { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+    setEntries(result) {
+      if (result&&result.success) {
+        return result.data;
+      }
+      else{
+        return [];
+      }
+    },
+    // 数据账户详细信息
+    getAccountInfo(param) {
+      return fetchData(`${__HOST}/ledgers/${param.ledger}/accounts/address/${param.address}`,
+        self.setAccountInfo,
+        '', { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+    setAccountInfo(result) {
+      if (result&&result.success) {
+        return result.data;
       }
     },
   }));

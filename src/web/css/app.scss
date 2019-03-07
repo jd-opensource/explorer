@@ -229,7 +229,7 @@ div.fj-area-chart-area {
   float: left;
 }
 
-.footContent{
+.footContent {
   flex: 0 0 auto;
   text-align: center;
   line-height: 52px;
@@ -237,15 +237,18 @@ div.fj-area-chart-area {
   margin: 0 30px;
 }
 
-#app,#outer-container{
+#app,
+#outer-container {
   height: 100%;
   display: flex;
   flex-direction: column;
   flex: auto;
 }
-#page-wrap{
+
+#page-wrap {
   flex: auto;
 }
+
 .ant-btn-primary{
   background: #5A77D3;
   border-color: #5A77D3; 

@@ -1,11 +1,12 @@
 <template name="container">
   <div class="{styles.user}">
+   <div :dangerouslySetInnerHTML="{__html: html}"></div>
     <h2>
       用户
     </h2>
     <div style="margin-bottom:20px;">
-      <ant-Input style="width:200px;margin-right:20px" />
-      <ant-Button icon="search" type="primary" class="{styles.btn}" >查询</ant-Button>
+      <ant-Input style="width:200px;margin-right:20px" value="{useraddress}" onChange={onChangeInput}/>
+      <ant-Button icon="search" type="primary" class="{styles.btn}" onClick={SerchInfo}>查询</ant-Button>
     </div>
     <div class="{styles.datapanel}">
       <ant-Table rowSelection={rowSelection}

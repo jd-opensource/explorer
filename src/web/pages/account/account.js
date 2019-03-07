@@ -6,6 +6,8 @@ import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import {tranBase58} from '../../../utils/util';
+import AccountInfo from '../../components/accountInfo';
+import AccountRootHash from '../../components/accountRootHash';
 import 'flarej/lib/components/antd/table';
 import 'flarej/lib/components/antd/input';
 import 'flarej/lib/components/antd/button';
@@ -33,7 +35,10 @@ export default class Account extends Component {
   @observable selectedRowKeys = [];
   @observable selectedRows = [];
   @observable pageSize = 10;
-  
+  @observable show=false;
+  @observable accountData={};
+  @observable accountAddress='';
+
 
   componentDidMount() {
     const { store: {header } } = this.props;
@@ -65,6 +70,47 @@ export default class Account extends Component {
       }
     });
   }
+  SearchVague(){
+    const { store: { account } } = this.props;
+    const closeLoading = Message.loading('正在获取数据...', 0);
+    let leaders=this.props.store.common.getDefaultLedger(),
+    keyword=this.accountAddress,
+    param={
+      fromIndex:(account.accountcurrent-1)*this.pageSize,
+      count:this.pageSize,
+      keyword
+    }
+    Promise.all([
+      account.getAccountCountVague(leaders,keyword)     
+    ]).then(() => {
+      if(account.accountcount>0){
+        Promise.all([ account.getAccountVague(leaders,
+          param
+          ),
+        ]).then(() => {
+          closeLoading();
+        });
+      }
+      else{
+        closeLoading();
+      }
+    });
+  }
+  //模糊查询
+  @autobind
+  SerchInfo(){
+    if (this.accountAddress.trim()!='') {
+      this.SearchVague();
+    }
+    else{
+      this.Search()
+    }
+  }
+  
+  @autobind
+  onChangeInput(e){
+    this.accountAddress=e.target.value;
+  }
 
   ////分页切换
   @autobind
@@ -74,6 +120,11 @@ export default class Account extends Component {
     this.Search();
   }
 
+  @autobind
+  onShow(record, index){
+    this.accountData=record;
+    this.show=!this.show;
+  }
   @computed get tableColumns() {
     return [{
       title: '账户地址',
@@ -92,7 +143,15 @@ export default class Account extends Component {
       title: '默克尔树根哈希',
       dataIndex: 'rootHash.value',
       key: 'rootHash',
-      width:'25%'
+      width:'25%',
+      render: (text, record, index) => nj `
+        <#if ${text}>
+          ${text}
+          <#else>
+            <AccountRootHash address=${record.address.value}/>
+          </#else>
+        </#if>
+      `()
     },
     {
       title: 'KV',
@@ -105,7 +164,7 @@ export default class Account extends Component {
     {
       title: '操作',
       render: (text, record, index) => nj `
-       <a>查看</a>
+       <a  onClick=${()=>this.onShow(record, index)}>查看</a>
       `()
     }];
   }

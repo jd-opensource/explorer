@@ -178,6 +178,7 @@ const BlockStore = types
     setBlockInformation(result) {
       if (result&&result.success) {
         self.blockInformation= result.data;
+        return result.data;
       }
     },
     //根据hash获取区块的高度
@@ -224,6 +225,7 @@ const BlockStore = types
     setTransaction(result){
       if (result&&result.success) {
         self.transactionList = result.data || [];// 交易数据
+        return result.data;
       }     
     },
 

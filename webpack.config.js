@@ -4,7 +4,8 @@
   CopyWebpackPlugin = require('copy-webpack-plugin'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-
+  const marked = require("marked");
+  const renderer = new marked.Renderer();
 const isProd = process.env.NODE_ENV == 'production';
 const isTest = process.env.NODE_ENV == 'test';
 const isLocal = process.env.Project == 'local';
@@ -203,6 +204,21 @@ module.exports = {
             process.env.Project +
             '/fonts/[name].[ext]?[hash]'
         ]
+      },
+      {
+        test: /\.j\.md$/,
+        use: [
+            {
+                loader: "html-loader"
+            },
+            {
+                loader: "markdown-loader",
+                options: {
+                    pedantic: true,
+                    renderer
+                }
+            }
+        ]
       }
     ]
   },
@@ -213,7 +229,10 @@ module.exports = {
         target: 'http://192.168.151.39:18081',
       },
 
-    ]
+    ],
+  //   historyApiFallback:{
+  //     index:'dist/web/index.html'
+  // },
   }
 };
 
@@ -238,7 +257,8 @@ module.exports.plugins = [
     template: './index.template-' + (!isLocal ? process.env.Project : 'web') + '.nj.html',
     inject: 'true',
     chunks: ['vendor', 'app'],
-    path: isProd || isTest ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
+    // path: isProd || isTest ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
+    path:`/dist/${process.env.Project}/`
   }),
   new HtmlWebpackPlugin({
     inject: 'true',

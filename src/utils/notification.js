@@ -11,23 +11,10 @@ export function createNotification(notification, isMobile) {
     }
   };
 
-  Notification.error = ({ title, description, duration, onClose, mask, actions }) => {
+  Notification.error = ({ message="提示", description, duration, onClose, mask, actions }) => {
     if (!isMobile) {
-      Message.destroy();
-      if(description.indexOf('NotLogin') > -1) {
-        location.href = '/home';
-        return;
-      }
+      return notification.error({ message, description, duration: duration == null ? 10 : duration });
 
-      if (description.indexOf('message1') > -1
-        || description.indexOf('message2') > -1) {
-        if (!Notification.showAuth) {
-          Notification.showAuth = true;
-          return notification.warning({ title, description, duration: null, onClose: () => Notification.showAuth = false });
-        }
-      } else {
-        return notification.error({ title, description, duration: duration == null ? 2 : duration });
-      }
     } else {
       return notification[1].alert(title, description, actions);
     }

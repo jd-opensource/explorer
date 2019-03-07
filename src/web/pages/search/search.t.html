@@ -96,6 +96,8 @@
                   <p class="{styles.title}">
                     <span>区块哈希：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(hash)}"  onClick="{showBlock}"></span>
+                    <span>区块高度：</span>
+                    <span><BlcokHeight key={hash} hash={hash} /></span>
                   </p>
                 </article>
               </#each>
@@ -131,6 +133,8 @@
                     <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey.value)}"></span>
                     <span>数据账户公钥算法：</span>
                     <span :dangerouslySetInnerHTML="{__html: tranBase58(pubKey.value)}"></span>
+                    <span>默克尔树根哈希</span>
+                    <span><AccountRootHash address={address.value}/></span>
                   </p>
                 </article>
               </#each>
@@ -269,3 +273,4 @@
     </div>
   </div>
 </template>
+

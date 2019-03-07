@@ -143,7 +143,7 @@ const routes = () => t`
     
     <Route exact path="/Contract" component=${Contract} />
     
-    <Route exact path="/Transaction" component=${Transaction} />
+    <!-- <Route exact path="/Transaction" component=${Transaction} /> -->
     <!--//{route}//-->
     <Redirect from="*" to="/"/>
   </router-Switch>

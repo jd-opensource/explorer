@@ -5,6 +5,7 @@ import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import {tranBase58} from '../../../utils/util';
+import ContractsRootHash from '../../components/contractsRootHash';
 import 'flarej/lib/components/antd/table';
 import 'flarej/lib/components/antd/pagination';
 import 'flarej/lib/components/antd/input';
@@ -26,7 +27,7 @@ import tmpls from './contract.t.html';
 export default class Contract extends Component {
 
   @observable pageSize = 10;
-
+  @observable contractAddress='';
   constructor(props) {
     super(props);
   }
@@ -62,7 +63,48 @@ export default class Contract extends Component {
       }
     });
   }
+ // 搜索
+ SearchVague(){
+  const { store: {contract } } = this.props;
+  const closeLoading = Message.loading('正在获取数据...', 0);
+  let leader=this.props.store.common.getDefaultLedger(),
+  keyword=this.contractAddress,
+  param={
+    fromIndex:(contract.accountcurrent-1)*this.pageSize,
+    count:this.pageSize,
+    keyword
+  }
+  Promise.all([
+    contract.getContractsCountVague(leader,keyword)     
+  ]).then(() => {
+    if(contract.accountcount>0){
+      Promise.all([ contract.getContractsVague(leader,
+        param
+        ),
+      ]).then(() => {
+        closeLoading();
+      });
+    }
+    else{
+      closeLoading();
+    }
+  });
+}
+//模糊查询
+@autobind
+SerchInfo(){
+  if (this.contractAddress.trim()!='') {
+    this.SearchVague();
+  }
+  else{
+    this.Search()
+  }
+}
 
+@autobind
+onChangeInput(e){
+  this.contractAddress=e.target.value;
+}
   ////分页切换
   @autobind
   onPageChange(page, pageSize) {
@@ -86,7 +128,15 @@ export default class Contract extends Component {
     }, {
       title: '合约根哈希',
       dataIndex: 'rootHash.value',
-      key:'rootHash'
+      key:'rootHash',
+      render: (text, record, index) => nj `
+        <#if ${text}>
+          ${text}
+          <#else>
+            <ContractsRootHash address=${record.address.value}/>
+          </#else>
+        </#if>
+      `()
     }];
   }
 

@@ -39,7 +39,7 @@ const SearchStore = types
         self.blockHeight=result.data.height||0;
       }
     },
-
+    
     // 获取交易总数
     getTransactionTotal(param) {
       return fetchData(`${__HOST}/ledgers/${param}/txs/count`,
@@ -126,7 +126,7 @@ const SearchStore = types
       }
     },
 
-    // 搜索交易
+    // 搜索
     getBlockData(param,ledger) {
       return fetchData(`${__HOST}/ledgers/${ledger}/all/search`,
         self.setBlockData,param,
@@ -155,6 +155,12 @@ const SearchStore = types
         self.datasetsData=[];// 数据账户
         self.contractsData=[];// 合约数据
         self.allData=[];
+        Notification.error({
+          title:'提示',
+          description: result.error&&result.error.errorMessage||'请重试！',
+          duration: null
+        
+        });
       }
     }
   }));

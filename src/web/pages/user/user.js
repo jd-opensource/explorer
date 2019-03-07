@@ -12,13 +12,18 @@ import 'flarej/lib/components/antd/button';
 import 'flarej/lib/components/antd/cascader';
 import 'flarej/lib/components/antd/datePicker';
 import 'flarej/lib/components/antd/checkbox';
-
+import mditor from "mditor";
 import Message from 'flarej/lib/components/antd/message';
 import Notification from 'flarej/lib/components/antd/notification';
 
 import styles from './user.m.scss';
 import tmpls from './user.t.html';
 
+// import mmd from './a.j.md';
+
+
+// var parser = new mditor.Parser(); 
+// var html = parser.parse(mmd);
 // 页面容器组件
 @registerTmpl('User')
 @inject('store')
@@ -26,7 +31,7 @@ import tmpls from './user.t.html';
 export default class User extends Component {
 
   @observable pageSize = 10;
-
+  @observable useraddress='';
   constructor(props) {
     super(props);
   }
@@ -61,6 +66,43 @@ export default class User extends Component {
       }
     });
   }
+  SearchVague(){
+    const { store: { user } } = this.props;
+    const closeLoading = Message.loading('正在获取数据...', 0);
+    let leader=this.props.store.common.getDefaultLedger(),
+    keyword=this.useraddress,
+    param={
+      fromIndex:(user.accountcurrent-1)*this.pageSize,
+      count:this.pageSize,
+      keyword:keyword
+    }
+    Promise.all([
+      user.getUserCountVague(leader,keyword)     
+    ]).then(() => {
+      if(user.accountcount>0){
+        Promise.all([ user.getUserVague(leader,
+          param
+          ),
+        ]).then(() => {
+          closeLoading();
+        });
+      }
+      else{
+        closeLoading();
+      }
+    });
+  }
+
+  //模糊查询
+  @autobind
+  SerchInfo(){
+    if (this.useraddress.trim()!='') {
+      this.SearchVague();
+    }
+    else{
+      this.Search()
+    }
+  }
 
   ////分页切换
   @autobind
@@ -70,6 +112,10 @@ export default class User extends Component {
     this.Search();
   }
 
+  @autobind
+  onChangeInput(e){
+    this.useraddress=e.target.value;
+  }
 
   @computed get tableColumns() {
     return [ {
@@ -92,6 +138,7 @@ export default class User extends Component {
       styles,
       user,
       tableData: toJS(user.tableData),
+      // html
     });
   }
 }

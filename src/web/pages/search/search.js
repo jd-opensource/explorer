@@ -18,6 +18,8 @@ import Tree from 'flarej/lib/components/antd/tree';
 import Message from 'flarej/lib/components/antd/message';
 import Notification from '../../../utils/notification';
 import BlockInfo from '../../components/blockInfo';
+import BlockHeight from '../../components/blcokHeight';
+import AccountRootHash from '../../components/accountRootHash';
 import TransactionInfo from '../../components/transactionInfo';
 import styles from './search.m.scss';
 import tmpls from './search.t.html';

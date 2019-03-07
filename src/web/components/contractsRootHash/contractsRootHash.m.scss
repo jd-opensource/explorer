@@ -1,0 +1,20 @@
+.transaction {
+  .option {
+    height: 56px;
+    line-height: 56px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  table {
+    word-break: break-all;
+
+    tr {
+      td {
+        &:nth-child(odd) {
+          width: 20%;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+}

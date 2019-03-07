@@ -1,0 +1,58 @@
+<template name="container">
+  <h3>数据详情</h3>
+  <div class="{styles.info}">
+    <fj-Row class="{styles.gl}">
+      <fj-Col l=1>数据账户根哈希
+      </fj-Col>
+      <fj-Col l=5>
+        <#if {{accountData && accountData.rootHash && accountData.rootHash.value}}>
+          {accountData.rootHash.value}
+          <#elseif {{accountData && accountData.address && accountData.address.value}}>
+            <AccountRootHash  address={accountData.address.value}/>
+          </#elseif>
+          <#else>
+            ''
+          </#else>
+        </#if>
+      </fj-Col>
+       <fj-Col l=1>数据账户地址
+      </fj-Col>
+      <fj-Col l=5>{accountData && accountData.address && accountData.address.value || ''}
+      </fj-Col>
+    </fj-Row>
+    <fj-Row class="{styles.gl}">
+      <fj-Col l=1>数据账户公钥
+      </fj-Col>
+      <fj-Col l=5>{accountData && accountData.pubKey && accountData.pubKey.value || ''}
+      </fj-Col>
+       <fj-Col l=1>KV数量
+      </fj-Col>
+      <fj-Col l=5><KvCount address={accountData.address.value} key={accountData.address.value} />
+      </fj-Col>
+    </fj-Row>
+    <h3>数据写入</h3>
+    <ant-Table
+      columns={toJS(tableColumns)}
+      dataSource={toJS(kvData)}
+      :pagination="{
+          current: accountcurrent,
+          pageSize: pageSize,
+          total: accountcount,
+          onChange: onPageChange,
+          showQuickJumper:true
+        }"
+      bordered />
+      <ant-Drawer
+        title="值详情"
+        width={600}
+        placement="right"
+        closable={true}
+        visible={visible}
+        maskClosable={true}
+        onClose={onCloseblockDetails}
+        class="{styles.transaction}"
+      >
+        {valueinfo}
+      </ant-Drawer>
+  </div>
+</template>

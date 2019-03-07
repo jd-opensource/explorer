@@ -65,6 +65,58 @@ const UserStore = types
         self.accountcount=result.data||0;
       }
     },
+     // 用户信息列表--模糊查询
+     getUserVague(ledger,param) {
+      return fetchData(`${__HOST}/ledgers/${ledger}/users/search`,
+        self.setUserVague,
+        param, { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+    setUserVague(result) {
+      if (result&&result.success) {
+        self.tableData=result.data.users||[];
+      }
+      else{
+        self.tableData=[];
+      }
+    },
+    // 用户信息列表总数
+    getUserCountVague(ledger,keyword) {
+      return fetchData(`${__HOST}/ledgers/${ledger}/users/count/search`,
+        self.setUserCountVague,
+        {keyword:keyword}, { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+    setUserCountVague(result) {
+      if (result&&result.success) {
+        self.accountcount=result.data||0;
+      }
+      else{
+        self.accountcount=0;
+        Notification.error({
+          title:'提示',
+          description: result.error&&result.error.errorMessage||'请重试！',
+          duration: null
+        
+        });
+      }
+    },
   }));
 
 export default UserStore;

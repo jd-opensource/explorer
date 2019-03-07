@@ -550,7 +550,72 @@ router.get('/:ledger/users', function(req, res) {
 
   res.send(ret);
 });
+// 5.4 用户查询数量
+//   GET /ledgers/{ledger}/users/count/search?keyword={keyword}
+router.get('/:ledger/users/count/search', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data": 4,
+    "success": true
+  });
+
+  res.send(ret);
+});
+// 5.5 用户查询
+//   GET /ledgers/{ledger}/users/search?keyword={keyword}&fromIndex={start_index}&count={count}
+router.get('/:ledger/users/search', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data": {
+      "users": [
+        {
+          "address": {
+            "value": "5SmAGKgmXyj5VsVvJgHbYCJ67iTizwSkNpw1"
+          },
+          "pubKey": {
+            "value": "mb97eG4bba2EjrgjXYiD9chAstjg4HaNuV5xgCtSHc5TeB"
+          },
+          "rootHash": {
+            "value": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
+          }
+        }
+      ]
+    },
+    "success": true
+  });
+
+  res.send(ret);
+});
 // 6 数据账户
+// 6.2 获取账户详细信息
+// GET /ledgers/{ledger}/accounts/address/{address}
+router.get('/:ledger/accounts/address/:address', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data": {
+      "address": {
+        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+      },
+      "rootHash": {
+        "value": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM"
+      },
+      "pubKey": {
+        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
+      }
+    },
+  });
+
+  res.send(ret);
+});
 // 6.3 获取账户总数
 // GET /ledgers/{ledger}/accounts/count
 router.get('/:ledger/accounts/count', function(req, res) {
@@ -602,6 +667,44 @@ router.get('/:ledger/accounts/count', function(req, res) {
 
   res.send(ret);
 });
+// 6.4 查询数据账户匹配的数量
+// GET /ledgers/{ledger}/accounts/count/search?keyword={keyword}
+router.get('/:ledger/accounts/count/search', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data":"18",
+    "success": true
+  });
+
+  res.send(ret);
+});
+// 6.5 查询数据账户
+//   GET /ledgers/{ledger}/accounts/search?keyword={keyword}&fromIndex={start_index}&count={count}
+router.get('/:ledger/accounts/search', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data":[{
+      "address": {
+        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+      },
+      "rootHash": {
+        "value": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM"
+      },
+      "pubKey": {
+        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
+      }
+    }],
+    "success": true
+  });
+
+  res.send(ret);
+});
 // 6.6 获取某数据账户KV总数
 //   GET /ledgers/{ledger}/accounts/address/{address}/entries/count
 router.get('/:ledger//accounts/address/:address/entries/count', function(req, res) {
@@ -612,6 +715,31 @@ router.get('/:ledger//accounts/address/:address/entries/count', function(req, re
   Object.assign(ret, resultData,{
     "data":66,
     "success": true
+  });
+
+  res.send(ret);
+});
+// 6.7 获取某数据账户KV详情
+//   GET/POST /ledgers/{ledger}/accounts/address/{address}/entries?fromIndex={start_index}&count={count}
+router.get('/:ledger//accounts/address/:address/entries', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data": [
+      {
+        "key": "jd",
+        "version": 0,
+        "type": "TEXT",
+        "value": "www.jd.com"
+      },
+      {
+        "key": "jdchain",
+        "version": 0,
+        "type": "TEXT",
+        "value": "www.blockchain.com"
+      }],
   });
 
   res.send(ret);
@@ -684,6 +812,29 @@ router.get('/:ledger/contracts', function(req, res) {
 
   res.send(ret);
 });
+// 8.2 获取合约详细信息
+// GET /ledgers/{ledger}/contracts/address/{address}
+router.get('/:ledger/contracts/address/:address', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data": {
+      "address": {
+        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+      },
+      "rootHash": {
+        "value": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM"
+      },
+      "pubKey": {
+        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
+      }
+    },
+  });
+
+  res.send(ret);
+});
 // 8.3 获取合约总数
 // GET /ledgers/{ledger}/contracts/count
 router.get('/:ledger/contracts/count', function(req, res) {
@@ -697,5 +848,40 @@ router.get('/:ledger/contracts/count', function(req, res) {
 
   res.send(ret);
 });
+// 8.4 查询指定合约数量
+// GET /ledgers/{ledger}/contracts/count/search?keyword={keyword}
+router.get('/:ledger/contracts/count/search', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
 
+  Object.assign(ret, resultData,{
+    "data": 27
+  });
+
+  res.send(ret);
+});
+// 8.5 合约查询
+//   GET /ledgers/{ledger}/contracts/search?keyword={keyword}&fromIndex={start_index}&count={count}
+router.get('/:ledger/contracts/search', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data": [{
+      "address": {
+        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+      },
+      "rootHash": {
+        "value": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM"
+      },
+      "pubKey": {
+        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
+      }
+    }],
+  });
+
+  res.send(ret);
+});
 module.exports = router;
