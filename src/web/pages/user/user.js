@@ -12,18 +12,11 @@ import 'flarej/lib/components/antd/button';
 import 'flarej/lib/components/antd/cascader';
 import 'flarej/lib/components/antd/datePicker';
 import 'flarej/lib/components/antd/checkbox';
-import mditor from "mditor";
 import Message from 'flarej/lib/components/antd/message';
 import Notification from 'flarej/lib/components/antd/notification';
 
 import styles from './user.m.scss';
 import tmpls from './user.t.html';
-
-// import mmd from './a.j.md';
-
-
-// var parser = new mditor.Parser(); 
-// var html = parser.parse(mmd);
 // 页面容器组件
 @registerTmpl('User')
 @inject('store')
@@ -138,7 +131,6 @@ export default class User extends Component {
       styles,
       user,
       tableData: toJS(user.tableData),
-      // html
     });
   }
 }
