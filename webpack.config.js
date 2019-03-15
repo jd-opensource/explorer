@@ -260,13 +260,6 @@ module.exports.plugins = [
     // path: isProd || isTest ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
     path:`/dist/${process.env.Project}/`
   }),
-  new HtmlWebpackPlugin({
-    inject: 'true',
-    chunks: ['vendor', 'appHome'],
-    filename: process.env.Project + '/home.html',
-    template: './index.template-' + (!isLocal ? process.env.Project : 'web') + '.nj.html',
-    path: isProd || isTest ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
-  }),
   new webpack.NamedModulesPlugin(),
   new webpack.DefinePlugin({
     __ENV: isProd || isTest ? "'pro'" : "'dev'",
