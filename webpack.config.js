@@ -258,7 +258,7 @@ module.exports.plugins = [
     inject: 'true',
     chunks: ['vendor', 'app'],
     // path: isProd || isTest ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
-    path:`/dist/${process.env.Project}/`
+    path:`${process.env.Project}/`
   }),
   new webpack.NamedModulesPlugin(),
   new webpack.DefinePlugin({
