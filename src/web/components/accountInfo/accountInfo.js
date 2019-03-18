@@ -166,7 +166,7 @@ export default class AccountInfo extends Component {
       dataIndex: 'value',
       key:'value',
       render: (text, record, index) => nj `
-        ${this.strOfLength(utf8ToString(text),50)}&nbsp;&nbsp;&nbsp;
+        ${this.strOfLength(text,50)}&nbsp;&nbsp;&nbsp;
         <a onClick=${()=>this.onShowBlockDetails(text,record)}>详细</a>
       `()
     }, {
