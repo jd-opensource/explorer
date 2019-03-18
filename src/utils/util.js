@@ -69,3 +69,12 @@ export function tranBase58(value) {
        
   return base58;
 }
+
+export function utf8ToString(str){
+  var tmp2='';
+  for(let i=0; i<str.length;){
+    tmp2+='%'+str.substring (i,i+=2);
+  }
+  return decodeURI(tmp2);
+
+}

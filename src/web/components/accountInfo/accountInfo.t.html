@@ -52,7 +52,12 @@
         onClose={onCloseblockDetails}
         class="{styles.transaction}"
       >
-        {valueinfo}
+        <#if {{valueinfotype == "BYTES"}}>
+          {valueinfo}
+        </#if>
+        <#if {{valueinfotype == "JSON"}}>
+            {Jsontree()}
+        </#if>
       </ant-Drawer>
   </div>
 </template>
