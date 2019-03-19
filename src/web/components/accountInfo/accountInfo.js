@@ -140,6 +140,9 @@ export default class AccountInfo extends Component {
       this.valueinfotype='JSON';
       this.jsondata = text;
     } 
+    else{
+      this.valueinfo=text;
+    }
   }
  // 关闭
  @autobind

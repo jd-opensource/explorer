@@ -18,10 +18,10 @@ export default class  BlockCollapseSmall extends Component {
     
     render() {
       // const { activeData = [] } = this.state;
-      const { title,children} = this.props;
+      const { title,sign,children} = this.props;
       return (
         <Collapse defaultActiveKey="1" bordered={false} expandIcon={({ isActive }) => <Icon type="double-right" rotate={isActive ? 90 : -90} />}>
-        <Panel header={<div style={customPanelStyle}>{title}</div>} key="1" className='blockCollapse blockCollapsesmall'>
+        <Panel header={<div style={customPanelStyle}>{title}<br/>{sign}</div>} key="1" className='blockCollapse blockCollapsesmall'>
             <div>
               {children}
             </div>

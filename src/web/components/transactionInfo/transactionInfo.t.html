@@ -18,7 +18,7 @@
     <#if {{data.endpointSignatures}}>
       <BlockCollapse title="终端签名列表">
         <#each {{data.endpointSignatures}}>
-          <BlockCollapseSmall  title=" 公钥：{{this.pubKey.value}}，公钥签名：{{tranBase58(this.pubKey.value)}}">
+          <BlockCollapseSmall  title=" 公钥：{{this.pubKey.value}}" sign="公钥算法：{{tranBase58(this.pubKey.value)}}">
             签名：{{this.digest.value}}
           </BlockCollapseSmall>
         </#each>
@@ -27,7 +27,7 @@
     <#if {{data.nodeSignatures}}>
       <BlockCollapse title="节点签名列表">
         <#each {{data.nodeSignatures}}>
-           <BlockCollapseSmall  title=" 公钥：{{this.pubKey.value}}，公钥签名：{{tranBase58(this.pubKey.value)}}">
+           <BlockCollapseSmall  title=" 公钥：{{this.pubKey.value}}" sign="公钥算法：{{tranBase58(this.pubKey.value)}}">
             签名：{{this.digest.value}}
           </BlockCollapseSmall>
         </#each>

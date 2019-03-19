@@ -54,9 +54,12 @@
       >
         <#if {{valueinfotype == "BYTES"}}>
           {valueinfo}
-        </#if>
-        <#if {{valueinfotype == "JSON"}}>
+          <#elseif {{valueinfotype == "JSON"}}}>
             {Jsontree()}
+          </#elseif>
+          <#else>
+             {valueinfo}
+          </#else>
         </#if>
       </ant-Drawer>
   </div>
