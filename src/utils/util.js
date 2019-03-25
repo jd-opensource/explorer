@@ -34,7 +34,7 @@ export function tranBase58(value) {
   for (let i = 0; i < ALPHABET.length; i++) {
       ALPHABET_MAP[ALPHABET.charAt(i)] = i;
   }
-  if (value.length === 0) return [];
+  if (value==undefined||value.length === 0) return [];
   let i,
       j,
       bytes = [0];

@@ -184,7 +184,7 @@ router.get('/:ledger/txs/count', function(req, res) {
 });
 // 4.2 根据区块高度查询区块内的交易数量
 // GET /ledgers/{ledger}/blocks/height/{block_height}/txs/additional-count
-router.get('/:ledger//blocks/height/:block_height/txs/additional-count', function(req, res) {
+router.get('/:ledger/blocks/height/:block_height/txs/additional-count', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -197,7 +197,7 @@ router.get('/:ledger//blocks/height/:block_height/txs/additional-count', functio
 });
 // 4.3 根据区块哈希查询区块内的交易数量
 // GET /ledgers/{ledger}/blocks/hash/{block_hash}/txs/additional-count
-router.get('/:ledger//blocks/hash/:block_hash/txs/additional-count', function(req, res) {
+router.get('/:ledger/blocks/hash/:block_hash/txs/additional-count', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -766,22 +766,34 @@ router.get('/:ledger/all/search', function(req, res) {
       ],
       "users": [
         {
-        "address": "5SmAGKgmXyj5VsVvJgHbYCJ67iTizwSkNpw1",
-        "publicKey": "mb97eG4bba2EjrgjXYiD9chAstjg4HaNuV5xgCtSHc5TeB"
+        "address": {
+        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+        },
+        "pubKey": {
+        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
         }
-      ],
+        }
+        ],
       "accounts": [
         {
-          "address": "5Sm5VJMc9eMmpFjA1drCdnrjfVUvRhsi8eAw",
-          "publicKey": "mb8CpWQeFVrZG9qe4yi6mngtvGg1yzeafaPrgYK2vXQp2H"
+        "address": {
+        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+        },
+        "pubKey": {
+        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
         }
-      ],
+        }
+        ],
       "contracts": [
         {
-          "address": "5Sm2AU76zG87TyQuDHgMYYB5nEAd4hggEpxW",
-          "publicKey": "maxTXMJHviDWiYKfkaxdTciHeXPDDmGesMWfzV7iip2VxH"
+        "address": {
+        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+        },
+        "pubKey": {
+        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
         }
-      ],
+        }
+        ],
     },
   });
 
