@@ -29,24 +29,6 @@ app.all('*', function(req, res, next) {
 const ledgers = require('./routes/ledgers');
 app.use('/ledgers', ledgers);
 
-const search = require('./routes/search');
-app.use('/search', search);
-
-const account = require('./routes/account');
-app.use('/account', account);
-
-const user = require('./routes/user');
-app.use('/user', user);
-
-const block = require('./routes/block');
-app.use('/block', block);
-
-const contract = require('./routes/contract');
-app.use('/contract', contract);
-
-const transaction = require('./routes/transaction');
-app.use('/transaction', transaction);
-
 //{pages}//
 
 let server = app.listen(8088, function() {

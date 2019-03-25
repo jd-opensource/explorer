@@ -707,7 +707,7 @@ router.get('/:ledger/accounts/search', function(req, res) {
 });
 // 6.6 获取某数据账户KV总数
 //   GET /ledgers/{ledger}/accounts/address/{address}/entries/count
-router.get('/:ledger//accounts/address/:address/entries/count', function(req, res) {
+router.get('/:ledger/accounts/address/:address/entries/count', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
@@ -721,7 +721,7 @@ router.get('/:ledger//accounts/address/:address/entries/count', function(req, re
 });
 // 6.7 获取某数据账户KV详情
 //   GET/POST /ledgers/{ledger}/accounts/address/{address}/entries?fromIndex={start_index}&count={count}
-router.get('/:ledger//accounts/address/:address/entries', function(req, res) {
+router.get('/:ledger/accounts/address/:address/entries', function(req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
