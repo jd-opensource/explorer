@@ -3,10 +3,16 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.jd.blockchain</groupId>
     <artifactId>browser</artifactId>
-
-    <version>0.6.4.RELEASE</version>
+    <version>0.6.5.RELEASE</version>
     <packaging>jar</packaging>
     <name>browser</name>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <destinationDir>${project.build.outputDirectory}/META-INF/resources</destinationDir>
@@ -21,6 +27,29 @@
         <plugins>
         </plugins>
     </build>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <!--写你自己的，这只是个例子-->
+    <scm>
+        <url>https://github.com/blockchain-jd-com/jdchain.git</url>
+        <connection>https://github.com/blockchain-jd-com/jdchain.git</connection>
+        <developerConnection>https://github.com/blockchain-jd-com/jdchain.git</developerConnection>
+    </scm>
+    <!--写你自己的，这只是个例子-->
+    <developers>
+        <developer>
+            <name>jdchain</name>
+            <email>git-jdchain@jd.com</email>
+            <url>https://github.com/blockchain-jd-com/jdchain.git</url>
+        </developer>
+    </developers>
 
     <!--<distributionManagement>-->
     <!--<snapshotRepository>-->
