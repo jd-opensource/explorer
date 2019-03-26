@@ -141,6 +141,7 @@ export default class AccountInfo extends Component {
       this.jsondata = text;
     } 
     else{
+      this.valueinfotype='other';
       this.valueinfo=text;
     }
   }
