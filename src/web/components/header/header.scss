@@ -37,21 +37,32 @@
     background-image: url('../../images/logo.png');
     background-repeat: no-repeat;
   }
-  .note{
+
+  .note {
     color: #fff;
     float:right;
     padding: 15px;
     font-size: 14px;
-    color: #ADC6FF;
+    color:#ADC6FF;
     line-height: 14px;
-    .value{
+    display: flex;
+    align-items: center;
+    
+    .value {
       width: 200px;
       border: 1px solid #ADC6FF;
       border-radius: 4px;
     }
+
     .ant-select-arrow svg {
       color: #fff;
-  }
+    }
+
+    .copy {
+      font-size: 23px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
   }
   &.isMenuOpen > ul {
     padding-left: 0;

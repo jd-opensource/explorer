@@ -21,5 +21,9 @@
         <ant-Option key="{@index}" value="{{value}}">{{value}}</ant-Option>
       </#each>
     </ant-Select>
+    <ant-Tooltip title="复制账本" placement="bottomLeft" onClick={onClickCopy}>
+      <ant-Icon type="copy" class="copy"/>
+    </ant-Tooltip>
+   
   </div>
 </header>

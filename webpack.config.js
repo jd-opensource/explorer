@@ -9,7 +9,7 @@
 const isProd = process.env.NODE_ENV == 'production';
 const isTest = process.env.NODE_ENV == 'test';
 const isLocal = process.env.Project == 'local';
-const isSelf  = false;// true使用代理服务，false不使用
+const isSelf  = true;// true使用代理服务，false不使用
 const pxToRem = require('postcss-pxtorem');
 const VERSION = '20190101';
 const modifyVars = Object.assign({});
@@ -226,7 +226,7 @@ module.exports = {
     proxy: [
       {
         context: ['/ledgers'],
-        target: 'http://127.0.0.0',
+        target: 'http://192.168.151.39:18081',
       },
 
     ],

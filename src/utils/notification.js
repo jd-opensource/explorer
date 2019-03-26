@@ -3,9 +3,9 @@ const Notification = {};
 export default Notification;
 
 export function createNotification(notification, isMobile) {
-  Notification.success = ({ title, description, duration, onClose, mask }) => {
+  Notification.success = ({ message="提示", description, duration, onClose, mask }) => {
     if (!isMobile) {
-      return notification.success({ title, description, duration: duration == null ? 2 : duration });
+      return notification.success({ message, description, duration: duration == null ? 2 : duration });
     } else {
       return notification[0].success(description, duration == null ? 2 : duration, onClose, mask);
     }
