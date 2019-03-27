@@ -39,7 +39,7 @@ export default class TransactionInfo extends Component {
         let json=stringToBase58(data);
         result=byteToString(json);
         break;
-      case 'HEX':
+      case 'BYTES':
         let hex=stringToBase58(data);
         result=Bytes2Str(hex);
         break;  
