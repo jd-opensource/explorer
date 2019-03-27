@@ -105,3 +105,96 @@ export function copyToClipboard(text) {
     document.body.removeChild(textArea);
     return rtn;
  }
+
+// 字符串转Byte
+export function stringToBase58(value) {
+  let ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+  let ALPHABET_MAP = {};
+  let BASE = 58;
+  for (let i = 0; i < ALPHABET.length; i++) {
+      ALPHABET_MAP[ALPHABET.charAt(i)] = i;
+  }
+  if (value==undefined||value.length === 0) return [];
+  let i,
+      j,
+      bytes = [0];
+  for (i = 0; i < value.length; i++) {
+    let c = value[i];
+    // c是不是ALPHABET_MAP的key 
+    if (!(c in ALPHABET_MAP)) return [];
+    for (j = 0; j < bytes.length; j++) bytes[j] *= BASE;
+    bytes[0] += ALPHABET_MAP[c];
+    let carry = 0;
+    for (j = 0; j < bytes.length; ++j) {
+        bytes[j] += carry;
+        carry = bytes[j] >> 8;
+        // 0xff --> 11111111
+        bytes[j] &= 0xff;
+    }
+    while (carry) {
+        bytes.push(carry & 0xff);
+        carry >>= 8;
+    }
+  }
+  // deal with leading zeros
+  for (i = 0; value[i] === '1' && i < value.length - 1; i++) bytes.push(0);
+  
+  return bytes.reverse();
+}
+
+//Byte转Long
+export function byteToLong(bytes){
+  let offset=0;
+  let value=0;
+  value = (value | (bytes[offset] & 0xFF)) << 8;
+  value = (value | (bytes[offset + 1] & 0xFF)) << 8;
+  value = (value | (bytes[offset + 2] & 0xFF)) << 8;
+  value = (value | (bytes[offset + 3] & 0xFF)) << 8;
+  value = (value | (bytes[offset + 4] & 0xFF)) << 8;
+  value = (value | (bytes[offset + 5] & 0xFF)) << 8;
+  value = (value | (bytes[offset + 6] & 0xFF)) << 8;
+  value = value | (bytes[offset + 7] & 0xFF);
+
+  return value;
+
+}
+
+export function byteToString(arr) {
+  if(typeof arr === 'string') {
+    return arr;
+  }
+  var str = '',
+    _arr = arr;
+  for(var i = 0; i < _arr.length; i++) {
+    var one = _arr[i].toString(2),
+      v = one.match(/^1+?(?=0)/);
+    if(v && one.length == 8) {
+      var bytesLength = v[0].length;
+      var store = _arr[i].toString(2).slice(7 - bytesLength);
+      for(var st = 1; st < bytesLength; st++) {
+        store += _arr[st + i].toString(2).slice(2);
+      }
+      str += String.fromCharCode(parseInt(store, 2));
+      i += bytesLength - 1;
+    } else {
+      str += String.fromCharCode(_arr[i]);
+    }
+  }
+  return str;
+}
+
+export function Bytes2Str(arr)
+{
+  var str = "";
+  for(var i=0; i<arr.length; i++)
+  {
+    var tmp = arr[i].toString(16);
+    if(tmp.length == 1)
+    {
+      tmp = "0" + tmp;
+    }
+    str += tmp;
+  }
+  return str;
+ 
+}
