@@ -92,6 +92,9 @@ const AccountStore = types
     setAccountCount(result) {
       if (result&&result.success) {
         self.accountcount=result.data||0;
+        if(self.accountcount*1==0){
+          self.tableData=[];
+        }
       }
     },
     // 数据账户KV总数

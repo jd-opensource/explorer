@@ -106,6 +106,9 @@ const UserStore = types
     setUserCountVague(result) {
       if (result&&result.success) {
         self.accountcount=result.data||0;
+        if(self.accountcount*1==0){
+          self.tableData=[];
+        }
       }
       else{
         self.accountcount=0;

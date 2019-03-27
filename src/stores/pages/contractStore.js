@@ -103,7 +103,9 @@ const ContractStore = types
     setContractsCount(result) {
       if (result&&result.success) {
         self.accountcount=result.data||0;
-
+        if(self.accountcount*1==0){
+          self.tableData=[];
+        }
       }
     },
     // 根据合约地址查询详细信息
