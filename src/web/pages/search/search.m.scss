@@ -49,6 +49,11 @@
       justify-content: center;
       margin-top: 100px; 
       margin-bottom: 30px;
+      .link{
+        &:hover{
+          text-decoration: none;
+        }
+      }
       // 区块高度等页签样式
        .tabs {
           height: 132px;
