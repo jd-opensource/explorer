@@ -6,6 +6,192 @@ const router = express.Router();
 const { resultData } = require('../common/utils');
 
 // 2 账本
+// 2.1 账本信息
+// GET //ledgers/{ledgerHash}/settings
+router.get('/:ledgerHash/settings', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data": {
+        "consensusProtocol": 1,
+        "consensusSettings": {
+            "commitBlockSettings": {
+                "maxDelayMilliSecondsPerBlock": 500,
+                "txSizePerBlock": 15
+            },
+            "nodes": [{
+                "address": "LdeP1fLeUnmrQHr4ryGmoQ4ubzAvcrgayUK8U",
+                "id": 0,
+                "networkAddress": {
+                    "host": "127.0.0.1",
+                    "port": 8910,
+                    "secure": false
+                },
+                "pubKey": {
+                    "value": "7VeRBxpPoCzAS6AavVoe1HGpJsz68kcZEYzN1fkg3GgASvkb"
+                }
+            }, {
+                "address": "LdeP2xKyNFeYhgzDGn5Vq2dndCUNCeLYLyh1k",
+                "id": 1,
+                "networkAddress": {
+                    "host": "127.0.0.1",
+                    "port": 8920,
+                    "secure": false
+                },
+                "pubKey": {
+                    "value": "7VeRJ9PiL7sCGKc56uckEwvKZnxqk9VfMedanGoKtM4CQ3yM"
+                }
+            }, {
+                "address": "LdeNrvP3Q4NDjjeidcaqKGz3cWotf4qmTZmeK",
+                "id": 2,
+                "networkAddress": {
+                    "host": "127.0.0.1",
+                    "port": 8930,
+                    "secure": false
+                },
+                "pubKey": {
+                    "value": "7VeRG8n49ocQYEvievU971e7uJMhRPTkLS3qJr4NJBahysYY"
+                }
+            }, {
+                "address": "LdeNisAU3fBAtEfTrdH7fXSYidAbAmBZBeP5c",
+                "id": 3,
+                "networkAddress": {
+                    "host": "127.0.0.1",
+                    "port": 8940,
+                    "secure": false
+                },
+                "pubKey": {
+                    "value": "7VeRFzWif8yGXa8GRYri7jFLevqryxZTJ6m9NiEUSfUNqKy8"
+                }
+            }],
+            "systemConfigs": [{
+                "name": "system.bft",
+                "value": "true"
+            }, {
+                "name": "system.communication.defaultkeys",
+                "value": "true"
+            }, {
+                "name": "system.communication.inQueueSize",
+                "value": "500000"
+            }, {
+                "name": "system.communication.outQueueSize",
+                "value": "500000"
+            }, {
+                "name": "system.communication.useMACs",
+                "value": "1"
+            }, {
+                "name": "system.communication.useSenderThread",
+                "value": "true"
+            }, {
+                "name": "system.communication.useSignatures",
+                "value": "0"
+            }, {
+                "name": "system.debug",
+                "value": "0"
+            }, {
+                "name": "system.servers.num",
+                "value": "4"
+            }, {
+                "name": "system.shutdownhook",
+                "value": "true"
+            }, {
+                "name": "system.totalordermulticast.checkpoint_period",
+                "value": "1000"
+            }, {
+                "name": "system.totalordermulticast.checkpoint_to_disk",
+                "value": "false"
+            }, {
+                "name": "system.totalordermulticast.global_checkpoint_period",
+                "value": "120000"
+            }, {
+                "name": "system.totalordermulticast.highMark",
+                "value": "10000"
+            }, {
+                "name": "system.totalordermulticast.log",
+                "value": "true"
+            }, {
+                "name": "system.totalordermulticast.log_parallel",
+                "value": "false"
+            }, {
+                "name": "system.totalordermulticast.log_to_disk",
+                "value": "false"
+            }, {
+                "name": "system.totalordermulticast.maxbatchsize",
+                "value": "400"
+            }, {
+                "name": "system.totalordermulticast.nonces",
+                "value": "10"
+            }, {
+                "name": "system.totalordermulticast.revival_highMark",
+                "value": "10"
+            }, {
+                "name": "system.totalordermulticast.state_transfer",
+                "value": "true"
+            }, {
+                "name": "system.totalordermulticast.sync_ckp",
+                "value": "false"
+            }, {
+                "name": "system.totalordermulticast.sync_log",
+                "value": "false"
+            }, {
+                "name": "system.totalordermulticast.timeout",
+                "value": "2000"
+            }, {
+                "name": "system.totalordermulticast.timeout_highMark",
+                "value": "200"
+            }, {
+                "name": "system.totalordermulticast.verifyTimestamps",
+                "value": "false"
+            }, {
+                "name": "system.ttp.id",
+                "value": "7002"
+            }]
+        },
+        "cryptoSetting": {
+            "autoVerifyHash": true,
+            "hashAlgorithm": 8216
+        },
+        "participantNodes": [{
+            "address": "LdeP1fLeUnmrQHr4ryGmoQ4ubzAvcrgayUK8U",
+            "id": 0,
+            "name": "jd.com",
+            "pubKey": {
+                "value": "7VeRBxpPoCzAS6AavVoe1HGpJsz68kcZEYzN1fkg3GgASvkb"
+            }
+        }, {
+            "address": "LdeP2xKyNFeYhgzDGn5Vq2dndCUNCeLYLyh1k",
+            "id": 1,
+            "name": "at.com",
+            "pubKey": {
+                "value": "7VeRJ9PiL7sCGKc56uckEwvKZnxqk9VfMedanGoKtM4CQ3yM"
+            }
+        }, {
+            "address": "LdeNrvP3Q4NDjjeidcaqKGz3cWotf4qmTZmeK",
+            "id": 2,
+            "name": "bt.com",
+            "pubKey": {
+                "value": "7VeRG8n49ocQYEvievU971e7uJMhRPTkLS3qJr4NJBahysYY"
+            }
+        }, {
+            "address": "LdeNisAU3fBAtEfTrdH7fXSYidAbAmBZBeP5c",
+            "id": 3,
+            "name": "xt.com",
+            "pubKey": {
+                "value": "7VeRFzWif8yGXa8GRYri7jFLevqryxZTJ6m9NiEUSfUNqKy8"
+            }
+        }],
+        "participantsHash": {
+            "value": "j5vDDASBGRAynVmopq2q4obNPZmbJMwGnDWsHnSgz9nuS9"
+        },
+        "seed": "932dfe23-fe23232f-283f32fa-dd32aa76-8322ca2f-56236cda-7136b322-cb323ffe"
+    },
+    "success": true
+  });
+
+  res.send(ret);
+});
 // 2.2 获取账本列表
 // GET /ledgers?fromIndex={start_index}&count={count}
 router.get('/', function(req, res) {

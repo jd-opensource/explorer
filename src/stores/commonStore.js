@@ -13,6 +13,7 @@ export const CommonStore = types
    
   }).volatile(self => ({
     ledgers: [],
+    ledgerinfo:{},
     defaultledger:'',
   }))
   .views(self => ({
@@ -28,27 +29,6 @@ export const CommonStore = types
     },
     getDefaultLedger(){
       return self.defaultledger || localStorage.getItem("defaultledger");
-    },
-    getCurrentUserInfo() {
-      return fetchData(`${__HOST}/common/getCurrentUserInfo`,
-        self.setCurrentUserInfo,
-        null, { method: 'post' })
-        .catch((ex) => {
-          Notification.error({
-            description: '获取用户信息异常:' + ex,
-            duration: null
-          });
-        });
-    },
-    setCurrentUserInfo(result) {
-      if (result.success) {
-        self.userInfo = result.data;
-      } else {
-        Notification.error({
-          description: '获取用户信息错误:' + result.message,
-          duration: null
-        });
-      }
     },
     getLedgersInfo() {
       return fetchData(`${__HOST}/ledgers`,
@@ -71,6 +51,51 @@ export const CommonStore = types
         });
       }
     },
+    // 获取账本信息
+    getLedgerInfo() {
+      return fetchData(`${__HOST}/ledgers`,
+        self.setLedgerInfo,
+        null, { method: 'get' })
+        .catch((ex) => {
+          Notification.error({
+            description: '获取账本信息异常:' + ex,
+            duration: null
+          });
+        });
+    },
+    setLedgerInfo(result) {
+      if (result.success) {
+        self.ledgers = result.data;
+      } else {
+        Notification.error({
+          description: '获取账本信息错误:' + result.message,
+          duration: null
+        });
+      }
+    },
+    // 获取账本详细信息
+    getLedger(ledgerHash) {
+      return fetchData(`${__HOST}/ledgers/${ledgerHash}/settings`,
+        self.setLedger,
+        null, { method: 'get' })
+        .catch((ex) => {
+          Notification.error({
+            description: '获取账本信息异常:' + ex,
+            duration: null
+          });
+        });
+    },
+    setLedger(result) {
+      if (result.success) {
+        self.ledgerinfo = result.data;
+      } else {
+        Notification.error({
+          description: '获取账本信息错误:' + result.message,
+          duration: null
+        });
+      }
+    },
+
   }));
 
 export const Category = types.model('Category', {

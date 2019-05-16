@@ -157,3 +157,35 @@
     }
 } 
 }
+
+.gl {
+  word-break: break-all;
+  border-right: 1px solid #DFE1EA;
+  border-bottom: 1px solid #DFE1EA;
+  margin-top: -1px;
+
+  div {
+    min-height: 56px;
+    border-left: 1px solid #DFE1EA;
+    border-top: 1px solid #DFE1EA;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  div:nth-child(odd) {
+    background: #FAFAFA;
+    color: #7E8697;
+  }
+
+  div:nth-child(even) {
+    color: #354259;
+  }
+}
+
+.htitle {
+  font-size: 24px;
+  color: #374159;
+  line-height: 25px;
+  margin: 30px auto 15px auto;
+}

@@ -24,6 +24,60 @@
     <ant-Tooltip title="复制账本" placement="bottomLeft" onClick={onClickCopy}>
       <ant-Icon type="copy" class="copy"/>
     </ant-Tooltip>
-   
+     <ant-Tooltip title="查看账本" placement="bottomLeft" onClick={onClickEye}>
+      <ant-Icon type="eye" class="copy"/>
+    </ant-Tooltip>
   </div>
 </header>
+<ant-Drawer
+  title="账本信息"
+  width={800}
+  placement="right"
+  closable={true}
+  visible={visible}
+  maskClosable={true}
+  onClose={onClose}
+>
+  <fj-Row class="gl">
+    <fj-Col l=3>账本种子
+    </fj-Col>
+    <fj-Col l=9>
+      {common.ledgerinfo.seed}
+    </fj-Col>
+  </fj-Row>
+  <h2 class="htitle">
+    共识
+  </h2>
+  <fj-Row class="gl">
+    <fj-Col l=2>共识方式
+    </fj-Col>
+    <fj-Col l=4>
+      {consensusProtocolFormat(common.ledgerinfo.consensusProtocol)}
+    </fj-Col>
+    <fj-Col l=2>最大成块时间
+    </fj-Col>
+    <fj-Col l=4>
+      {common.ledgerinfo.consensusSettings.commitBlockSettings.maxDelayMilliSecondsPerBlock}毫秒
+    </fj-Col>
+  </fj-Row>
+  <fj-Row class="gl">
+    <fj-Col l=2>每个区块中最大存储交易数量
+    </fj-Col>
+    <fj-Col l=4>
+      {common.ledgerinfo.consensusSettings.commitBlockSettings.txSizePerBlock}
+    </fj-Col>
+    <fj-Col l=2>
+    </fj-Col>
+    <fj-Col l=4>
+    
+    </fj-Col>
+  </fj-Row>
+  <h2 class="htitle">
+    参与方
+  </h2>
+  <ant-Table
+      class="table"
+      columns={toJS(tableColumns)}
+      dataSource={toJS(common.ledgerinfo.participantNodes)}
+      bordered />
+</ant-Drawer>

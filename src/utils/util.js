@@ -198,3 +198,23 @@ export function Bytes2Str(arr)
   return str;
  
 }
+
+export function consensusProtocolFormat(flag)
+{
+  var str = "";
+  switch (flag) {
+    case 1:
+      str="BFTSMART";
+      break;
+    case 2:
+      str="MSGQUEUE";
+      break;
+    case 2:
+      str="止";
+      break;
+    default:
+      break;
+  }
+  return str;
+ 
+}

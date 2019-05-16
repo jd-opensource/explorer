@@ -137,7 +137,7 @@ gobackResult(){
       styles,
       search,
       block,
-      tranBase58
+      tranBase58,
     });
   }
 }
