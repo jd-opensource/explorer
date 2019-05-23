@@ -52,7 +52,7 @@
     <fj-Col l=2>共识方式
     </fj-Col>
     <fj-Col l=4>
-      {consensusProtocolFormat(common.ledgerinfo.consensusProtocol)}
+      {common.ledgerinfo.consensusProtocol}
     </fj-Col>
     <fj-Col l=2>最大成块时间
     </fj-Col>
@@ -70,6 +70,29 @@
     </fj-Col>
     <fj-Col l=4>
     
+    </fj-Col>
+  </fj-Row>
+  <h2 class="htitle">
+    共识配置
+  </h2>
+  <ant-Table
+      class="table"
+      columns={toJS(tableColumnsOfconfig)}
+      dataSource={toJS(common.ledgerinfo.consensusSettings.systemConfigs)}
+      bordered />
+   <h2 class="htitle">
+    密码算法配置
+  </h2>
+  <fj-Row class="gl">
+    <fj-Col l=2>是否校验Hash
+    </fj-Col>
+    <fj-Col l=4>
+      {common.ledgerinfo.cryptoSetting.autoVerifyHash && '是' || '否'}
+    </fj-Col>
+    <fj-Col l=2>Hash算法
+    </fj-Col>
+    <fj-Col l=4>
+      {numToalgorithm(common.ledgerinfo.cryptoSetting.hashAlgorithm)}
     </fj-Col>
   </fj-Row>
   <h2 class="htitle">

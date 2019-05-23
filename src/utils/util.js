@@ -218,3 +218,17 @@ export function consensusProtocolFormat(flag)
   return str;
  
 }
+//字符串转算法
+export function numToalgorithm(flag)
+{
+  var str =flag && (flag+"") || "";
+  switch (str) {
+    case "8216":
+      str="SHA256";
+      break;
+    default:
+      break;
+  }
+  return str;
+ 
+}

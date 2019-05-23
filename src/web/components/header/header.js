@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import { Drawer} from 'antd';
-import { copyToClipboard,consensusProtocolFormat } from '../.././../utils/util';
+import { copyToClipboard,tranBase58,numToalgorithm } from '../.././../utils/util';
 import Notification from '../.././../utils/notification';
 import Message from 'flarej/lib/components/antd/message';
 import 'flarej/lib/components/antd/menu';
@@ -83,9 +83,29 @@ export default class Header extends Component {
       title: '参与方公钥',
       dataIndex: 'pubKey.value',
       key:'pubKey'
+    },
+    {
+      title: '公钥算法',
+      dataIndex: 'pubKey.value',
+      key:'algorithm',
+      render: (text, record, index) => nj `
+       ${tranBase58(text)}
+      `()
     }];
   }
-
+ // 交易列表
+ @computed get tableColumnsOfconfig() {
+  return [{
+    title: 'Key',
+    dataIndex: 'name',
+    key:'name'
+  },
+  {
+    title: '值',
+    dataIndex: 'value',
+    key:'value'
+  }];
+}
   // 关闭
   @autobind
   onClose(){
@@ -101,12 +121,12 @@ export default class Header extends Component {
     const { store: { common } } = this.props;
     return template( {
       components: {
-      'ant-Drawer': Drawer,
+        'ant-Drawer': Drawer,
       }},this.props, this, {
       styles,
       common,
       headerPic: require('../../images/pic-header.png'),
-      consensusProtocolFormat
+      numToalgorithm
     });
   }
 }
