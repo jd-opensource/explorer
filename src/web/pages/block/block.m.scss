@@ -49,11 +49,23 @@
     }
 
   }
+
+  .input_blcok {
+    max-width: 200px;
+    margin: 10px;
+  }
+
+  .blockswiper {
+    background: #fff;
+    padding: 40px;
+    box-sizing: border-box;
+    margin-top: 32px;
+  }
 }
 
 :global {
-  .swiper-slide{
-    &::after{
+  .swiper-slide {
+    &::after {
       content: '';
       position: absolute;
       background: #C5CBD5;

@@ -63,7 +63,7 @@ export default class TransactionInfo extends Component {
       styles,
       data,
       visible,
-      tranBase58
+      tranBase58,
     });
   }
 }

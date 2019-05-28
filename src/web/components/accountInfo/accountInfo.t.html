@@ -2,9 +2,9 @@
   <h3>数据详情</h3>
   <div class="{styles.info}">
     <fj-Row class="{styles.gl}">
-      <fj-Col l=1>数据账户根哈希
+      <fj-Col l=1  s=4  xs=12>数据账户根哈希
       </fj-Col>
-      <fj-Col l=5>
+      <fj-Col l=5  s=8  xs=12>
         <#if {{accountData && accountData.rootHash && accountData.rootHash.value}}>
           {accountData.rootHash.value}
           <#elseif {{accountData && accountData.address && accountData.address.value}}>
@@ -15,19 +15,19 @@
           </#else>
         </#if>
       </fj-Col>
-       <fj-Col l=1>数据账户地址
+       <fj-Col l=1  s=4  xs=12>数据账户地址
       </fj-Col>
-      <fj-Col l=5>{accountData && accountData.address && accountData.address.value || ''}
+      <fj-Col l=5  s=8  xs=12>{accountData && accountData.address && accountData.address.value || ''}
       </fj-Col>
     </fj-Row>
     <fj-Row class="{styles.gl}">
-      <fj-Col l=1>数据账户公钥
+      <fj-Col l=1  s=4  xs=12>数据账户公钥
       </fj-Col>
-      <fj-Col l=5>{accountData && accountData.pubKey && accountData.pubKey.value || ''}
+      <fj-Col l=5  s=4  xs=12>{accountData && accountData.pubKey && accountData.pubKey.value || ''}
       </fj-Col>
-       <fj-Col l=1>KV数量
+       <fj-Col l=1  s=4  xs=12>KV数量
       </fj-Col>
-      <fj-Col l=5><KvCount address={accountData.address.value} key={accountData.address.value} />
+      <fj-Col l=5  s=4  xs=12><KvCount address={accountData.address.value} key={accountData.address.value} />
       </fj-Col>
     </fj-Row>
     <h3>数据写入</h3>

@@ -29,3 +29,8 @@ h3 {
   margin: 40px 0 24px 0;
 }
 
+@media screen and (max-width: 992px) {
+  .hidden_s {
+    display: none !important;
+  }
+}
