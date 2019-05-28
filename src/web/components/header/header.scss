@@ -18,7 +18,9 @@
     color: #fff;
     border: 0;
     flex: 1;
-      
+    @media (max-width:950px){
+      margin-left: 0;
+    }
       li {
         color: #fff !important;
         font-size: 16px;
@@ -47,7 +49,10 @@
     line-height: 14px;
     display: flex;
     align-items: center;
-    
+    @media (max-width:950px){
+      display: none;
+    }
+
     .value {
       width: 200px;
       border: 1px solid #ADC6FF;
