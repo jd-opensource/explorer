@@ -1,7 +1,9 @@
 <header class="site-header">
   <div class="logo">
   </div>
-  <ant-Icon class="menuDr" type="menu" onClick={handleMenuShow}/>
+  <div class="minimenu">
+    <ant-Icon class="menuDr" type="menu" onClick={handleMenuShow}/>
+  </div>
   <ant-Menu mode="horizontal" class="nav" selectedKeys={store.header.selectMenu} onClick={CheckMenu}>
     <!-- <ant-MenuItem key="search"> <ant-Icon type="home" />首页</ant-MenuItem>
     <ant-MenuItem key="account"> <ant-Icon type="switcher" />数据账户</ant-MenuItem>
@@ -13,11 +15,11 @@
     </#each>
   </ant-Menu>
    <div class="note">
-    账本：
+    <span class="t">账本：</span>
     <!-- <ant-Select placeholder="请选择账本" class={styles.value} >
       <ant-Option value="64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty" >64hnH4a8n48LeEP5HU2bMWmNxUPcaZ1JRCehRwvuNS8Ty</ant-Option>
     </ant-Select> -->
-    <ant-Select  value="{common.defaultledger}" onChange={handleSelectChange}>
+    <ant-Select  value="{common.defaultledger}" onChange={handleSelectChange} class="ledgers">
       <#each {{common.ledgers}}>
         <ant-Option key="{@index}" value="{{value}}">{{value}}</ant-Option>
       </#each>
@@ -111,16 +113,11 @@
   placement="left"
   visible={showMenu}
   onClose={handleMenuHide}
-  closable={true}
+  closable={false}
   maskClosable={true}
-  style="padding:0" 
+  class="leftdrawer"
 >
-  <ant-Menu mode="vertical" selectedKeys={store.header.selectMenu} onClick={CheckMenu}>
-    <!-- <ant-MenuItem key="search"> <ant-Icon type="home" />首页</ant-MenuItem>
-    <ant-MenuItem key="account"> <ant-Icon type="switcher" />数据账户</ant-MenuItem>
-    <ant-MenuItem key="3"> <ant-Icon type="block" />区块</ant-MenuItem>
-    <ant-MenuItem key="4"> <ant-Icon type="swap" />交易</ant-MenuItem>
-    <ant-MenuItem key="user"> <ant-Icon type="user" />用户</ant-MenuItem> -->
+  <ant-Menu mode="vertical" selectedKeys={store.header.selectMenu} onClick={CheckMenu} class="lefmenu">
     <#each {store.header.menuData}>
       <ant-MenuItem key={path}> <ant-Icon type={icon} />{name}</ant-MenuItem>
     </#each>

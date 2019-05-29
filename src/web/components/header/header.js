@@ -7,6 +7,7 @@ import { Drawer} from 'antd';
 import { copyToClipboard,tranBase58,numToalgorithm } from '../.././../utils/util';
 import Notification from '../.././../utils/notification';
 import Message from 'flarej/lib/components/antd/message';
+import logo from '../../images/logo_color.png';
 import 'flarej/lib/components/antd/menu';
 import 'flarej/lib/components/antd/select';
 import 'flarej/lib/components/antd/icon';
@@ -55,7 +56,7 @@ export default class Header extends Component {
     //   asdf
     // </div>
     <div>
-      menu
+      <img src={logo}/>
     </div>
   )
 
