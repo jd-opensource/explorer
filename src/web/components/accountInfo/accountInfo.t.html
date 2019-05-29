@@ -23,11 +23,11 @@
     <fj-Row class="{styles.gl}">
       <fj-Col l=1  s=4  xs=12>数据账户公钥
       </fj-Col>
-      <fj-Col l=5  s=4  xs=12>{accountData && accountData.pubKey && accountData.pubKey.value || ''}
+      <fj-Col l=5  s=8  xs=12>{accountData && accountData.pubKey && accountData.pubKey.value || ''}
       </fj-Col>
        <fj-Col l=1  s=4  xs=12>KV数量
       </fj-Col>
-      <fj-Col l=5  s=4  xs=12><KvCount address={accountData.address.value} key={accountData.address.value} />
+      <fj-Col l=5  s=8  xs=12><KvCount address={accountData.address.value} key={accountData.address.value} />
       </fj-Col>
     </fj-Row>
     <h3>数据写入</h3>
@@ -44,7 +44,7 @@
       bordered />
       <ant-Drawer
         title="值详情"
-        width={600}
+        width="100%"
         placement="right"
         closable={true}
         visible={visible}
