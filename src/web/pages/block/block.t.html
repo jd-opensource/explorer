@@ -3,15 +3,10 @@
     <h2>区块</h2>
     <div>
       <span>区块高度：</span>
-      <ant-Input style="width:200px;margin:32px 20px 0 10px" value={block.inputRole} onChange={onInputRole} onPressEnter={onPressEnterInputRole}/>
-      <ant-Button icon="search" type="primary" class="{styles.btn}" onClick={onPressEnterInputRole}>查询</ant-Button>
+      <ant-Input class="{styles.input_blcok}" value={block.inputRole} onChange={onInputRole} onPressEnter={onPressEnterInputRole}/>
+      <ant-Button icon="search" type="primary" onClick={onPressEnterInputRole}>查询</ant-Button>
     </div>
-    <div style="background:#fff;padding:40px;box-sizing:border-box;margin-top:32px;" id="blockswiper">
-      <!-- <div class="swiper-container" >
-        <div class="swiper-wrapper"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div> -->
+    <div class="{styles.blockswiper}" id="blockswiper">
     </div>
     <BlockInfo  txCount={block.txCount} transactionList={block.transactionList} blockinfo={block.blockInformation}  goPrev={goPrev}/>
   </div>
