@@ -1,6 +1,7 @@
 <header class="site-header">
   <div class="logo">
   </div>
+  <ant-Icon class="menuDr" type="menu" onClick={handleMenuShow}/>
   <ant-Menu mode="horizontal" class="nav" selectedKeys={store.header.selectMenu} onClick={CheckMenu}>
     <!-- <ant-MenuItem key="search"> <ant-Icon type="home" />首页</ant-MenuItem>
     <ant-MenuItem key="account"> <ant-Icon type="switcher" />数据账户</ant-MenuItem>
@@ -37,7 +38,7 @@
   visible={visible}
   maskClosable={true}
   onClose={onClose}
->
+  >
   <fj-Row class="gl">
     <fj-Col l=3>账本种子
     </fj-Col>
@@ -103,4 +104,25 @@
       columns={toJS(tableColumns)}
       dataSource={toJS(common.ledgerinfo.participantNodes)}
       bordered />
+</ant-Drawer>
+
+<ant-Drawer
+  title={titleItem()}
+  placement="left"
+  visible={showMenu}
+  onClose={handleMenuHide}
+  closable={true}
+  maskClosable={true}
+  style="padding:0" 
+>
+  <ant-Menu mode="vertical" selectedKeys={store.header.selectMenu} onClick={CheckMenu}>
+    <!-- <ant-MenuItem key="search"> <ant-Icon type="home" />首页</ant-MenuItem>
+    <ant-MenuItem key="account"> <ant-Icon type="switcher" />数据账户</ant-MenuItem>
+    <ant-MenuItem key="3"> <ant-Icon type="block" />区块</ant-MenuItem>
+    <ant-MenuItem key="4"> <ant-Icon type="swap" />交易</ant-MenuItem>
+    <ant-MenuItem key="user"> <ant-Icon type="user" />用户</ant-MenuItem> -->
+    <#each {store.header.menuData}>
+      <ant-MenuItem key={path}> <ant-Icon type={icon} />{name}</ant-MenuItem>
+    </#each>
+  </ant-Menu>
 </ant-Drawer>

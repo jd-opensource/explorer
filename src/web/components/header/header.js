@@ -1,4 +1,4 @@
-﻿import { Component, PropTypes } from 'react';
+﻿import React, { Component, PropTypes } from 'react';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import { registerTmpl } from 'nornj-react';
@@ -20,6 +20,7 @@ export default class Header extends Component {
 
   @observable hash = ''; // url标签
   @observable visible=false;
+  @observable showMenu=false; // 是否显示左侧菜单
   // 菜单
   @observable menuData=[{
 
@@ -47,6 +48,26 @@ export default class Header extends Component {
       duration: null
     
     });
+  }
+
+  titleItem = () => (
+    // <div className={styles.logo} style={{'background': '#333'}}>
+    //   asdf
+    // </div>
+    <div>
+      menu
+    </div>
+  )
+
+  // 点击左侧弹出菜单
+  @autobind
+  handleMenuShow(e) {
+    this.showMenu = true;
+  }
+
+  @autobind
+  handleMenuHide(e) {
+    this.showMenu = false;
   }
 
   //查看账本信息

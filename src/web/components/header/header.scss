@@ -20,7 +20,14 @@
     flex: 1;
     @media (max-width:950px){
       margin-left: 0;
+      display: none;
     }
+    // @media (max-width:500px) {
+    //   display: none;
+    //   // .menuDr {
+    //   //   display: block;
+    //   // }
+    // }
       li {
         color: #fff !important;
         font-size: 16px;
@@ -40,6 +47,20 @@
     background-repeat: no-repeat;
   }
 
+  .color {
+    color:'red'
+  }
+
+  .menuDr {
+    line-height: 62px;
+    display: none;
+    margin: 2px 0 0 10px;
+    color: #fff;
+    @media (max-width:950px) {
+      display: block;
+    }
+  }
+
   .note {
     color: #fff;
     float:right;
@@ -49,7 +70,7 @@
     line-height: 14px;
     display: flex;
     align-items: center;
-    @media (max-width:950px){
+    @media (max-width:950px) and (min-width:501px){
       display: none;
     }
 
