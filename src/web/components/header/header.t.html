@@ -42,9 +42,9 @@
   onClose={onClose}
   >
   <fj-Row class="gl">
-    <fj-Col l=3>账本种子
+    <fj-Col l=3 s=4  xs=12>账本种子
     </fj-Col>
-    <fj-Col l=9>
+    <fj-Col l=9 s=8  xs=12>
       {common.ledgerinfo.seed}
     </fj-Col>
   </fj-Row>
@@ -52,26 +52,26 @@
     共识
   </h2>
   <fj-Row class="gl">
-    <fj-Col l=2>共识方式
+    <fj-Col l=2 s=4  xs=12>共识方式
     </fj-Col>
-    <fj-Col l=4>
+    <fj-Col l=4 s=8  xs=12>
       {common.ledgerinfo.consensusProtocol}
     </fj-Col>
-    <fj-Col l=2>最大成块时间
+    <fj-Col l=2 s=4  xs=12>最大成块时间
     </fj-Col>
-    <fj-Col l=4>
+    <fj-Col l=4 s=8  xs=12>
       {common.ledgerinfo.consensusSettings.commitBlockSettings.maxDelayMilliSecondsPerBlock}毫秒
     </fj-Col>
   </fj-Row>
   <fj-Row class="gl">
-    <fj-Col l=2>每个区块中最大存储交易数量
+    <fj-Col l=2 s=4  xs=12>每个区块中最大存储交易数量
     </fj-Col>
-    <fj-Col l=4>
+    <fj-Col l=4 s=8  xs=12>
       {common.ledgerinfo.consensusSettings.commitBlockSettings.txSizePerBlock}
     </fj-Col>
-    <fj-Col l=2>
+    <fj-Col l=2 class="hidden_s">
     </fj-Col>
-    <fj-Col l=4>
+    <fj-Col l=4 class="hidden_s">
     
     </fj-Col>
   </fj-Row>
@@ -87,14 +87,14 @@
     密码算法配置
   </h2>
   <fj-Row class="gl">
-    <fj-Col l=2>是否校验Hash
+    <fj-Col l=2 s=4  xs=12>是否校验Hash
     </fj-Col>
-    <fj-Col l=4>
+    <fj-Col l=4 s=8  xs=12>
       {common.ledgerinfo.cryptoSetting.autoVerifyHash && '是' || '否'}
     </fj-Col>
-    <fj-Col l=2>Hash算法
+    <fj-Col l=2 s=4  xs=12>Hash算法
     </fj-Col>
-    <fj-Col l=4>
+    <fj-Col l=4 s=8  xs=12>
       {numToalgorithm(common.ledgerinfo.cryptoSetting.hashAlgorithm)}
     </fj-Col>
   </fj-Row>

@@ -222,6 +222,11 @@
   div:nth-child(even) {
     color: #354259;
   }
+  @media screen and (max-width: 992px) {
+    .hidden_s {
+      display: none !important;
+    }
+  }
 }
 
 .htitle {
