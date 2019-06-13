@@ -1,9 +1,11 @@
+/*jshint esversion: 6 */
 import React, { Component } from 'react';
 import { observable, computed, toJS } from 'mobx'
 import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
+import { Drawer} from 'antd';
 import {tranBase58} from '../../../utils/util';
 import ContractsRootHash from '../../components/contractsRootHash';
 import 'flarej/lib/components/antd/table';
@@ -13,7 +15,7 @@ import 'flarej/lib/components/antd/button';
 import 'flarej/lib/components/antd/cascader';
 import 'flarej/lib/components/antd/datePicker';
 import 'flarej/lib/components/antd/checkbox';
-
+import MonacoEditor from 'react-monaco-editor';
 import Message from 'flarej/lib/components/antd/message';
 import Notification from 'flarej/lib/components/antd/notification';
 
@@ -28,6 +30,8 @@ export default class Contract extends Component {
 
   @observable pageSize = 10;
   @observable contractAddress='';
+  @observable visible=false;
+  @observable contractValue='';
   constructor(props) {
     super(props);
   }
@@ -63,48 +67,50 @@ export default class Contract extends Component {
       }
     });
   }
- // 搜索
- SearchVague(){
-  const { store: {contract } } = this.props;
-  const closeLoading = Message.loading('正在获取数据...', 0);
-  let leader=this.props.store.common.getDefaultLedger(),
-  keyword=this.contractAddress,
-  param={
-    fromIndex:(contract.accountcurrent-1)*this.pageSize,
-    count:this.pageSize,
-    keyword
-  }
-  Promise.all([
-    contract.getContractsCountVague(leader,keyword)     
-  ]).then(() => {
-    if(contract.accountcount>0){
-      Promise.all([ contract.getContractsVague(leader,
-        param
+
+  // 搜索
+  SearchVague(){
+    const { store: {contract } } = this.props;
+    const closeLoading = Message.loading('正在获取数据...', 0);
+    let leader=this.props.store.common.getDefaultLedger(),
+      keyword=this.contractAddress,
+      param={
+        fromIndex:(contract.accountcurrent-1)*this.pageSize,
+        count:this.pageSize,
+        keyword
+      }
+    Promise.all([
+      contract.getContractsCountVague(leader,keyword)     
+    ]).then(() => {
+      if(contract.accountcount>0){
+        Promise.all([ contract.getContractsVague(leader,
+          param
         ),
-      ]).then(() => {
+        ]).then(() => {
+          closeLoading();
+        });
+      }
+      else{
         closeLoading();
-      });
+      }
+    });
+  }    
+
+  //模糊查询
+  @autobind
+  SerchInfo(){
+    if (this.contractAddress.trim()!='') {
+      this.SearchVague();
     }
     else{
-      closeLoading();
+      this.Search()
     }
-  });
-}
-//模糊查询
-@autobind
-SerchInfo(){
-  if (this.contractAddress.trim()!='') {
-    this.SearchVague();
   }
-  else{
-    this.Search()
-  }
-}
 
-@autobind
-onChangeInput(e){
-  this.contractAddress=e.target.value;
-}
+  @autobind
+  onChangeInput(e){
+    this.contractAddress=e.target.value;
+  }
   ////分页切换
   @autobind
   onPageChange(page, pageSize) {
@@ -137,12 +143,31 @@ onChangeInput(e){
           </#else>
         </#if>
       `()
+    },{
+      title: '操作',
+      dataIndex: 'chainCode',
+      key:'chainCode',
+      render: (text, record, index) => nj `
+        <a onClick=${()=>this.onShowContract(text)}>查看合约</a>
+      `()
     }];
+  }
+  onShowContract(text){
+    this.visible=!this.visible;
+    this.contractValue=text;
+  }
+  @autobind
+  onClose(){
+    this.visible=!this.visible;
+    this.contractValue='';
   }
 
   render() {
     const { store: { contract } } = this.props;
-    return tmpls.container(this.state, this.props, this, {
+    return tmpls.container({components:{
+      MonacoEditor,
+      'ant-Drawer':Drawer
+    }},this.state, this.props, this, {
       styles,
       contract,
       tableData: toJS(contract.tableData),

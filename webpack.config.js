@@ -3,6 +3,7 @@
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   CopyWebpackPlugin = require('copy-webpack-plugin'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
+  MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
   UglifyJSPlugin = require('uglifyjs-webpack-plugin');
   const marked = require("marked");
   const renderer = new marked.Renderer();
@@ -274,7 +275,10 @@ module.exports.plugins = [
     }
   ]),
   new ExtractTextPlugin({ filename: process.env.Project + `/css/${VERSION}/[name].css`, allChunks: true }),
-  new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/)
+  new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
+  new MonacoWebpackPlugin({
+    languages:['java']
+  }),
 ];
 
 if (isProd || isTest) {
