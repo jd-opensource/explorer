@@ -109,7 +109,7 @@ const ContractStore = types
       }
     },
     // 根据合约地址查询详细信息
-    getContractsByAddress(param) {
+    getContractsByAddress(param) {debugger
       return fetchData(`${__HOST}/ledgers/${param.ledger}/contracts/address/${param.address}`,
         self.setContractsByAddress,
         '', { 
@@ -123,7 +123,7 @@ const ContractStore = types
         console.log(error);
       });
     },
-    setContractsByAddress(result) {
+    setContractsByAddress(result) {debugger
       if (result&&result.success) {
         return result.data||[];
       }

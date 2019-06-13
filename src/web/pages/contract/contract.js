@@ -46,16 +46,16 @@ export default class Contract extends Component {
   Search(){
     const { store: {contract } } = this.props;
     const closeLoading = Message.loading('正在获取数据...', 0);
-    let leader=this.props.store.common.getDefaultLedger(),
+    let ledger=this.props.store.common.getDefaultLedger(),
     param={
       fromIndex:(contract.accountcurrent-1)*this.pageSize,
       count:this.pageSize,
     }
     Promise.all([
-      contract.getContractsCount(leader)     
+      contract.getContractsCount(ledger)     
     ]).then(() => {
       if(contract.accountcount>0){
-        Promise.all([ contract.getContracts(leader,
+        Promise.all([ contract.getContracts(ledger,
           param
           ),
         ]).then(() => {
@@ -72,7 +72,7 @@ export default class Contract extends Component {
   SearchVague(){
     const { store: {contract } } = this.props;
     const closeLoading = Message.loading('正在获取数据...', 0);
-    let leader=this.props.store.common.getDefaultLedger(),
+    let ledger=this.props.store.common.getDefaultLedger(),
       keyword=this.contractAddress,
       param={
         fromIndex:(contract.accountcurrent-1)*this.pageSize,
@@ -80,10 +80,10 @@ export default class Contract extends Component {
         keyword
       }
     Promise.all([
-      contract.getContractsCountVague(leader,keyword)     
+      contract.getContractsCountVague(ledger,keyword)     
     ]).then(() => {
       if(contract.accountcount>0){
-        Promise.all([ contract.getContractsVague(leader,
+        Promise.all([ contract.getContractsVague(ledger,
           param
         ),
         ]).then(() => {
@@ -145,21 +145,35 @@ export default class Contract extends Component {
       `()
     },{
       title: '操作',
-      dataIndex: 'chainCode',
+      dataIndex: 'address.value',
       key:'chainCode',
       render: (text, record, index) => nj `
         <a onClick=${()=>this.onShowContract(text)}>查看合约</a>
       `()
     }];
   }
-  onShowContract(text){
+  onShowContract(address){
+    const { store: {contract } } = this.props;
+    const closeLoading = Message.loading('正在获取数据...', 0);
+    let ledger=this.props.store.common.getDefaultLedger(),
+      param={
+        'ledger':ledger,
+        'address':address
+      };
     this.visible=!this.visible;
-    this.contractValue=text;
+    Promise.all([
+      contract.getContractsByAddress(param)     
+    ]).then(data=> {
+      this.contractValue=data[0].chainCode||'';
+      closeLoading();
+    });
+   
   }
   @autobind
   onClose(){
     this.visible=!this.visible;
     this.contractValue='';
+    Message.destroy();
   }
 
   render() {
