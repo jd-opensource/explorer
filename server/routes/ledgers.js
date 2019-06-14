@@ -6,6 +6,192 @@ const router = express.Router();
 const { resultData } = require('../common/utils');
 
 // 2 账本
+// 2.1 账本信息
+// GET //ledgers/{ledgerHash}/settings
+router.get('/:ledgerHash/settings', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "data": {
+        "consensusProtocol": 1,
+        "consensusSettings": {
+            "commitBlockSettings": {
+                "maxDelayMilliSecondsPerBlock": 500,
+                "txSizePerBlock": 15
+            },
+            "nodes": [{
+                "address": "LdeP1fLeUnmrQHr4ryGmoQ4ubzAvcrgayUK8U",
+                "id": 0,
+                "networkAddress": {
+                    "host": "127.0.0.1",
+                    "port": 8910,
+                    "secure": false
+                },
+                "pubKey": {
+                    "value": "7VeRBxpPoCzAS6AavVoe1HGpJsz68kcZEYzN1fkg3GgASvkb"
+                }
+            }, {
+                "address": "LdeP2xKyNFeYhgzDGn5Vq2dndCUNCeLYLyh1k",
+                "id": 1,
+                "networkAddress": {
+                    "host": "127.0.0.1",
+                    "port": 8920,
+                    "secure": false
+                },
+                "pubKey": {
+                    "value": "7VeRJ9PiL7sCGKc56uckEwvKZnxqk9VfMedanGoKtM4CQ3yM"
+                }
+            }, {
+                "address": "LdeNrvP3Q4NDjjeidcaqKGz3cWotf4qmTZmeK",
+                "id": 2,
+                "networkAddress": {
+                    "host": "127.0.0.1",
+                    "port": 8930,
+                    "secure": false
+                },
+                "pubKey": {
+                    "value": "7VeRG8n49ocQYEvievU971e7uJMhRPTkLS3qJr4NJBahysYY"
+                }
+            }, {
+                "address": "LdeNisAU3fBAtEfTrdH7fXSYidAbAmBZBeP5c",
+                "id": 3,
+                "networkAddress": {
+                    "host": "127.0.0.1",
+                    "port": 8940,
+                    "secure": false
+                },
+                "pubKey": {
+                    "value": "7VeRFzWif8yGXa8GRYri7jFLevqryxZTJ6m9NiEUSfUNqKy8"
+                }
+            }],
+            "systemConfigs": [{
+                "name": "system.bft",
+                "value": "true"
+            }, {
+                "name": "system.communication.defaultkeys",
+                "value": "true"
+            }, {
+                "name": "system.communication.inQueueSize",
+                "value": "500000"
+            }, {
+                "name": "system.communication.outQueueSize",
+                "value": "500000"
+            }, {
+                "name": "system.communication.useMACs",
+                "value": "1"
+            }, {
+                "name": "system.communication.useSenderThread",
+                "value": "true"
+            }, {
+                "name": "system.communication.useSignatures",
+                "value": "0"
+            }, {
+                "name": "system.debug",
+                "value": "0"
+            }, {
+                "name": "system.servers.num",
+                "value": "4"
+            }, {
+                "name": "system.shutdownhook",
+                "value": "true"
+            }, {
+                "name": "system.totalordermulticast.checkpoint_period",
+                "value": "1000"
+            }, {
+                "name": "system.totalordermulticast.checkpoint_to_disk",
+                "value": "false"
+            }, {
+                "name": "system.totalordermulticast.global_checkpoint_period",
+                "value": "120000"
+            }, {
+                "name": "system.totalordermulticast.highMark",
+                "value": "10000"
+            }, {
+                "name": "system.totalordermulticast.log",
+                "value": "true"
+            }, {
+                "name": "system.totalordermulticast.log_parallel",
+                "value": "false"
+            }, {
+                "name": "system.totalordermulticast.log_to_disk",
+                "value": "false"
+            }, {
+                "name": "system.totalordermulticast.maxbatchsize",
+                "value": "400"
+            }, {
+                "name": "system.totalordermulticast.nonces",
+                "value": "10"
+            }, {
+                "name": "system.totalordermulticast.revival_highMark",
+                "value": "10"
+            }, {
+                "name": "system.totalordermulticast.state_transfer",
+                "value": "true"
+            }, {
+                "name": "system.totalordermulticast.sync_ckp",
+                "value": "false"
+            }, {
+                "name": "system.totalordermulticast.sync_log",
+                "value": "false"
+            }, {
+                "name": "system.totalordermulticast.timeout",
+                "value": "2000"
+            }, {
+                "name": "system.totalordermulticast.timeout_highMark",
+                "value": "200"
+            }, {
+                "name": "system.totalordermulticast.verifyTimestamps",
+                "value": "false"
+            }, {
+                "name": "system.ttp.id",
+                "value": "7002"
+            }]
+        },
+        "cryptoSetting": {
+            "autoVerifyHash": true,
+            "hashAlgorithm": 8216
+        },
+        "participantNodes": [{
+            "address": "LdeP1fLeUnmrQHr4ryGmoQ4ubzAvcrgayUK8U",
+            "id": 0,
+            "name": "jd.com",
+            "pubKey": {
+                "value": "7VeRBxpPoCzAS6AavVoe1HGpJsz68kcZEYzN1fkg3GgASvkb"
+            }
+        }, {
+            "address": "LdeP2xKyNFeYhgzDGn5Vq2dndCUNCeLYLyh1k",
+            "id": 1,
+            "name": "at.com",
+            "pubKey": {
+                "value": "7VeRJ9PiL7sCGKc56uckEwvKZnxqk9VfMedanGoKtM4CQ3yM"
+            }
+        }, {
+            "address": "LdeNrvP3Q4NDjjeidcaqKGz3cWotf4qmTZmeK",
+            "id": 2,
+            "name": "bt.com",
+            "pubKey": {
+                "value": "7VeRG8n49ocQYEvievU971e7uJMhRPTkLS3qJr4NJBahysYY"
+            }
+        }, {
+            "address": "LdeNisAU3fBAtEfTrdH7fXSYidAbAmBZBeP5c",
+            "id": 3,
+            "name": "xt.com",
+            "pubKey": {
+                "value": "7VeRFzWif8yGXa8GRYri7jFLevqryxZTJ6m9NiEUSfUNqKy8"
+            }
+        }],
+        "participantsHash": {
+            "value": "j5vDDASBGRAynVmopq2q4obNPZmbJMwGnDWsHnSgz9nuS9"
+        },
+        "seed": "932dfe23-fe23232f-283f32fa-dd32aa76-8322ca2f-56236cda-7136b322-cb323ffe"
+    },
+    "success": true
+  });
+
+  res.send(ret);
+});
 // 2.2 获取账本列表
 // GET /ledgers?fromIndex={start_index}&count={count}
 router.get('/', function(req, res) {
@@ -818,7 +1004,8 @@ router.get('/:ledger/contracts', function(req, res) {
       },
       "pubKey": {
         "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
-      }
+      },
+      "chainCode":"package com.jd.blockchain.contract;\n\nimport com.jd.blockchain.crypto.*;\nimport com.jd.blockchain.ledger.*;\nimport com.jd.blockchain.utils.io.*;\n\n@Contract\npublic class AssetContractImpl implements EventProcessingAwire, AssetContract\n{\n private static final String ASSET_ADDRESS = \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\";\n private static final String KEY_TOTAL = \"TV_TOTAL\";\n private ContractEventContext eventContext;\n \n @ContractEvent(name = \"transfer-asset\")\n public void transfer(final String fromAddress, final String toAddress, final long amount) {\n System.out.println(\"in AssetContractImpl transfer()\");\n final byte[] args_ = this.eventContext.getArgs();\n if (args_ == null) {\n return;\n }\n final String[] args = new String(args_).split(\"##\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final HashDigest hashDigest = this.eventContext.getCurrentLedgerHash();\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(hashDigest, \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", fromAddress, toAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final KVDataObject fromBalance = (KVDataObject)kvEntries[1];\n final KVDataObject toBalance = (KVDataObject)kvEntries[2];\n System.out.println(new StringBuilder().append(\"currTotal: \").append(currTotal.longValue()).toString());\n if (fromBalance.longValue() - amount < 0L) {\n throw new ContractException(\"Insufficient balance!\");\n }\n final long newFromBalance = fromBalance.longValue() - amount;\n System.out.println(new StringBuilder().append(\"newFromBalance: \").append(newFromBalance).toString());\n long newToBalance;\n if (toBalance.isNil()) {\n newToBalance = amount;\n }\n else {\n newToBalance = toBalance.longValue() + amount;\n }\n System.out.println(new StringBuilder().append(\"newToBalance: \").append(newToBalance).toString());\n final long fromVersion = fromBalance.getVersion();\n final long toVersion = toBalance.getVersion();\n System.out.println(new StringBuilder().append(\"fromVersion = \").append(fromVersion).toString());\n System.out.println(new StringBuilder().append(\"toVersion = \").append(toVersion).toString());\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(fromAddress, newFromBalance, fromVersion);\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(toAddress, newToBalance, toVersion);\n }\n \n public void beforeEvent(final ContractEventContext contractEventContext) {\n this.eventContext = contractEventContext;\n }\n \n public void postEvent(final ContractEventContext contractEventContext, final ContractException e) {\n this.eventContext = null;\n }\n \n public void postEvent(final ContractException e) {\n }\n \n public void postEvent() {\n }\n \n private HashDigest currentLedgerHash() {\n return this.eventContext.getCurrentLedgerHash();\n }\n \n @ContractEvent(name = \"issue-asset\")\n public void issue(final long amount, final String assetHolderAddress) {\n System.out.println(\"in AssetContractImpl2\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(this.currentLedgerHash(), \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", assetHolderAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final long newTotal = currTotal.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(\"TV_TOTAL\", BytesUtils.toBytes(newTotal), currTotal.getVersion());\n final KVDataObject holderAmount = (KVDataObject)kvEntries[1];\n final long newHodlerAmount = holderAmount.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(assetHolderAddress, BytesUtils.toBytes(newHodlerAmount), holderAmount.getVersion()).set(\"K2\", (byte[])null, -1L).set(\"k3\", (byte[])null, 3L);\n }\n}\n",
     }],
   });
 
@@ -841,7 +1028,8 @@ router.get('/:ledger/contracts/address/:address', function(req, res) {
       },
       "pubKey": {
         "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
-      }
+      },
+      "chainCode":"package com.jd.blockchain.contract;\n\nimport com.jd.blockchain.crypto.*;\nimport com.jd.blockchain.ledger.*;\nimport com.jd.blockchain.utils.io.*;\n\n@Contract\npublic class AssetContractImpl implements EventProcessingAwire, AssetContract\n{\n private static final String ASSET_ADDRESS = \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\";\n private static final String KEY_TOTAL = \"TV_TOTAL\";\n private ContractEventContext eventContext;\n \n @ContractEvent(name = \"transfer-asset\")\n public void transfer(final String fromAddress, final String toAddress, final long amount) {\n System.out.println(\"in AssetContractImpl transfer()\");\n final byte[] args_ = this.eventContext.getArgs();\n if (args_ == null) {\n return;\n }\n final String[] args = new String(args_).split(\"##\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final HashDigest hashDigest = this.eventContext.getCurrentLedgerHash();\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(hashDigest, \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", fromAddress, toAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final KVDataObject fromBalance = (KVDataObject)kvEntries[1];\n final KVDataObject toBalance = (KVDataObject)kvEntries[2];\n System.out.println(new StringBuilder().append(\"currTotal: \").append(currTotal.longValue()).toString());\n if (fromBalance.longValue() - amount < 0L) {\n throw new ContractException(\"Insufficient balance!\");\n }\n final long newFromBalance = fromBalance.longValue() - amount;\n System.out.println(new StringBuilder().append(\"newFromBalance: \").append(newFromBalance).toString());\n long newToBalance;\n if (toBalance.isNil()) {\n newToBalance = amount;\n }\n else {\n newToBalance = toBalance.longValue() + amount;\n }\n System.out.println(new StringBuilder().append(\"newToBalance: \").append(newToBalance).toString());\n final long fromVersion = fromBalance.getVersion();\n final long toVersion = toBalance.getVersion();\n System.out.println(new StringBuilder().append(\"fromVersion = \").append(fromVersion).toString());\n System.out.println(new StringBuilder().append(\"toVersion = \").append(toVersion).toString());\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(fromAddress, newFromBalance, fromVersion);\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(toAddress, newToBalance, toVersion);\n }\n \n public void beforeEvent(final ContractEventContext contractEventContext) {\n this.eventContext = contractEventContext;\n }\n \n public void postEvent(final ContractEventContext contractEventContext, final ContractException e) {\n this.eventContext = null;\n }\n \n public void postEvent(final ContractException e) {\n }\n \n public void postEvent() {\n }\n \n private HashDigest currentLedgerHash() {\n return this.eventContext.getCurrentLedgerHash();\n }\n \n @ContractEvent(name = \"issue-asset\")\n public void issue(final long amount, final String assetHolderAddress) {\n System.out.println(\"in AssetContractImpl2\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(this.currentLedgerHash(), \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", assetHolderAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final long newTotal = currTotal.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(\"TV_TOTAL\", BytesUtils.toBytes(newTotal), currTotal.getVersion());\n final KVDataObject holderAmount = (KVDataObject)kvEntries[1];\n final long newHodlerAmount = holderAmount.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(assetHolderAddress, BytesUtils.toBytes(newHodlerAmount), holderAmount.getVersion()).set(\"K2\", (byte[])null, -1L).set(\"k3\", (byte[])null, 3L);\n }\n}\n",
     },
   });
 

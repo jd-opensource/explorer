@@ -77,10 +77,10 @@ body {
     'WenQuanYi Micro Hei', sans-serif;
 }
 
-body,
-html {
-  min-width: 1270px;
-}
+// body,
+// html {
+//   min-width: 1270px;
+// }
 
 * {
   word-break: break-all !important;
@@ -235,6 +235,7 @@ div.fj-area-chart-area {
   line-height: 52px;
   border-top: 1px solid #e8e8e9;
   margin: 0 30px;
+  word-break: break-word !important;
 }
 
 #app,
@@ -365,4 +366,8 @@ div.fj-area-chart-area {
 
 .swiper-button-next {
   right: 0 !important;
+}
+
+.ant-drawer-content-wrapper {
+  max-width: 800px !important;
 }

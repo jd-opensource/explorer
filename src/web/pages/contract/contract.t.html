@@ -19,4 +19,21 @@
         bordered />
     </div>
   </div>
+  <ant-Drawer
+    title="合约详情"
+    width="100%"
+    placement="right"
+    closable={true}
+    visible={visible}
+    maskClosable={true}
+    onClose={onClose}
+    >
+    <div style="min-height:800px;height:400px;">
+      <MonacoEditor
+        language="java"
+        theme="vs-dark"
+        value={contractValue}
+      />
+    </div>  
+  </ant-Drawer>
 </template>

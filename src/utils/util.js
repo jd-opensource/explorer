@@ -198,3 +198,37 @@ export function Bytes2Str(arr)
   return str;
  
 }
+
+export function consensusProtocolFormat(flag)
+{
+  var str = "";
+  switch (flag) {
+    case 1:
+      str="BFTSMART";
+      break;
+    case 2:
+      str="MSGQUEUE";
+      break;
+    case 2:
+      str="止";
+      break;
+    default:
+      break;
+  }
+  return str;
+ 
+}
+//字符串转算法
+export function numToalgorithm(flag)
+{
+  var str =flag && (flag+"") || "";
+  switch (str) {
+    case "8216":
+      str="SHA256";
+      break;
+    default:
+      break;
+  }
+  return str;
+ 
+}

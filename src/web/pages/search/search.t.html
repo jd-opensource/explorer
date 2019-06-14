@@ -11,71 +11,85 @@
       
       </div>
       <div class="{styles.summary}"  #show={!flagSerchShow}>
-        <div class="{styles.tabs} {styles.blockHeight}">
-          <div class="{styles.span}">
-            <div class="{styles.left}">
-              <p class="{styles.title}">区块高度</p>
-              <p class="{styles.data}">{search.blockHeight || 0}</p>
-            </div>
-            <div class="{styles.right}">
-              <div class="{styles.logo} {styles.logoBH}">
+        <router-Link to='Block' class="{styles.link}">
+          <div class="{styles.tabs} {styles.blockHeight}">
+            <div class="{styles.span}">
+              <div class="{styles.left}">
+                <p class="{styles.title}">
+                
+                  区块高度
               
+                </p>
+                <p class="{styles.data}">{search.blockHeight || 0}</p>
+              </div>
+              <div class="{styles.right}">
+                <div class="{styles.logo} {styles.logoBH}">
+                
+                </div>
+              </div>
+            </div>
+          </div>
+        </router-Link>
+        <div class="{styles.link}">
+          <div class="{styles.tabs} {styles.transactions}">
+            <div class="{styles.span}">
+              <div class="{styles.left}">
+                <p class="{styles.title}">交易总数</p>
+                <p class="{styles.data}">{search.transactionTotal || 0}</p>
+              </div>
+              <div class="{styles.right}">
+                <div class="{styles.logo} {styles.logoTR}">
+                
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="{styles.tabs} {styles.transactions}">
-          <div class="{styles.span}">
-            <div class="{styles.left}">
-              <p class="{styles.title}">交易总数</p>
-              <p class="{styles.data}">{search.transactionTotal || 0}</p>
-            </div>
-            <div class="{styles.right}">
-              <div class="{styles.logo} {styles.logoTR}">
-              
+        <router-Link to='user' class="{styles.link}">
+          <div class="{styles.tabs} {styles.users}">
+            <div class="{styles.span}">
+              <div class="{styles.left}">
+                <p class="{styles.title}">用户总数</p>
+                <p class="{styles.data}">{search.userTotal || 0}</p>
+              </div>
+              <div class="{styles.right}">
+                <div class="{styles.logo} {styles.logoUS}">
+                
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="{styles.tabs} {styles.users}">
-          <div class="{styles.span}">
-            <div class="{styles.left}">
-              <p class="{styles.title}">用户总数</p>
-              <p class="{styles.data}">{search.userTotal || 0}</p>
-            </div>
-            <div class="{styles.right}">
-              <div class="{styles.logo} {styles.logoUS}">
-              
+        </router-Link>
+        <router-Link to='account' class="{styles.link}">
+          <div class="{styles.tabs} {styles.ledgers}">
+            <div class="{styles.span}">
+              <div class="{styles.left}">
+                <p class="{styles.title}">数据账户总数</p>
+                <p class="{styles.data}">{search.dataLedgersTotal || 0}</p>
+              </div>
+              <div class="{styles.right}">
+                <div class="{styles.logo} {styles.logoLE}">
+                
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="{styles.tabs} {styles.ledgers}">
-          <div class="{styles.span}">
-            <div class="{styles.left}">
-              <p class="{styles.title}">数据账户总数</p>
-              <p class="{styles.data}">{search.dataLedgersTotal || 0}</p>
-            </div>
-            <div class="{styles.right}">
-              <div class="{styles.logo} {styles.logoLE}">
-              
+        </router-Link>
+        <router-Link to='contract' class="{styles.link}">
+          <div class="{styles.tabs} {styles.contracts}">
+            <div class="{styles.span}">
+              <div class="{styles.left}">
+                <p class="{styles.title}">合约总数</p>
+                <p class="{styles.data}">{search.contractTotal || 0}</p>
+              </div>
+              <div class="{styles.right}">
+                <div class="{styles.logo} {styles.logoCO}">
+                
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="{styles.tabs} {styles.contracts}">
-          <div class="{styles.span}">
-            <div class="{styles.left}">
-              <p class="{styles.title}">合约总数</p>
-              <p class="{styles.data}">{search.contractTotal || 0}</p>
-            </div>
-            <div class="{styles.right}">
-              <div class="{styles.logo} {styles.logoCO}">
-              
-              </div>
-            </div>
-          </div>
-        </div>
+        </router-Link>
       </div>
       <div class="{styles.list}" #show={resultShow}>
         <div class="{styles.listdesc}">
