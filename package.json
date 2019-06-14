@@ -121,7 +121,7 @@
     "react-dom": "^16.4.1",
     "react-json-tree": "^0.11.2",
     "react-mixin": "^2.0.2",
-    "react-monaco-editor": "^0.25.1",
+    "react-monaco-editor": "^0.26.2",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-router-transition": "0.0.6",
