@@ -60,12 +60,15 @@ export function tranBase58(value) {
   for (i = 0; value[i] === '1' && i < value.length - 1; i++) bytes.push(0);
 
   // 声明node变量用于保存转码后的值
-  let node = bytes.reverse()[0];
+  let node = bytes.reverse()[1];
   // 根据node做映射处理
-  let base58 = node == 34 ? 'ED25519' : 
-    node == 36 ? 'SM2' : 
-      node == 49 ? 'AES' :
-        node == 50 ? 'SM4' : 'ECDSA';
+  let base58 = node == 21 ? 'ED25519' : 
+      node == 22 ? 'ECDSA' : 
+      node == 23 ? 'RSA' : 
+      node == 24 ? 'SHA256' : 
+      node == 25 ? 'RIPEMD160' : 
+      node == 26 ? 'AES' : 
+      node == 27 ? 'JVM-SECURE-RANDOM' : 'Other';
        
   return base58;
 }
