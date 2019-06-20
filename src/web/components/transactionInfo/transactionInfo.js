@@ -6,7 +6,7 @@ import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import { Drawer} from 'antd';
-import {tranBase58,stringToBase58,byteToLong,byteToString,Bytes2Str} from '../../../utils/util';
+import {tranBase58,stringToBase58,byteToLong,byteToString,Bytes2Str,Int32ToStr} from '../../../utils/util';
 import { BlockCollapse,BlockCollapseSmall,BlockCollapsePanel } from '../../components/blockCollapse';
 import styles from './transactionInfo.m.scss';
 import tmpls from './transactionInfo.t.html';
@@ -25,6 +25,7 @@ export default class TransactionInfo extends Component {
 
   
   formatData(type,data){
+    data=data&&data.value&&data.value||'';
     let result='';
     switch (type.toUpperCase()) {
       case 'INT64':
@@ -43,11 +44,30 @@ export default class TransactionInfo extends Component {
         let hex=stringToBase58(data);
         result=Bytes2Str(hex);
         break;  
+      case 'INT32':
+        let int32=stringToBase58(data);
+        result=Int32ToStr(int32);
+        break; 
       default:
         result=data;
         break;
     }
     return result;
+  }
+
+  argsToList(data){
+    let json=[];
+    if(data&&data.values&&data.values.length>0){
+      for (let i = 0; i < data.values.length; i++) {
+        json.push({
+          type:data.values[i].type,
+          value:this.formatData(data.values[i].type,data.values[i].value),
+        });
+        
+      }
+      var str = JSON.stringify(json);
+      return str;
+    }
   }
 
   render() {
