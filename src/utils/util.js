@@ -129,10 +129,10 @@ export function stringToBase58(value) {
     bytes[0] += ALPHABET_MAP[c];
     let carry = 0;
     for (j = 0; j < bytes.length; ++j) {
-        bytes[j] += carry;
-        carry = bytes[j] >> 8;
-        // 0xff --> 11111111
-        bytes[j] &= 0xff;
+      bytes[j] += carry;
+      carry = bytes[j] >> 8;
+      // 0xff --> 11111111
+      bytes[j] &= 0xff;
     }
     while (carry) {
         bytes.push(carry & 0xff);
@@ -201,7 +201,15 @@ export function Bytes2Str(arr)
   return str;
  
 }
-
+export function Int32ToStr(bytes)
+{
+let value;
+  for (var i = 0; i < 4; i++) {
+    value = value | ((bytes[i] & 0xFF) << (8 * (3 - i)));
+   }
+  return value;
+ 
+}
 export function consensusProtocolFormat(flag)
 {
   var str = "";
