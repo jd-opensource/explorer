@@ -27,7 +27,7 @@ const HeaderStore = types
       name:'用户',
       icon:'user',
     }],
-    selectMenu:['search'],
+    selectMenu:[''],
   }))
   .actions(self => ({
     setSelectMenu(v) {

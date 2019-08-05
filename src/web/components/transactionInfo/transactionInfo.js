@@ -37,6 +37,7 @@ export default class TransactionInfo extends Component {
         result=byteToString(text);
         break;
       case 'JSON':
+        debugger
         let json=stringToBase58(data);
         result=byteToString(json);
         break;
