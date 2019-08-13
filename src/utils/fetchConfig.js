@@ -22,10 +22,10 @@ export function fetchData(url, callback, params, cfgs) {
   configs.method = configs.method.toLowerCase();
   if (params) {
     if (configs.method === 'get') {
-      if (url.indexOf('?')>-1) {
-        url +=querystring.encode(params);
+      if (url.indexOf('?') > -1) {
+        url += querystring.encode(params);
       }
-      else{
+      else {
         url += '?' + querystring.encode(params);
       }
     } else if (configs.method === 'post' || configs.method === 'put' || configs.method === 'delete') {
@@ -39,7 +39,12 @@ export function fetchData(url, callback, params, cfgs) {
         if (!configs.headers['Content-Type']) {
           configs.headers['Content-Type'] = 'application/json';
         }
-        configs.body = JSON.stringify(params);
+        if (configs.headers.Accept === 'application/json') {
+          configs.body = JSON.stringify(params);
+        }
+        else {
+          configs.body = params;
+        }
       } else if (configs.useApplicationForm) {
         if (!configs.headers['Content-Type']) {
           configs.headers['Content-Type'] = 'application/x-www-form-urlencoded';

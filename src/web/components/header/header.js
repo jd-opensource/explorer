@@ -118,7 +118,7 @@ export default class Header extends Component {
  // 交易列表
  @computed get tableColumnsOfconfig() {
   return [{
-    title: 'Key',
+    title: '键',
     dataIndex: 'name',
     key:'name'
   },

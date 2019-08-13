@@ -230,7 +230,10 @@ module.exports = {
         context: ['/ledgers'],
         target: 'http://192.168.151.41:18081',
       },
-
+      {
+        context: ['/schema',],
+        target: 'http://192.168.151.39:8000',
+      }
     ],
   }
 };
@@ -277,7 +280,7 @@ module.exports.plugins = [
   new ExtractTextPlugin({ filename: process.env.Project + `/css/${VERSION}/[name].css`, allChunks: true }),
   new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
   new MonacoWebpackPlugin({
-    languages:['java']
+    languages:['java','sql','json']
   }),
 ];
 

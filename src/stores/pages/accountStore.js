@@ -163,6 +163,22 @@ const AccountStore = types
         return result.data;
       }
     },
+    // 穿透式检索
+    getSchemaInfo(param) {
+      return fetchData(`${__HOST}/schema/querysql`,
+        self.setSchemaInfo,
+        param, { 
+          method: 'post',
+          headers: {
+            Accept: '*/*',
+          } 
+        }
+      ).catch(error => {
+      });
+    },
+    setSchemaInfo(result) {
+      return result;
+    },
   }));
 
 export default AccountStore;
