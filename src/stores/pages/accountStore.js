@@ -37,7 +37,7 @@ const AccountStore = types
     getAccountVague(ledger,param) {
       self.ledger=ledger;
       return fetchData(`${__HOST}/ledgers/${ledger}/accounts/search`,
-        self.setAccountVague,
+        self.setAccount,
         param, { 
           method: 'get',
           headers: {
@@ -53,10 +53,8 @@ const AccountStore = types
       if (result&&result.success) {
         self.tableData=result.data||[];
       }
-    },
-    setAccountVague(result) {
-      if (result&&result.success) {
-        self.tableData=result.data.accounts||[];
+      else{
+        self.tableData=[];
       }
     },
     // 数据账户列表总数

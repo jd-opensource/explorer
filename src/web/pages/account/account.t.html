@@ -47,6 +47,7 @@
         <MonacoEditor
           language="sql"
           theme="vs-dark"
+          key="sql"
           value={mvalsearch}
           onChange={onMonacoChange}
           />
@@ -56,10 +57,12 @@
       </h2>
       <div style="height:600px;">
         <MonacoEditor
+          key="result"
           language="json"
           theme="vs-dark"
           editorDidMount={editorDidMount}
           value={mvalresult}
+           onChange={onMonacoResultChange}
           />
       </div>
     </ant-Drawer>

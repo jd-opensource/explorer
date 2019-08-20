@@ -141,6 +141,10 @@ export default class Account extends Component {
     this.mvalsearch = e;
   }
   @autobind
+  onMonacoResultChange(e){
+    this.mvalresult=e;
+  }
+  @autobind
   onChangeInput(e) {
     this.accountAddress = e.target.value;
   }
