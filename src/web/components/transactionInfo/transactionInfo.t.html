@@ -132,6 +132,63 @@
               </table>
             </BlockCollapsePanel>
           </#if>
+
+          <#if {{this.participantName && this.networkAddress}}>
+            <BlockCollapsePanel title="参与方信息">
+              <table style="line-height:41px;">
+                <tr>
+                  <td>参与方名称：</td>
+                  <td>{{this.participantName}}</td>
+                </tr>
+                <tr>
+                  <td>参与方端口：</td>
+                  <td>{{tranBase58(this.networkAddress.port)}}</td>
+                </tr>
+                 <tr>
+                  <td>参与方域名：</td>
+                  <td>{{tranBase58(this.networkAddress.host)}}</td>
+                </tr>
+              </table>
+            </BlockCollapsePanel>
+          </#if>
+
+          <#if {{this.participantRegisterIdentity}}>
+            <BlockCollapsePanel title="注册参与方">
+              <table style="line-height:41px;">
+                <tr>
+                  <td>参与方地址：</td>
+                  <td>{{this.participantRegisterIdentity.address.value}}</td>
+                </tr>
+                 <tr>
+                  <td>参与方公钥算法：</td>
+                  <td>{{tranBase58(this.participantRegisterIdentity.pubKey.value)}}</td>
+                </tr>
+                <tr>
+                  <td>参与方公钥数据：</td>
+                  <td>{{this.participantRegisterIdentity.pubKey.value}}</td>
+                </tr>
+              </table>
+            </BlockCollapsePanel>
+          </#if>
+
+          <#if {{this.stateUpdateIdentity}}>
+            <BlockCollapsePanel title="更新参与方">
+              <table style="line-height:41px;">
+                <tr>
+                  <td>参与方地址：</td>
+                  <td>{{this.stateUpdateIdentity.address.value}}</td>
+                </tr>
+                 <tr>
+                  <td>参与方公钥算法：</td>
+                  <td>{{tranBase58(this.stateUpdateIdentity.pubKey.value)}}</td>
+                </tr>
+                <tr>
+                  <td>参与方公钥数据：</td>
+                  <td>{{this.stateUpdateIdentity.pubKey.value}}</td>
+                </tr>
+              </table>
+            </BlockCollapsePanel>
+          </#if>
         </#each>
       </BlockCollapse>
     </#if>

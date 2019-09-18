@@ -74,6 +74,7 @@ export default class TransactionInfo extends Component {
 
   render() {
     const { data,visible} = this.props;
+    console.log(this)
     return tmpls.container({
       components: {
         'ant-Drawer': Drawer,
