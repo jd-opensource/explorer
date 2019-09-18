@@ -13,6 +13,9 @@
       交易哈希：{data.transactionContent.hash.value}
     </div>
     <div class="{styles.option}">
+      交易时间：{data.transactionContent.timestamp && moment(+data.transactionContent.timestamp).format('YYYY-MM-DD hh:mm:ss')}
+    </div>
+    <div class="{styles.option}">
       执行状态： {data.executionState}
     </div>
     <#if {{data.endpointSignatures}}>

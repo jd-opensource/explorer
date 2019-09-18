@@ -10,6 +10,7 @@ import {tranBase58,stringToBase58,byteToLong,byteToString,Bytes2Str,Int32ToStr} 
 import { BlockCollapse,BlockCollapseSmall,BlockCollapsePanel } from '../../components/blockCollapse';
 import styles from './transactionInfo.m.scss';
 import tmpls from './transactionInfo.t.html';
+import moment from 'moment';
 
 //页面容器组件
 @registerTmpl('TransactionInfo')
@@ -85,6 +86,7 @@ export default class TransactionInfo extends Component {
       data,
       visible,
       tranBase58,
+      moment: moment
     });
   }
 }
