@@ -82,7 +82,7 @@ const UserStore = types
     },
     setUserVague(result) {
       if (result&&result.success) {
-        self.tableData=result.data.users||[];
+        self.tableData=result.data||[];
       }
       else{
         self.tableData=[];

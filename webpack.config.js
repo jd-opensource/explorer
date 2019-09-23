@@ -228,7 +228,7 @@ module.exports = {
     proxy: [
       {
         context: ['/ledgers'],
-        target: 'http://192.168.151.41:18081',
+        target: 'http://192.168.151.39:18081',
       },
       {
         context: ['/schema',],
