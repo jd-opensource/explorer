@@ -98,7 +98,7 @@ export default class Header extends Component {
     },
     {
       title: '参与方地址',
-      dataIndex: 'address',
+      dataIndex: 'address.value',
       key:'address'
     },
     {

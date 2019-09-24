@@ -60,7 +60,7 @@
     <fj-Col l=2 s=4  xs=12>最大成块时间
     </fj-Col>
     <fj-Col l=4 s=8  xs=12>
-      {common.ledgerinfo.consensusSettings.commitBlockSettings.maxDelayMilliSecondsPerBlock}毫秒
+      {common.ledgerinfo.consensusSettings.commitBlockSettings.maxDelayMilliSecondsPerBlock && (common.ledgerinfo.consensusSettings.commitBlockSettings.maxDelayMilliSecondsPerBlock + "毫秒") || ''}
     </fj-Col>
   </fj-Row>
   <fj-Row class="gl">
