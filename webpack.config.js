@@ -232,7 +232,7 @@ module.exports = {
       },
       {
         context: ['/schema',],
-        target: 'http://192.168.151.39:8000',
+        target: 'http://192.168.151.39:18081',
       }
     ],
   }
