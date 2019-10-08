@@ -1,0 +1,251 @@
+.search {
+  padding: 30px;
+
+  .main {
+    margin: 100px auto 0 auto;
+
+    @media (max-width:527px) {
+      margin: 10px auto 0 auto;
+    }
+
+    .headtitle {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .action {
+      height: 100px;
+      max-width: 1000px;
+      margin: 15px auto 0 auto;
+      border-radius: 5px;
+      box-shadow: 0px 0px 14px #5a77d3;
+      background: linear-gradient(90deg, #5a77d3, #3c4c9c);
+
+      .bg {
+        height: inherit;
+        background: url(../../images/overview_bg.png) no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .title {
+          font-size: 14px;
+          color: #fff;
+          min-width: 100px;
+          text-align: center;
+
+          @media (max-width:400px) {
+            display: none;
+          }
+        }
+
+        .input {
+          max-width: 676px;
+          margin: 0 10px;
+        }
+
+        .btn {
+          background-color: #3c4c9c;
+          color: #fff;
+          border: 1px solid #819df3;
+          margin: 0 10px;
+        }
+      }
+    }
+
+    .summary {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 100px;
+      margin-bottom: 30px;
+
+      @media (max-width:400px) {
+        margin-top: 10px;
+      }
+
+      .link {
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      // 区块高度等页签样式
+      .tabs {
+        height: 132px;
+        width: 243px;
+        margin-right: 30px;
+        padding: 24px;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+        margin: 10px;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: 0 0 10px #5f5f5f;
+        }
+
+        .span {
+          display: flex;
+          flex-direction: row;
+
+          .left {
+            width: 75%;
+          }
+
+          .right {
+            width: 25%;
+
+            .logo {
+              min-width: 60px;
+              background-size: 60px 67px;
+              width: 100%;
+              height: 160px;
+            }
+
+            .logoBH {
+              background: url('../../images/blockheightIcon.svg') no-repeat;
+            }
+
+            .logoTR {
+              background: url('../../images/transactionIcon.svg') no-repeat;
+            }
+
+            .logoUS {
+              background: url('../../images/userIcon.svg') no-repeat;
+            }
+
+            .logoLE {
+              background: url('../../images/ledgersIcon.svg') no-repeat;
+            }
+
+            .logoCO {
+              background: url('../../images/contractIcon.svg') no-repeat;
+            }
+          }
+        }
+      }
+
+      .blockHeight {
+        background: #0DB18C;
+        background-image: url('../../images/overview_bg.png');
+        background-repeat: no-repeat;
+        background-size: 250px;
+      }
+
+      .transactions {
+        background: #10A647;
+        background-image: url('../../images/overview_bg.png');
+        background-repeat: no-repeat;
+        background-size: 250px;
+        cursor: unset !important;
+      }
+
+      .users {
+        background: #037CC1;
+        background-image: url('../../images/overview_bg.png');
+        background-repeat: no-repeat;
+        background-size: 250px;
+      }
+
+      .ledgers {
+        background: #5A77D2;
+        background-image: url('../../images/overview_bg.png');
+        background-repeat: no-repeat;
+        background-size: 250px;
+      }
+
+      .contracts {
+        background: #3C4C9C;
+        background-image: url('../../images/overview_bg.png');
+        background-repeat: no-repeat;
+        background-size: 250px;
+      }
+
+      .title {
+        font-size: 14px;
+        color: #FFFFFF;
+        line-height: 14px;
+      }
+
+      .data {
+        font-family: ArialMT;
+        font-size: 3em;
+        color: #FFFFFF;
+        line-height: 54px;
+        margin-top: 27px;
+      }
+
+    }
+
+    .list {
+      width: 100%;
+      background: #fff;
+      border-radius: 4px;
+      padding: 30px;
+      margin-top: 30px;
+
+      .listdesc {
+        font-size: 12px;
+        color: gray;
+
+        span {
+          color: #000;
+          font-weight: bold;
+        }
+      }
+
+      .option {
+        border-bottom: 1px solid #eaecf3;
+
+        .title {
+          font-size: 16px;
+          color: #999;
+          margin: 10px auto;
+
+          span {
+            margin-right: 10px;
+            cursor: pointer;
+
+            i {
+              margin-right: unset;
+              color: #ed2929;
+              font-weight: bold;
+            }
+          }
+        }
+
+        .nocur {
+          span {
+            margin-right: 10px;
+            cursor: unset;
+          }
+        }
+
+        .content {
+          font-size: 14px;
+          color: #999;
+
+          span {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .nav {
+    font-size: 14px;
+    color: #374159;
+    border-bottom: 1px solid #DEDEDE;
+    line-height: 60px;
+    margin-bottom: 20px;
+
+    span {
+      color: #3F0000;
+    }
+  }
+}

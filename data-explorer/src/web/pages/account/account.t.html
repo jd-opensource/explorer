@@ -1,0 +1,70 @@
+<template name="container">
+  <div class="{styles.account}">
+    <h2 #show={!show}>
+      数据账户
+    </h2>
+    <div style="margin-bottom:20px;" #show={!show}>
+      <ant-Input style="width:200px;margin-right:20px" value={accountAddress} onChange={onChangeInput}/>
+      <ant-Button style="margin-right:20px" icon="search" type="primary" class="{styles.btn}" onClick={SerchInfo}>查询</ant-Button>
+      <ant-Button icon="star" type="primary" class="{styles.btn}" onClick={starSerchInfo}>穿透式检索</ant-Button>
+    </div>
+    <div class="{styles.datapanel}" #show={!show}>
+      <ant-Table rowSelection={rowSelection}
+        columns={toJS(tableColumns)}
+        dataSource={toJS(tableData)}
+        :pagination="{
+        current: account.accountcurrent,
+        pageSize: pageSize,
+        total: account.accountcount,
+        onChange: onPageChange,
+        showQuickJumper:true
+        }"
+        bordered />
+    </div>
+    <div #show={show}>
+      <div class="{styles.nav}">
+        <label onClick={onShow} style="cursor: pointer;">数据账户</label> > <span>KV详情
+        </span>
+      </div>
+      <#if {{show}}>
+        <AccountInfo accountData={accountData} key={accountData}/>
+      </#if>
+
+    </div>
+    <ant-Drawer
+      title="穿透式检索"
+      width="100%"
+      placement="right"
+      closable={true}
+      visible={visible}
+      maskClosable={true}
+      onClose={starSerchInfo}>
+      <h2 class="htitle">
+        检索条件
+      </h2>
+      <ant-Button icon="thunderbolt" type="primary" style="margin:10px auto"  onClick={onClickExec}>执行</ant-Button>
+      <div style="height:200px;">
+        <MonacoEditor
+          language="sql"
+          theme="vs-dark"
+          key="sql"
+          value={mvalsearch}
+          onChange={onMonacoChange}
+          />
+      </div>
+      <h2 class="htitle">
+        检索结果
+      </h2>
+      <div style="height:600px;">
+        <MonacoEditor
+          key="result"
+          language="json"
+          theme="vs-dark"
+          editorDidMount={editorDidMount}
+          value={mvalresult}
+           onChange={onMonacoResultChange}
+          />
+      </div>
+    </ant-Drawer>
+  </div>
+</template>
