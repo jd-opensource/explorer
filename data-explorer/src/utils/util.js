@@ -12,7 +12,7 @@ export function isJsonString(str) {
   return false;
 }
 
-export function isNotANumber(num) { 
+export function isNotANumber(num) {
   if(num!=null){
       var r,re;
       re = /\d*/i; //\d表示数字,*表示匹配多个数字

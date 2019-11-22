@@ -117,9 +117,9 @@ export default class Block extends Component {
         prevEl: '.swiper-button-prev',
       },
     });
-    this.blockSwiper.slideTo(block.inputRole*1-blcokShowStart);
+    this.blockSwiper.slideTo(blockNew*1-blcokShowStart);
     $('.swiper-slide').each(function(){
-      if ($(this).attr('data-con')*1==block.inputRole*1) {
+      if ($(this).attr('data-con')*1==blockNew*1) {
         $('.swiper-slide').removeClass('lights');
         $(this).addClass('lights');
       }
