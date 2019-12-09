@@ -5,3 +5,4 @@
 .idea
 /npm-debug.log
 target
+.project
