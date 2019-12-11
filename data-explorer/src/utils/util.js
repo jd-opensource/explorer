@@ -41,7 +41,7 @@ export function tranBase58(value) {
   for (i = 0; i < value.length; i++) {
     let c = value[i];
     // c是不是ALPHABET_MAP的key 
-    if (!(c in ALPHABET_MAP)) throw new Error('Non-base58 character');
+    if (!(c in ALPHABET_MAP)) return value;
     for (j = 0; j < bytes.length; j++) bytes[j] *= BASE;
     bytes[0] += ALPHABET_MAP[c];
     let carry = 0;
