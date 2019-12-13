@@ -10,6 +10,7 @@ import ContractStore from './pages/contractStore';
 
 // prettier-ignore
 const RootStore = types.model('RootStore', {
+  loading:true,
   common: types.optional(CommonStore, {}),
 
   header: types.optional(HeaderStore, {
@@ -21,6 +22,12 @@ const RootStore = types.model('RootStore', {
   block: types.optional(BlockStore, {}),
   contract: types.optional(ContractStore, {}),
   //{pageStore}//
+}).actions(self => {
+  return {
+    setLoading(v){
+      self.loading=v;
+    },
+  }
 });
 
 export default RootStore;

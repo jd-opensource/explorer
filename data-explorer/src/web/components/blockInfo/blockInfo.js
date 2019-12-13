@@ -34,7 +34,7 @@ export default class BlockInfo extends Component {
 
   // 跳转到前置区块
   @autobind
-  goBlock(e){debugger;
+  goBlock(e){
     const {goPrev}= this.props;
     if (goPrev) {
       goPrev(e.target.innerText);

@@ -106,7 +106,11 @@ const Contract = inject('store')(
 const PageWrap = inject('store')(
   observer(({ store, children }) => t`
     <div id="page-wrap">
-      ${children}
+      <ant-Spin size="large" spinning=${store.loading}>
+        <div style="width:100%;height:300px;">
+          ${children}
+        </div>
+      </ant-Spin>
     </div>
   `)
 );

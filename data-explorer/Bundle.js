@@ -17,6 +17,7 @@ class Bundle extends Component {
     notification.destroy();
     // 初始化全局数据
     const { store:{common,header} } = this.props;
+    this.props.store.setLoading(true);
     // 设置菜单高亮
     if (common&&common.ledgers.length==0) {
       Promise.all([
@@ -77,8 +78,13 @@ class Bundle extends Component {
       });
     });
   }
-
+  componentWillUnmount(){
+    const { store } = this.props;
+    store.setLoading(true);
+  }
   render() {
+    const { store } = this.props;
+    store.setLoading(false);
     return this.state.mod ? this.props.children(this.state.mod) : null;
   }
 }
