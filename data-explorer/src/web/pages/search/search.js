@@ -67,6 +67,15 @@ export default class Search extends Component {
     return String(content).replace(this.searchParamInput, '<i>'+this.searchParamInput+'</i>');
   }
 
+  // 文字动态大小
+  scientificCount=(number)=>{
+    let length=number.toString().length;
+    if (length>5) {
+      return  <p class={styles.data} style={{fontSize:(36-(length-6)*3)+'px'}}>{number}</p>;
+    }
+    return <p class={styles.data}>{number}</p>;
+  }
+
   componentDidMount() {
     const { store: { search,header } } = this.props;
     header.setSelectMenu(['search']);
