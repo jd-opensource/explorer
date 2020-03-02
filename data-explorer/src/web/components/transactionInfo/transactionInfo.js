@@ -33,7 +33,7 @@ export default class TransactionInfo extends Component {
         let int64=stringToBase58(data);
         result=byteToLong(int64);
         break;
-      case 'TEXT':
+      case 'TEXT':debugger
         let text=stringToBase58(data);
         result=byteToString(text);
         break;
