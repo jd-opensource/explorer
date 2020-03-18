@@ -38,7 +38,6 @@ export default class TransactionInfo extends Component {
         result=byteToString(text);
         break;
       case 'JSON':
-        debugger
         let json=stringToBase58(data);
         result=byteToString(json);
         break;
@@ -74,7 +73,6 @@ export default class TransactionInfo extends Component {
 
   render() {
     const { data,visible} = this.props;
-    console.log(this)
     return tmpls.container({
       components: {
         'ant-Drawer': Drawer,

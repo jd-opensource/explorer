@@ -27,6 +27,8 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
 import Notification from 'flarej/lib/components/antd/notification';
+import 'flarej/lib/components/antd/icon';
+import 'flarej/lib/components/antd/spin';
 import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import { createNotification } from './src/utils/notification';
