@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<% if (web) { %>
+@@include('./common/headElements.html')
+<% } else { %>
+<$include src="./common/headElements.html" />
+<% } %>
+<body>
+<% if (web) { %>
+@@include('./common/resourceElements.html')
+<% } else { %>
+<$include src="./common/resourceElements.html" />
+<% } %>
+<link href="/resources/app/css/common.css?ver=<%=ver%>" rel="stylesheet" />
+  <link href="/resources/app/css/pages/container.css?ver=<%=ver%>" rel="stylesheet" />
+  <section id="container"></section>
+  <script type="text/nornj" data-auto data-target="#container">
+    <Container>
+      <#tmpl>
+        <div>
+          <ant-Button type="primary" onClick={goPage1}>页面1</ant-Button>
+          <ant-Button type="primary" onClick={goPage2}>页面2</ant-Button>
+        </div>
+      </#tmpl>
+    </Container>
+  </script>
+<% if (web) { %>
+@@include('./common/bottomElements.html')
+<% } else { %>
+<$include src="./common/bottomElements.html" />
+<% } %>
+<script src="/resources/app/pages/container.js?ver=<%=ver%>"></script>
+</body>
+</html>
