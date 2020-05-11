@@ -17,6 +17,21 @@ import moment from 'moment';
 @inject('store')
 @observer
 export default class TransactionInfo extends Component {
+  @observable arr0 = [{
+    "disableLedgerPermissions": [],
+    "disableTransactionPermissions": [],
+    "roleName": "DEFAULT",
+    "enableLedgerPermissions": ["CONFIGURE_ROLES", "AUTHORIZE_USER_ROLES", "SET_CONSENSUS", "SET_CRYPTO", "REGISTER_PARTICIPANT", "REGISTER_USER", "REGISTER_DATA_ACCOUNT", "REGISTER_CONTRACT", "UPGRADE_CONTRACT", "SET_USER_ATTRIBUTES", "WRITE_DATA_ACCOUNT", "APPROVE_TX", "CONSENSUS_TX"],
+    "enableTransactionPermissions": ["DIRECT_OPERATION", "CONTRACT_OPERATION"]
+  }];
+  @observable arr1 = [{
+    "unauthorizedRoles": ["A", "B"],
+    "userAddresses": [{
+      "value": "LdeP3fY7jJbNwL8CiL2wU21AF9unDWQjVEW5w"
+    }],
+    "authorizedRoles": ["C", "D"],
+    "policy": "UNION"
+  }]
 
   // 关闭
   @autobind

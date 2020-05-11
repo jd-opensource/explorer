@@ -178,7 +178,7 @@
                   <td>参与方地址：</td>
                   <td>{{this.stateUpdateIdentity.address.value}}</td>
                 </tr>
-                 <tr>
+                <tr>
                   <td>参与方公钥算法：</td>
                   <td>{{tranBase58(this.stateUpdateIdentity.pubKey.value)}}</td>
                 </tr>
@@ -187,6 +187,66 @@
                   <td>{{this.stateUpdateIdentity.pubKey.value}}</td>
                 </tr>
               </table>
+            </BlockCollapsePanel>
+          </#if>
+
+          <!-- 角色配置 -->
+          <#if {{this.roles}}>
+            <BlockCollapse title="角色配置">
+              <#each {{this.roles}}>
+                <BlockCollapse title="角色：{{roleName}}">  
+                  <BlockCollapseSmall title="账本操作权限">
+                    <table style="width:100%">
+                      <tr>
+                        <td>可以执行的操作：</td>
+                        <td>{{enableLedgerPermissions && enableLedgerPermissions.join(',') || ''}}</td>
+                      </tr>
+                      <tr>
+                        <td>不可执行的操作：</td>
+                        <td>{{disableLedgerPermissions && disableLedgerPermissions.join(',') || ''}}</td>
+                      </tr>
+                    </table>
+                  </BlockCollapseSmall>
+                  <BlockCollapseSmall title="交易操作权限">
+                    <table style="width:100%" >
+                      <tr>
+                        <td>可以执行的操作：</td>
+                        <td>{{enableTransactionPermissions && enableTransactionPermissions.join(',') || ''}}</td>
+                      </tr>
+                      <tr>
+                        <td>不可执行的操作：</td>
+                        <td>{{disableTransactionPermissions && disableTransactionPermissions.join(',') || ''}}</td>
+                      </tr>
+                    </table>
+                  </BlockCollapseSmall>
+                </BlockCollapse>
+              </#each>
+            </BlockCollapse>
+          </#if>
+
+          <!-- 用户权限配置 -->
+          <#if {{this.userRolesAuthorizations}}>
+            <BlockCollapsePanel title="用户权限配置">
+              <#each {{this.userRolesAuthorizations}}>
+                <table style="width:100%;line-height:41px;">
+                  <tr>
+                    <td>用户地址：</td>
+                    <td>{{(userAddresses && userAddresses[0] && userAddresses[0].value) && userAddresses[0].value || ''}}</td>
+                  </tr>
+                  <tr>
+                    <td>用户授权的角色清单：</td>
+                    <td>{{unauthorizedRoles && unauthorizedRoles.join(',') || ''}}</td>
+                  </tr>
+                  <tr>
+                    <td>用户未授权的角色清单：</td>
+                    <td>{{unauthorizedRoles && unauthorizedRoles.join(',') || ''}}</td>
+                  </tr>
+                  <tr>
+                    <td>要更新的多角色权限策略：</td>
+                    <td>{{policy && policy || ''}}</td>
+                  </tr>
+                </table>
+              </#each>
             </BlockCollapsePanel>
           </#if>
         </#each>
