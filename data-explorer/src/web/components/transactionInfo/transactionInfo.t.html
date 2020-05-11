@@ -192,7 +192,7 @@
 
           <!-- 角色配置 -->
           <#if {{this.roles}}>
-            <BlockCollapse title="角色配置">
+            <BlockCollapsePanel title="角色配置">
               <#each {{this.roles}}>
                 <BlockCollapse title="角色：{{roleName}}">  
                   <BlockCollapseSmall title="账本操作权限">
@@ -221,7 +221,7 @@
                   </BlockCollapseSmall>
                 </BlockCollapse>
               </#each>
-            </BlockCollapse>
+            </BlockCollapsePanel>
           </#if>
 
           <!-- 用户权限配置 -->
