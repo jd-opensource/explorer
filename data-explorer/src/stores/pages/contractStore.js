@@ -66,7 +66,8 @@ const ContractStore = types
     },
     setContractsVague(result) {
       if (result&&result.success) {
-        self.tableData=result.data.contracts||[];
+        // self.tableData=result.data.contracts||[];
+        self.tableData=result.data||[];
 
       }
     },
