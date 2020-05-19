@@ -153,6 +153,7 @@ router.get('/:ledgerHash/settings', function(req, res) {
             "autoVerifyHash": true,
             "hashAlgorithm": 8216
         },
+        "ledgerStructureVersion": 0,
         "participantNodes": [{
             "address": "LdeP1fLeUnmrQHr4ryGmoQ4ubzAvcrgayUK8U",
             "id": 0,

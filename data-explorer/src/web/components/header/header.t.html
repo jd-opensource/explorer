@@ -47,6 +47,11 @@
     <fj-Col l=9 s=8  xs=12>
       {common.ledgerinfo.seed}
     </fj-Col>
+    <fj-Col l=3 s=4  xs=12>账本结构版本
+    </fj-Col>
+    <fj-Col l=9 s=8  xs=12>
+      {common.ledgerinfo.ledgerStructureVersion === undefined && -1 || common.ledgerinfo.ledgerStructureVersion}
+    </fj-Col>
   </fj-Row>
   <h2 class="htitle">
     共识
