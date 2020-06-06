@@ -142,11 +142,11 @@
                 </tr>
                 <tr>
                   <td>参与方端口：</td>
-                  <td>{{tranBase58(this.networkAddress.port)}}</td>
+                  <td>{{this.networkAddress.port || ''}}</td>
                 </tr>
                  <tr>
                   <td>参与方域名：</td>
-                  <td>{{tranBase58(this.networkAddress.host)}}</td>
+                  <td>{{this.networkAddress.host || ''}}</td>
                 </tr>
               </table>
             </BlockCollapsePanel>
@@ -199,11 +199,13 @@
                     <table style="width:100%">
                       <tr>
                         <td>可以执行的操作：</td>
-                        <td>{{enableLedgerPermissions && enableLedgerPermissions.join(',') || ''}}</td>
+                        <!-- <td>{{enableLedgerPermissions && enableLedgerPermissions.join(',') || ''}}</td> -->
+                        <td>{{enableLedgerPermissions && transform(enableLedgerPermissions) || ''}}</td>
                       </tr>
                       <tr>
                         <td>不可执行的操作：</td>
-                        <td>{{disableLedgerPermissions && disableLedgerPermissions.join(',') || ''}}</td>
+                        <!-- <td>{{disableLedgerPermissions && disableLedgerPermissions.join(',') || ''}}</td> -->
+                        <td>{{disableLedgerPermissions && transform(disableLedgerPermissions) || ''}}</td>
                       </tr>
                     </table>
                   </BlockCollapseSmall>
@@ -211,11 +213,13 @@
                     <table style="width:100%" >
                       <tr>
                         <td>可以执行的操作：</td>
-                        <td>{{enableTransactionPermissions && enableTransactionPermissions.join(',') || ''}}</td>
+                        <!-- <td>{{enableTransactionPermissions && enableTransactionPermissions.join(',') || ''}}</td> -->
+                        <td>{{enableTransactionPermissions && transform(enableTransactionPermissions) || ''}}</td>
                       </tr>
                       <tr>
                         <td>不可执行的操作：</td>
-                        <td>{{disableTransactionPermissions && disableTransactionPermissions.join(',') || ''}}</td>
+                        <td>{{disableTransactionPermissions && transform(disableTransactionPermissions) || ''}}</td>
+                        <!-- <td>{{disableTransactionPermissions && disableTransactionPermissions.join(',') || ''}}</td> -->
                       </tr>
                     </table>
                   </BlockCollapseSmall>

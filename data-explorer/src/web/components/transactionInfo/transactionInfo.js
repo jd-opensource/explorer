@@ -6,7 +6,7 @@ import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import { Drawer} from 'antd';
-import {tranBase58,stringToBase58,byteToLong,byteToString,Bytes2Str,Int32ToStr} from '../../../utils/util';
+import {tranBase58,stringToBase58,byteToLong,byteToString,Bytes2Str,Int32ToStr,transAuth} from '../../../utils/util';
 import { BlockCollapse,BlockCollapseSmall,BlockCollapsePanel } from '../../components/blockCollapse';
 import styles from './transactionInfo.m.scss';
 import tmpls from './transactionInfo.t.html';
@@ -37,6 +37,12 @@ export default class TransactionInfo extends Component {
   @autobind
   onCloseblockDetails(){
     return this.props.onClose(!this.props.visible);
+  }
+
+  transform = arr => {
+    console.log(arr)
+
+    return arr.map(item => transAuth(item)).join(',')
   }
 
   
@@ -100,6 +106,7 @@ export default class TransactionInfo extends Component {
       data,
       visible,
       tranBase58,
+      transAuth,
       moment: moment
     });
   }
