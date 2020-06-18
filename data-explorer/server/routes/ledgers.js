@@ -1186,4 +1186,245 @@ router.get('/:ledger/contracts/search', function(req, res) {
 
   res.send(ret);
 });
+
+// 事件账户总数
+router.get('/:ledger/events/user/accounts/count', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+  
+    Object.assign(ret, resultData,{
+      "success":true,
+      "data":12
+    });
+  
+    res.send(ret);
+});
+
+// 事件账户
+router.get('/:ledger/events/user/accounts', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData,{
+    "success":true,
+    "data": [{
+      "address":{
+          "value":"LdeNu8QG9RuWYTo4zgrn2RsH3FRjubasgsnju"
+      },
+      "pubKey":{
+          "value":"7VeRNQrP1AQnhKJHTWc9xvM4UEXSz47yWTxaV3rJiCNngYBD"
+      }
+    },
+    {
+      "address":{
+          "value":"LdeP3UQY8ynDVLvFdBWtNqF8n5uS6qvBMe9VX"
+      },
+      "pubKey":{
+          "value":"7VeRBwvf4qhJVHjgpbyX9QeX8H7AhGLUXq8hZcZnscij5Bj7"
+      }
+    },
+    {
+      "address":{
+          "value":"LdeNpGSucAexG6BrVWc2tLNXEoTDgBHCCibQY"
+      },
+      "pubKey":{
+          "value":"7VeRLaKGCiGj3X6FZA2jSwSxzdCmEK6aai6AnyqsGBsXW8DJ"
+      }
+    },
+    {
+      "address":{
+          "value":"LdeNzjmSth3us6GXYLe3WE4KufNKQRzti69PW"
+      },
+      "pubKey":{
+          "value":"7VeRA1zk2gk8B87X5gbX9aeGu1n9YKHDbmPrm1Z5wjNrKiMM"
+      }
+    },
+    {
+      "address":{
+          "value":"LdeNhM2WhhumjsozQzdQF7hGMN5f8Ajv3VjtC"
+      },
+      "pubKey":{
+          "value":"7VeRHuQxfWc9W9XBNqmEjjXmjg8LnuekadWmE8jqURKUEVNj"
+      }
+    },
+    {
+      "address":{
+          "value":"LdeNoD33a7zU26WPAj19TqP84SsUK8EYtxy3m"
+      },
+      "pubKey":{
+          "value":"7VeRBQGE2u3ozUKcTrnk4BXHwfbJW5D3R1VjpT6bmzemvF2o"
+      }
+    },
+    {
+      "address":{
+        "value":"LdeNoumLzGAt9GER4y5LHTeovdCmSY24rdVWN"
+      },
+      "pubKey":{
+        "value":"7VeRKDRchgcesxY95JXKj1vdnPKyBPATa1YNojXn3my61Ser"
+      }
+    },
+    {
+      "address":{
+        "value":"LdeP3VP3wwxAmHeo87J9RDJMEk1AzvDCM264j"
+      },
+      "pubKey":{
+        "value":"7VeRJDCGBv2kqTSBzwtcRYkHA2GzEaWGKff96o5SXfN6WuQa"
+      }
+    },
+    {
+      "address":{
+        "value":"LdeNhbJxCiPHw5jGYb1zFcydpFPRNpE47pEpW"
+      },
+      "pubKey":{
+        "value":"7VeRDBea3y9z3WoEVfdTUfg8Z42qfaqf7LZou2eojRHbZn9e"
+      }
+    },
+    {
+      "address":{
+        "value":"LdeNxC19xnQ2XbBP4UChZB2hT5SUCz9JDCHRX"
+      },
+      "pubKey":{
+        "value":"7VeRM1EhjRXwybAiYLHwjmJxxGPpYrJrNhGVjXNeuQw4hH3o"
+      }
+    },
+    {
+      "address":{
+        "value":"LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+      },
+      "pubKey":{
+        "value":"7VeRPrJgSt4nKqSinLMwHGEWskPiQ5WNqcSj9ximuwLTjKoH"
+      }
+    },
+    {
+      "address":{
+        "value":"LdeNzqjox47UKRxEYMC3rahxW7gBvrChPrf8E"
+      },
+      "pubKey":{
+        "value":"7VeRLM82n3PrW8mXgvHPatEvA78oBZa1g3cN4dHR4JTPnXTT"
+      }
+    }],
+  });
+
+  res.send(ret);
+});
+
+// 指定事件账户下事件列表总数
+router.get('/:ledger/events/user/accounts/:address/names/count', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+  
+  Object.assign(ret, resultData,{
+    "success":true,
+    "data":12
+  });
+
+  res.send(ret);
+});
+
+// 指定事件账户下事件列表
+router.get('/:ledger/events/user/accounts/:address/names', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+  
+  Object.assign(ret, resultData,{
+    "data":["e12","e8","e3","e13","e6","e4","e11","e9","e5","e10"],
+    "success":true
+  });
+
+  res.send(ret);
+});
+
+// 指定事件账户下事件列表最新事件
+router.get('/:ledger/events/user/accounts/:address/names/:eventName/latest', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+  
+  Object.assign(ret, resultData,{
+    "data": {
+      "sequence": 13,//　事件序列
+      "transactionSource": {// 交易哈希
+        "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
+      },
+      "blockHeight": 1,//　区块高度
+      "contractSource": "",// 合约地址
+      "eventAccount": {// 事件账户
+        "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+      },
+      "name": "e1",
+      "content": {// 事件内容
+        "nil": false,
+        "bytes": {
+          "value": "C7P9wfY"
+        },
+        "type": "BYTES",
+        "value": "Ynl0ZXM="
+      }
+    },
+    "success": true
+  });
+
+  res.send(ret);
+})
+
+// 指定事件账户下事件列表详情
+router.get('/:ledger/events/user/accounts/:address/names/:eventName', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+  
+  Object.assign(ret, resultData,{
+    "data": [
+      {
+        "sequence": 0,//　事件序列
+        "transactionSource": {// 交易哈希
+          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
+        },
+        "blockHeight": 1,//　区块高度
+        "contractSource": "",// 合约地址
+        "eventAccount": {// 事件账户
+          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+        },
+        "name": "e1",// 事件名
+        "content": {// 事件内容
+          "nil": false,
+          "bytes": {
+            "value": "C7P9wfY"
+          },
+          "type": "BYTES",
+          "value": "Ynl0ZXM="
+        }
+      },
+      {
+        "sequence": 1,
+        "transactionSource": {
+          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
+        },
+        "blockHeight": 1,
+        "contractSource": "",
+        "eventAccount": {
+          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+        },
+        "name": "e1",
+        "content": {
+          "nil": false,
+          "bytes": {
+            "value": "C7P9wfY"
+          },
+          "type": "BYTES",
+          "value": "Ynl0ZXM="
+        }
+      }
+    ],
+    "success": true
+  });
+
+  res.send(ret);
+})
+
+
 module.exports = router;

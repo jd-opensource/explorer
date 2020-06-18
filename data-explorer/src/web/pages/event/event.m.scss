@@ -1,0 +1,36 @@
+// .event{
+//   padding: 100px 40px 40px;
+//   background-color: #fff;
+
+//   h2 {
+//     margin-bottom: 25px;
+//     font-size: 16px;
+//   }
+// }
+
+.event {
+  padding:30px;
+
+  h2 {
+    font-size: 24px;
+    color: #374159;
+    line-height: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .datapanel{
+    background: #fff;
+    padding: 30px;
+    border-radius: 3px;
+  }
+  .nav{
+    font-size: 14px;
+    color: #374159;
+    border-bottom: 1px solid #DEDEDE;
+    line-height: 60px;
+    margin-bottom: 20px;
+    span{
+      color: #3F0000;
+    }
+  }
+}

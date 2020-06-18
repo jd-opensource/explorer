@@ -36,6 +36,7 @@ export default class Header extends Component {
   @autobind
   CheckMenu({key}){
     this.hash = key;
+    console.log(this.hash)
     window.location.hash = '#' + key;
   }
   // 复制账本
