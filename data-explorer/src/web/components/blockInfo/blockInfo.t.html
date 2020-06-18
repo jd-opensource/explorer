@@ -51,10 +51,15 @@
       </fj-Col>
       <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.dataAccountSetHash && blockdata.dataAccountSetHash.value || ''}  
       </fj-Col>
-      <fj-Col l=1 class="{styles.hidden_s}">
+      <!-- 用户事件集哈希 --》 暂且用数据账户占位 -->
+      <fj-Col l=1 s=4  xs=12>用户事件集哈希
+      </fj-Col>
+      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.userEventSetHash && blockdata.userEventSetHash.value || ''}  
+      </fj-Col>
+      <!-- <fj-Col l=1 class="{styles.hidden_s}">
       </fj-Col>
       <fj-Col l=3 class="{styles.hidden_s}"> 
-      </fj-Col>
+      </fj-Col> -->
       <fj-Col l=1 class="{styles.hidden_s}">
       </fj-Col>
       <fj-Col l=3 class="{styles.hidden_s}"> 

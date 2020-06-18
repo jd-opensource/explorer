@@ -29,6 +29,9 @@ app.all('*', function(req, res, next) {
 const ledgers = require('./routes/ledgers');
 app.use('/ledgers', ledgers);
 
+const event = require('./routes/event');
+app.use('/event', event);
+
 //{pages}//
 
 let server = app.listen(8088, function() {
