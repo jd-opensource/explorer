@@ -30,11 +30,16 @@ export default class Event extends Component {
   @observable accountData = {};
   @observable click = 0;
   @observable show = false;
-  @observable accountAddress = '';
+  @observable eventAddress = '';
 
   constructor(props) {
     super(props);
   }
+
+  onInputChange = e => {
+    this.eventAddress = e.target.value;
+    console.log(this.eventAddress)
+  } 
 
   componentDidMount() {
     const { store: { header } } = this.props;
@@ -62,7 +67,7 @@ export default class Event extends Component {
     ]).then(() => {
       if (event.accountcount > 0) {
         Promise.all([
-          event.getAccount(leaders,param)
+          event.getAccount(leaders, param, this.eventAddress)
         ]).then(() => {
           closeLoading();
         });
@@ -70,17 +75,6 @@ export default class Event extends Component {
         closeLoading();
       }
     })
-  }
-
-  //模糊查询
-  @autobind
-  onSerchInfo() {
-    if (this.accountAddress.trim() != '') {
-      this.onSearchVague();
-    }
-    else {
-      this.onSearch()
-    }
   }
 
   @autobind
@@ -144,7 +138,6 @@ export default class Event extends Component {
 
   render() {
     const { store: { event } } = this.props;
-    console.log(event.tableData)
     return tmpls.container(this.state, this.props, this, {
       styles,
       event,

@@ -46,10 +46,10 @@ const EventStore = types
     },
 
     // 事件账户列表
-    getAccount(ledger,param) {
+    getAccount(ledger,param, keywords) {
       self.ledger=ledger;
       return fetchData(`${__HOST}/ledgers/${ledger}/events/user/accounts`,
-        self.setAccount,
+        result => self.setAccount(result, keywords),
         param, { 
           method: 'get',
           headers: {
@@ -61,9 +61,9 @@ const EventStore = types
         console.log(error);
       });
     },
-    setAccount(result) {
+    setAccount(result, keywords) {
       if (result&&result.success) {
-        self.tableData=result.data||[];
+        self.tableData = result.data && result.data.filter(item => item.address.value.indexOf(keywords) != -1) || [];
       }
       else{
         self.tableData=[];
