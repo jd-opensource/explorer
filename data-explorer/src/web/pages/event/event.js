@@ -30,11 +30,16 @@ export default class Event extends Component {
   @observable accountData = {};
   @observable click = 0;
   @observable show = false;
-  @observable accountAddress = '';
+  @observable eventAddress = '';
 
   constructor(props) {
     super(props);
   }
+
+  onInputChange = e => {
+    this.eventAddress = e.target.value;
+    console.log(this.eventAddress)
+  } 
 
   componentDidMount() {
     const { store: { header } } = this.props;
@@ -62,7 +67,7 @@ export default class Event extends Component {
     ]).then(() => {
       if (event.accountcount > 0) {
         Promise.all([
-          event.getAccount(leaders,param)
+          event.getAccount(leaders, param, this.eventAddress)
         ]).then(() => {
           closeLoading();
         });
@@ -70,17 +75,6 @@ export default class Event extends Component {
         closeLoading();
       }
     })
-  }
-
-  //模糊查询
-  @autobind
-  onSerchInfo() {
-    if (this.accountAddress.trim() != '') {
-      this.onSearchVague();
-    }
-    else {
-      this.onSearch()
-    }
   }
 
   @autobind
@@ -97,12 +91,17 @@ export default class Event extends Component {
 
     const closeLoading = Message.loading('正在获取数据...', 0);
 
+    let param = {
+      fromIndex: 0,
+      count: 10,
+    };
+
     Promise.all([
         event.getEventCount(common.getDefaultLedger(), address)
     ]).then(() => {
       if (event.eventTotal > 0) {
           Promise.all([
-              event.getEvent(common.getDefaultLedger(), address)
+              event.getEventData(common.getDefaultLedger(), address, param)
           ]).then(() => {
               closeLoading();
               this.accountData = record;
@@ -119,7 +118,13 @@ export default class Event extends Component {
   }
 
   onShow = () => {
+    const { store: { common, event } } = this.props;
+
     this.show = !this.show;
+    // this.eventAddress = '';
+    event.setCurrent(1)
+    event.setEvent(1)
+    event.setName(1)
   }
 
   @computed get eventColumns() {
@@ -144,7 +149,6 @@ export default class Event extends Component {
 
   render() {
     const { store: { event } } = this.props;
-    console.log(event.tableData)
     return tmpls.container(this.state, this.props, this, {
       styles,
       event,

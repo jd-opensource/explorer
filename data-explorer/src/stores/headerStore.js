@@ -20,7 +20,7 @@ const HeaderStore = types
       icon:'switcher'
     },{
       path: 'event',
-      name: '事件',
+      name: '事件账户',
       icon: 'mail',
     },{
       path:'contract',

@@ -24,6 +24,7 @@ const EventStore = types
     nameCurrent: 1,
 
     dataLatest: {}, // 最新事件数据
+    nameRecord: {},
   }))
   .views(self => ({
     
@@ -39,17 +40,22 @@ const EventStore = types
 
     setEvent(v) {
       self.eventCurrent = v;
+      console.log(v, self.eventCurrent)
     },
 
     setName(v) {
       self.nameCurrent = v;
     },
 
+    setNameRecord(v) {
+      self.nameRecord = v;
+    },
+
     // 事件账户列表
-    getAccount(ledger,param) {
+    getAccount(ledger,param, keywords) {
       self.ledger=ledger;
       return fetchData(`${__HOST}/ledgers/${ledger}/events/user/accounts`,
-        self.setAccount,
+        result => self.setAccount(result, keywords),
         param, { 
           method: 'get',
           headers: {
@@ -61,9 +67,10 @@ const EventStore = types
         console.log(error);
       });
     },
-    setAccount(result) {
+    setAccount(result, keywords) {
       if (result&&result.success) {
-        self.tableData=result.data||[];
+        self.tableData = result.data && result.data.filter(item => item.address.value.indexOf(keywords) != -1) || [];
+        self.accountcount = self.tableData.length || 0
       }
       else{
         self.tableData=[];
@@ -95,10 +102,10 @@ const EventStore = types
     },
 
     // 指定事件账户下事件列表
-    getEvent(ledgers, address) {
+    getEventData(ledgers, address, param) {
       return fetchData(`${__HOST}/ledgers/${ledgers}/events/user/accounts/${address}/names`,
-        self.setEvent,
-        '', { 
+        self.setEventData,
+        param, { 
           method: 'get',
           headers: {
             // accept: 'application/json',
@@ -109,10 +116,9 @@ const EventStore = types
         console.log(error);
       });
     },
-    setEvent(result) {
+    setEventData(result) {
       if (result && result.success) {
         self.dataEvent = result.data||[];
-        console.log(self.dataEvent)
       }
       else{
         self.dataEvent = [];
@@ -161,6 +167,7 @@ const EventStore = types
     setEventName(result) {
       if (result && result.success) {
         self.dataName = result.data||[];
+        self.dataName.map((item, key) => item.index = key);
       }
       else{
         self.dataName = [];

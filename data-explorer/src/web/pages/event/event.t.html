@@ -4,8 +4,8 @@
       事件账户
     </h2>
     <div style="margin-bottom:20px;" #show={!show}>
-      <ant-Input style="width:200px;margin-right:20px"/>
-      <ant-Button style="margin-right:20px" icon="search" type="primary" class="{styles.btn}" onClick={SerchInfo}>查询</ant-Button>
+      <ant-Input style="width:200px;margin-right:20px" value={eventAddress} onChange={onInputChange}/>
+      <ant-Button style="margin-right:20px" icon="search" type="primary" class="{styles.btn}" onClick={onSearch}>查询</ant-Button>
     </div>
     <div class="{styles.datapanel}" #show={!show}>
       <ant-Table 
