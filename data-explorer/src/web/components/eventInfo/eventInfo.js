@@ -83,11 +83,11 @@ export default class EventInfo extends Component {
         
 
         Promise.all([
-            event.getNameCount(common.getDefaultLedger(), address, record)
+            event.getNameCount(common.getDefaultLedger(), address, event.nameRecord)
         ]).then(() => {
             if (event.nameTotal) {
                 Promise.all([
-                    event.getEventName(common.getDefaultLedger(), address, record, param)
+                    event.getEventName(common.getDefaultLedger(), address, event.nameRecord, param)
                 ]).then(() => {
                     
                 })
