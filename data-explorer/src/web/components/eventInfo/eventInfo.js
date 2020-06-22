@@ -69,8 +69,9 @@ export default class EventInfo extends Component {
         })
     }
 
-    onPageChangeName = (page, pageSize) => {
+    onPageChangeName = (page, pageSize, record) => {
         const { data, store: { common, event } } = this.props;
+        console.log(record)
         event.setName(page);
         this.expandedRowKeysName = [];
         let address = data.address && data.address.value && data.address.value || '';
@@ -82,11 +83,11 @@ export default class EventInfo extends Component {
         
 
         Promise.all([
-            event.getNameCount(common.getDefaultLedger(), address)
+            event.getNameCount(common.getDefaultLedger(), address, record)
         ]).then(() => {
             if (event.nameTotal) {
                 Promise.all([
-                    event.getEventName(common.getDefaultLedger(), address, event.nameRecord, param)
+                    event.getEventName(common.getDefaultLedger(), address, record, param)
                 ]).then(() => {
                     
                 })
@@ -97,13 +98,14 @@ export default class EventInfo extends Component {
     onShow = (record, index) => {
         const { data, store: { common, event } } = this.props;
         let address = data.address && data.address.value && data.address.value || '';
+        console.log(address)
         let param = {
             fromSequence: (event.nameCurrent - 1) * this.pageEvent,
             count: this.pageEvent,
         }
         event.setNameRecord(record)
         Promise.all([
-            event.getNameCount(common.getDefaultLedger(), address)
+            event.getNameCount(common.getDefaultLedger(), address, record)
         ]).then(() => {
             if (event.nameTotal) {
                 Promise.all([
@@ -144,7 +146,7 @@ export default class EventInfo extends Component {
                     <h4>最新事件</h4>
                     <Row className = {styles.gl}>
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>事件序列:</Col>
-                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.sequence && data.sequence || ''}</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.sequence && data.sequence || 0}</Col>
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>事件账户:</Col>
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.eventAccount && data.eventAccount.value && data.eventAccount.value || ''}</Col>
@@ -160,6 +162,20 @@ export default class EventInfo extends Component {
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>合约地址:</Col>
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.contractSource && data.contractSource || ''}</Col>
+
+                        {/* <Col span = {2} xs = {24} sm = {8} lg = {2}>nil:</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.content && data.content.nil && 'true' || 'false'}</Col> */}
+
+                        <Col span = {2} xs = {24} sm = {8} lg = {2}>字节:</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.content.bytes && data.content.bytes && data.content.bytes.value || ''}</Col>
+
+                        <Col span = {2} xs = {24} sm = {8} lg = {2}>类型:</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.content && data.content.type || ''}</Col>
+
+                        <Col span = {2} xs = {24} sm = {8} lg = {2}>值:</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.content.value && data.content.value || ''}</Col>
+                        <Col span = {2} xs = {24} sm = {8} lg = {2}></Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}></Col>
                     </Row>
                 </div>
             </div>
@@ -323,7 +339,7 @@ export default class EventInfo extends Component {
                             current: event.nameCurrent,
                             pageSize: this.pageEvent,
                             total: event.nameTotal,
-                            onChange: this.onPageChangeName,
+                            onChange: (page, pageSize, record) => this.onPageChangeName(page, pageSize, record),
                             showQuickJumper: true
                         }}
                         onExpand = {(expanded, record) => this.handleExpandShowName(expanded, record)}

@@ -1376,7 +1376,7 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName/latest', fun
   
   Object.assign(ret, resultData,{
     "data": {
-      "sequence": 13,//　事件序列
+      "sequence": 0,//　事件序列
       "transactionSource": {// 交易哈希
         "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
       },
