@@ -91,12 +91,17 @@ export default class Event extends Component {
 
     const closeLoading = Message.loading('正在获取数据...', 0);
 
+    let param = {
+      fromIndex: 0,
+      count: 10,
+    };
+
     Promise.all([
         event.getEventCount(common.getDefaultLedger(), address)
     ]).then(() => {
       if (event.eventTotal > 0) {
           Promise.all([
-              event.getEvent(common.getDefaultLedger(), address)
+              event.getEventData(common.getDefaultLedger(), address, param)
           ]).then(() => {
               closeLoading();
               this.accountData = record;
@@ -113,7 +118,13 @@ export default class Event extends Component {
   }
 
   onShow = () => {
+    const { store: { common, event } } = this.props;
+
     this.show = !this.show;
+    // this.eventAddress = '';
+    event.setCurrent(1)
+    event.setEvent(1)
+    event.setName(1)
   }
 
   @computed get eventColumns() {

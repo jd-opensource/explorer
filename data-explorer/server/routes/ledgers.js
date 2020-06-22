@@ -708,8 +708,11 @@ router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
           }
         }, {
           "roles": [{
-            "disableLedgerPermissions": ["CONFIGURE_ROLES", "AUTHORIZE_USER_ROLES", "SET_CONSENSUS", "SET_CRYPTO", "REGISTER_PARTICIPANT"],
-            "disableTransactionPermissions": ["DIRECT_OPERATION", "CONTRACT_OPERATION"],
+            // "disableLedgerPermissions": ["CONFIGURE_ROLES", "AUTHORIZE_USER_ROLES", "SET_CONSENSUS", "SET_CRYPTO", "REGISTER_PARTICIPANT"],
+            // "disableTransactionPermissions": ["DIRECT_OPERATION", "CONTRACT_OPERATION"],
+            "disableLedgerPermissions": [],
+            "disableTransactionPermissions": [],
+
             "roleName": "DEFAULT",
             "enableLedgerPermissions": ["REGISTER_USER", "REGISTER_DATA_ACCOUNT", "REGISTER_CONTRACT", "UPGRADE_CONTRACT", "SET_USER_ATTRIBUTES", "WRITE_DATA_ACCOUNT", "APPROVE_TX", "CONSENSUS_TX"],
             "enableTransactionPermissions": ["DIRECT_OPERATION", "CONTRACT_OPERATION"]
@@ -756,6 +759,15 @@ router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
             "authorizedRoles": [],
             "policy": "UNION"
           }]
+        }, {
+          "eventAccountID":{
+            "address":{
+                "value":"LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+            },
+            "pubKey":{
+                "value":"7VeRPrJgSt4nKqSinLMwHGEWskPiQ5WNqcSj9ximuwLTjKoH"
+            }
+          }
         }],
         "hash": {
           "value": "j5mTxuFAaBejKoRGphTaAWv5A15uSLPP8PUKiggs2NppR9"
@@ -1418,7 +1430,207 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName', function(r
           "type": "BYTES",
           "value": "Ynl0ZXM="
         }
-      }
+      },
+      {
+        "sequence": 0,//　事件序列
+        "transactionSource": {// 交易哈希
+          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
+        },
+        "blockHeight": 1,//　区块高度
+        "contractSource": "",// 合约地址
+        "eventAccount": {// 事件账户
+          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+        },
+        "name": "e1",// 事件名
+        "content": {// 事件内容
+          "nil": false,
+          "bytes": {
+            "value": "C7P9wfY"
+          },
+          "type": "BYTES",
+          "value": "Ynl0ZXM="
+        }
+      },
+      {
+        "sequence": 1,
+        "transactionSource": {
+          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
+        },
+        "blockHeight": 1,
+        "contractSource": "",
+        "eventAccount": {
+          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+        },
+        "name": "e1",
+        "content": {
+          "nil": false,
+          "bytes": {
+            "value": "C7P9wfY"
+          },
+          "type": "BYTES",
+          "value": "Ynl0ZXM="
+        }
+      },
+      {
+        "sequence": 0,//　事件序列
+        "transactionSource": {// 交易哈希
+          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
+        },
+        "blockHeight": 1,//　区块高度
+        "contractSource": "",// 合约地址
+        "eventAccount": {// 事件账户
+          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+        },
+        "name": "e1",// 事件名
+        "content": {// 事件内容
+          "nil": false,
+          "bytes": {
+            "value": "C7P9wfY"
+          },
+          "type": "BYTES",
+          "value": "Ynl0ZXM="
+        }
+      },
+      {
+        "sequence": 1,
+        "transactionSource": {
+          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
+        },
+        "blockHeight": 1,
+        "contractSource": "",
+        "eventAccount": {
+          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+        },
+        "name": "e1",
+        "content": {
+          "nil": false,
+          "bytes": {
+            "value": "C7P9wfY"
+          },
+          "type": "BYTES",
+          "value": "Ynl0ZXM="
+        }
+      },
+      {
+        "sequence": 0,//　事件序列
+        "transactionSource": {// 交易哈希
+          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
+        },
+        "blockHeight": 1,//　区块高度
+        "contractSource": "",// 合约地址
+        "eventAccount": {// 事件账户
+          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+        },
+        "name": "e1",// 事件名
+        "content": {// 事件内容
+          "nil": false,
+          "bytes": {
+            "value": "C7P9wfY"
+          },
+          "type": "BYTES",
+          "value": "Ynl0ZXM="
+        }
+      },
+      {
+        "sequence": 1,
+        "transactionSource": {
+          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
+        },
+        "blockHeight": 1,
+        "contractSource": "",
+        "eventAccount": {
+          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+        },
+        "name": "e1",
+        "content": {
+          "nil": false,
+          "bytes": {
+            "value": "C7P9wfY"
+          },
+          "type": "BYTES",
+          "value": "Ynl0ZXM="
+        }
+      },
+      {
+        "sequence": 0,//　事件序列
+        "transactionSource": {// 交易哈希
+          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
+        },
+        "blockHeight": 1,//　区块高度
+        "contractSource": "",// 合约地址
+        "eventAccount": {// 事件账户
+          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+        },
+        "name": "e1",// 事件名
+        "content": {// 事件内容
+          "nil": false,
+          "bytes": {
+            "value": "C7P9wfY"
+          },
+          "type": "BYTES",
+          "value": "Ynl0ZXM="
+        }
+      },
+      {
+        "sequence": 1,
+        "transactionSource": {
+          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
+        },
+        "blockHeight": 1,
+        "contractSource": "",
+        "eventAccount": {
+          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+        },
+        "name": "e1",
+        "content": {
+          "nil": false,
+          "bytes": {
+            "value": "C7P9wfY"
+          },
+          "type": "BYTES",
+          "value": "Ynl0ZXM="
+        }
+      },
+      {
+        "sequence": 0,//　事件序列
+        "transactionSource": {// 交易哈希
+          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
+        },
+        "blockHeight": 1,//　区块高度
+        "contractSource": "",// 合约地址
+        "eventAccount": {// 事件账户
+          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+        },
+        "name": "e1",// 事件名
+        "content": {// 事件内容
+          "nil": false,
+          "bytes": {
+            "value": "C7P9wfY"
+          },
+          "type": "BYTES",
+          "value": "Ynl0ZXM="
+        }
+      },
+      {
+        "sequence": 1,
+        "transactionSource": {
+          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
+        },
+        "blockHeight": 1,
+        "contractSource": "",
+        "eventAccount": {
+          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+        },
+        "name": "e1",
+        "content": {
+          "nil": false,
+          "bytes": {
+            "value": "C7P9wfY"
+          },
+          "type": "BYTES",
+          "value": "Ynl0ZXM="
+        }
+      },
     ],
     "success": true
   });

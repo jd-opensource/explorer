@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import styles from './eventInfo.m.scss';
 
-import { Badge, Col, Drawer, Row, Table } from 'antd';
+import { Badge, Col, Drawer, Message, Row, Table } from 'antd';
 
 function arrayIndexOf(arr, val) {
     for (var i = 0, len = arr.length; i < len; i++) { 
@@ -35,16 +35,55 @@ export default class EventInfo extends Component {
     @observable pageEvent = 10;
     @observable visible = false;
     @observable expandedRowKeys = [];
+    @observable expandedRowKeysName = [];
     
     onPageChange = (page, pageSize) => {
-        const { store: { event } } = this.props;
+        console.log(page, pageSize)
+        const { data, store: { common, event } } = this.props;
+        const closeLoading = Message.loading('正在获取数据...', 0);
+        let leaders = common.getDefaultLedger();
+
         event.setEvent(page);
-        // this.Search();
+        this.expandedRowKeys = [];
+
+        let param = {
+            fromIndex: (event.eventCurrent - 1) * this.pageSize,
+            count: this.pageSize,
+        };
+        let address = data.address && data.address.value && data.address.value || '';
+
+
+        // 查询事件列表
+        Promise.all([
+            event.getEventCount(common.getDefaultLedger(), address)
+        ]).then(() => {
+            if (event.eventTotal > 0) {
+                Promise.all([
+                    event.getEventData(common.getDefaultLedger(), address, param)
+                ]).then(() => {
+                    closeLoading();        
+                });
+            } else {
+                closeLoading();
+            }
+        })
     }
 
     onPageChangeName = (page, pageSize) => {
-        const { store: { event } } = this.props;
+        const { data, store: { common, event } } = this.props;
         event.setName(page);
+        this.expandedRowKeysName = [];
+        let address = data.address && data.address.value && data.address.value || '';
+        let param = {
+            fromSequence: (event.nameCurrent - 1) * this.pageEvent,
+            count: this.pageEvent,
+        }
+
+        Promise.all([
+            event.getEventName(common.getDefaultLedger(), address, event.nameRecord, param)
+        ]).then(() => {
+            
+        })
     }
 
     onShow = (record, index) => {
@@ -54,7 +93,7 @@ export default class EventInfo extends Component {
             fromSequence: (event.nameCurrent - 1) * this.pageEvent,
             count: this.pageEvent,
         }
-
+        event.setNameRecord(record)
         Promise.all([
             event.getEventName(common.getDefaultLedger(), address, record, param)
         ]).then(() => {
@@ -63,7 +102,9 @@ export default class EventInfo extends Component {
     }
 
     onClose = () => {
+        const { data, store: { common, event } } = this.props;
         this.visible = false;
+        event.setName(1)
     }
 
     onShowLatest = (e, record) => {
@@ -134,6 +175,17 @@ export default class EventInfo extends Component {
             this.expandedRowKeys = [...testArr];
         } else {
             this.expandedRowKeys = [...arrayRemove(this.expandedRowKeys, record)]
+        }
+    }
+
+    handleExpandShowName = (expanded, record) => {
+        if (expanded) {
+            let testArr = [];
+            testArr.push(record.index);
+            this.expandedRowKeysName = [...testArr];
+            console.log(record, this.expandedRowKeysName)
+        } else {
+            this.expandedRowKeysName = [...arrayRemove(this.expandedRowKeysName, record.index)]
         }
     }
 
@@ -224,9 +276,8 @@ export default class EventInfo extends Component {
                         expandedRowRender = {this.expandedRowRender}
                         onExpand = {(expanded, record) => this.handleExpandShow(expanded, record)}
                         onRow = {record => ({
-                                // onMouse: event => this.onShowLatest(event)
-                                onMouseOver: event => this.onShowLatest(event, record)
-                            }
+                            onMouseOver: event => this.onShowLatest(event, record)
+                        }
                         )}
                         pagination = {{
                             current: event.eventCurrent,
@@ -246,6 +297,7 @@ export default class EventInfo extends Component {
                     width = {1200}
                 >
                     <Table
+                        rowKey = {record => record.index}
                         dataSource = {event.dataName}
                         columns = {this.nameColumns()}
                         pagination = {{
@@ -255,7 +307,9 @@ export default class EventInfo extends Component {
                             onChange: this.onPageChangeName,
                             showQuickJumper: true
                         }}
-                    expandedRowRender = {record => this.eventContent(record)}
+                        onExpand = {(expanded, record) => this.handleExpandShowName(expanded, record)}
+                        expandedRowKeys = {this.expandedRowKeysName}
+                        expandedRowRender = {record => this.eventContent(record)}
                     />
                 </Drawer>
             </div>
