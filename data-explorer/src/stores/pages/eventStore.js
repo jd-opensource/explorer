@@ -70,7 +70,7 @@ const EventStore = types
     setAccount(result, keywords) {
       if (result&&result.success) {
         self.tableData = result.data && result.data.filter(item => item.address.value.indexOf(keywords) != -1) || [];
-        self.accountcount = self.tableData.length || 0
+        // self.accountcount = self.tableData.length || 0
       }
       else{
         self.tableData=[];
@@ -145,6 +145,29 @@ const EventStore = types
         self.eventTotal = result.data || 0;
         if(self.eventTotal * 1 == 0){
           self.dataEvent = [];
+        }
+      }
+    },
+
+    getNameCount(ledgers, address, eventName) {
+      return fetchData(`${__HOST}/ledgers/${ledgers}/events/user/accounts/${address}/names/${eventName}/count`,
+        self.setNameCount,
+        '', { 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+        console.log(error);
+      });
+    },
+    setNameCount(result) {
+      if (result && result.success) {
+        self.nameTotal = result.data || 0;
+        if(self.nameTotal * 1 == 0){
+          self.dataName = [];
         }
       }
     },

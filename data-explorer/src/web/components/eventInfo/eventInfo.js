@@ -79,10 +79,18 @@ export default class EventInfo extends Component {
             count: this.pageEvent,
         }
 
+        
+
         Promise.all([
-            event.getEventName(common.getDefaultLedger(), address, event.nameRecord, param)
+            event.getNameCount(common.getDefaultLedger(), address)
         ]).then(() => {
-            
+            if (event.nameTotal) {
+                Promise.all([
+                    event.getEventName(common.getDefaultLedger(), address, event.nameRecord, param)
+                ]).then(() => {
+                    
+                })
+            }
         })
     }
 
@@ -95,10 +103,17 @@ export default class EventInfo extends Component {
         }
         event.setNameRecord(record)
         Promise.all([
-            event.getEventName(common.getDefaultLedger(), address, record, param)
+            event.getNameCount(common.getDefaultLedger(), address)
         ]).then(() => {
-            this.visible = true;
+            if (event.nameTotal) {
+                Promise.all([
+                    event.getEventName(common.getDefaultLedger(), address, record, param)
+                ]).then(() => {
+                    this.visible = true;
+                })
+            }
         })
+        
     }
 
     onClose = () => {
@@ -225,8 +240,8 @@ export default class EventInfo extends Component {
                     <Col span = {4} xs = {24} sm = {8} lg = {4}>事件账户:</Col>
                     <Col span = {20} xs = {24} sm = {16} lg = {20}>{record.eventAccount && record.eventAccount.value && record.eventAccount.value || ''}</Col>
 
-                    <Col span = {4} xs = {24} sm = {8} lg = {4}>事件名称:</Col>
-                    <Col span = {20} xs = {24} sm = {16} lg = {20}>{record.name && record.name || ''}</Col>
+                    {/* <Col span = {4} xs = {24} sm = {8} lg = {4}>事件名称:</Col>
+                    <Col span = {20} xs = {24} sm = {16} lg = {20}>{record.name && record.name || ''}</Col> */}
 
                     {/* <Col span = {4} xs = {24} sm = {8} lg = {4}>内容:</Col>
                     <Col span = {20} xs = {24} sm = {16} lg = {20}>
@@ -238,15 +253,19 @@ export default class EventInfo extends Component {
                         </ul>   
                     </Col> */}
 
-                    <Col span = {4} xs = {24} sm = {8} lg = {4}>nil:</Col>
-                    <Col span = {8} xs = {24} sm = {16} lg = {8}>{record.content && record.content.nil && record.content.nil || false}</Col>
+                    {/* <Col span = {4} xs = {24} sm = {8} lg = {4}>nil:</Col>
+                    <Col span = {8} xs = {24} sm = {16} lg = {8}>{record.content && record.content.nil && record.content.nil || false}</Col> */}
 
-                    <Col span = {4} xs = {24} sm = {8} lg = {4}>bytes:</Col>
+                    <Col span = {4} xs = {24} sm = {8} lg = {4}>事件名称:</Col>
+                    <Col span = {8} xs = {24} sm = {16} lg = {8}>{record.name && record.name || ''}</Col>
+
+
+                    <Col span = {4} xs = {24} sm = {8} lg = {4}>字节:</Col>
                     <Col span = {8} xs = {24} sm = {16} lg = {8}>{record.content && record.content.bytes && record.content.bytes.value && record.content.bytes.value || false}</Col>
-                    <Col span = {4} xs = {24} sm = {8} lg = {4}>type:</Col>
+                    <Col span = {4} xs = {24} sm = {8} lg = {4}>类型:</Col>
                     <Col span = {8} xs = {24} sm = {16} lg = {8}>{record.content && record.content.type && record.content.type || ''}</Col>
 
-                    <Col span = {4} xs = {24} sm = {8} lg = {4}>value:</Col>
+                    <Col span = {4} xs = {24} sm = {8} lg = {4}>值:</Col>
                     <Col span = {8} xs = {24} sm = {16} lg = {8}>{record.content && record.content.value && record.content.value || ''}</Col>
                 </Row>
             </div>

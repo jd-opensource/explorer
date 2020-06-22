@@ -768,6 +768,24 @@ router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
                 "value":"7VeRPrJgSt4nKqSinLMwHGEWskPiQ5WNqcSj9ximuwLTjKoH"
             }
           }
+        }, {
+          "eventAddress":{
+            "value":"LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+          },
+          "events":[
+            {
+              "sequence":-1,
+              "name":"e1",
+              "content":{
+                "nil":false,
+                "bytes":{
+                  "value":"C7P9wfY"
+                },
+                "type":"BYTES",
+                "value":"Ynl0ZXM="
+              }
+            }
+          ]
         }],
         "hash": {
           "value": "j5mTxuFAaBejKoRGphTaAWv5A15uSLPP8PUKiggs2NppR9"
@@ -1207,7 +1225,7 @@ router.get('/:ledger/events/user/accounts/count', function(req, res) {
   
     Object.assign(ret, resultData,{
       "success":true,
-      "data":12
+      "data":84
     });
   
     res.send(ret);
@@ -1637,6 +1655,20 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName', function(r
 
   res.send(ret);
 })
+
+// 指定事件账户下事件名总数
+router.get('/:ledger/events/user/accounts/:address/names/:eventName/count', function(req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+  
+  Object.assign(ret, resultData,{
+    "success":true,
+    "data":14
+  });
+
+  res.send(ret);
+});
 
 
 module.exports = router;
