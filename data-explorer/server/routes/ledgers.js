@@ -774,7 +774,7 @@ router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
           },
           "events":[
             {
-              "sequence":-1,
+              "sequence":0,
               "name":"e1",
               "content":{
                 "nil":false,
