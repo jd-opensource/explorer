@@ -82,7 +82,7 @@
     "gulp-template": "^4.0.0",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
-    "jquery": "^2.2.4",
+    "jquery": "^3.5.0",
     "jquery-placeholder": "^2.3.1",
     "js-cookie": "^2.1.1",
     "less": "^2.7.1",
