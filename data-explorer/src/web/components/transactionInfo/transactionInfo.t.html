@@ -206,6 +206,45 @@
             </BlockCollapsePanel>
           </#if>
 
+          <#if {{this.eventAddress || this.events}}>
+            <BlockCollapsePanel title="事件">
+              <table style="line-height:41px;width:100%;">
+                <tr>
+                  <td>事件地址：</td>
+                  <td>{{this.eventAddress.value || ''}}</td>
+                </tr>
+              </table>
+              <#each {{this.events}}>
+                <BlockCollapse title="事件：{{name}}">  
+                  <table style="line-height:41px;width:100%;">
+                    <tr>
+                      <td>事件序列：</td>
+                      <td>{{sequence || 0}}</td>
+                    </tr>
+                    <#if {{this.content}}>
+                      <!-- <tr>
+                        <td>nil：</td>
+                        <td>{{this.content.nil && 'true' || 'false'}}</td>
+                      </tr> -->
+                      <tr>
+                        <td>字节：</td>
+                        <td>{{this.content.bytes && this.content.bytes.value || ''}}</td>
+                      </tr>
+                      <tr>
+                        <td>类型：</td>
+                        <td>{{this.content.type || ''}}</td>
+                      </tr>
+                      <tr>
+                        <td>值：</td>
+                        <td>{{this.content.value || ''}}</td>
+                      </tr>
+                    </#if>
+                  </table>
+                </BlockCollapse>
+              </#each>
+            </BlockCollapsePanel>
+          </#if>
+
           <!-- 角色配置 -->
           <#if {{this.roles}}>
             <BlockCollapsePanel title="角色配置">
