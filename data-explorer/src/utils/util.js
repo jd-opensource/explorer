@@ -414,6 +414,14 @@ export function transAuth(val) {
       span = '交易中包含合约操作';
     break;
 
+    case 'REGISTER_EVENT_ACCOUNT':
+      span = '注册事件账户';
+    break;
+
+    case 'WRITE_EVENT_ACCOUNT':
+      span = '发布事件';
+    break;
+
     default:
       span = '';
     break;

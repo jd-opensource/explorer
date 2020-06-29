@@ -69,8 +69,9 @@ export default class EventInfo extends Component {
         })
     }
 
-    onPageChangeName = (page, pageSize) => {
+    onPageChangeName = (page, pageSize, record) => {
         const { data, store: { common, event } } = this.props;
+        console.log(record)
         event.setName(page);
         this.expandedRowKeysName = [];
         let address = data.address && data.address.value && data.address.value || '';
@@ -79,26 +80,42 @@ export default class EventInfo extends Component {
             count: this.pageEvent,
         }
 
+        
+
         Promise.all([
-            event.getEventName(common.getDefaultLedger(), address, event.nameRecord, param)
+            event.getNameCount(common.getDefaultLedger(), address, event.nameRecord)
         ]).then(() => {
-            
+            if (event.nameTotal) {
+                Promise.all([
+                    event.getEventName(common.getDefaultLedger(), address, event.nameRecord, param)
+                ]).then(() => {
+                    
+                })
+            }
         })
     }
 
     onShow = (record, index) => {
         const { data, store: { common, event } } = this.props;
         let address = data.address && data.address.value && data.address.value || '';
+        console.log(address)
         let param = {
             fromSequence: (event.nameCurrent - 1) * this.pageEvent,
             count: this.pageEvent,
         }
         event.setNameRecord(record)
         Promise.all([
-            event.getEventName(common.getDefaultLedger(), address, record, param)
+            event.getNameCount(common.getDefaultLedger(), address, record)
         ]).then(() => {
-            this.visible = true;
+            if (event.nameTotal) {
+                Promise.all([
+                    event.getEventName(common.getDefaultLedger(), address, record, param)
+                ]).then(() => {
+                    this.visible = true;
+                })
+            }
         })
+        
     }
 
     onClose = () => {
@@ -129,7 +146,7 @@ export default class EventInfo extends Component {
                     <h4>最新事件</h4>
                     <Row className = {styles.gl}>
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>事件序列:</Col>
-                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.sequence && data.sequence || ''}</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.sequence && data.sequence || 0}</Col>
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>事件账户:</Col>
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.eventAccount && data.eventAccount.value && data.eventAccount.value || ''}</Col>
@@ -145,6 +162,20 @@ export default class EventInfo extends Component {
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>合约地址:</Col>
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.contractSource && data.contractSource || ''}</Col>
+
+                        {/* <Col span = {2} xs = {24} sm = {8} lg = {2}>nil:</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.content && data.content.nil && 'true' || 'false'}</Col> */}
+
+                        <Col span = {2} xs = {24} sm = {8} lg = {2}>字节:</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.content.bytes && data.content.bytes && data.content.bytes.value || ''}</Col>
+
+                        <Col span = {2} xs = {24} sm = {8} lg = {2}>类型:</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.content && data.content.type || ''}</Col>
+
+                        <Col span = {2} xs = {24} sm = {8} lg = {2}>值:</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.content.value && data.content.value || ''}</Col>
+                        <Col span = {2} xs = {24} sm = {8} lg = {2}></Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}></Col>
                     </Row>
                 </div>
             </div>
@@ -225,8 +256,8 @@ export default class EventInfo extends Component {
                     <Col span = {4} xs = {24} sm = {8} lg = {4}>事件账户:</Col>
                     <Col span = {20} xs = {24} sm = {16} lg = {20}>{record.eventAccount && record.eventAccount.value && record.eventAccount.value || ''}</Col>
 
-                    <Col span = {4} xs = {24} sm = {8} lg = {4}>事件名称:</Col>
-                    <Col span = {20} xs = {24} sm = {16} lg = {20}>{record.name && record.name || ''}</Col>
+                    {/* <Col span = {4} xs = {24} sm = {8} lg = {4}>事件名称:</Col>
+                    <Col span = {20} xs = {24} sm = {16} lg = {20}>{record.name && record.name || ''}</Col> */}
 
                     {/* <Col span = {4} xs = {24} sm = {8} lg = {4}>内容:</Col>
                     <Col span = {20} xs = {24} sm = {16} lg = {20}>
@@ -238,15 +269,19 @@ export default class EventInfo extends Component {
                         </ul>   
                     </Col> */}
 
-                    <Col span = {4} xs = {24} sm = {8} lg = {4}>nil:</Col>
-                    <Col span = {8} xs = {24} sm = {16} lg = {8}>{record.content && record.content.nil && record.content.nil || false}</Col>
+                    {/* <Col span = {4} xs = {24} sm = {8} lg = {4}>nil:</Col>
+                    <Col span = {8} xs = {24} sm = {16} lg = {8}>{record.content && record.content.nil && record.content.nil || false}</Col> */}
 
-                    <Col span = {4} xs = {24} sm = {8} lg = {4}>bytes:</Col>
+                    <Col span = {4} xs = {24} sm = {8} lg = {4}>事件名称:</Col>
+                    <Col span = {8} xs = {24} sm = {16} lg = {8}>{record.name && record.name || ''}</Col>
+
+
+                    <Col span = {4} xs = {24} sm = {8} lg = {4}>字节:</Col>
                     <Col span = {8} xs = {24} sm = {16} lg = {8}>{record.content && record.content.bytes && record.content.bytes.value && record.content.bytes.value || false}</Col>
-                    <Col span = {4} xs = {24} sm = {8} lg = {4}>type:</Col>
+                    <Col span = {4} xs = {24} sm = {8} lg = {4}>类型:</Col>
                     <Col span = {8} xs = {24} sm = {16} lg = {8}>{record.content && record.content.type && record.content.type || ''}</Col>
 
-                    <Col span = {4} xs = {24} sm = {8} lg = {4}>value:</Col>
+                    <Col span = {4} xs = {24} sm = {8} lg = {4}>值:</Col>
                     <Col span = {8} xs = {24} sm = {16} lg = {8}>{record.content && record.content.value && record.content.value || ''}</Col>
                 </Row>
             </div>
@@ -304,7 +339,7 @@ export default class EventInfo extends Component {
                             current: event.nameCurrent,
                             pageSize: this.pageEvent,
                             total: event.nameTotal,
-                            onChange: this.onPageChangeName,
+                            onChange: (page, pageSize, record) => this.onPageChangeName(page, pageSize, record),
                             showQuickJumper: true
                         }}
                         onExpand = {(expanded, record) => this.handleExpandShowName(expanded, record)}
