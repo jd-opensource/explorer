@@ -1348,7 +1348,7 @@ router.get('/:ledger/events/user/accounts/:address/names/count', function(req, r
   
   Object.assign(ret, resultData,{
     "success":true,
-    "data":12
+    "data":0
   });
 
   res.send(ret);
