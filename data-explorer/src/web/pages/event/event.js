@@ -109,6 +109,15 @@ export default class Event extends Component {
 
               this.show = !this.show;
           });
+      } else if (event.eventTotal == 0) {
+        closeLoading();
+        this.accountData = record;
+
+        this.show = !this.show;
+        // Notification.error({
+        //   description: '未发现任何事件',
+        //   duration: 3
+        // })
       } else {
           closeLoading();
       }
