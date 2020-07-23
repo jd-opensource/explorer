@@ -133,6 +133,16 @@
             </BlockCollapsePanel>
           </#if>
 
+          <#if {{this.state}}>
+            <BlockCollapsePanel title="状态">
+              <fj-Row style="margin:16px 0;">
+              <fj-Col l=2>状态：</fj-Col>
+              <fj-Col l=10>{{this.state == 'CONSENSUS' && '激活' || '注册'}} </fj-Col>
+              </fj-Row>
+            </BlockCollapsePanel>
+            
+          </#if>
+
           <!-- <#if {{this.participantName && this.networkAddress}}>
             <BlockCollapsePanel title="参与方信息">
               <table style="line-height:41px;">
