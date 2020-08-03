@@ -707,6 +707,15 @@ router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
             }
           }
         }, {
+          "participantID": {
+            "address": {
+              "value": "5SmBgzsrnY6u9Y7DgSSkXfTkCgp83hiFin3v"
+            },
+            "pubKey": {
+              "value": "mb5kukaqjWtXyAerfHU1JDtVwabSeBU5c3khMZbNh7R8VJ"
+            }
+          }
+        }, {
           "roles": [{
             // "disableLedgerPermissions": ["CONFIGURE_ROLES", "AUTHORIZE_USER_ROLES", "SET_CONSENSUS", "SET_CRYPTO", "REGISTER_PARTICIPANT"],
             // "disableTransactionPermissions": ["DIRECT_OPERATION", "CONTRACT_OPERATION"],

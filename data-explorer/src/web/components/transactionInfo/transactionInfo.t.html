@@ -133,7 +133,17 @@
             </BlockCollapsePanel>
           </#if>
 
-          <#if {{this.participantName && this.networkAddress}}>
+          <#if {{this.state}}>
+            <BlockCollapsePanel title="状态">
+              <fj-Row style="margin:16px 0;">
+              <fj-Col l=2>状态：</fj-Col>
+              <fj-Col l=10>{{this.state == 'CONSENSUS' && '激活' || '注册'}} </fj-Col>
+              </fj-Row>
+            </BlockCollapsePanel>
+            
+          </#if>
+
+          <!-- <#if {{this.participantName && this.networkAddress}}>
             <BlockCollapsePanel title="参与方信息">
               <table style="line-height:41px;">
                 <tr>
@@ -148,6 +158,24 @@
                   <td>参与方域名：</td>
                   <td>{{this.networkAddress.host || ''}}</td>
                 </tr>
+              </table>
+            </BlockCollapsePanel>
+          </#if> -->
+          <#if {{this.participantName}}>
+            <BlockCollapsePanel title="参与方信息">
+              <table style="line-height:41px;">
+                <tr>
+                  <td>参与方名称：</td>
+                  <td>{{this.participantName}}</td>
+                </tr>
+                <!-- <tr>
+                  <td>参与方端口：</td>
+                  <td>{{this.networkAddress.port || ''}}</td>
+                </tr>
+                <tr>
+                  <td>参与方域名：</td>
+                  <td>{{this.networkAddress.host || ''}}</td>
+                </tr> -->
               </table>
             </BlockCollapsePanel>
           </#if>
@@ -166,6 +194,25 @@
                 <tr>
                   <td>参与方公钥数据：</td>
                   <td>{{this.participantRegisterIdentity.pubKey.value}}</td>
+                </tr>
+              </table>
+            </BlockCollapsePanel>
+          </#if>
+
+          <#if {{this.participantID}}>
+            <BlockCollapsePanel title="注册参与方">
+              <table style="line-height:41px;">
+                <tr>
+                  <td>参与方地址：</td>
+                  <td>{{this.participantID.address.value}}</td>
+                </tr>
+                <tr>
+                  <td>参与方公钥算法：</td>
+                  <td>{{tranBase58(this.participantID.pubKey.value)}}</td>
+                </tr>
+                <tr>
+                  <td>参与方公钥数据：</td>
+                  <td>{{this.participantID.pubKey.value}}</td>
                 </tr>
               </table>
             </BlockCollapsePanel>
