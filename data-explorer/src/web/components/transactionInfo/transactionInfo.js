@@ -70,10 +70,10 @@ export default class TransactionInfo extends Component {
         let int32=stringToBase58(data);
         result=Int32ToStr(int32);
         break; 
-      case 'TIMESTAMP':
-        let timestamp=stringToBase58(data);
-        result = byteToLong(timestamp);
-        break;
+      // case 'TIMESTAMP':
+      //   let timestamp=stringToBase58(data);
+      //   result = byteToLong(timestamp);
+      //   break;
       default:
         result=data;
         break;
