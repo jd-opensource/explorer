@@ -59,6 +59,7 @@ export function tranBase58(value) {
   // deal with leading zeros
   for (i = 0; value[i] === '1' && i < value.length - 1; i++) bytes.push(0);
 
+  console.log(bytes)
   // 声明node变量用于保存转码后的值
   let node = bytes.reverse()[1];
   // 根据node做映射处理
@@ -68,8 +69,9 @@ export function tranBase58(value) {
       node == 24 ? 'SHA256' : 
       node == 25 ? 'RIPEMD160' : 
       node == 26 ? 'AES' : 
-      node == 27 ? 'JVM-SECURE-RANDOM' : 'Other';
-       
+      node == 27 ? 'JVM-SECURE-RANDOM' : 
+      node == 2 ? 'SM2' : 'Other';
+
   return base58;
 }
 
