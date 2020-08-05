@@ -49,7 +49,7 @@
               </fj-Row>
               <#each {{this.writeSet}}>
                 <BlockCollapseSmall  title="键：{{this.key}}">
-                  值：{{formatData(this.value.type,this.value.bytes)}}<br>
+                  值：{{formatData(this.value.type,this.value.bytes, this.value.value)}}<br>
                   预期版本：{{this.expectedVersion}}<br>
                   类型：{{this.value.type}}
                 </BlockCollapseSmall>

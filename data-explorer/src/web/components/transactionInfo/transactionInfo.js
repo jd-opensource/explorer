@@ -46,7 +46,7 @@ export default class TransactionInfo extends Component {
   }
 
   
-  formatData(type,data){
+  formatData(type,data, value = ''){
     data=data && data.value != undefined && String(data.value) || '';
 
     let result='';
@@ -71,10 +71,10 @@ export default class TransactionInfo extends Component {
         let int32=stringToBase58(data);
         result=Int32ToStr(int32);
         break; 
-      // case 'TIMESTAMP':
-      //   let timestamp=stringToBase58(data);
-      //   result = byteToLong(timestamp);
-      //   break;
+      case 'TIMESTAMP':
+        // let timestamp=stringToBase58(data);
+        result = value;
+        break;
       default:
         result=data;
         break;
