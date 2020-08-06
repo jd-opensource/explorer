@@ -373,7 +373,7 @@ export function transAuth(val) {
     break;
 
     case 'REGISTER_PARTICIPANT':
-      span = '注册参与方';
+      span = '激活参与方';
     break;
 
     case 'REGISTER_USER':
