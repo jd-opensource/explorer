@@ -1,0 +1,36 @@
+<template name="container">
+  <div class="{styles.event}" >
+    <h2 #show={!show}>
+      事件账户
+    </h2>
+    <!-- <div style="margin-bottom:20px;" #show={!show}>
+      <ant-Input style="width:200px;margin-right:20px" value={eventAddress} onChange={onInputChange}/>
+      <ant-Button style="margin-right:20px" icon="search" type="primary" class="{styles.btn}" onClick={onSearch}>查询</ant-Button>
+    </div> -->
+    <div class="{styles.datapanel}" #show={!show}>
+      <ant-Table 
+        columns={toJS(eventColumns)}
+        dataSource={toJS(tableData)}
+        :pagination="{
+        current: event.accountcurrent,
+        pageSize: pageSize,
+        total: event.accountcount,
+        onChange: onPageChange,
+        showQuickJumper:true
+        }"
+        bordered />
+    </div>
+
+    <div #show={show}>
+      <div class="{styles.nav}">
+        <label onClick={onShow} style="cursor: pointer;">事件账户</label>&nbsp;>&nbsp;<span>事件列表
+        </span>
+      </div>
+      <#if {{show}}>
+        <!-- <EventInfo/> -->
+        {eventItem()}
+      </#if>
+
+    </div>
+  </div>
+</template>

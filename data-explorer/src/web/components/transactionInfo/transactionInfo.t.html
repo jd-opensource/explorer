@@ -49,7 +49,7 @@
               </fj-Row>
               <#each {{this.writeSet}}>
                 <BlockCollapseSmall  title="键：{{this.key}}">
-                  值：{{formatData(this.value.type,this.value.bytes)}}<br>
+                  值：{{formatData(this.value.type,this.value.bytes, this.value.value)}}<br>
                   预期版本：{{this.expectedVersion}}<br>
                   类型：{{this.value.type}}
                 </BlockCollapseSmall>
@@ -121,7 +121,7 @@
                   <td>用户地址：</td>
                   <td>{{this.userID.address.value}}</td>
                 </tr>
-                 <tr>
+                <tr>
                   <td>用户公钥算法：</td>
                   <td>{{tranBase58(this.userID.pubKey.value)}}</td>
                 </tr>
@@ -133,7 +133,17 @@
             </BlockCollapsePanel>
           </#if>
 
-          <#if {{this.participantName && this.networkAddress}}>
+          <#if {{this.state}}>
+            <BlockCollapsePanel title="状态">
+              <fj-Row style="margin:16px 0;">
+              <fj-Col l=2>状态：</fj-Col>
+              <fj-Col l=10>{{this.state == 'CONSENSUS' && '激活' || '注册'}} </fj-Col>
+              </fj-Row>
+            </BlockCollapsePanel>
+            
+          </#if>
+
+          <!-- <#if {{this.participantName && this.networkAddress}}>
             <BlockCollapsePanel title="参与方信息">
               <table style="line-height:41px;">
                 <tr>
@@ -144,10 +154,28 @@
                   <td>参与方端口：</td>
                   <td>{{this.networkAddress.port || ''}}</td>
                 </tr>
-                 <tr>
+                <tr>
                   <td>参与方域名：</td>
                   <td>{{this.networkAddress.host || ''}}</td>
                 </tr>
+              </table>
+            </BlockCollapsePanel>
+          </#if> -->
+          <#if {{this.participantName}}>
+            <BlockCollapsePanel title="参与方信息">
+              <table style="line-height:41px;">
+                <tr>
+                  <td>参与方名称：</td>
+                  <td>{{this.participantName}}</td>
+                </tr>
+                <!-- <tr>
+                  <td>参与方端口：</td>
+                  <td>{{this.networkAddress.port || ''}}</td>
+                </tr>
+                <tr>
+                  <td>参与方域名：</td>
+                  <td>{{this.networkAddress.host || ''}}</td>
+                </tr> -->
               </table>
             </BlockCollapsePanel>
           </#if>
@@ -159,13 +187,32 @@
                   <td>参与方地址：</td>
                   <td>{{this.participantRegisterIdentity.address.value}}</td>
                 </tr>
-                 <tr>
+                <tr>
                   <td>参与方公钥算法：</td>
                   <td>{{tranBase58(this.participantRegisterIdentity.pubKey.value)}}</td>
                 </tr>
                 <tr>
                   <td>参与方公钥数据：</td>
                   <td>{{this.participantRegisterIdentity.pubKey.value}}</td>
+                </tr>
+              </table>
+            </BlockCollapsePanel>
+          </#if>
+
+          <#if {{this.participantID}}>
+            <BlockCollapsePanel title="{{this.state && '激活参与方' || '注册参与方'}}">
+              <table style="line-height:41px;">
+                <tr>
+                  <td>参与方地址：</td>
+                  <td>{{this.participantID.address.value}}</td>
+                </tr>
+                <tr>
+                  <td>参与方公钥算法：</td>
+                  <td>{{tranBase58(this.participantID.pubKey.value)}}</td>
+                </tr>
+                <tr>
+                  <td>参与方公钥数据：</td>
+                  <td>{{this.participantID.pubKey.value}}</td>
                 </tr>
               </table>
             </BlockCollapsePanel>
@@ -190,6 +237,61 @@
             </BlockCollapsePanel>
           </#if>
 
+          <!-- 事件账户 -->
+          <#if {{this.eventAccountID}}>
+            <BlockCollapsePanel title="事件账户">
+              <table style="line-height:41px;width:100%;">
+                <tr>
+                  <td>事件账户地址：</td>
+                  <td>{{this.eventAccountID.address.value}}</td>
+                </tr>
+                <tr>
+                  <td>事件账户公钥算法：</td>
+                  <td>{{tranBase58(this.eventAccountID.pubKey.value)}}</td>
+                </tr>
+              </table>
+            </BlockCollapsePanel>
+          </#if>
+
+          <#if {{this.eventAddress || this.events}}>
+            <BlockCollapsePanel title="事件">
+              <table style="line-height:41px;width:100%;">
+                <tr>
+                  <td>事件地址：</td>
+                  <td>{{this.eventAddress.value || ''}}</td>
+                </tr>
+              </table>
+              <#each {{this.events}}>
+                <BlockCollapse title="事件：{{name}}">  
+                  <table style="line-height:41px;width:100%;">
+                    <tr>
+                      <td>事件序列：</td>
+                      <td>{{sequence || 0}}</td>
+                    </tr>
+                    <#if {{this.content}}>
+                      <!-- <tr>
+                        <td>nil：</td>
+                        <td>{{this.content.nil && 'true' || 'false'}}</td>
+                      </tr> -->
+                      <tr>
+                        <td>字节：</td>
+                        <td>{{this.content.bytes && this.content.bytes.value || ''}}</td>
+                      </tr>
+                      <tr>
+                        <td>类型：</td>
+                        <td>{{this.content.type || ''}}</td>
+                      </tr>
+                      <tr>
+                        <td>值：</td>
+                        <td>{{this.content.value + ''}}</td>
+                      </tr>
+                    </#if>
+                  </table>
+                </BlockCollapse>
+              </#each>
+            </BlockCollapsePanel>
+          </#if>
+
           <!-- 角色配置 -->
           <#if {{this.roles}}>
             <BlockCollapsePanel title="角色配置">
@@ -202,11 +304,13 @@
                         <!-- <td>{{enableLedgerPermissions && enableLedgerPermissions.join(',') || ''}}</td> -->
                         <td>{{enableLedgerPermissions && transform(enableLedgerPermissions) || ''}}</td>
                       </tr>
-                      <tr>
-                        <td>不可执行的操作：</td>
-                        <!-- <td>{{disableLedgerPermissions && disableLedgerPermissions.join(',') || ''}}</td> -->
-                        <td>{{disableLedgerPermissions && transform(disableLedgerPermissions) || ''}}</td>
-                      </tr>
+                      <#if {{disableLedgerPermissions && disableLedgerPermissions.length != 0}}>
+                        <tr>
+                          <td>不可执行的操作：</td>
+                          <!-- <td>{{disableLedgerPermissions && disableLedgerPermissions.join(',') || ''}}</td> -->
+                          <td>{{disableLedgerPermissions && transform(disableLedgerPermissions) || ''}}</td>
+                        </tr>
+                      </#if>
                     </table>
                   </BlockCollapseSmall>
                   <BlockCollapseSmall title="交易操作权限">
@@ -216,11 +320,13 @@
                         <!-- <td>{{enableTransactionPermissions && enableTransactionPermissions.join(',') || ''}}</td> -->
                         <td>{{enableTransactionPermissions && transform(enableTransactionPermissions) || ''}}</td>
                       </tr>
-                      <tr>
-                        <td>不可执行的操作：</td>
-                        <td>{{disableTransactionPermissions && transform(disableTransactionPermissions) || ''}}</td>
-                        <!-- <td>{{disableTransactionPermissions && disableTransactionPermissions.join(',') || ''}}</td> -->
-                      </tr>
+                      <#if {{disableTransactionPermissions && disableTransactionPermissions.length != 0}}>
+                        <tr>
+                          <td>不可执行的操作：</td>
+                          <td>{{disableTransactionPermissions && transform(disableTransactionPermissions) || ''}}</td>
+                          <!-- <td>{{disableTransactionPermissions && disableTransactionPermissions.join(',') || ''}}</td> -->
+                        </tr>
+                      </#if>
                     </table>
                   </BlockCollapseSmall>
                 </BlockCollapse>
@@ -237,12 +343,24 @@
                     <td>用户地址：</td>
                     <td>{{(userAddresses && userAddresses[0] && userAddresses[0].value) && userAddresses[0].value || ''}}</td>
                   </tr>
+                  <!-- <#if {{authorizedRoles && authorizedRoles.length != 0}}>
+                    <tr>
+                      <td>用户授权的角色清单：</td>
+                      <td>{{authorizedRoles && authorizedRoles.join(',') || ''}}</td>
+                    </tr>
+                  </#if>
+                  <#if {{unauthorizedRoles && unauthorizedRoles.length != 0}}>
+                    <tr>
+                      <td>用户未授权的角色清单：</td>
+                      <td>{{unauthorizedRoles && unauthorizedRoles.join(',') || ''}}</td>
+                    </tr>
+                  </#if> -->
                   <tr>
                     <td>用户授权的角色清单：</td>
-                    <td>{{authorizedRoles && authorizedRoles.join(',') || ''}}</td>
+                    <td>{{authorizedRoles && authorizedRoles.join(',') || 'DEFAULT'}}</td>
                   </tr>
                   <tr>
-                    <td>用户未授权的角色清单：</td>
+                    <td>剔除的角色清单：</td>
                     <td>{{unauthorizedRoles && unauthorizedRoles.join(',') || ''}}</td>
                   </tr>
                   <tr>

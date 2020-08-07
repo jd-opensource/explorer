@@ -6,6 +6,7 @@ import AccountStore from './pages/accountStore';
 import UserStore from './pages/userStore';
 import BlockStore from './pages/blockStore';
 import ContractStore from './pages/contractStore';
+import EventStore from './pages/eventStore';
 //{importStore}//
 
 // prettier-ignore
@@ -21,6 +22,7 @@ const RootStore = types.model('RootStore', {
   user: types.optional(UserStore, {}),
   block: types.optional(BlockStore, {}),
   contract: types.optional(ContractStore, {}),
+  event: types.optional(EventStore, {}),
   //{pageStore}//
 }).actions(self => {
   return {

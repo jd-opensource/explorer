@@ -75,6 +75,22 @@
             </div>
           </div>
         </router-Link>
+        <!-- 事件账户总数，暂时以数据账户代替 -->
+        <!-- <router-Link to='event' class="{styles.link}">
+          <div class="{styles.tabs} {styles.ledgers}">
+            <div class="{styles.span}">
+              <div class="{styles.left}">
+                <p class="{styles.title}">事件账户总数</p>
+                {scientificCount(search.dataEventTotal || 0)}
+              </div>
+              <div class="{styles.right}">
+                <div class="{styles.logo} {styles.logoLE}">
+                
+                </div>
+              </div>
+            </div>
+          </div>
+        </router-Link> -->
         <router-Link to='contract' class="{styles.link}">
           <div class="{styles.tabs} {styles.contracts}">
             <div class="{styles.span}">
@@ -99,6 +115,7 @@
           <span>{search.txsData.length}</span>条交易内容，
           <span>{search.contractsData.length}</span>条合约数据，
           <span>{search.accountsData.length}</span>条数据账户，
+          <!-- <span>{search.eventData.length}</span>条事件账户， -->
           <span>{search.usersData.length}</span>条用户数据
         </div>
         <ant-Tabs>
@@ -152,6 +169,16 @@
                   </p>
                 </article>
               </#each>
+
+              <!-- 事件账户 -->
+              <!-- <#each {{search.eventData}}>
+                <article key={@index} class="{styles.option}">
+                  <p class="{styles.title}">
+                    
+                  </p>
+                </article>
+              </#each> -->
+
               <!-- 用户数据 -->
               <#each {{search.usersData}}>
                 <article key={@index} class="{styles.option}">
@@ -253,7 +280,23 @@
               </#else>
             </#if>
           </ant-TabPane>
-          <ant-TabPane tab="用户" key='5'>
+          <!-- <ant-TabPane tab="事件账户" key="5">
+            <#if {{search.eventData.length > 0}}>
+              <#each {{search.eventData}}>
+                <article key={@index} class="{styles.option}">
+                  <p class="{styles.title}">
+                  </p>
+                </article>
+              </#each>
+              <div style="padding: 30px 0; text-align: right">
+                <ant-Pagination showQuickjumper={true} hideOnSinglePage={true} defaultCurrent={2} total={{search.total}}/>
+              </div>
+              <#else>
+                暂无数据  
+              </#else>
+            </#if>
+          </ant-TabPane> -->
+          <ant-TabPane tab="用户" key='6'>
            <#if {{search.usersData.length > 0}}>
               <#each {{search.usersData}}>
                 <article key={@index} class="{styles.option}">
