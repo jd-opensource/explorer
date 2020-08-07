@@ -40,14 +40,14 @@ export default class TransactionInfo extends Component {
   }
 
   transform = arr => {
-    console.log(arr)
-
     return arr.map(item => transAuth(item)).join(',')
   }
 
   
-  formatData(type,data){
-    data=data&&data.value&&data.value||'';
+  formatData(type,data, value = ''){
+    data = data && data.value != undefined && (data.value + '') || '';
+    
+    console.log(type, data, data.value)
     let result='';
     switch (type.toUpperCase()) {
       case 'INT64':
@@ -71,8 +71,8 @@ export default class TransactionInfo extends Component {
         result=Int32ToStr(int32);
         break; 
       case 'TIMESTAMP':
-        let timestamp=stringToBase58(data);
-        result = byteToLong(timestamp);
+        // let timestamp=stringToBase58(data);
+        result = value;
         break;
       default:
         result=data;
@@ -87,7 +87,7 @@ export default class TransactionInfo extends Component {
       for (let i = 0; i < data.values.length; i++) {
         json.push({
           type:data.values[i].type,
-          value:this.formatData(data.values[i].type,data.values[i].value),
+          value:this.formatData(data.values[i].type,data.values[i].bytes),
         });
         
       }
