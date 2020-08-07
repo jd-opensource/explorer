@@ -40,8 +40,6 @@ export default class TransactionInfo extends Component {
   }
 
   transform = arr => {
-    console.log(arr)
-
     return arr.map(item => transAuth(item)).join(',')
   }
 

@@ -173,7 +173,7 @@ export default class EventInfo extends Component {
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.content && data.content.type || ''}</Col>
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>值:</Col>
-                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.content.value !== undefined && String(data.content.value) || ''}</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.content.value + ''}</Col>
                         <Col span = {2} xs = {24} sm = {8} lg = {2}></Col>
                         <Col span = {10} xs = {24} sm = {16} lg = {10}></Col>
                     </Row>
