@@ -47,7 +47,7 @@ export default class TransactionInfo extends Component {
 
   
   formatData(type,data, value = ''){
-    data=data && data.value != undefined && String(data.value) || '';
+    data=data && (data.value + '') || '';
 
     let result='';
     switch (type.toUpperCase()) {
