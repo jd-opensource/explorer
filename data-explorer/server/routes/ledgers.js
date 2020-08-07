@@ -886,59 +886,7 @@ router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
   //   "success": true
   // });
 
-  Object.assign(ret, resultData,{
-    "data": {
-      "blockHeight": 13,
-      "userAccountSetHash": {
-        "value": "j5uG5Y3FdPtexLKoExoAjhBMpS39o8vwgVKgJeNktJCrNS"
-      },
-      "executionState": "SUCCESS",
-      "transactionContent": {
-        "ledgerHash": {
-          "value": "j5wJsg1Ceeg3KzD4q9BiPJR8MGTLsFBHf8PS3rx5TgZLHd"
-        },
-        "operations": [{
-          "participantID": {
-            "address": {
-              "value": "LdeNxDzRp4Gw4C7rgkh1AqJX7nhYaXPaARmt7"
-            },
-            "pubKey": {
-              "value": "7VeR8hcWhcLFejW8J8fMGpJ5knZHsBdkBKAFEVAWNsKbVejG"
-            }
-          },
-          // "participantName": "peer4",
-          "state": 'CONSENSUS'
-        }],
-        "hash": {
-          "value": "j5tB9y9fAuFvNBpJDj296CABmUjrxQtFnPnpQZR5P3fGjh"
-        },
-        "timestamp": 1596779503205
-      },
-      "endpointSignatures": [{
-        "digest": {
-          "value": "SMM17twkTqQPRjkdpMiRuLW5wtThzMLerWLWeAWfDpAYPujjAL5w7sR9aYCvc29kVFFogXj1346LS8i9KXHAmngATz"
-        },
-        "pubKey": {
-          "value": "7VeRBbnbvnPHHyVZGxFe613VB1LgUmmsbv1aQWzUbS9LznZg"
-        }
-      }],
-      "adminAccountHash": {
-        "value": "j5gNZNL6y9taFfFroddm6q3Lre1BmciRfvVsj9Nc7PqtPh"
-      },
-      "dataAccountSetHash": {
-        "value": "j5h8wAKFJpuHACKGuE9iPK3sVqwVSEDsnCyeYpoSGnh3iS"
-      },
-      "nodeSignatures": [{
-        "digest": {
-          "value": "SMM17twkTqQPRjkdpMiRuLW5wtThzMLerWLWeAWfDpAYPujjAL5w7sR9aYCvc29kVFFogXj1346LS8i9KXHAmngATz"
-        },
-        "pubKey": {
-          "value": "7VeRBbnbvnPHHyVZGxFe613VB1LgUmmsbv1aQWzUbS9LznZg"
-        }
-      }]
-    },
-    "success": true
-  });
+  Object.assign(ret, resultData,{"data":{"blockHeight":5,"operationResults":[{"result":{"nil":false,"bytes":{"value":"2HJNPmQX11HdSJXBbeXFWGw9qm1VRzGwR8FJHwQvjqYM7qtzw3nARien9HKi9e2panFGbd1YPa8UD4LbERD4DXpoVLxdRF2dpYo1HXbADtNWuJubQ4gLZMdpPr4zMsfHeFyJ1RyrQYJoMM57DCmuJxWWWAxrwmuxjh4mU25WMwE7HTDoQrY3PUVuv467UNmQ3R9MrQNd"},"type":"TEXT","value":"DataAccountAddress[LdeNv8d4X2p4mavh6kYB2BiugxJjrQXFdSwJK] -\u003E Create\u0028By Contract Operation\u0029 Account = accountId and Money = 100000000 Success!!! \r\n"},"index":0}],"userAccountSetHash":{"value":"j5gfdC7jfLGCmmUJjjP3uqwJQoy2GM6Q4LLiyamz62v2HY"},"contractAccountSetHash":{"value":"j5k2N1WgU9YTcsA1dHWEhNCbzu3HUdvx8jiEbLsgYbwzy6"},"executionState":"SUCCESS","transactionContent":{"ledgerHash":{"value":"j5wicGMLtw8NPQjRy1dwycZVQwNQUR5CLK27baTpyACSvF"},"operations":[{"args":{"values":[{"nil":false,"bytes":{"value":"3ZVnt87b5oLtxT9o7AK9oULxfQMVMokqQNuSzNPNfbzeaDUVtu8"},"type":"TEXT","value":"LdeNv8d4X2p4mavh6kYB2BiugxJjrQXFdSwJK"},{"nil":false,"bytes":{"value":"2Eu6hV4BwMhw9"},"type":"TEXT","value":"accountId"},{"nil":false,"bytes":{"value":"11119qXWw"},"type":"INT64","value":100000000}]},"contractAddress":{"value":"LdeNjSoMDruym16xJwL5Q3sXYMp7o1HjJmCUs"},"event":"create","version":0}],"hash":{"value":"j5s5G22YTPM6yRkPEvPnBYMbPjUbaaVAhQdPsEfaYqFUVG"},"timestamp":1596783596252},"endpointSignatures":[{"digest":{"value":"SMLUWcv7uqXMncFqzBWuNoS27u69iBpN4z8KaWWmqDD3Fum3KJXgE4Wc7BDH68X2WGeXvGFttvtBmLXP7jc3dLcEEW"},"pubKey":{"value":"7VeR8dUijaAFkeroW94ZMkQrjiBdpeoK1Ryfr2Ygt7PtKRVD"}}],"adminAccountHash":{"value":"j5r2RCUKaQdG82RCQhfXgTwGqdv3o9ynrE5ndgrqWf7hGj"},"dataAccountSetHash":{"value":"j5nvH3koNoScac6VrnoqHW4WfAf5RbmNMFryTobZfkc1kD"},"nodeSignatures":[{"digest":{"value":"SMLUWcv7uqXMncFqzBWuNoS27u69iBpN4z8KaWWmqDD3Fum3KJXgE4Wc7BDH68X2WGeXvGFttvtBmLXP7jc3dLcEEW"},"pubKey":{"value":"7VeR8dUijaAFkeroW94ZMkQrjiBdpeoK1Ryfr2Ygt7PtKRVD"}}]},"success":true});
 
   res.send(ret);
 });
@@ -1718,7 +1666,7 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName', function(r
             "value": "C7P9wfY"
           },
           "type": "BYTES",
-          "value": "Ynl0ZXM="
+          "value": 0
         }
       },
       {

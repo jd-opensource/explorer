@@ -45,8 +45,9 @@ export default class TransactionInfo extends Component {
 
   
   formatData(type,data, value = ''){
-    data=data && (data.value + '') || '';
-
+    data = data && data.value != undefined && (data.value + '') || '';
+    
+    console.log(type, data, data.value)
     let result='';
     switch (type.toUpperCase()) {
       case 'INT64':
@@ -86,7 +87,7 @@ export default class TransactionInfo extends Component {
       for (let i = 0; i < data.values.length; i++) {
         json.push({
           type:data.values[i].type,
-          value:this.formatData(data.values[i].type,data.values[i].value),
+          value:this.formatData(data.values[i].type,data.values[i].bytes),
         });
         
       }
