@@ -81,6 +81,48 @@ export default class TransactionInfo extends Component {
     return result;
   }
 
+  stateItem = state => {
+    let span = '';
+
+    switch(state) {
+      case 'READY':
+        span = '注册';
+      break;
+      case 'CONSENSUS':
+        span = '激活';
+      break;
+      case 'DECONSENSUS':
+        span = '吊销';
+      break;
+      default: 
+        span = '注册';
+      break;
+    }
+
+    return span;
+  }
+
+  partItem = state => {
+    let span = '';
+
+    switch(state) {
+      case 'READY':
+        span = '注册参与方';
+      break;
+      case 'CONSENSUS':
+        span = '激活参与方';
+      break;
+      case 'DECONSENSUS':
+        span = '吊销参与方';
+      break;
+      default: 
+        span = '注册参与方';
+      break;
+    }
+
+    return span;
+  }
+
   argsToList(data){
     let json=[];
     if(data&&data.values&&data.values.length>0){

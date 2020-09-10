@@ -137,7 +137,7 @@
             <BlockCollapsePanel title="状态">
               <fj-Row style="margin:16px 0;">
               <fj-Col l=2>状态：</fj-Col>
-              <fj-Col l=10>{{this.state == 'CONSENSUS' && '激活' || '注册'}} </fj-Col>
+              <fj-Col l=10>{{stateItem(this.state)}} </fj-Col>
               </fj-Row>
             </BlockCollapsePanel>
             
@@ -200,7 +200,7 @@
           </#if>
 
           <#if {{this.participantID}}>
-            <BlockCollapsePanel title="{{this.state && '激活参与方' || '注册参与方'}}">
+            <BlockCollapsePanel title="{{partItem(this.state)}}">
               <table style="line-height:41px;">
                 <tr>
                   <td>参与方地址：</td>
