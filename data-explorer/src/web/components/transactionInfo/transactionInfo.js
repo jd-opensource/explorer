@@ -86,16 +86,14 @@ export default class TransactionInfo extends Component {
 
     switch(state) {
       case 'READY':
-        span = '注册';
+      case 'DECONSENSUS':
+        span = '未启动';
       break;
       case 'CONSENSUS':
-        span = '激活';
-      break;
-      case 'DECONSENSUS':
-        span = '吊销';
+        span = '启动';
       break;
       default: 
-        span = '注册';
+        span = '未启动';
       break;
     }
 
