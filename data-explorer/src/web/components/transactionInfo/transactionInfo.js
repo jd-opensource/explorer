@@ -111,7 +111,7 @@ export default class TransactionInfo extends Component {
         span = '激活参与方';
       break;
       case 'DECONSENSUS':
-        span = '吊销参与方';
+        span = '禁用参与方';
       break;
       default: 
         span = '注册参与方';
