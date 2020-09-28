@@ -54,10 +54,9 @@ const SearchStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
- 
+
     setTransactionTotal(result) {
       if (result&&result.success) {
         self.transactionTotal=result.data||0;
@@ -76,7 +75,6 @@ const SearchStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setUserTotal(result) {
@@ -97,7 +95,6 @@ const SearchStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     
@@ -119,7 +116,6 @@ const SearchStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setEventTotal(result) {
@@ -140,7 +136,6 @@ const SearchStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setContractTotal(result) {

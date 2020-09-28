@@ -41,7 +41,6 @@ const ContractStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     // 合约列表--模糊查询
@@ -56,7 +55,6 @@ const ContractStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setContracts(result) {
@@ -84,7 +82,6 @@ const ContractStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     // 合约列表总数--模糊查询
@@ -99,7 +96,6 @@ const ContractStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setContractsCount(result) {
@@ -122,7 +118,6 @@ const ContractStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setContractsByAddress(result) {

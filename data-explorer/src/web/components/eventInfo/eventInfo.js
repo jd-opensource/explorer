@@ -38,7 +38,6 @@ export default class EventInfo extends Component {
     @observable expandedRowKeysName = [];
     
     onPageChange = (page, pageSize) => {
-        console.log(page, pageSize)
         const { data, store: { common, event } } = this.props;
         const closeLoading = Message.loading('正在获取数据...', 0);
         let leaders = common.getDefaultLedger();
@@ -71,7 +70,6 @@ export default class EventInfo extends Component {
 
     onPageChangeName = (page, pageSize, record) => {
         const { data, store: { common, event } } = this.props;
-        console.log(record)
         event.setName(page);
         this.expandedRowKeysName = [];
         let address = data.address && data.address.value && data.address.value || '';
@@ -98,7 +96,6 @@ export default class EventInfo extends Component {
     onShow = (record, index) => {
         const { data, store: { common, event } } = this.props;
         let address = data.address && data.address.value && data.address.value || '';
-        console.log(address)
         let param = {
             fromSequence: (event.nameCurrent - 1) * this.pageEvent,
             count: this.pageEvent,
@@ -214,7 +211,6 @@ export default class EventInfo extends Component {
             let testArr = [];
             testArr.push(record.index);
             this.expandedRowKeysName = [...testArr];
-            console.log(record, this.expandedRowKeysName)
         } else {
             this.expandedRowKeysName = [...arrayRemove(this.expandedRowKeysName, record.index)]
         }

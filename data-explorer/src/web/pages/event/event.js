@@ -38,7 +38,6 @@ export default class Event extends Component {
 
   onInputChange = e => {
     this.eventAddress = e.target.value;
-    console.log(this.eventAddress)
   } 
 
   componentDidMount() {

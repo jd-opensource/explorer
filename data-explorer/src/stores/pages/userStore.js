@@ -37,7 +37,6 @@ const UserStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setUser(result) {
@@ -57,7 +56,6 @@ const UserStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setUserCount(result) {
@@ -66,7 +64,7 @@ const UserStore = types
       }
     },
      // 用户信息列表--模糊查询
-     getUserVague(ledger,param) {
+    getUserVague(ledger,param) {
       return fetchData(`${__HOST}/ledgers/${ledger}/users/search`,
         self.setUserVague,
         param, { 
@@ -77,7 +75,6 @@ const UserStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setUserVague(result) {
@@ -100,7 +97,6 @@ const UserStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setUserCountVague(result) {

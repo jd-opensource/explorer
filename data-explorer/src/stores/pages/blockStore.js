@@ -24,7 +24,6 @@ const BlockStore = types
     searchData(success, ledger) {
       let totalBlock=success[0];// 最高区块
       let searchBlock=self.inputRole*1; // 将要搜索的区块
-      console.log(totalBlock, searchBlock);
       if(self.inputRole<0){
         searchBlock=totalBlock-3; // 将要搜索的区块
       }
@@ -74,7 +73,6 @@ const BlockStore = types
         });
         
       }
-      console.log(self.blockList);
       // this.blockList=this.blockList.reverse();
       // closeLoading();
       Promise.all([
@@ -243,7 +241,7 @@ const BlockStore = types
     setTransactionMore(result){
       
       if (result&&result.success) {
-        self.transactionInfo = result.data || [];// 交易数据
+        self.transactionInfo = result.data || {};// 交易数据
       }  
     },
     // 获取交易Hash
