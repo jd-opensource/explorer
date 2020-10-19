@@ -202,7 +202,7 @@ const BlockStore = types
     },
     // 根据高度查找交易
     getTransaction(param) {
-      return fetchData(`${__HOST}/ledgers/${param.ledger}/blocks/height/${param.height}/txs`,
+      return fetchData(`${__HOST}/ledgers/${param.ledger}/blocks/height/${param.height}/txs/additional-txs`,
         self.setTransaction,param,
         { 
           method: 'get',
@@ -212,7 +212,7 @@ const BlockStore = types
     },
     // 查找hash交易
     getTransactionOfHash(param) {
-      return fetchData(`${__HOST}/ledgers/${param.ledger}/blocks/hash/${param.hash}/txs`,
+      return fetchData(`${__HOST}/ledgers/${param.ledger}/blocks/hash/${param.hash}/txs/additional-txs`,
         self.setTransaction,param,
         { 
           method: 'get',

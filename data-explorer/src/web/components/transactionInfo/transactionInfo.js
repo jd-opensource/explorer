@@ -265,6 +265,7 @@ export default class TransactionInfo extends Component {
               initSetting.consensusParticipants && initSetting.consensusParticipants.length != 0 && initSetting.consensusParticipants.map((item, key) => (
                 <BlockCollapseSmall title = {`参与方名称: ${item.name || ''}`}>
                   <table style = {{lineHeight: '41px'}}>
+
                     <tr>
                       <td>参与方地址:</td>
                       <td>{item.address && item.address.value && item.address.value || ''}</td>
@@ -423,27 +424,35 @@ export default class TransactionInfo extends Component {
           </table>
         </BlockCollapsePanel>
       ) || null,
-      state && (
-        <BlockCollapsePanel title = "状态">
-          <Row style = {{margin: '16px 0'}}>
-            <Col span = {4}>状态:</Col>
-            <Col span = {20}>{this.stateItem(state)}</Col>
-          </Row>
-        </BlockCollapsePanel>
-      ) || null,
-      participantName && (
-        <BlockCollapsePanel title = "参与方信息">
-          <table style ={{lineHeight: '41px'}}>
-            <tr>
-              <td>参与方名称:</td>
-              <td>{participantName}</td>
-            </tr>
-          </table>
-        </BlockCollapsePanel>
-      ) || null,
+      // state && (
+      //   <BlockCollapsePanel title = "状态">
+      //     <Row style = {{margin: '16px 0'}}>
+      //       <Col span = {4}>状态:</Col>
+      //       <Col span = {20}>{this.stateItem(state)}</Col>
+      //     </Row>
+      //   </BlockCollapsePanel>
+      // ) || null,
+      // participantName && (
+      //   <BlockCollapsePanel title = "参与方信息">
+      //     <table style ={{lineHeight: '41px'}}>
+      //       <tr>
+      //         <td>参与方名称:</td>
+      //         <td>{participantName}</td>
+      //       </tr>
+      //     </table>
+      //   </BlockCollapsePanel>
+      // ) || null,
       participantRegisterIdentity && JSON.stringify(participantRegisterIdentity) != "{}" && (
         <BlockCollapsePanel title = "注册参与方">
           <table style = {{lineHeight: '41px'}}>
+            {
+              participantName && (
+                <tr>
+                  <td>参与方名称:</td>
+                  <td>{participantName}</td>
+                </tr>
+              )
+            }
             <tr>
               <td>参与方地址:</td>
               <td>{participantRegisterIdentity.address && participantRegisterIdentity.address.value && participantRegisterIdentity.address.value || ''}</td>
@@ -462,6 +471,14 @@ export default class TransactionInfo extends Component {
       participantID && JSON.stringify(participantID) != "{}" && (
         <BlockCollapsePanel title = {this.partItem(state)}>
           <table style = {{lineHeight: '41px'}}>
+            {
+              participantName && (
+                <tr>
+                  <td>参与方名称:</td>
+                  <td>{participantName}</td>
+                </tr>
+              )
+            }
             <tr>
               <td>参与方地址:</td>
               <td>{participantID.address && participantID.address.value && participantID.address.value || ''}</td>
@@ -474,12 +491,28 @@ export default class TransactionInfo extends Component {
               <td>参与方公钥数据:</td>
               <td>{participantID.pubKey && participantID.pubKey.value && participantID.pubKey.value || ''}</td>
             </tr>
+            {
+              state && (
+                <tr>
+                  <td>状态:</td>
+                  <td>{this.stateItem(state)}</td>
+                </tr>
+              )
+            }
           </table>
         </BlockCollapsePanel>
       ) || null,
       stateUpdateIdentity && JSON.stringify(stateUpdateIdentity) != "{}" && (
         <BlockCollapsePanel title = "更新参与方">
           <table style = {{lineHeight: '41px'}}>
+            {
+              participantName && (
+                <tr>
+                  <td>参与方名称:</td>
+                  <td>{participantName}</td>
+                </tr>
+              )
+            }
             <tr>
               <td>参与方地址:</td>
               <td>{stateUpdateIdentity.address && stateUpdateIdentity.address.value && stateUpdateIdentity.address.value || ''}</td>
@@ -620,12 +653,12 @@ export default class TransactionInfo extends Component {
       <div>
         {
           dataSnapshot && JSON.stringify(dataSnapshot) != "{}" && (
-            <BlockCollapse title = "响应内容">
+            <BlockCollapse title = "数据快照">
               <table style = {{lineHeight: '41px'}}>
                 {
                   dataSnapshot.adminAccountHash && (
                     <tr>
-                      <td>管理员哈希:</td>
+                      <td>管理账户根哈希:</td>
                       <td>{dataSnapshot.adminAccountHash.value || ''}</td>
                     </tr>
                   ) || null
@@ -633,7 +666,7 @@ export default class TransactionInfo extends Component {
                 {
                   dataSnapshot.userAccountSetHash && (
                     <tr>
-                      <td>用户集哈希:</td>
+                      <td>用户账户集根哈希:</td>
                       <td>{dataSnapshot.userAccountSetHash.value || ''}</td>
                     </tr>
                   ) || null
@@ -641,7 +674,7 @@ export default class TransactionInfo extends Component {
                 {
                   dataSnapshot.dataAccountSetHash && (
                     <tr>
-                      <td>数据账户集哈希:</td>
+                      <td>数据账户集根哈希:</td>
                       <td>{dataSnapshot.dataAccountSetHash.value || ''}</td>
                     </tr>
                   ) || null
@@ -649,7 +682,7 @@ export default class TransactionInfo extends Component {
                 {
                   dataSnapshot.contractAccountSetHash && (
                     <tr>
-                      <td>合约集哈希:</td>
+                      <td>合约账户集根哈希:</td>
                       <td>{dataSnapshot.contractAccountSetHash.value || ''}</td>
                     </tr>
                   ) || null
@@ -657,7 +690,7 @@ export default class TransactionInfo extends Component {
                 {
                   dataSnapshot.systemEventSetHash && (
                     <tr>
-                      <td>系统事件集哈希:</td>
+                      <td>系统事件集根哈希:</td>
                       <td>{dataSnapshot.systemEventSetHash.value || ''}</td>
                     </tr>
                   ) || null
@@ -665,7 +698,7 @@ export default class TransactionInfo extends Component {
                 {
                   dataSnapshot.userEventSetHash && (
                     <tr>
-                      <td>用户事件集哈希:</td>
+                      <td>用户事件集根哈希:</td>
                       <td>{dataSnapshot.userEventSetHash.value || ''}</td>
                     </tr>
                   ) || null
