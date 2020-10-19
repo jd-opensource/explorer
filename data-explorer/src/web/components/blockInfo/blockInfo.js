@@ -10,6 +10,7 @@ import 'flarej/lib/components/antd/table';
 import Message from 'flarej/lib/components/antd/message';
 import styles from './blockInfo.m.scss';
 import tmpls from './blockInfo.t.html';
+import moment from 'moment';
 
 //页面容器组件
 @registerTmpl('BlockInfo')
@@ -90,6 +91,7 @@ export default class BlockInfo extends Component {
       blockdata:blockinfo,
       txCount:txCount,
       transactionList:transactionList,
+      moment,
     });
   }
 }
