@@ -235,6 +235,7 @@ export default class TransactionInfo extends Component {
       userRolesAuthorizations,
       writeSet, 
     } = opt;
+    console.log(opt)
     return [
       initSetting && JSON.stringify(initSetting) != "{}" && (
         <BlockCollapsePanel title = "初始化配置">
@@ -339,7 +340,7 @@ export default class TransactionInfo extends Component {
 
           {
             writeSet.map((item, key) => (
-              <BlockCollapseSmall title = {`键: ${key}`}>
+              <BlockCollapseSmall title = {`键: ${item.key || ''}`}>
                 值:{this.formatData(item.value.type,item.value.bytes, item.value.value)}<br/>
                 预期版本:{item.expectedVersion}<br/>
                 类型:{item.value.type}
