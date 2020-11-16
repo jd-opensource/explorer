@@ -1405,7 +1405,7 @@ router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
 // GET /ledgers/{ledger}/users/count
 router.get('/:ledger/users/count', function(req, res) {
   res.type('json');
-  let params = req.body
+  let params = req.body,
     ret = {};
 
   Object.assign(ret, resultData,{
