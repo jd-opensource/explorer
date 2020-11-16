@@ -1372,21 +1372,13 @@ router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
             "timestamp": 1603438749987
           },
           "endpointSignatures": [{
-            "digest": {
-              "value": "SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH"
-            },
-            "pubKey": {
-              "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-            }
+            "digest": "SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH",
+            "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq",
           }],
           "transactionHash":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL",
           "nodeSignatures": [{
-            "digest": {
-              "value": "SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH"
-            },
-            "pubKey": {
-              "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-            }
+            "digest":"SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH",
+            "pubKey":"7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
           }]
         },
         "blockHeight": 15,

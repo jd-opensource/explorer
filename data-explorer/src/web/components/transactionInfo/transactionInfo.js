@@ -162,8 +162,8 @@ export default class TransactionInfo extends Component {
             <BlockCollapse title = "终端签名列表">
               {
                 data.endpointSignatures.map((item, key) => (
-                  <BlockCollapseSmall title = {`公钥: ${item.pubKey && item.pubKey.value && item.pubKey.value || ''}`}>
-                    签名: {item.digest && item.digest.value && item.digest.value || ''}
+                  <BlockCollapseSmall title = {`公钥: ${item.pubKey && item.pubKey && item.pubKey || ''}`}>
+                    签名: {item.digest && item.digest && item.digest || ''}
                   </BlockCollapseSmall>
                 ))
               }
@@ -175,8 +175,8 @@ export default class TransactionInfo extends Component {
             <BlockCollapse title = "节点签名列表">
               {
                 data.nodeSignatures.map((item, key) => (
-                  <BlockCollapseSmall title = {`公钥: ${item.pubKey && item.pubKey.value && item.pubKey.value || ''}`}>
-                    签名: {item.digest && item.digest.value && item.digest.value || ''}
+                  <BlockCollapseSmall title = {`公钥: ${item.pubKey && item.pubKey && item.pubKey || ''}`}>
+                    签名: {item.digest && item.digest && item.digest || ''}
                   </BlockCollapseSmall>
                 ))
               }
@@ -273,11 +273,11 @@ export default class TransactionInfo extends Component {
                     </tr>
                     <tr>
                       <td>参与方公钥算法:</td>
-                      <td>{tranBase58(item.pubKey && item.pubKey.value && item.pubKey.value || '')}</td>
+                      <td>{tranBase58(item.pubKey && item.pubKey && item.pubKey || '')}</td>
                     </tr>
                     <tr>
                       <td>参与方公钥数据:</td>
-                      <td>{item.pubKey && item.pubKey.value && item.pubKey.value || ''}</td>
+                      <td>{item.pubKey && item.pubKey && item.pubKey || ''}</td>
                     </tr>
                     <tr>
                       <td>节点状态:</td>
@@ -358,11 +358,11 @@ export default class TransactionInfo extends Component {
             </tr>
             <tr>
               <td>合约公钥算法:</td>
-              <td>{tranBase58(contractID.pubKey && contractID.pubKey.value && contractID.pubKey.value || '')}</td>
+              <td>{tranBase58(contractID.pubKey && contractID.pubKey && contractID.pubKey || '')}</td>
             </tr>
             <tr>
               <td>合约公钥:</td>
-              <td>{contractID.pubKey && contractID.pubKey.value && contractID.pubKey.value || ''}</td>
+              <td>{contractID.pubKey && contractID.pubKey && contractID.pubKey || ''}</td>
             </tr>
             {chainCode && (<tr>
               <td>合约内容:</td>
@@ -398,11 +398,11 @@ export default class TransactionInfo extends Component {
             </tr>
             <tr>
               <td>账户公钥算法:</td>
-              <td>{tranBase58(accountID.pubKey && accountID.pubKey.value && accountID.pubKey.value || '')}</td>
+              <td>{tranBase58(accountID.pubKey && accountID.pubKey && accountID.pubKey || '')}</td>
             </tr>
             <tr>
               <td>账户公钥:</td>
-              <td>{accountID.pubKey && accountID.pubKey.value && accountID.pubKey.value || ''}</td>
+              <td>{accountID.pubKey && accountID.pubKey && accountID.pubKey || ''}</td>
             </tr>
           </table>
         </BlockCollapsePanel>
@@ -416,11 +416,11 @@ export default class TransactionInfo extends Component {
             </tr>
             <tr>
               <td>用户公钥算法:</td>
-              <td>{tranBase58(userID.pubKey && userID.pubKey.value && userID.pubKey.value || '')}</td>
+              <td>{tranBase58(userID.pubKey && userID.pubKey && userID.pubKey || '')}</td>
             </tr>
             <tr>
               <td>用户公钥数据:</td>
-              <td>{userID.pubKey && userID.pubKey.value && userID.pubKey.value || ''}</td>
+              <td>{userID.pubKey && userID.pubKey && userID.pubKey || ''}</td>
             </tr>
           </table>
         </BlockCollapsePanel>
@@ -460,11 +460,11 @@ export default class TransactionInfo extends Component {
             </tr>
             <tr>
               <td>参与方公钥算法:</td>
-              <td>{tranBase58(participantRegisterIdentity.pubKey && participantRegisterIdentity.pubKey.value && participantRegisterIdentity.pubKey.value || '')}</td>
+              <td>{tranBase58(participantRegisterIdentity.pubKey && participantRegisterIdentity.pubKey && participantRegisterIdentity.pubKey || '')}</td>
             </tr>
             <tr>
               <td>参与方公钥数据:</td>
-              <td>{participantRegisterIdentity.pubKey && participantRegisterIdentity.pubKey.value && participantRegisterIdentity.pubKey.value || ''}</td>
+              <td>{participantRegisterIdentity.pubKey && participantRegisterIdentity.pubKey && participantRegisterIdentity.pubKey || ''}</td>
             </tr>
           </table>
         </BlockCollapsePanel>
@@ -486,11 +486,11 @@ export default class TransactionInfo extends Component {
             </tr>
             <tr>
               <td>参与方公钥算法:</td>
-              <td>{tranBase58(participantID.pubKey && participantID.pubKey.value && participantID.pubKey.value || '')}</td>
+              <td>{tranBase58(participantID.pubKey && participantID.pubKey && participantID.pubKey || '')}</td>
             </tr>
             <tr>
               <td>参与方公钥数据:</td>
-              <td>{participantID.pubKey && participantID.pubKey.value && participantID.pubKey.value || ''}</td>
+              <td>{participantID.pubKey && participantID.pubKey && participantID.pubKey || ''}</td>
             </tr>
             {
               state && (
@@ -520,11 +520,11 @@ export default class TransactionInfo extends Component {
             </tr>
             <tr>
               <td>参与方公钥算法:</td>
-              <td>{tranBase58(stateUpdateIdentity.pubKey && stateUpdateIdentity.pubKey.value && stateUpdateIdentity.pubKey.value || '')}</td>
+              <td>{tranBase58(stateUpdateIdentity.pubKey && stateUpdateIdentity.pubKey && stateUpdateIdentity.pubKey || '')}</td>
             </tr>
             <tr>
               <td>参与方公钥数据:</td>
-              <td>{stateUpdateIdentity.pubKey && stateUpdateIdentity.pubKey.value && stateUpdateIdentity.pubKey.value || ''}</td>
+              <td>{stateUpdateIdentity.pubKey && stateUpdateIdentity.pubKey && stateUpdateIdentity.pubKey || ''}</td>
             </tr>
           </table>
         </BlockCollapsePanel>
@@ -538,7 +538,7 @@ export default class TransactionInfo extends Component {
             </tr>
             <tr>
               <td>事件账户公钥算法:</td>
-              <td>{eventAccountID.pubKey && eventAccountID.pubKey.value && tranBase58(eventAccountID.pubKey.value) || ''}</td>
+              <td>{eventAccountID.pubKey && eventAccountID.pubKey && tranBase58(eventAccountID.pubKey) || ''}</td>
             </tr>
           </table>
         </BlockCollapsePanel>

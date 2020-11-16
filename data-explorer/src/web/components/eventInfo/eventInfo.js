@@ -295,7 +295,7 @@ export default class EventInfo extends Component {
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.address && data.address.value && data.address.value || ''}</Col>
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>事件账户公钥:</Col>
-                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.pubKey && data.pubKey.value && data.pubKey.value || ''}</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.pubKey && data.pubKey && data.pubKey || ''}</Col>
                     </Row>
 
                     <h3>事件列表</h3>
