@@ -158,30 +158,22 @@ router.get('/:ledgerHash/settings', function(req, res) {
             "address": "LdeP1fLeUnmrQHr4ryGmoQ4ubzAvcrgayUK8U",
             "id": 0,
             "name": "jd.com",
-            "pubKey": {
-                "value": "7VeRBxpPoCzAS6AavVoe1HGpJsz68kcZEYzN1fkg3GgASvkb"
-            }
+            "pubKey": "7VeRBxpPoCzAS6AavVoe1HGpJsz68kcZEYzN1fkg3GgASvkb"
         }, {
             "address": "LdeP2xKyNFeYhgzDGn5Vq2dndCUNCeLYLyh1k",
             "id": 1,
             "name": "at.com",
-            "pubKey": {
-                "value": "7VeRJ9PiL7sCGKc56uckEwvKZnxqk9VfMedanGoKtM4CQ3yM"
-            }
+            "pubKey": "7VeRJ9PiL7sCGKc56uckEwvKZnxqk9VfMedanGoKtM4CQ3yM"
         }, {
             "address": "LdeNrvP3Q4NDjjeidcaqKGz3cWotf4qmTZmeK",
             "id": 2,
             "name": "bt.com",
-            "pubKey": {
-                "value": "7VeRG8n49ocQYEvievU971e7uJMhRPTkLS3qJr4NJBahysYY"
-            }
+            "pubKey": "7VeRG8n49ocQYEvievU971e7uJMhRPTkLS3qJr4NJBahysYY"
         }, {
             "address": "LdeNisAU3fBAtEfTrdH7fXSYidAbAmBZBeP5c",
             "id": 3,
             "name": "xt.com",
-            "pubKey": {
-                "value": "7VeRFzWif8yGXa8GRYri7jFLevqryxZTJ6m9NiEUSfUNqKy8"
-            }
+            "pubKey": "7VeRFzWif8yGXa8GRYri7jFLevqryxZTJ6m9NiEUSfUNqKy8"
         }],
         // "participantsHash": {
         //     "value": "j5vDDASBGRAynVmopq2q4obNPZmbJMwGnDWsHnSgz9nuS9"
@@ -445,33 +437,17 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function(req, re
       "request": {
         "endpointSignatures": [],
         "nodeSignatures": [{
-          "digest": {
-            "value": "SMKKF9GCBdb3LiJQupbv5hNzpdaQTNmHxYsaMxymedup7sBRKprx6huTffQcFvJ4bKsZGPKbZzTu295Lk4JCFxEKTb"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMKKF9GCBdb3LiJQupbv5hNzpdaQTNmHxYsaMxymedup7sBRKprx6huTffQcFvJ4bKsZGPKbZzTu295Lk4JCFxEKTb",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }, {
-          "digest": {
-            "value": "SMJHt3DYwWqzMrBSjqFKWor4VwN3J1TboysiDNxyRm2DVPYexmLytYBkf5KoPQF2mnN1diK7xFh62YmjfCbqqVmreT"
-          },
-          "pubKey": {
-            "value": "7VeRBsHM2nsGwP8b2ufRxz36hhNtSqjKTquzoa4WVKWty5sD"
-          }
+          "digest": "SMJHt3DYwWqzMrBSjqFKWor4VwN3J1TboysiDNxyRm2DVPYexmLytYBkf5KoPQF2mnN1diK7xFh62YmjfCbqqVmreT",
+          "pubKey": "7VeRBsHM2nsGwP8b2ufRxz36hhNtSqjKTquzoa4WVKWty5sD"
         }, {
-          "digest": {
-            "value": "SMMLFG2wbDKVhg3TJEnzELqXngVx15QN6PjwpNTtCVh81PtB3KjmzeXAq78Dy7yctMmJ52dhgnLTxTGzteFEbZ8RJr"
-          },
-          "pubKey": {
-            "value": "7VeRAr3dSbi1xatq11ZcF7sEPkaMmtZhV9shonGJWk9T4pLe"
-          }
+          "digest": "SMMLFG2wbDKVhg3TJEnzELqXngVx15QN6PjwpNTtCVh81PtB3KjmzeXAq78Dy7yctMmJ52dhgnLTxTGzteFEbZ8RJr",
+          "pubKey": "7VeRAr3dSbi1xatq11ZcF7sEPkaMmtZhV9shonGJWk9T4pLe"
         }, {
-          "digest": {
-            "value": "SMLK6oGzyFWaXsvgz87TwTRX6kF8ia9cwVHsLHwxFLw96vqSmUu5rMdixCU2gS3Y3FLQhWfxVEyB6shSHwSNmqq7G3"
-          },
-          "pubKey": {
-            "value": "7VeRKoM5RE6iFXr214Hsiic2aoqCQ7MEU1dHQFRnjXQcReAS"
-          }
+          "digest": "SMLK6oGzyFWaXsvgz87TwTRX6kF8ia9cwVHsLHwxFLw96vqSmUu5rMdixCU2gS3Y3FLQhWfxVEyB6shSHwSNmqq7G3",
+          "pubKey": "7VeRKoM5RE6iFXr214Hsiic2aoqCQ7MEU1dHQFRnjXQcReAS"
         }],
         "transactionContent": {
           "operations": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
@@ -482,12 +458,8 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function(req, re
       "result": {
         "blockHeight": 0,
         "dataSnapshot": {
-          "adminAccountHash": {
-            "value": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V"
-          },
-          "userAccountSetHash": {
-            "value": "j5sQJ8XibCG62dVTcCyV73qgqfcsMhUPvGQgiPre1wUu1n"
-          }
+          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
+          "userAccountSetHash": "j5sQJ8XibCG62dVTcCyV73qgqfcsMhUPvGQgiPre1wUu1n"
         },
         "executionState": "SUCCESS",
         "transactionHash": "j5j47m9goc4tz9XfoBDd8zQ3fyFT2iyZLGws4skAMWgdHH",
@@ -500,25 +472,15 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function(req, re
       "executionState": "SUCCESS",
       "request": {
         "endpointSignatures": [{
-          "digest": {
-            "value": "SMKm5D7xEDUgWGRuAabugWMfygvGgLn9MrUMVijX78ZDFGCTXsxXcZ8ZyH6X4svboZ1SEe42JZVt3fdgwUJ7C7aXe2"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMKm5D7xEDUgWGRuAabugWMfygvGgLn9MrUMVijX78ZDFGCTXsxXcZ8ZyH6X4svboZ1SEe42JZVt3fdgwUJ7C7aXe2",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "nodeSignatures": [{
-          "digest": {
-            "value": "SMKm5D7xEDUgWGRuAabugWMfygvGgLn9MrUMVijX78ZDFGCTXsxXcZ8ZyH6X4svboZ1SEe42JZVt3fdgwUJ7C7aXe2"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMKm5D7xEDUgWGRuAabugWMfygvGgLn9MrUMVijX78ZDFGCTXsxXcZ8ZyH6X4svboZ1SEe42JZVt3fdgwUJ7C7aXe2",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "transactionContent": {
-          "ledgerHash": {
-            "value": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc"
-          },
+          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
           "operations": [{}],
           "timestamp": 1601274968253
         },
@@ -527,411 +489,245 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function(req, re
       "result": {
         "blockHeight": 1,
         "dataSnapshot": {
-          "adminAccountHash": {
-            "value": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V"
-          },
-          "userAccountSetHash": {
-            "value": "j5wDEV3qFGTwtpqFoy18FQxETyhXv8WAZEzjVAeSh4qoni"
-          }
+          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
+          "userAccountSetHash": "j5wDEV3qFGTwtpqFoy18FQxETyhXv8WAZEzjVAeSh4qoni"
         },
         "executionState": "SUCCESS",
         "transactionHash": "j5gbyDaHfwnBJquH5HU3Y4ooEu6F4akaAvRgW5mPK9q24c"
       },
-      "transactionHash": {
-        "value": "j5gbyDaHfwnBJquH5HU3Y4ooEu6F4akaAvRgW5mPK9q24c"
-      }
+      "transactionHash": "j5gbyDaHfwnBJquH5HU3Y4ooEu6F4akaAvRgW5mPK9q24c"
     }, {
       "blockHeight": 1,
       "executionState": "SUCCESS",
       "request": {
         "endpointSignatures": [{
-          "digest": {
-            "value": "SMJLKkVk43uN2A8QqYnbvxZWsvMSbW6MVZk8yxiTt4uCvgP6BfoymuxQqci6Lu3bm38JhjgoBs4pVzdsyJ8bMM6rW3"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMJLKkVk43uN2A8QqYnbvxZWsvMSbW6MVZk8yxiTt4uCvgP6BfoymuxQqci6Lu3bm38JhjgoBs4pVzdsyJ8bMM6rW3",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "nodeSignatures": [{
-          "digest": {
-            "value": "SMJLKkVk43uN2A8QqYnbvxZWsvMSbW6MVZk8yxiTt4uCvgP6BfoymuxQqci6Lu3bm38JhjgoBs4pVzdsyJ8bMM6rW3"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMJLKkVk43uN2A8QqYnbvxZWsvMSbW6MVZk8yxiTt4uCvgP6BfoymuxQqci6Lu3bm38JhjgoBs4pVzdsyJ8bMM6rW3",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "transactionContent": {
-          "ledgerHash": {
-            "value": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc"
-          },
+          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
           "operations": [{}],
           "timestamp": 1601274968252
         },
-        "transactionHash": {
-          "value": "j5gg47mvrrF4DQczUQVjjvMN6gfN9TRocW7JMfsXDzcP47"
-        }
+        "transactionHash": "j5gg47mvrrF4DQczUQVjjvMN6gfN9TRocW7JMfsXDzcP47"
       },
       "result": {
         "blockHeight": 1,
         "dataSnapshot": {
-          "adminAccountHash": {
-            "value": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V"
-          },
-          "userAccountSetHash": {
-            "value": "j5koseQzgnrWBYcL2MGumBBqudexscQMNu5pUXVSR7AAUy"
-          }
+          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
+          "userAccountSetHash": "j5koseQzgnrWBYcL2MGumBBqudexscQMNu5pUXVSR7AAUy"
         },
         "executionState": "SUCCESS",
-        "transactionHash": {
-          "value": "j5gg47mvrrF4DQczUQVjjvMN6gfN9TRocW7JMfsXDzcP47"
-        }
+        "transactionHash": "j5gg47mvrrF4DQczUQVjjvMN6gfN9TRocW7JMfsXDzcP47"
       },
-      "transactionHash": {
-        "value": "j5gg47mvrrF4DQczUQVjjvMN6gfN9TRocW7JMfsXDzcP47"
-      }
+      "transactionHash": "j5gg47mvrrF4DQczUQVjjvMN6gfN9TRocW7JMfsXDzcP47"
     }, {
       "blockHeight": 1,
       "executionState": "SUCCESS",
       "request": {
         "endpointSignatures": [{
-          "digest": {
-            "value": "SMLzEc42EYkXu89YME69UFWxJSqT6RyiEy1gqgvgARKySRBX3yMSzoekuJgFPSbcdEjchaVoqbG3GZnKg3yh8CF4ZR"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMLzEc42EYkXu89YME69UFWxJSqT6RyiEy1gqgvgARKySRBX3yMSzoekuJgFPSbcdEjchaVoqbG3GZnKg3yh8CF4ZR",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "nodeSignatures": [{
-          "digest": {
-            "value": "SMLzEc42EYkXu89YME69UFWxJSqT6RyiEy1gqgvgARKySRBX3yMSzoekuJgFPSbcdEjchaVoqbG3GZnKg3yh8CF4ZR"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMLzEc42EYkXu89YME69UFWxJSqT6RyiEy1gqgvgARKySRBX3yMSzoekuJgFPSbcdEjchaVoqbG3GZnKg3yh8CF4ZR",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "transactionContent": {
-          "ledgerHash": {
-            "value": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc"
-          },
+          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
           "operations": [{}],
           "timestamp": 1601274968252
         },
-        "transactionHash": {
-          "value": "j5qWbXt9Ns72jZnEoEMdQRwRGZfpLfGCms8RGeXQzJkhoY"
-        }
+        "transactionHash": "j5qWbXt9Ns72jZnEoEMdQRwRGZfpLfGCms8RGeXQzJkhoY"
       },
       "result": {
         "blockHeight": 1,
         "dataSnapshot": {
-          "adminAccountHash": {
-            "value": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V"
-          },
-          "userAccountSetHash": {
-            "value": "j5kYTy9viuKA1S8HqJxnBpDbr18p4weakMiiKfDKbE9Ejo"
-          }
+          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
+          "userAccountSetHash": "j5kYTy9viuKA1S8HqJxnBpDbr18p4weakMiiKfDKbE9Ejo"
         },
         "executionState": "SUCCESS",
-        "transactionHash": {
-          "value": "j5qWbXt9Ns72jZnEoEMdQRwRGZfpLfGCms8RGeXQzJkhoY"
-        }
+        "transactionHash": "j5qWbXt9Ns72jZnEoEMdQRwRGZfpLfGCms8RGeXQzJkhoY"
       },
-      "transactionHash": {
-        "value": "j5qWbXt9Ns72jZnEoEMdQRwRGZfpLfGCms8RGeXQzJkhoY"
-      }
+      "transactionHash": "j5qWbXt9Ns72jZnEoEMdQRwRGZfpLfGCms8RGeXQzJkhoY"
     }, {
       "blockHeight": 1,
       "executionState": "SUCCESS",
       "request": {
         "endpointSignatures": [{
-          "digest": {
-            "value": "SMLV4ZfGczcfYcbrejY2raQewVgND86rhBxi6azT3ygBQrCMfHFcuMsswV7RxpGg9PqBmBzEvSEurZWHdYCxXhZvPP"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMLV4ZfGczcfYcbrejY2raQewVgND86rhBxi6azT3ygBQrCMfHFcuMsswV7RxpGg9PqBmBzEvSEurZWHdYCxXhZvPP",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "nodeSignatures": [{
-          "digest": {
-            "value": "SMLV4ZfGczcfYcbrejY2raQewVgND86rhBxi6azT3ygBQrCMfHFcuMsswV7RxpGg9PqBmBzEvSEurZWHdYCxXhZvPP"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMLV4ZfGczcfYcbrejY2raQewVgND86rhBxi6azT3ygBQrCMfHFcuMsswV7RxpGg9PqBmBzEvSEurZWHdYCxXhZvPP",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "transactionContent": {
-          "ledgerHash": {
-            "value": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc"
-          },
+          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
           "operations": [{}],
           "timestamp": 1601274968252
         },
-        "transactionHash": {
-          "value": "j5ok7diJu3C4ZxNKknpurNSDGDqrrALs7uAbxe4WkUszCf"
-        }
+        "transactionHash": "j5ok7diJu3C4ZxNKknpurNSDGDqrrALs7uAbxe4WkUszCf"
       },
       "result": {
         "blockHeight": 1,
         "dataSnapshot": {
-          "adminAccountHash": {
-            "value": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V"
-          },
-          "userAccountSetHash": {
-            "value": "j5fPZ9ydWrsdMH4xmiMuFqkL7YH9iTMG27ZxboBtCU2VF9"
-          }
+          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
+          "userAccountSetHash": "j5fPZ9ydWrsdMH4xmiMuFqkL7YH9iTMG27ZxboBtCU2VF9"
         },
         "executionState": "SUCCESS",
-        "transactionHash": {
-          "value": "j5ok7diJu3C4ZxNKknpurNSDGDqrrALs7uAbxe4WkUszCf"
-        }
+        "transactionHash": "j5ok7diJu3C4ZxNKknpurNSDGDqrrALs7uAbxe4WkUszCf"
       },
-      "transactionHash": {
-        "value": "j5ok7diJu3C4ZxNKknpurNSDGDqrrALs7uAbxe4WkUszCf"
-      }
+      "transactionHash": "j5ok7diJu3C4ZxNKknpurNSDGDqrrALs7uAbxe4WkUszCf"
     }, {
       "blockHeight": 1,
       "executionState": "SUCCESS",
       "request": {
         "endpointSignatures": [{
-          "digest": {
-            "value": "SMJgw2pw2ViVJWHhaRH2M3LvvQMFiarqgpFRZNSV8S98mG47Z1pKnN5UbBZ9Nz1dZdzzn2WQEwN3sEPHnf4KECGKnn"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMJgw2pw2ViVJWHhaRH2M3LvvQMFiarqgpFRZNSV8S98mG47Z1pKnN5UbBZ9Nz1dZdzzn2WQEwN3sEPHnf4KECGKnn",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "nodeSignatures": [{
-          "digest": {
-            "value": "SMJgw2pw2ViVJWHhaRH2M3LvvQMFiarqgpFRZNSV8S98mG47Z1pKnN5UbBZ9Nz1dZdzzn2WQEwN3sEPHnf4KECGKnn"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMJgw2pw2ViVJWHhaRH2M3LvvQMFiarqgpFRZNSV8S98mG47Z1pKnN5UbBZ9Nz1dZdzzn2WQEwN3sEPHnf4KECGKnn",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "transactionContent": {
-          "ledgerHash": {
-            "value": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc"
-          },
+          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
           "operations": [{}],
           "timestamp": 1601274968252
         },
-        "transactionHash": {
-          "value": "j5k2iCjiPkmyJUWVAkD617AyKnwwnwpAjwNayzdTrtoQGN"
-        }
+        "transactionHash": "j5k2iCjiPkmyJUWVAkD617AyKnwwnwpAjwNayzdTrtoQGN"
       },
       "result": {
         "blockHeight": 1,
         "dataSnapshot": {
-          "adminAccountHash": {
-            "value": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V"
-          },
-          "userAccountSetHash": {
-            "value": "j5si1dprpxz1yXX9ECLGzPM6MGpd7Lwg9sWaYffaS7E2WW"
-          }
+          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
+          "userAccountSetHash": "j5si1dprpxz1yXX9ECLGzPM6MGpd7Lwg9sWaYffaS7E2WW"
         },
         "executionState": "SUCCESS",
-        "transactionHash": {
-          "value": "j5k2iCjiPkmyJUWVAkD617AyKnwwnwpAjwNayzdTrtoQGN"
-        }
+        "transactionHash": "j5k2iCjiPkmyJUWVAkD617AyKnwwnwpAjwNayzdTrtoQGN"
       },
-      "transactionHash": {
-        "value": "j5k2iCjiPkmyJUWVAkD617AyKnwwnwpAjwNayzdTrtoQGN"
-      }
+      "transactionHash": "j5k2iCjiPkmyJUWVAkD617AyKnwwnwpAjwNayzdTrtoQGN"
     }, {
       "blockHeight": 1,
       "executionState": "SUCCESS",
       "request": {
         "endpointSignatures": [{
-          "digest": {
-            "value": "SMGWt9QUZNPy9YyBeFnhv5taSTE4o9M4R7rZ2AZNnLj4x4KDbALQL36E8gwvzks1C3UfL2qddFdq5hBPqa8u38gwmp"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMGWt9QUZNPy9YyBeFnhv5taSTE4o9M4R7rZ2AZNnLj4x4KDbALQL36E8gwvzks1C3UfL2qddFdq5hBPqa8u38gwmp",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "nodeSignatures": [{
-          "digest": {
-            "value": "SMGWt9QUZNPy9YyBeFnhv5taSTE4o9M4R7rZ2AZNnLj4x4KDbALQL36E8gwvzks1C3UfL2qddFdq5hBPqa8u38gwmp"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMGWt9QUZNPy9YyBeFnhv5taSTE4o9M4R7rZ2AZNnLj4x4KDbALQL36E8gwvzks1C3UfL2qddFdq5hBPqa8u38gwmp",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "transactionContent": {
-          "ledgerHash": {
-            "value": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc"
-          },
+          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
           "operations": [{}],
           "timestamp": 1601274968253
         },
-        "transactionHash": {
-          "value": "j5iXQszMEkLQzQputBx83aF28J4o8Qrr9Vo5T1gP2Nuowh"
-        }
+        "transactionHash": "j5iXQszMEkLQzQputBx83aF28J4o8Qrr9Vo5T1gP2Nuowh"
       },
       "result": {
         "blockHeight": 1,
         "dataSnapshot": {
-          "adminAccountHash": {
-            "value": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V"
-          },
-          "userAccountSetHash": {
-            "value": "j5hTd4e2QiCpY5LWxn5FoULnKTCxNntNxJZESi6DFf7t53"
-          }
+          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
+          "userAccountSetHash": "j5hTd4e2QiCpY5LWxn5FoULnKTCxNntNxJZESi6DFf7t53"
         },
         "executionState": "SUCCESS",
-        "transactionHash": {
-          "value": "j5iXQszMEkLQzQputBx83aF28J4o8Qrr9Vo5T1gP2Nuowh"
-        }
+        "transactionHash": "j5iXQszMEkLQzQputBx83aF28J4o8Qrr9Vo5T1gP2Nuowh"
       },
-      "transactionHash": {
-        "value": "j5iXQszMEkLQzQputBx83aF28J4o8Qrr9Vo5T1gP2Nuowh"
-      }
+      "transactionHash": "j5iXQszMEkLQzQputBx83aF28J4o8Qrr9Vo5T1gP2Nuowh"
     }, {
       "blockHeight": 1,
       "executionState": "SUCCESS",
       "request": {
         "endpointSignatures": [{
-          "digest": {
-            "value": "SMKqo5K1Sk2hSfvrerAVbEs7z9QyVedxCkHduux45XQxauWztyEUb8bkBNQYDqzxXe3D4PvdzzSqCY247NJCtbuPek"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMKqo5K1Sk2hSfvrerAVbEs7z9QyVedxCkHduux45XQxauWztyEUb8bkBNQYDqzxXe3D4PvdzzSqCY247NJCtbuPek",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "nodeSignatures": [{
-          "digest": {
-            "value": "SMKqo5K1Sk2hSfvrerAVbEs7z9QyVedxCkHduux45XQxauWztyEUb8bkBNQYDqzxXe3D4PvdzzSqCY247NJCtbuPek"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMKqo5K1Sk2hSfvrerAVbEs7z9QyVedxCkHduux45XQxauWztyEUb8bkBNQYDqzxXe3D4PvdzzSqCY247NJCtbuPek",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "transactionContent": {
-          "ledgerHash": {
-            "value": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc"
-          },
+          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
           "operations": [{}],
           "timestamp": 1601274968253
         },
-        "transactionHash": {
-          "value": "j5v29bs7G2R5tYkBBWW2oiPbR923BAXALGAnYBmV5PxG2f"
-        }
+        "transactionHash": "j5v29bs7G2R5tYkBBWW2oiPbR923BAXALGAnYBmV5PxG2f"
       },
       "result": {
         "blockHeight": 1,
         "dataSnapshot": {
-          "adminAccountHash": {
-            "value": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V"
-          },
-          "userAccountSetHash": {
-            "value": "j5iWtySuaNKPC5RPPdprJXheDNZNtubDBd5QUySy1XBdKP"
-          }
+          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
+          "userAccountSetHash": "j5iWtySuaNKPC5RPPdprJXheDNZNtubDBd5QUySy1XBdKP"
         },
         "executionState": "SUCCESS",
-        "transactionHash": {
-          "value": "j5v29bs7G2R5tYkBBWW2oiPbR923BAXALGAnYBmV5PxG2f"
-        }
+        "transactionHash": "j5v29bs7G2R5tYkBBWW2oiPbR923BAXALGAnYBmV5PxG2f"
       },
-      "transactionHash": {
-        "value": "j5v29bs7G2R5tYkBBWW2oiPbR923BAXALGAnYBmV5PxG2f"
-      }
+      "transactionHash": "j5v29bs7G2R5tYkBBWW2oiPbR923BAXALGAnYBmV5PxG2f"
     }, {
       "blockHeight": 1,
       "executionState": "SUCCESS",
       "request": {
         "endpointSignatures": [{
-          "digest": {
-            "value": "SMKAT8dKytLjHkbENzQUeCMEinE4aQdWG2xZ4yGhJDH1SF18X1Fn134CFMfoAt8vhYndHdpQvX788uSjy1zaaAG6YA"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMKAT8dKytLjHkbENzQUeCMEinE4aQdWG2xZ4yGhJDH1SF18X1Fn134CFMfoAt8vhYndHdpQvX788uSjy1zaaAG6YA",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "nodeSignatures": [{
-          "digest": {
-            "value": "SMKAT8dKytLjHkbENzQUeCMEinE4aQdWG2xZ4yGhJDH1SF18X1Fn134CFMfoAt8vhYndHdpQvX788uSjy1zaaAG6YA"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMKAT8dKytLjHkbENzQUeCMEinE4aQdWG2xZ4yGhJDH1SF18X1Fn134CFMfoAt8vhYndHdpQvX788uSjy1zaaAG6YA",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "transactionContent": {
-          "ledgerHash": {
-            "value": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc"
-          },
+          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
           "operations": [{}],
           "timestamp": 1601274968253
         },
-        "transactionHash": {
-          "value": "j5sAf9Fna39RttiDhy5jx4NNqQBFnbQ52wLSBPF4MNvjkb"
-        }
+        "transactionHash": "j5sAf9Fna39RttiDhy5jx4NNqQBFnbQ52wLSBPF4MNvjkb"
       },
       "result": {
         "blockHeight": 1,
         "dataSnapshot": {
-          "adminAccountHash": {
-            "value": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V"
-          },
-          "userAccountSetHash": {
-            "value": "j5quWJqgWYVDV6p3FGo8WCizeA9vuptffErYcqM7X9Cwe9"
-          }
+          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
+          "userAccountSetHash": "j5quWJqgWYVDV6p3FGo8WCizeA9vuptffErYcqM7X9Cwe9"
         },
         "executionState": "SUCCESS",
-        "transactionHash": {
-          "value": "j5sAf9Fna39RttiDhy5jx4NNqQBFnbQ52wLSBPF4MNvjkb"
-        }
+        "transactionHash": "j5sAf9Fna39RttiDhy5jx4NNqQBFnbQ52wLSBPF4MNvjkb"
       },
-      "transactionHash": {
-        "value": "j5sAf9Fna39RttiDhy5jx4NNqQBFnbQ52wLSBPF4MNvjkb"
-      }
+      "transactionHash": "j5sAf9Fna39RttiDhy5jx4NNqQBFnbQ52wLSBPF4MNvjkb"
     }, {
       "blockHeight": 1,
       "executionState": "SUCCESS",
       "request": {
         "endpointSignatures": [{
-          "digest": {
-            "value": "SMKSkJc8PBHCKuKgNEMYbzCyZeV335nZJroZAgA5a3ko7Sad8c8fRex1QVQkrKtzhpvjeBEQsYrzDRNKfqKpUMotHt"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMKSkJc8PBHCKuKgNEMYbzCyZeV335nZJroZAgA5a3ko7Sad8c8fRex1QVQkrKtzhpvjeBEQsYrzDRNKfqKpUMotHt",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "nodeSignatures": [{
-          "digest": {
-            "value": "SMKSkJc8PBHCKuKgNEMYbzCyZeV335nZJroZAgA5a3ko7Sad8c8fRex1QVQkrKtzhpvjeBEQsYrzDRNKfqKpUMotHt"
-          },
-          "pubKey": {
-            "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-          }
+          "digest": "SMKSkJc8PBHCKuKgNEMYbzCyZeV335nZJroZAgA5a3ko7Sad8c8fRex1QVQkrKtzhpvjeBEQsYrzDRNKfqKpUMotHt",
+          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
         }],
         "transactionContent": {
-          "ledgerHash": {
-            "value": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc"
-          },
+          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
           "operations": [{}],
           "timestamp": 1601274968253
         },
-        "transactionHash": {
-          "value": "j5xPbJHsjnrvsL5CsDwVCstPKPcvh9t6XtXjgzTUBn6e3j"
-        }
+        "transactionHash": "j5xPbJHsjnrvsL5CsDwVCstPKPcvh9t6XtXjgzTUBn6e3j"
       },
       "result": {
         "blockHeight": 1,
         "dataSnapshot": {
-          "adminAccountHash": {
-            "value": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V"
-          },
-          "userAccountSetHash": {
-            "value": "j5qkRzh1txM2zKX7N2zUGHuhUjWLN4TFfYdMoivoyXe1mj"
-          }
+          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
+          "userAccountSetHash": "j5qkRzh1txM2zKX7N2zUGHuhUjWLN4TFfYdMoivoyXe1mj"
         },
         "executionState": "SUCCESS",
-        "transactionHash": {
-          "value": "j5xPbJHsjnrvsL5CsDwVCstPKPcvh9t6XtXjgzTUBn6e3j"
-        }
+        "transactionHash": "j5xPbJHsjnrvsL5CsDwVCstPKPcvh9t6XtXjgzTUBn6e3j"
       },
-      "transactionHash": {
-        "value": "j5xPbJHsjnrvsL5CsDwVCstPKPcvh9t6XtXjgzTUBn6e3j"
-      }
+      "transactionHash": "j5xPbJHsjnrvsL5CsDwVCstPKPcvh9t6XtXjgzTUBn6e3j"
     }],
     "success": true
   });
@@ -951,18 +747,14 @@ router.get('/:ledger/blocks/hash/:block_hash/txs', function(req, res) {
         "blockHeight": 1,
         "executionState": "SUCCESS",
         "transactionContent": {
-          "ledgerHash": {
-            "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
-          },
+          "ledgerHash": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
           "operations": [
             {
               "userID": {
                 "address": {
                   "value": "5SmBgzsrnY6u9Y7DgSSkXfTkCgp83hiFin3v"
                 },
-                "pubKey": {
-                  "value": "mb5kukaqjWtXyAerfHU1JDtVwabSeBU5c3khMZbNh7R8VJ"
-                }
+                "pubKey": "mb5kukaqjWtXyAerfHU1JDtVwabSeBU5c3khMZbNh7R8VJ"
               }
             },
             {
@@ -970,9 +762,7 @@ router.get('/:ledger/blocks/hash/:block_hash/txs', function(req, res) {
                 "address": {
                   "value": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha"
                 },
-                "pubKey": {
-                  "value": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
-                }
+                "pubKey": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
               }
             },
             {
@@ -980,9 +770,7 @@ router.get('/:ledger/blocks/hash/:block_hash/txs', function(req, res) {
                 "address": {
                   "value": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha"
                 },
-                "pubKey": {
-                  "value": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
-                }
+                "pubKey": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
               },
               "chainCode": "----------"
             },
@@ -1418,9 +1206,7 @@ router.get('/:ledger/users', function(req, res) {
       "address": {
         "value": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
       },
-      "pubKey": {
-        "value": "mb5kbwzACnhK9P1dVxgMPB2ySJLFyJKQbHpH7T9oRK3LpS"
-      },
+      "pubKey": "mb5kbwzACnhK9P1dVxgMPB2ySJLFyJKQbHpH7T9oRK3LpS",
       "rootHash": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
     }],
     "success": true
@@ -1456,9 +1242,7 @@ router.get('/:ledger/users/search', function(req, res) {
           "address": {
             "value": "5SmAGKgmXyj5VsVvJgHbYCJ67iTizwSkNpw1"
           },
-          "pubKey": {
-            "value": "mb97eG4bba2EjrgjXYiD9chAstjg4HaNuV5xgCtSHc5TeB"
-          },
+          "pubKey": "mb97eG4bba2EjrgjXYiD9chAstjg4HaNuV5xgCtSHc5TeB",
           "rootHash": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
         }
       ]
@@ -1482,9 +1266,7 @@ router.get('/:ledger/accounts/address/:address', function(req, res) {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
       "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
-      "pubKey": {
-        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
-      }
+      "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
     },
   });
 
@@ -1516,9 +1298,7 @@ router.get('/:ledger/accounts', function(req, res) {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
       "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
-      "pubKey": {
-        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
-      }
+      "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
     }],
     "success": true
   });
@@ -1566,9 +1346,7 @@ router.get('/:ledger/accounts/search', function(req, res) {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
       "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
-      "pubKey": {
-        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
-      }
+      "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
     }],
     "success": true
   });
@@ -1636,34 +1414,28 @@ router.get('/:ledger/all/search', function(req, res) {
       ],
       "users": [
         {
-        "address": {
-        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
-        },
-        "pubKey": {
-        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
+          "address": {
+            "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+          },
+          "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
         }
-        }
-        ],
+      ],
       "accounts": [
         {
-        "address": {
-        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
-        },
-        "pubKey": {
-        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
+          "address": {
+            "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+          },
+          "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
         }
-        }
-        ],
+      ],
       "contracts": [
         {
-        "address": {
-        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
-        },
-        "pubKey": {
-        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
+          "address": {
+            "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+          },
+          "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
         }
-        }
-        ],
+      ],
     },
   });
 
@@ -1684,9 +1456,7 @@ router.get('/:ledger/contracts', function(req, res) {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
       "rootHash":"6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
-      "pubKey": {
-        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
-      },
+      "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs",
       "chainCode":"package com.jd.blockchain.contract;\n\nimport com.jd.blockchain.crypto.*;\nimport com.jd.blockchain.ledger.*;\nimport com.jd.blockchain.utils.io.*;\n\n@Contract\npublic class AssetContractImpl implements EventProcessingAwire, AssetContract\n{\n private static final String ASSET_ADDRESS = \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\";\n private static final String KEY_TOTAL = \"TV_TOTAL\";\n private ContractEventContext eventContext;\n \n @ContractEvent(name = \"transfer-asset\")\n public void transfer(final String fromAddress, final String toAddress, final long amount) {\n System.out.println(\"in AssetContractImpl transfer()\");\n final byte[] args_ = this.eventContext.getArgs();\n if (args_ == null) {\n return;\n }\n final String[] args = new String(args_).split(\"##\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final HashDigest hashDigest = this.eventContext.getCurrentLedgerHash();\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(hashDigest, \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", fromAddress, toAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final KVDataObject fromBalance = (KVDataObject)kvEntries[1];\n final KVDataObject toBalance = (KVDataObject)kvEntries[2];\n System.out.println(new StringBuilder().append(\"currTotal: \").append(currTotal.longValue()).toString());\n if (fromBalance.longValue() - amount < 0L) {\n throw new ContractException(\"Insufficient balance!\");\n }\n final long newFromBalance = fromBalance.longValue() - amount;\n System.out.println(new StringBuilder().append(\"newFromBalance: \").append(newFromBalance).toString());\n long newToBalance;\n if (toBalance.isNil()) {\n newToBalance = amount;\n }\n else {\n newToBalance = toBalance.longValue() + amount;\n }\n System.out.println(new StringBuilder().append(\"newToBalance: \").append(newToBalance).toString());\n final long fromVersion = fromBalance.getVersion();\n final long toVersion = toBalance.getVersion();\n System.out.println(new StringBuilder().append(\"fromVersion = \").append(fromVersion).toString());\n System.out.println(new StringBuilder().append(\"toVersion = \").append(toVersion).toString());\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(fromAddress, newFromBalance, fromVersion);\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(toAddress, newToBalance, toVersion);\n }\n \n public void beforeEvent(final ContractEventContext contractEventContext) {\n this.eventContext = contractEventContext;\n }\n \n public void postEvent(final ContractEventContext contractEventContext, final ContractException e) {\n this.eventContext = null;\n }\n \n public void postEvent(final ContractException e) {\n }\n \n public void postEvent() {\n }\n \n private HashDigest currentLedgerHash() {\n return this.eventContext.getCurrentLedgerHash();\n }\n \n @ContractEvent(name = \"issue-asset\")\n public void issue(final long amount, final String assetHolderAddress) {\n System.out.println(\"in AssetContractImpl2\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(this.currentLedgerHash(), \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", assetHolderAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final long newTotal = currTotal.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(\"TV_TOTAL\", BytesUtils.toBytes(newTotal), currTotal.getVersion());\n final KVDataObject holderAmount = (KVDataObject)kvEntries[1];\n final long newHodlerAmount = holderAmount.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(assetHolderAddress, BytesUtils.toBytes(newHodlerAmount), holderAmount.getVersion()).set(\"K2\", (byte[])null, -1L).set(\"k3\", (byte[])null, 3L);\n }\n}\n",
     }],
   });
@@ -1706,9 +1476,7 @@ router.get('/:ledger/contracts/address/:address', function(req, res) {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
       "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
-      "pubKey": {
-        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
-      },
+      "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs",
       "chainCode":"package com.jd.blockchain.contract;\n\nimport com.jd.blockchain.crypto.*;\nimport com.jd.blockchain.ledger.*;\nimport com.jd.blockchain.utils.io.*;\n\n@Contract\npublic class AssetContractImpl implements EventProcessingAwire, AssetContract\n{\n private static final String ASSET_ADDRESS = \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\";\n private static final String KEY_TOTAL = \"TV_TOTAL\";\n private ContractEventContext eventContext;\n \n @ContractEvent(name = \"transfer-asset\")\n public void transfer(final String fromAddress, final String toAddress, final long amount) {\n System.out.println(\"in AssetContractImpl transfer()\");\n final byte[] args_ = this.eventContext.getArgs();\n if (args_ == null) {\n return;\n }\n final String[] args = new String(args_).split(\"##\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final HashDigest hashDigest = this.eventContext.getCurrentLedgerHash();\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(hashDigest, \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", fromAddress, toAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final KVDataObject fromBalance = (KVDataObject)kvEntries[1];\n final KVDataObject toBalance = (KVDataObject)kvEntries[2];\n System.out.println(new StringBuilder().append(\"currTotal: \").append(currTotal.longValue()).toString());\n if (fromBalance.longValue() - amount < 0L) {\n throw new ContractException(\"Insufficient balance!\");\n }\n final long newFromBalance = fromBalance.longValue() - amount;\n System.out.println(new StringBuilder().append(\"newFromBalance: \").append(newFromBalance).toString());\n long newToBalance;\n if (toBalance.isNil()) {\n newToBalance = amount;\n }\n else {\n newToBalance = toBalance.longValue() + amount;\n }\n System.out.println(new StringBuilder().append(\"newToBalance: \").append(newToBalance).toString());\n final long fromVersion = fromBalance.getVersion();\n final long toVersion = toBalance.getVersion();\n System.out.println(new StringBuilder().append(\"fromVersion = \").append(fromVersion).toString());\n System.out.println(new StringBuilder().append(\"toVersion = \").append(toVersion).toString());\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(fromAddress, newFromBalance, fromVersion);\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(toAddress, newToBalance, toVersion);\n }\n \n public void beforeEvent(final ContractEventContext contractEventContext) {\n this.eventContext = contractEventContext;\n }\n \n public void postEvent(final ContractEventContext contractEventContext, final ContractException e) {\n this.eventContext = null;\n }\n \n public void postEvent(final ContractException e) {\n }\n \n public void postEvent() {\n }\n \n private HashDigest currentLedgerHash() {\n return this.eventContext.getCurrentLedgerHash();\n }\n \n @ContractEvent(name = \"issue-asset\")\n public void issue(final long amount, final String assetHolderAddress) {\n System.out.println(\"in AssetContractImpl2\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(this.currentLedgerHash(), \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", assetHolderAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final long newTotal = currTotal.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(\"TV_TOTAL\", BytesUtils.toBytes(newTotal), currTotal.getVersion());\n final KVDataObject holderAmount = (KVDataObject)kvEntries[1];\n final long newHodlerAmount = holderAmount.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(assetHolderAddress, BytesUtils.toBytes(newHodlerAmount), holderAmount.getVersion()).set(\"K2\", (byte[])null, -1L).set(\"k3\", (byte[])null, 3L);\n }\n}\n",
     },
   });
@@ -1754,9 +1522,7 @@ router.get('/:ledger/contracts/search', function(req, res) {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
       "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
-      "pubKey": {
-        "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
-      }
+      "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
     }],
   });
 
@@ -1789,97 +1555,73 @@ router.get('/:ledger/events/user/accounts', function(req, res) {
       "address":{
           "value":"LdeNu8QG9RuWYTo4zgrn2RsH3FRjubasgsnju"
       },
-      "pubKey":{
-          "value":"7VeRNQrP1AQnhKJHTWc9xvM4UEXSz47yWTxaV3rJiCNngYBD"
-      }
+      "pubKey": "7VeRNQrP1AQnhKJHTWc9xvM4UEXSz47yWTxaV3rJiCNngYBD"
     },
     {
       "address":{
           "value":"LdeP3UQY8ynDVLvFdBWtNqF8n5uS6qvBMe9VX"
       },
-      "pubKey":{
-          "value":"7VeRBwvf4qhJVHjgpbyX9QeX8H7AhGLUXq8hZcZnscij5Bj7"
-      }
+      "pubKey": "7VeRBwvf4qhJVHjgpbyX9QeX8H7AhGLUXq8hZcZnscij5Bj7"
     },
     {
       "address":{
           "value":"LdeNpGSucAexG6BrVWc2tLNXEoTDgBHCCibQY"
       },
-      "pubKey":{
-          "value":"7VeRLaKGCiGj3X6FZA2jSwSxzdCmEK6aai6AnyqsGBsXW8DJ"
-      }
+      "pubKey": "7VeRLaKGCiGj3X6FZA2jSwSxzdCmEK6aai6AnyqsGBsXW8DJ"
     },
     {
       "address":{
           "value":"LdeNzjmSth3us6GXYLe3WE4KufNKQRzti69PW"
       },
-      "pubKey":{
-          "value":"7VeRA1zk2gk8B87X5gbX9aeGu1n9YKHDbmPrm1Z5wjNrKiMM"
-      }
+      "pubKey": "7VeRA1zk2gk8B87X5gbX9aeGu1n9YKHDbmPrm1Z5wjNrKiMM"
     },
     {
       "address":{
           "value":"LdeNhM2WhhumjsozQzdQF7hGMN5f8Ajv3VjtC"
       },
-      "pubKey":{
-          "value":"7VeRHuQxfWc9W9XBNqmEjjXmjg8LnuekadWmE8jqURKUEVNj"
-      }
+      "pubKey": "7VeRHuQxfWc9W9XBNqmEjjXmjg8LnuekadWmE8jqURKUEVNj"
     },
     {
       "address":{
           "value":"LdeNoD33a7zU26WPAj19TqP84SsUK8EYtxy3m"
       },
-      "pubKey":{
-          "value":"7VeRBQGE2u3ozUKcTrnk4BXHwfbJW5D3R1VjpT6bmzemvF2o"
-      }
+      "pubKey": "7VeRBQGE2u3ozUKcTrnk4BXHwfbJW5D3R1VjpT6bmzemvF2o"
     },
     {
       "address":{
         "value":"LdeNoumLzGAt9GER4y5LHTeovdCmSY24rdVWN"
       },
-      "pubKey":{
-        "value":"7VeRKDRchgcesxY95JXKj1vdnPKyBPATa1YNojXn3my61Ser"
-      }
+      "pubKey": "7VeRKDRchgcesxY95JXKj1vdnPKyBPATa1YNojXn3my61Ser"
     },
     {
       "address":{
         "value":"LdeP3VP3wwxAmHeo87J9RDJMEk1AzvDCM264j"
       },
-      "pubKey":{
-        "value":"7VeRJDCGBv2kqTSBzwtcRYkHA2GzEaWGKff96o5SXfN6WuQa"
-      }
+      "pubKey": "7VeRJDCGBv2kqTSBzwtcRYkHA2GzEaWGKff96o5SXfN6WuQa"
     },
     {
       "address":{
         "value":"LdeNhbJxCiPHw5jGYb1zFcydpFPRNpE47pEpW"
       },
-      "pubKey":{
-        "value":"7VeRDBea3y9z3WoEVfdTUfg8Z42qfaqf7LZou2eojRHbZn9e"
-      }
+      "pubKey": "7VeRDBea3y9z3WoEVfdTUfg8Z42qfaqf7LZou2eojRHbZn9e"
     },
     {
       "address":{
         "value":"LdeNxC19xnQ2XbBP4UChZB2hT5SUCz9JDCHRX"
       },
-      "pubKey":{
-        "value":"7VeRM1EhjRXwybAiYLHwjmJxxGPpYrJrNhGVjXNeuQw4hH3o"
-      }
+      "pubKey": "7VeRM1EhjRXwybAiYLHwjmJxxGPpYrJrNhGVjXNeuQw4hH3o"
     },
     {
       "address":{
         "value":"LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
       },
-      "pubKey":{
-        "value":"7VeRPrJgSt4nKqSinLMwHGEWskPiQ5WNqcSj9ximuwLTjKoH"
-      }
+      "pubKey": "7VeRPrJgSt4nKqSinLMwHGEWskPiQ5WNqcSj9ximuwLTjKoH"
     },
     {
       "address":{
         "value":"LdeNzqjox47UKRxEYMC3rahxW7gBvrChPrf8E"
       },
-      "pubKey":{
-        "value":"7VeRLM82n3PrW8mXgvHPatEvA78oBZa1g3cN4dHR4JTPnXTT"
-      }
+      "pubKey": "7VeRLM82n3PrW8mXgvHPatEvA78oBZa1g3cN4dHR4JTPnXTT"
     }],
   });
 
