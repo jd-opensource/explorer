@@ -98,17 +98,17 @@ export default class Header extends Component {
     },
     {
       title: '参与方地址',
-      dataIndex: 'address.value',
+      dataIndex: 'address',
       key:'address'
     },
     {
       title: '参与方公钥',
-      dataIndex: 'pubKey.value',
+      dataIndex: 'pubKey',
       key:'pubKey'
     },
     {
       title: '公钥算法',
-      dataIndex: 'pubKey.value',
+      dataIndex: 'pubKey',
       key:'algorithm',
       render: (text, record, index) => nj `
        ${tranBase58(text)}

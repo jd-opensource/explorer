@@ -170,7 +170,7 @@ export default class Account extends Component {
       width: '25%'
     }, {
       title: '账户公钥',
-      dataIndex: 'pubKey.value',
+      dataIndex: 'pubKey',
       key: 'pubKey',
       width: '25%',
       render: (text, record, index) => nj`
@@ -178,14 +178,14 @@ export default class Account extends Component {
       `()
     }, {
       title: '默克尔树根哈希',
-      dataIndex: 'rootHash.value',
+      dataIndex: 'rootHash',
       key: 'rootHash',
       width: '25%',
       render: (text, record, index) => nj`
         <#if ${text}>
           ${text}
           <#else>
-            <AccountRootHash address=${record.address.value}/>
+            <AccountRootHash address=${record.address}/>
           </#else>
         </#if>
       `()
