@@ -128,7 +128,7 @@ export default class TransactionInfo extends Component {
       </div>,
       data.transactionHash && (
         <div className = {styles.option}>
-          交易哈希: {data.transactionHash.value && data.transactionHash.value || ''}
+          交易哈希: {data.transactionHash && data.transactionHash || ''}
         </div>
       ) || null,
       <Tabs 
@@ -660,7 +660,7 @@ export default class TransactionInfo extends Component {
                   dataSnapshot.adminAccountHash && (
                     <tr>
                       <td>管理账户根哈希:</td>
-                      <td>{dataSnapshot.adminAccountHash.value || ''}</td>
+                      <td>{dataSnapshot.adminAccountHash || ''}</td>
                     </tr>
                   ) || null
                 }
@@ -668,7 +668,7 @@ export default class TransactionInfo extends Component {
                   dataSnapshot.userAccountSetHash && (
                     <tr>
                       <td>用户账户集根哈希:</td>
-                      <td>{dataSnapshot.userAccountSetHash.value || ''}</td>
+                      <td>{dataSnapshot.userAccountSetHash || ''}</td>
                     </tr>
                   ) || null
                 }
@@ -676,7 +676,7 @@ export default class TransactionInfo extends Component {
                   dataSnapshot.dataAccountSetHash && (
                     <tr>
                       <td>数据账户集根哈希:</td>
-                      <td>{dataSnapshot.dataAccountSetHash.value || ''}</td>
+                      <td>{dataSnapshot.dataAccountSetHash || ''}</td>
                     </tr>
                   ) || null
                 }
@@ -684,7 +684,7 @@ export default class TransactionInfo extends Component {
                   dataSnapshot.contractAccountSetHash && (
                     <tr>
                       <td>合约账户集根哈希:</td>
-                      <td>{dataSnapshot.contractAccountSetHash.value || ''}</td>
+                      <td>{dataSnapshot.contractAccountSetHash || ''}</td>
                     </tr>
                   ) || null
                 }
@@ -692,7 +692,7 @@ export default class TransactionInfo extends Component {
                   dataSnapshot.systemEventSetHash && (
                     <tr>
                       <td>系统事件集根哈希:</td>
-                      <td>{dataSnapshot.systemEventSetHash.value || ''}</td>
+                      <td>{dataSnapshot.systemEventSetHash || ''}</td>
                     </tr>
                   ) || null
                 }
@@ -700,7 +700,7 @@ export default class TransactionInfo extends Component {
                   dataSnapshot.userEventSetHash && (
                     <tr>
                       <td>用户事件集根哈希:</td>
-                      <td>{dataSnapshot.userEventSetHash.value || ''}</td>
+                      <td>{dataSnapshot.userEventSetHash || ''}</td>
                     </tr>
                   ) || null
                 }

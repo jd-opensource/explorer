@@ -60,7 +60,7 @@ export default class BlockInfo extends Component {
   @computed get tableColumns() {
     return [{
       title: '交易哈希',
-      dataIndex: 'transactionHash.value',
+      dataIndex: 'transactionHash',
       width:'80%',
       key:'name'
     }, {

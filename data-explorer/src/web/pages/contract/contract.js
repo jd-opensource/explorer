@@ -133,7 +133,7 @@ export default class Contract extends Component {
       `()
     }, {
       title: '合约根哈希',
-      dataIndex: 'rootHash.value',
+      dataIndex: 'rootHash',
       key:'rootHash',
       render: (text, record, index) => nj `
         <#if ${text}>

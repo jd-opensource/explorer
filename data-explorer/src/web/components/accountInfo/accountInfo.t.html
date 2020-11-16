@@ -5,8 +5,8 @@
       <fj-Col l=1  s=4  xs=12>数据账户根哈希
       </fj-Col>
       <fj-Col l=5  s=8  xs=12>
-        <#if {{accountData && accountData.rootHash && accountData.rootHash.value}}>
-          {accountData.rootHash.value}
+        <#if {{accountData && accountData.rootHash && accountData.rootHash}}>
+          {accountData.rootHash}
           <#elseif {{accountData && accountData.address && accountData.address.value}}>
             <AccountRootHash  address={accountData.address.value}/>
           </#elseif>

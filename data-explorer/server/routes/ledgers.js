@@ -183,9 +183,10 @@ router.get('/:ledgerHash/settings', function(req, res) {
                 "value": "7VeRFzWif8yGXa8GRYri7jFLevqryxZTJ6m9NiEUSfUNqKy8"
             }
         }],
-        "participantsHash": {
-            "value": "j5vDDASBGRAynVmopq2q4obNPZmbJMwGnDWsHnSgz9nuS9"
-        },
+        // "participantsHash": {
+        //     "value": "j5vDDASBGRAynVmopq2q4obNPZmbJMwGnDWsHnSgz9nuS9"
+        // },
+        "participantsHash": "j5vDDASBGRAynVmopq2q4obNPZmbJMwGnDWsHnSgz9nuS9",
         "seed": "932dfe23-fe23232f-283f32fa-dd32aa76-8322ca2f-56236cda-7136b322-cb323ffe"
     },
     "success": true
@@ -225,33 +226,44 @@ router.get('/:ledger/blocks/latest', function(req, res) {
     ret = {};
 
   Object.assign(ret, resultData,{
+    // "data": {
+    //   "ledgerHash": {
+    //     "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
+    //   },
+    //   "previousHash": {
+    //     "value": "6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T"
+    //   },
+    //   "transactionSetHash": {
+    //     "value": "6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN"
+    //   },
+    //   "userAccountSetHash": {
+    //     "value": "67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p"
+    //   },
+    //   "contractAccountSetHash": {
+    //     "value": "67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN"
+    //   },
+    //   "adminAccountHash": {
+    //     "value": "69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa"
+    //   },
+    //   "dataAccountSetHash": {
+    //     "value": "6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ"
+    //   },
+    //   "hash": {
+    //     "value": "67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL"
+    //   },
+    //   "height": 666
+    // },
     "data": {
-      "ledgerHash": {
-        "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
-      },
-      "previousHash": {
-        "value": "6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T"
-      },
-      "transactionSetHash": {
-        "value": "6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN"
-      },
-      "userAccountSetHash": {
-        "value": "67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p"
-      },
-      "contractAccountSetHash": {
-        "value": "67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN"
-      },
-      "adminAccountHash": {
-        "value": "69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa"
-      },
-      "dataAccountSetHash": {
-        "value": "6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ"
-      },
-      "hash": {
-        "value": "67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL"
-      },
+      "ledgerHash":"657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
+      "previousHash":"6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T",
+      "transactionSetHash":"6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN",
+      "userAccountSetHash":"67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p",
+      "contractAccountSetHash":"67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN",
+      "adminAccountHash":"69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa",
+      "dataAccountSetHash":"6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ",
+      "hash":"67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL",
       "height": 666
-    },
+    }
   });
 
   res.send(ret);
@@ -264,33 +276,44 @@ router.get('/:ledger/blocks/hash/:block_hash', function(req, res) {
     ret = {};
 
   Object.assign(ret, resultData,{
+    // "data": {
+    //   "ledgerHash": {
+    //     "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
+    //   },
+    //   "previousHash": {
+    //     "value": "6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T"
+    //   },
+    //   "transactionSetHash": {
+    //     "value": "6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN"
+    //   },
+    //   "userAccountSetHash": {
+    //     "value": "67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p"
+    //   },
+    //   "contractAccountSetHash": {
+    //     "value": "67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN"
+    //   },
+    //   "adminAccountHash": {
+    //     "value": "69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa"
+    //   },
+    //   "dataAccountSetHash": {
+    //     "value": "6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ"
+    //   },
+    //   "hash": {
+    //     "value": "67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL"
+    //   },
+    //   "height": 666
+    // },
     "data": {
-      "ledgerHash": {
-        "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
-      },
-      "previousHash": {
-        "value": "6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T"
-      },
-      "transactionSetHash": {
-        "value": "6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN"
-      },
-      "userAccountSetHash": {
-        "value": "67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p"
-      },
-      "contractAccountSetHash": {
-        "value": "67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN"
-      },
-      "adminAccountHash": {
-        "value": "69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa"
-      },
-      "dataAccountSetHash": {
-        "value": "6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ"
-      },
-      "hash": {
-        "value": "67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL"
-      },
+      "ledgerHash":"657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
+      "previousHash":"6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T",
+      "transactionSetHash":"6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN",
+      "userAccountSetHash":"67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p",
+      "contractAccountSetHash":"67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN",
+      "adminAccountHash":"69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa",
+      "dataAccountSetHash":"6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ",
+      "hash":"67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL",
       "height": 666
-    },
+    }
   });
 
   res.send(ret);
@@ -303,33 +326,44 @@ router.get('/:ledger/blocks/height/:block_height', function(req, res) {
     ret = {};
 
   Object.assign(ret, resultData,{
+    // "data": {
+    //   "ledgerHash": {
+    //     "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
+    //   },
+    //   "previousHash": {
+    //     "value": "6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T"
+    //   },
+    //   "transactionSetHash": {
+    //     "value": "6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN"
+    //   },
+    //   "userAccountSetHash": {
+    //     "value": "67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p"
+    //   },
+    //   "contractAccountSetHash": {
+    //     "value": "67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN"
+    //   },
+    //   "adminAccountHash": {
+    //     "value": "69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa"
+    //   },
+    //   "dataAccountSetHash": {
+    //     "value": "6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ"
+    //   },
+    //   "hash": {
+    //     "value": "67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL"
+    //   },
+    //   "height": 666
+    // },
     "data": {
-      "ledgerHash": {
-        "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
-      },
-      "previousHash": {
-        "value": "6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T"
-      },
-      "transactionSetHash": {
-        "value": "6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN"
-      },
-      "userAccountSetHash": {
-        "value": "67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p"
-      },
-      "contractAccountSetHash": {
-        "value": "67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN"
-      },
-      "adminAccountHash": {
-        "value": "69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa"
-      },
-      "dataAccountSetHash": {
-        "value": "6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ"
-      },
-      "hash": {
-        "value": "67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL"
-      },
+      "ledgerHash":"657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
+      "previousHash":"6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T",
+      "transactionSetHash":"6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN",
+      "userAccountSetHash":"67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p",
+      "contractAccountSetHash":"67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN",
+      "adminAccountHash":"69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa",
+      "dataAccountSetHash":"6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ",
+      "hash":"67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL",
       "height": 666
-    },
+    }
   });
 
   res.send(ret);
@@ -443,9 +477,7 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function(req, re
           "operations": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
           "timestamp": 1564640818069
         },
-        "transactionHash": {
-          "value": "j5j47m9goc4tz9XfoBDd8zQ3fyFT2iyZLGws4skAMWgdHH"
-        }
+        "transactionHash": "j5j47m9goc4tz9XfoBDd8zQ3fyFT2iyZLGws4skAMWgdHH",
       },
       "result": {
         "blockHeight": 0,
@@ -458,13 +490,11 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function(req, re
           }
         },
         "executionState": "SUCCESS",
-        "transactionHash": {
-          "value": "j5j47m9goc4tz9XfoBDd8zQ3fyFT2iyZLGws4skAMWgdHH"
-        }
+        "transactionHash": "j5j47m9goc4tz9XfoBDd8zQ3fyFT2iyZLGws4skAMWgdHH",
+
       },
-      "transactionHash": {
-        "value": "j5j47m9goc4tz9XfoBDd8zQ3fyFT2iyZLGws4skAMWgdHH"
-      }
+      "transactionHash": "j5j47m9goc4tz9XfoBDd8zQ3fyFT2iyZLGws4skAMWgdHH",
+
     }, {
       "blockHeight": 1,
       "executionState": "SUCCESS",
@@ -492,9 +522,7 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function(req, re
           "operations": [{}],
           "timestamp": 1601274968253
         },
-        "transactionHash": {
-          "value": "j5gbyDaHfwnBJquH5HU3Y4ooEu6F4akaAvRgW5mPK9q24c"
-        }
+        "transactionHash":"j5gbyDaHfwnBJquH5HU3Y4ooEu6F4akaAvRgW5mPK9q24c"
       },
       "result": {
         "blockHeight": 1,
@@ -507,9 +535,7 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function(req, re
           }
         },
         "executionState": "SUCCESS",
-        "transactionHash": {
-          "value": "j5gbyDaHfwnBJquH5HU3Y4ooEu6F4akaAvRgW5mPK9q24c"
-        }
+        "transactionHash": "j5gbyDaHfwnBJquH5HU3Y4ooEu6F4akaAvRgW5mPK9q24c"
       },
       "transactionHash": {
         "value": "j5gbyDaHfwnBJquH5HU3Y4ooEu6F4akaAvRgW5mPK9q24c"
@@ -1310,7 +1336,65 @@ router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
     //   }
     // },
     // "success": true
-    "data":{"result":{"blockHeight":15,"dataSnapshot":{"userAccountSetHash":{"value":"j5iSUBKD9ZNoim4TGcLoo8JhQFe2iAP7YvnCq9e9jzrQuN"},"adminAccountHash":{"value":"j5uMABfxYNbjNLQmMsS4zpEDmjSjhfHm2UbJosGvEQsPAR"},"dataAccountSetHash":{"value":"j5o3K2KcdAhVoXNAiDFRCdQGGLxAFmKE6WN4bEUEXWtdKD"}},"executionState":"SUCCESS","transactionHash":{"value":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"}},"request":{"transactionContent":{"ledgerHash":{"value":"j5vBAT6jVNqVQjHMp1FEr8xZ4bhKFtipnGbmujhJWBL6Wd"},"operations":[{"writeSet":[{"expectedVersion":-1,"value":{"nil":false,"bytes":{"value":"7iHgG87BWS9we4"},"type":"TEXT","value":"www.jd.com"},"key":"jingdong160343874998663908"}],"accountAddress":{"value":"LdeNwtn6A2eZciHc5NMWEvZVFCB8EBTqLMwrg"}}],"timestamp":1603438749987},"endpointSignatures":[{"digest":{"value":"SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH"},"pubKey":{"value":"7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"}}],"transactionHash":{"value":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"},"nodeSignatures":[{"digest":{"value":"SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH"},"pubKey":{"value":"7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"}}]},"blockHeight":15,"executionState":"SUCCESS","transactionHash":{"value":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"}},"success":true
+    // "data":{"result":{"blockHeight":15,"dataSnapshot":{"userAccountSetHash":{"value":"j5iSUBKD9ZNoim4TGcLoo8JhQFe2iAP7YvnCq9e9jzrQuN"},"adminAccountHash":{"value":"j5uMABfxYNbjNLQmMsS4zpEDmjSjhfHm2UbJosGvEQsPAR"},"dataAccountSetHash":{"value":"j5o3K2KcdAhVoXNAiDFRCdQGGLxAFmKE6WN4bEUEXWtdKD"}},"executionState":"SUCCESS","transactionHash":{"value":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"}},"request":{"transactionContent":{"ledgerHash":{"value":"j5vBAT6jVNqVQjHMp1FEr8xZ4bhKFtipnGbmujhJWBL6Wd"},"operations":[{"writeSet":[{"expectedVersion":-1,"value":{"nil":false,"bytes":{"value":"7iHgG87BWS9we4"},"type":"TEXT","value":"www.jd.com"},"key":"jingdong160343874998663908"}],"accountAddress":{"value":"LdeNwtn6A2eZciHc5NMWEvZVFCB8EBTqLMwrg"}}],"timestamp":1603438749987},"endpointSignatures":[{"digest":{"value":"SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH"},"pubKey":{"value":"7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"}}],"transactionHash":{"value":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"},"nodeSignatures":[{"digest":{"value":"SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH"},"pubKey":{"value":"7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"}}]},"blockHeight":15,"executionState":"SUCCESS","transactionHash":{"value":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"}},"success":true
+    
+      "data": {
+        "result": {
+          "blockHeight": 15,
+          "dataSnapshot": {
+            "userAccountSetHash":"j5iSUBKD9ZNoim4TGcLoo8JhQFe2iAP7YvnCq9e9jzrQuN",
+            "adminAccountHash":"j5uMABfxYNbjNLQmMsS4zpEDmjSjhfHm2UbJosGvEQsPAR",
+            "dataAccountSetHash":"j5o3K2KcdAhVoXNAiDFRCdQGGLxAFmKE6WN4bEUEXWtdKD"
+          },
+          "executionState": "SUCCESS",
+          "transactionHash":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"
+        },
+        "request": {
+          "transactionContent": {
+            "ledgerHash":"j5vBAT6jVNqVQjHMp1FEr8xZ4bhKFtipnGbmujhJWBL6Wd",
+            "operations": [{
+              "writeSet": [{
+                "expectedVersion": -1,
+                "value": {
+                  "nil": false,
+                  "bytes": {
+                    "value": "7iHgG87BWS9we4"
+                  },
+                  "type": "TEXT",
+                  "value": "www.jd.com"
+                },
+                "key": "jingdong160343874998663908"
+              }],
+              "accountAddress": {
+                "value": "LdeNwtn6A2eZciHc5NMWEvZVFCB8EBTqLMwrg"
+              }
+            }],
+            "timestamp": 1603438749987
+          },
+          "endpointSignatures": [{
+            "digest": {
+              "value": "SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH"
+            },
+            "pubKey": {
+              "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
+            }
+          }],
+          "transactionHash":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL",
+          "nodeSignatures": [{
+            "digest": {
+              "value": "SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH"
+            },
+            "pubKey": {
+              "value": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
+            }
+          }]
+        },
+        "blockHeight": 15,
+        "executionState": "SUCCESS",
+        "transactionHash":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"
+      },
+      "success": true
+    
   });
 
 
@@ -1321,7 +1405,7 @@ router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
 // GET /ledgers/{ledger}/users/count
 router.get('/:ledger/users/count', function(req, res) {
   res.type('json');
-  let params = req.body,
+  let params = req.body
     ret = {};
 
   Object.assign(ret, resultData,{
@@ -1345,9 +1429,7 @@ router.get('/:ledger/users', function(req, res) {
       "pubKey": {
         "value": "mb5kbwzACnhK9P1dVxgMPB2ySJLFyJKQbHpH7T9oRK3LpS"
       },
-      "rootHash": {
-        "value": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
-      }
+      "rootHash": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
     }],
     "success": true
   });
@@ -1385,9 +1467,7 @@ router.get('/:ledger/users/search', function(req, res) {
           "pubKey": {
             "value": "mb97eG4bba2EjrgjXYiD9chAstjg4HaNuV5xgCtSHc5TeB"
           },
-          "rootHash": {
-            "value": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
-          }
+          "rootHash": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
         }
       ]
     },
@@ -1409,9 +1489,7 @@ router.get('/:ledger/accounts/address/:address', function(req, res) {
       "address": {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
-      "rootHash": {
-        "value": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM"
-      },
+      "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
       "pubKey": {
         "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
       }
@@ -1445,9 +1523,7 @@ router.get('/:ledger/accounts', function(req, res) {
       "address": {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
-      "rootHash": {
-        "value": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM"
-      },
+      "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
       "pubKey": {
         "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
       }
@@ -1497,9 +1573,7 @@ router.get('/:ledger/accounts/search', function(req, res) {
       "address": {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
-      "rootHash": {
-        "value": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM"
-      },
+      "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
       "pubKey": {
         "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
       }
@@ -1617,9 +1691,7 @@ router.get('/:ledger/contracts', function(req, res) {
       "address": {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
-      "rootHash": {
-        "value": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM"
-      },
+      "rootHash":"6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
       "pubKey": {
         "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
       },
@@ -1641,9 +1713,7 @@ router.get('/:ledger/contracts/address/:address', function(req, res) {
       "address": {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
-      "rootHash": {
-        "value": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM"
-      },
+      "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
       "pubKey": {
         "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
       },
@@ -1691,9 +1761,7 @@ router.get('/:ledger/contracts/search', function(req, res) {
       "address": {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
-      "rootHash": {
-        "value": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM"
-      },
+      "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
       "pubKey": {
         "value": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
       }

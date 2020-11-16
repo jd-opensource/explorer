@@ -178,7 +178,7 @@ export default class Account extends Component {
       `()
     }, {
       title: '默克尔树根哈希',
-      dataIndex: 'rootHash.value',
+      dataIndex: 'rootHash',
       key: 'rootHash',
       width: '25%',
       render: (text, record, index) => nj`
