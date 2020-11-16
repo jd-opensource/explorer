@@ -21,7 +21,7 @@
     </ant-Select> -->
     <ant-Select  value="{common.defaultledger}" onChange={handleSelectChange} class="ledgers">
       <#each {{common.ledgers}}>
-        <ant-Option key="{@index}" value="{{value}}">{{value}}</ant-Option>
+        <ant-Option key="{@index}" value="{@item}">{{@item}}</ant-Option>
       </#each>
     </ant-Select>
     <ant-Tooltip title="复制账本" placement="bottomLeft" onClick={onClickCopy}>

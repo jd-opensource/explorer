@@ -202,12 +202,14 @@ router.get('/', function(req, res) {
 
   Object.assign(ret, resultData,{
     "data": [
-      {
-        "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
-      },
-      {
-        "value": "357TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
-      },
+      "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
+      "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
+      // {
+      //   "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
+      // },
+      // {
+      //   "value": "357TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
+      // },
     ],
   });
 
