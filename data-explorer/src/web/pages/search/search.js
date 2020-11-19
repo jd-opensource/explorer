@@ -86,6 +86,7 @@ export default class Search extends Component {
       search.getTransactionTotal(legder),
       search.getUserTotal(legder),
       search.getLedgerTotal(legder),
+      search.getEventTotal(legder),
       search.getContractTotal(legder),
     ]).then(() => {
       closeLoading();
