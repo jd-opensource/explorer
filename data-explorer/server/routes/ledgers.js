@@ -1436,6 +1436,14 @@ router.get('/:ledger/all/search', function(req, res) {
           "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
         }
       ],
+      "event_accounts":[
+        {
+          "address": {
+            "value":"LdeNo4xBX2Xmek39xfCXqmGfDcEk7K841xAuX"
+          },
+          "pubKey": "7VeRGgAPnMxHnVosL5LZY9gfBYvWXxv8aAMWmMkjkGXTFP3p"
+        }
+      ],
     },
   });
 
