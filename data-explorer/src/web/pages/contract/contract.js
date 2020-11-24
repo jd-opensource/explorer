@@ -131,19 +131,21 @@ export default class Contract extends Component {
       render: (text, record, index) => nj `
       ${text}<br/>算法：${tranBase58(text)}
       `()
-    }, {
-      title: '合约根哈希',
-      dataIndex: 'rootHash',
-      key:'rootHash',
-      render: (text, record, index) => nj `
-        <#if ${text}>
-          ${text}
-          <#else>
-            <ContractsRootHash address=${record.address.value}/>
-          </#else>
-        </#if>
-      `()
-    },{
+    }, 
+    // {
+    //   title: '合约根哈希',
+    //   dataIndex: 'rootHash',
+    //   key:'rootHash',
+    //   render: (text, record, index) => nj `
+    //     <#if ${text}>
+    //       ${text}
+    //       <#else>
+    //         <ContractsRootHash address=${record.address.value}/>
+    //       </#else>
+    //     </#if>
+    //   `()
+    // },
+    {
       title: '操作',
       dataIndex: 'address.value',
       key:'chainCode',
