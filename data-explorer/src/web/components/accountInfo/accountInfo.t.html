@@ -8,7 +8,7 @@
         <#if {{accountData && accountData.headerRootHash && accountData.headerRootHash}}>
           {accountData.headerRootHash}
           <#elseif {{accountData && accountData.address && accountData.address.value}}>
-            <AccountRootHash  address={accountData.address.value}/>
+            <AccountRootHash  address={accountData.address.value} hash="header"/>
           </#elseif>
           <#else>
             ''
@@ -21,7 +21,7 @@
         <#if {{accountData && accountData.dataRootHash && accountData.dataRootHash}}>
           {accountData.dataRootHash}
           <#elseif {{accountData && accountData.address && accountData.address.value}}>
-            <AccountRootHash  address={accountData.address.value}/>
+            <AccountRootHash  address={accountData.address.value} hash="data"/>
           </#elseif>
           <#else>
             ''

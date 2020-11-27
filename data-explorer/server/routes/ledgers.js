@@ -1262,12 +1262,26 @@ router.get('/:ledger/accounts/address/:address', function(req, res) {
 
   Object.assign(ret, resultData,{
     "data": {
-      "address": {
-        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+      "address":
+      
+      { "value": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx" }
+      ,
+      "headerRootHash": "j5qaaqyBqyb14LKbu3qMrqcv5UFnuYNKGBebE6X5LXKCKs",
+      "iD": {
+      "address":
+      
+      { "value": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx" }
+      ,
+      "pubKey": "7VeR8t8kECBTJ9hCPwZonEvQYVD74Ko4wQR5soSVdS122pdV"
       },
-      "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
-      "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
+      "dataset":
+      
+      { "readonly": false, "rootHash": "j5uJfAqLw1ptaZYJyKVZm37zZybboqxMPpS6Mv59rNd4xF", "updated": false, "dataCount": 0 }
+      ,
+      "dataRootHash": "j5uJfAqLw1ptaZYJyKVZm37zZybboqxMPpS6Mv59rNd4xF",
+      "pubKey": "7VeR8t8kECBTJ9hCPwZonEvQYVD74Ko4wQR5soSVdS122pdV"
     },
+    "success": true
   });
 
   res.send(ret);
