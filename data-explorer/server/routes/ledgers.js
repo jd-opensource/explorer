@@ -15,171 +15,188 @@ router.get('/:ledgerHash/settings', function(req, res) {
 
   Object.assign(ret, resultData,{
     "data": {
-        "consensusProtocol": 1,
-        "consensusSettings": {
-            "commitBlockSettings": {
-                "maxDelayMilliSecondsPerBlock": 500,
-                "txSizePerBlock": 15
-            },
-            "nodes": [{
-                "address": "LdeP1fLeUnmrQHr4ryGmoQ4ubzAvcrgayUK8U",
-                "id": 0,
-                "networkAddress": {
-                    "host": "127.0.0.1",
-                    "port": 8910,
-                    "secure": false
-                },
-                "pubKey": {
-                    "value": "7VeRBxpPoCzAS6AavVoe1HGpJsz68kcZEYzN1fkg3GgASvkb"
-                }
-            }, {
-                "address": "LdeP2xKyNFeYhgzDGn5Vq2dndCUNCeLYLyh1k",
-                "id": 1,
-                "networkAddress": {
-                    "host": "127.0.0.1",
-                    "port": 8920,
-                    "secure": false
-                },
-                "pubKey": {
-                    "value": "7VeRJ9PiL7sCGKc56uckEwvKZnxqk9VfMedanGoKtM4CQ3yM"
-                }
-            }, {
-                "address": "LdeNrvP3Q4NDjjeidcaqKGz3cWotf4qmTZmeK",
-                "id": 2,
-                "networkAddress": {
-                    "host": "127.0.0.1",
-                    "port": 8930,
-                    "secure": false
-                },
-                "pubKey": {
-                    "value": "7VeRG8n49ocQYEvievU971e7uJMhRPTkLS3qJr4NJBahysYY"
-                }
-            }, {
-                "address": "LdeNisAU3fBAtEfTrdH7fXSYidAbAmBZBeP5c",
-                "id": 3,
-                "networkAddress": {
-                    "host": "127.0.0.1",
-                    "port": 8940,
-                    "secure": false
-                },
-                "pubKey": {
-                    "value": "7VeRFzWif8yGXa8GRYri7jFLevqryxZTJ6m9NiEUSfUNqKy8"
-                }
-            }],
-            "systemConfigs": [{
-                "name": "system.bft",
-                "value": "true"
-            }, {
-                "name": "system.communication.defaultkeys",
-                "value": "true"
-            }, {
-                "name": "system.communication.inQueueSize",
-                "value": "500000"
-            }, {
-                "name": "system.communication.outQueueSize",
-                "value": "500000"
-            }, {
-                "name": "system.communication.useMACs",
-                "value": "1"
-            }, {
-                "name": "system.communication.useSenderThread",
-                "value": "true"
-            }, {
-                "name": "system.communication.useSignatures",
-                "value": "0"
-            }, {
-                "name": "system.debug",
-                "value": "0"
-            }, {
-                "name": "system.servers.num",
-                "value": "4"
-            }, {
-                "name": "system.shutdownhook",
-                "value": "true"
-            }, {
-                "name": "system.totalordermulticast.checkpoint_period",
-                "value": "1000"
-            }, {
-                "name": "system.totalordermulticast.checkpoint_to_disk",
-                "value": "false"
-            }, {
-                "name": "system.totalordermulticast.global_checkpoint_period",
-                "value": "120000"
-            }, {
-                "name": "system.totalordermulticast.highMark",
-                "value": "10000"
-            }, {
-                "name": "system.totalordermulticast.log",
-                "value": "true"
-            }, {
-                "name": "system.totalordermulticast.log_parallel",
-                "value": "false"
-            }, {
-                "name": "system.totalordermulticast.log_to_disk",
-                "value": "false"
-            }, {
-                "name": "system.totalordermulticast.maxbatchsize",
-                "value": "400"
-            }, {
-                "name": "system.totalordermulticast.nonces",
-                "value": "10"
-            }, {
-                "name": "system.totalordermulticast.revival_highMark",
-                "value": "10"
-            }, {
-                "name": "system.totalordermulticast.state_transfer",
-                "value": "true"
-            }, {
-                "name": "system.totalordermulticast.sync_ckp",
-                "value": "false"
-            }, {
-                "name": "system.totalordermulticast.sync_log",
-                "value": "false"
-            }, {
-                "name": "system.totalordermulticast.timeout",
-                "value": "2000"
-            }, {
-                "name": "system.totalordermulticast.timeout_highMark",
-                "value": "200"
-            }, {
-                "name": "system.totalordermulticast.verifyTimestamps",
-                "value": "false"
-            }, {
-                "name": "system.ttp.id",
-                "value": "7002"
-            }]
-        },
-        "cryptoSetting": {
-            "autoVerifyHash": true,
-            "hashAlgorithm": 8216
-        },
-        "ledgerStructureVersion": 0,
-        "participantNodes": [{
-            "address": "LdeP1fLeUnmrQHr4ryGmoQ4ubzAvcrgayUK8U",
-            "id": 0,
-            "name": "jd.com",
-            "pubKey": "7VeRBxpPoCzAS6AavVoe1HGpJsz68kcZEYzN1fkg3GgASvkb"
+      "consensusProtocol": "com.jd.blockchain.consensus.bftsmart.BftsmartConsensusProvider",
+      "consensusSettings": {
+        "nodes": [{
+          "address": "LdeNxy22cbRuohUTWWcdsx7dq7fawh7yAVwJR",
+          "id": 0,
+          "networkAddress": {
+            "host": "127.0.0.1",
+            "port": 10080,
+            "secure": false
+          },
+          "pubKey": "7VeRJtmGhWZJKmjxHaKVdSUxSrYwumCHvdR4dKdWu8xpmcwZ"
         }, {
-            "address": "LdeP2xKyNFeYhgzDGn5Vq2dndCUNCeLYLyh1k",
-            "id": 1,
-            "name": "at.com",
-            "pubKey": "7VeRJ9PiL7sCGKc56uckEwvKZnxqk9VfMedanGoKtM4CQ3yM"
+          "address": "LdeNjeSZfY2stPYiSwaW6ScpdvSJvJa9VQmhb",
+          "id": 1,
+          "networkAddress": {
+            "host": "127.0.0.1",
+            "port": 10082,
+            "secure": false
+          },
+          "pubKey": "7VeRLj8MzLLhXfPsZd2giUJNhKu6oxs5Ucm1o6DJBPLt7TVR"
         }, {
-            "address": "LdeNrvP3Q4NDjjeidcaqKGz3cWotf4qmTZmeK",
-            "id": 2,
-            "name": "bt.com",
-            "pubKey": "7VeRG8n49ocQYEvievU971e7uJMhRPTkLS3qJr4NJBahysYY"
+          "address": "LdeNgyuxXGUwEFCuuPL1wb5RJroqhJdTsyCTW",
+          "id": 2,
+          "networkAddress": {
+            "host": "127.0.0.1",
+            "port": 10084,
+            "secure": false
+          },
+          "pubKey": "7VeRLuzSAiKBNDhYB7AaYfvfgTjVTUCaXHLdJ2BWZSLn8po4"
         }, {
-            "address": "LdeNisAU3fBAtEfTrdH7fXSYidAbAmBZBeP5c",
-            "id": 3,
-            "name": "xt.com",
-            "pubKey": "7VeRFzWif8yGXa8GRYri7jFLevqryxZTJ6m9NiEUSfUNqKy8"
+          "address": "LdeNkSbfPR5BhfoTdnDBzJ9DZ8kMmGxrKj2Ug",
+          "id": 3,
+          "networkAddress": {
+            "host": "127.0.0.1",
+            "port": 10086,
+            "secure": false
+          },
+          "pubKey": "7VeRHTYKbj1Ua6To2zjozUL8xpwrbiTqgWPJmaCzfVN7ioPr"
         }],
-        // "participantsHash": {
-        //     "value": "j5vDDASBGRAynVmopq2q4obNPZmbJMwGnDWsHnSgz9nuS9"
-        // },
-        "participantsHash": "j5vDDASBGRAynVmopq2q4obNPZmbJMwGnDWsHnSgz9nuS9",
-        "seed": "932dfe23-fe23232f-283f32fa-dd32aa76-8322ca2f-56236cda-7136b322-cb323ffe"
+        "systemConfigs": [{
+          "name": "system.bft",
+          "value": "true"
+        }, {
+          "name": "system.communication.defaultkeys",
+          "value": "true"
+        }, {
+          "name": "system.communication.inQueueSize",
+          "value": "500000"
+        }, {
+          "name": "system.communication.outQueueSize",
+          "value": "500000"
+        }, {
+          "name": "system.communication.useMACs",
+          "value": "1"
+        }, {
+          "name": "system.communication.useSenderThread",
+          "value": "true"
+        }, {
+          "name": "system.communication.useSignatures",
+          "value": "0"
+        }, {
+          "name": "system.debug",
+          "value": "0"
+        }, {
+          "name": "system.initial.view",
+          "value": "0,1,2,3"
+        }, {
+          "name": "system.servers.f",
+          "value": "1"
+        }, {
+          "name": "system.servers.num",
+          "value": "4"
+        }, {
+          "name": "system.shutdownhook",
+          "value": "true"
+        }, {
+          "name": "system.totalordermulticast.checkpoint_period",
+          "value": "1000"
+        }, {
+          "name": "system.totalordermulticast.checkpoint_to_disk",
+          "value": "false"
+        }, {
+          "name": "system.totalordermulticast.global_checkpoint_period",
+          "value": "120000"
+        }, {
+          "name": "system.totalordermulticast.highMark",
+          "value": "10000"
+        }, {
+          "name": "system.totalordermulticast.log",
+          "value": "true"
+        }, {
+          "name": "system.totalordermulticast.log_parallel",
+          "value": "false"
+        }, {
+          "name": "system.totalordermulticast.log_to_disk",
+          "value": "false"
+        }, {
+          "name": "system.totalordermulticast.maxbatchsize",
+          "value": "2000"
+        }, {
+          "name": "system.totalordermulticast.nonces",
+          "value": "10"
+        }, {
+          "name": "system.totalordermulticast.revival_highMark",
+          "value": "10"
+        }, {
+          "name": "system.totalordermulticast.state_transfer",
+          "value": "true"
+        }, {
+          "name": "system.totalordermulticast.sync_ckp",
+          "value": "false"
+        }, {
+          "name": "system.totalordermulticast.sync_log",
+          "value": "false"
+        }, {
+          "name": "system.totalordermulticast.timeout",
+          "value": "60000"
+        }, {
+          "name": "system.totalordermulticast.timeout_highMark",
+          "value": "200"
+        }, {
+          "name": "system.totalordermulticast.verifyTimestamps",
+          "value": "false"
+        }, {
+          "name": "system.ttp.id",
+          "value": "7002"
+        }],
+        "viewId": 0
+      },
+      "cryptoSetting": {
+        "autoVerifyHash": false,
+        "hashAlgorithm": 8216,
+        "supportedProviders": [{
+          "algorithms": [{
+            "code": -32230,
+            "name": "AES"
+          }, null, null, null, null, null, null],
+          "name": "com.jd.blockchain.crypto.service.classic.ClassicCryptoService"
+        }, {
+          "algorithms": [null, {
+            "code": 8195,
+            "name": "SM3"
+          }, null],
+          "name": "com.jd.blockchain.crypto.service.sm.SMCryptoService"
+        }]
+      },
+      "ledgerStructureVersion": 0,
+      "participantNodes": [{
+        "address": {
+          "value": "LdeNkSbfPR5BhfoTdnDBzJ9DZ8kMmGxrKj2Ug"
+        },
+        "id": 3,
+        "name": "3",
+        "participantNodeState": "CONSENSUS",
+        "pubKey": "7VeRHTYKbj1Ua6To2zjozUL8xpwrbiTqgWPJmaCzfVN7ioPr"
+      }, {
+        "address": {
+          "value": "LdeNxy22cbRuohUTWWcdsx7dq7fawh7yAVwJR"
+        },
+        "id": 0,
+        "name": "0",
+        "participantNodeState": "CONSENSUS",
+        "pubKey": "7VeRJtmGhWZJKmjxHaKVdSUxSrYwumCHvdR4dKdWu8xpmcwZ"
+      }, {
+        "address": {
+          "value": "LdeNgyuxXGUwEFCuuPL1wb5RJroqhJdTsyCTW"
+        },
+        "id": 2,
+        "name": "2",
+        "participantNodeState": "CONSENSUS",
+        "pubKey": "7VeRLuzSAiKBNDhYB7AaYfvfgTjVTUCaXHLdJ2BWZSLn8po4"
+      }, {
+        "address": {
+          "value": "LdeNjeSZfY2stPYiSwaW6ScpdvSJvJa9VQmhb"
+        },
+        "id": 1,
+        "name": "1",
+        "participantNodeState": "CONSENSUS",
+        "pubKey": "7VeRLj8MzLLhXfPsZd2giUJNhKu6oxs5Ucm1o6DJBPLt7TVR"
+      }],
+      "participantsHash": "j5pWhURErZQe3t2dwBq6W29MoYXvzFtHiQpeFLqAVdkNZ6",
+      "seed": "de9ae189-c938934b-f7483ec3-4b990aea-da183d91-425ba5f1-6baaff15-47a33564"
     },
     "success": true
   });
@@ -1262,12 +1279,26 @@ router.get('/:ledger/accounts/address/:address', function(req, res) {
 
   Object.assign(ret, resultData,{
     "data": {
-      "address": {
-        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
+      "address":
+      
+      { "value": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx" }
+      ,
+      "headerRootHash": "j5qaaqyBqyb14LKbu3qMrqcv5UFnuYNKGBebE6X5LXKCKs",
+      "iD": {
+      "address":
+      
+      { "value": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx" }
+      ,
+      "pubKey": "7VeR8t8kECBTJ9hCPwZonEvQYVD74Ko4wQR5soSVdS122pdV"
       },
-      "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
-      "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
+      "dataset":
+      
+      { "readonly": false, "rootHash": "j5uJfAqLw1ptaZYJyKVZm37zZybboqxMPpS6Mv59rNd4xF", "updated": false, "dataCount": 0 }
+      ,
+      "dataRootHash": "j5uJfAqLw1ptaZYJyKVZm37zZybboqxMPpS6Mv59rNd4xF",
+      "pubKey": "7VeR8t8kECBTJ9hCPwZonEvQYVD74Ko4wQR5soSVdS122pdV"
     },
+    "success": true
   });
 
   res.send(ret);

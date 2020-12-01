@@ -87,7 +87,7 @@ export default class Header extends Component {
   // 交易列表
   @computed get tableColumns() {
     return [{
-      title: '参与方序号',
+      title: '参与方ID',
       dataIndex: 'id',
       key:'id'
     },
@@ -98,7 +98,7 @@ export default class Header extends Component {
     },
     {
       title: '参与方地址',
-      dataIndex: 'address',
+      dataIndex: 'address.value',
       key:'address'
     },
     {
