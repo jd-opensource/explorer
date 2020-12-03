@@ -123,14 +123,7 @@ export default class TransactionInfo extends Component {
 
   modelItem = (data) => {
     return [
-      <div className = {styles.option}>
-        区块高度: {data.blockHeight && data.blockHeight || 0}
-      </div>,
-      data.transactionHash && (
-        <div className = {styles.option}>
-          交易哈希: {data.transactionHash && data.transactionHash || ''}
-        </div>
-      ) || null,
+      
       <Tabs 
         defaultActiveKey = "1" 
         style = {{marginTop: '10px'}}
@@ -649,9 +642,18 @@ export default class TransactionInfo extends Component {
   }
 
   reqItem = data => {
-    let { dataSnapshot, executionState } = data
+    let { dataSnapshot, executionState, blockHeight, transactionHash } = data
+    
     return (
       <div>
+        <div className = {styles.option}>
+          区块高度: {blockHeight && blockHeight || 0}
+        </div>
+        {transactionHash && (
+          <div className = {styles.option}>
+            交易哈希: {transactionHash && transactionHash || ''}
+          </div>
+        ) || null}
         {
           dataSnapshot && JSON.stringify(dataSnapshot) != "{}" && (
             <BlockCollapse title = "数据快照">

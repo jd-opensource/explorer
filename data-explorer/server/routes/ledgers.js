@@ -448,306 +448,55 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function(req, re
     ret = {};
 
   Object.assign(ret, resultData,{
-    "data": [{
-      "blockHeight": 0,
-      "executionState": "SUCCESS",
-      "request": {
-        "endpointSignatures": [],
-        "nodeSignatures": [{
-          "digest": "SMKKF9GCBdb3LiJQupbv5hNzpdaQTNmHxYsaMxymedup7sBRKprx6huTffQcFvJ4bKsZGPKbZzTu295Lk4JCFxEKTb",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }, {
-          "digest": "SMJHt3DYwWqzMrBSjqFKWor4VwN3J1TboysiDNxyRm2DVPYexmLytYBkf5KoPQF2mnN1diK7xFh62YmjfCbqqVmreT",
-          "pubKey": "7VeRBsHM2nsGwP8b2ufRxz36hhNtSqjKTquzoa4WVKWty5sD"
-        }, {
-          "digest": "SMMLFG2wbDKVhg3TJEnzELqXngVx15QN6PjwpNTtCVh81PtB3KjmzeXAq78Dy7yctMmJ52dhgnLTxTGzteFEbZ8RJr",
-          "pubKey": "7VeRAr3dSbi1xatq11ZcF7sEPkaMmtZhV9shonGJWk9T4pLe"
-        }, {
-          "digest": "SMLK6oGzyFWaXsvgz87TwTRX6kF8ia9cwVHsLHwxFLw96vqSmUu5rMdixCU2gS3Y3FLQhWfxVEyB6shSHwSNmqq7G3",
-          "pubKey": "7VeRKoM5RE6iFXr214Hsiic2aoqCQ7MEU1dHQFRnjXQcReAS"
-        }],
-        "transactionContent": {
-          "operations": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-          "timestamp": 1564640818069
+      "data": [{
+        "result": {
+          "blockHeight": 3,
+          "dataSnapshot": {
+            "userAccountSetHash": "j5sbXyTRm28zZkLh2WSa9bS6HvHN2FJWkCvydWrKNs7cmq",
+            "adminAccountHash": "j5mcPKXkJi9bJqVRjYBCctfDDR4jQ5TvzhQ17fHBGzbf3c",
+            "dataAccountSetHash": "j5oKEHfRmrMbMwnTNowCHjHhy6FiHNuTy65ytfUChFXQft"
+          },
+          "executionState": "SUCCESS",
+          "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG"
         },
-        "transactionHash": "j5j47m9goc4tz9XfoBDd8zQ3fyFT2iyZLGws4skAMWgdHH",
-      },
-      "result": {
-        "blockHeight": 0,
-        "dataSnapshot": {
-          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
-          "userAccountSetHash": "j5sQJ8XibCG62dVTcCyV73qgqfcsMhUPvGQgiPre1wUu1n"
-        },
-        "executionState": "SUCCESS",
-        "transactionHash": "j5j47m9goc4tz9XfoBDd8zQ3fyFT2iyZLGws4skAMWgdHH",
-
-      },
-      "transactionHash": "j5j47m9goc4tz9XfoBDd8zQ3fyFT2iyZLGws4skAMWgdHH",
-
-    }, {
-      "blockHeight": 1,
-      "executionState": "SUCCESS",
-      "request": {
-        "endpointSignatures": [{
-          "digest": "SMKm5D7xEDUgWGRuAabugWMfygvGgLn9MrUMVijX78ZDFGCTXsxXcZ8ZyH6X4svboZ1SEe42JZVt3fdgwUJ7C7aXe2",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "nodeSignatures": [{
-          "digest": "SMKm5D7xEDUgWGRuAabugWMfygvGgLn9MrUMVijX78ZDFGCTXsxXcZ8ZyH6X4svboZ1SEe42JZVt3fdgwUJ7C7aXe2",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "transactionContent": {
-          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
-          "operations": [{}],
-          "timestamp": 1601274968253
-        },
-        "transactionHash":"j5gbyDaHfwnBJquH5HU3Y4ooEu6F4akaAvRgW5mPK9q24c"
-      },
-      "result": {
-        "blockHeight": 1,
-        "dataSnapshot": {
-          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
-          "userAccountSetHash": "j5wDEV3qFGTwtpqFoy18FQxETyhXv8WAZEzjVAeSh4qoni"
-        },
-        "executionState": "SUCCESS",
-        "transactionHash": "j5gbyDaHfwnBJquH5HU3Y4ooEu6F4akaAvRgW5mPK9q24c"
-      },
-      "transactionHash": "j5gbyDaHfwnBJquH5HU3Y4ooEu6F4akaAvRgW5mPK9q24c"
-    }, {
-      "blockHeight": 1,
-      "executionState": "SUCCESS",
-      "request": {
-        "endpointSignatures": [{
-          "digest": "SMJLKkVk43uN2A8QqYnbvxZWsvMSbW6MVZk8yxiTt4uCvgP6BfoymuxQqci6Lu3bm38JhjgoBs4pVzdsyJ8bMM6rW3",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "nodeSignatures": [{
-          "digest": "SMJLKkVk43uN2A8QqYnbvxZWsvMSbW6MVZk8yxiTt4uCvgP6BfoymuxQqci6Lu3bm38JhjgoBs4pVzdsyJ8bMM6rW3",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "transactionContent": {
-          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
-          "operations": [{}],
-          "timestamp": 1601274968252
-        },
-        "transactionHash": "j5gg47mvrrF4DQczUQVjjvMN6gfN9TRocW7JMfsXDzcP47"
-      },
-      "result": {
-        "blockHeight": 1,
-        "dataSnapshot": {
-          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
-          "userAccountSetHash": "j5koseQzgnrWBYcL2MGumBBqudexscQMNu5pUXVSR7AAUy"
-        },
-        "executionState": "SUCCESS",
-        "transactionHash": "j5gg47mvrrF4DQczUQVjjvMN6gfN9TRocW7JMfsXDzcP47"
-      },
-      "transactionHash": "j5gg47mvrrF4DQczUQVjjvMN6gfN9TRocW7JMfsXDzcP47"
-    }, {
-      "blockHeight": 1,
-      "executionState": "SUCCESS",
-      "request": {
-        "endpointSignatures": [{
-          "digest": "SMLzEc42EYkXu89YME69UFWxJSqT6RyiEy1gqgvgARKySRBX3yMSzoekuJgFPSbcdEjchaVoqbG3GZnKg3yh8CF4ZR",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "nodeSignatures": [{
-          "digest": "SMLzEc42EYkXu89YME69UFWxJSqT6RyiEy1gqgvgARKySRBX3yMSzoekuJgFPSbcdEjchaVoqbG3GZnKg3yh8CF4ZR",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "transactionContent": {
-          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
-          "operations": [{}],
-          "timestamp": 1601274968252
-        },
-        "transactionHash": "j5qWbXt9Ns72jZnEoEMdQRwRGZfpLfGCms8RGeXQzJkhoY"
-      },
-      "result": {
-        "blockHeight": 1,
-        "dataSnapshot": {
-          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
-          "userAccountSetHash": "j5kYTy9viuKA1S8HqJxnBpDbr18p4weakMiiKfDKbE9Ejo"
-        },
-        "executionState": "SUCCESS",
-        "transactionHash": "j5qWbXt9Ns72jZnEoEMdQRwRGZfpLfGCms8RGeXQzJkhoY"
-      },
-      "transactionHash": "j5qWbXt9Ns72jZnEoEMdQRwRGZfpLfGCms8RGeXQzJkhoY"
-    }, {
-      "blockHeight": 1,
-      "executionState": "SUCCESS",
-      "request": {
-        "endpointSignatures": [{
-          "digest": "SMLV4ZfGczcfYcbrejY2raQewVgND86rhBxi6azT3ygBQrCMfHFcuMsswV7RxpGg9PqBmBzEvSEurZWHdYCxXhZvPP",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "nodeSignatures": [{
-          "digest": "SMLV4ZfGczcfYcbrejY2raQewVgND86rhBxi6azT3ygBQrCMfHFcuMsswV7RxpGg9PqBmBzEvSEurZWHdYCxXhZvPP",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "transactionContent": {
-          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
-          "operations": [{}],
-          "timestamp": 1601274968252
-        },
-        "transactionHash": "j5ok7diJu3C4ZxNKknpurNSDGDqrrALs7uAbxe4WkUszCf"
-      },
-      "result": {
-        "blockHeight": 1,
-        "dataSnapshot": {
-          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
-          "userAccountSetHash": "j5fPZ9ydWrsdMH4xmiMuFqkL7YH9iTMG27ZxboBtCU2VF9"
-        },
-        "executionState": "SUCCESS",
-        "transactionHash": "j5ok7diJu3C4ZxNKknpurNSDGDqrrALs7uAbxe4WkUszCf"
-      },
-      "transactionHash": "j5ok7diJu3C4ZxNKknpurNSDGDqrrALs7uAbxe4WkUszCf"
-    }, {
-      "blockHeight": 1,
-      "executionState": "SUCCESS",
-      "request": {
-        "endpointSignatures": [{
-          "digest": "SMJgw2pw2ViVJWHhaRH2M3LvvQMFiarqgpFRZNSV8S98mG47Z1pKnN5UbBZ9Nz1dZdzzn2WQEwN3sEPHnf4KECGKnn",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "nodeSignatures": [{
-          "digest": "SMJgw2pw2ViVJWHhaRH2M3LvvQMFiarqgpFRZNSV8S98mG47Z1pKnN5UbBZ9Nz1dZdzzn2WQEwN3sEPHnf4KECGKnn",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "transactionContent": {
-          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
-          "operations": [{}],
-          "timestamp": 1601274968252
-        },
-        "transactionHash": "j5k2iCjiPkmyJUWVAkD617AyKnwwnwpAjwNayzdTrtoQGN"
-      },
-      "result": {
-        "blockHeight": 1,
-        "dataSnapshot": {
-          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
-          "userAccountSetHash": "j5si1dprpxz1yXX9ECLGzPM6MGpd7Lwg9sWaYffaS7E2WW"
-        },
-        "executionState": "SUCCESS",
-        "transactionHash": "j5k2iCjiPkmyJUWVAkD617AyKnwwnwpAjwNayzdTrtoQGN"
-      },
-      "transactionHash": "j5k2iCjiPkmyJUWVAkD617AyKnwwnwpAjwNayzdTrtoQGN"
-    }, {
-      "blockHeight": 1,
-      "executionState": "SUCCESS",
-      "request": {
-        "endpointSignatures": [{
-          "digest": "SMGWt9QUZNPy9YyBeFnhv5taSTE4o9M4R7rZ2AZNnLj4x4KDbALQL36E8gwvzks1C3UfL2qddFdq5hBPqa8u38gwmp",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "nodeSignatures": [{
-          "digest": "SMGWt9QUZNPy9YyBeFnhv5taSTE4o9M4R7rZ2AZNnLj4x4KDbALQL36E8gwvzks1C3UfL2qddFdq5hBPqa8u38gwmp",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "transactionContent": {
-          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
-          "operations": [{}],
-          "timestamp": 1601274968253
-        },
-        "transactionHash": "j5iXQszMEkLQzQputBx83aF28J4o8Qrr9Vo5T1gP2Nuowh"
-      },
-      "result": {
-        "blockHeight": 1,
-        "dataSnapshot": {
-          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
-          "userAccountSetHash": "j5hTd4e2QiCpY5LWxn5FoULnKTCxNntNxJZESi6DFf7t53"
-        },
-        "executionState": "SUCCESS",
-        "transactionHash": "j5iXQszMEkLQzQputBx83aF28J4o8Qrr9Vo5T1gP2Nuowh"
-      },
-      "transactionHash": "j5iXQszMEkLQzQputBx83aF28J4o8Qrr9Vo5T1gP2Nuowh"
-    }, {
-      "blockHeight": 1,
-      "executionState": "SUCCESS",
-      "request": {
-        "endpointSignatures": [{
-          "digest": "SMKqo5K1Sk2hSfvrerAVbEs7z9QyVedxCkHduux45XQxauWztyEUb8bkBNQYDqzxXe3D4PvdzzSqCY247NJCtbuPek",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "nodeSignatures": [{
-          "digest": "SMKqo5K1Sk2hSfvrerAVbEs7z9QyVedxCkHduux45XQxauWztyEUb8bkBNQYDqzxXe3D4PvdzzSqCY247NJCtbuPek",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "transactionContent": {
-          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
-          "operations": [{}],
-          "timestamp": 1601274968253
-        },
-        "transactionHash": "j5v29bs7G2R5tYkBBWW2oiPbR923BAXALGAnYBmV5PxG2f"
-      },
-      "result": {
-        "blockHeight": 1,
-        "dataSnapshot": {
-          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
-          "userAccountSetHash": "j5iWtySuaNKPC5RPPdprJXheDNZNtubDBd5QUySy1XBdKP"
-        },
-        "executionState": "SUCCESS",
-        "transactionHash": "j5v29bs7G2R5tYkBBWW2oiPbR923BAXALGAnYBmV5PxG2f"
-      },
-      "transactionHash": "j5v29bs7G2R5tYkBBWW2oiPbR923BAXALGAnYBmV5PxG2f"
-    }, {
-      "blockHeight": 1,
-      "executionState": "SUCCESS",
-      "request": {
-        "endpointSignatures": [{
-          "digest": "SMKAT8dKytLjHkbENzQUeCMEinE4aQdWG2xZ4yGhJDH1SF18X1Fn134CFMfoAt8vhYndHdpQvX788uSjy1zaaAG6YA",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "nodeSignatures": [{
-          "digest": "SMKAT8dKytLjHkbENzQUeCMEinE4aQdWG2xZ4yGhJDH1SF18X1Fn134CFMfoAt8vhYndHdpQvX788uSjy1zaaAG6YA",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "transactionContent": {
-          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
-          "operations": [{}],
-          "timestamp": 1601274968253
-        },
-        "transactionHash": "j5sAf9Fna39RttiDhy5jx4NNqQBFnbQ52wLSBPF4MNvjkb"
-      },
-      "result": {
-        "blockHeight": 1,
-        "dataSnapshot": {
-          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
-          "userAccountSetHash": "j5quWJqgWYVDV6p3FGo8WCizeA9vuptffErYcqM7X9Cwe9"
-        },
-        "executionState": "SUCCESS",
-        "transactionHash": "j5sAf9Fna39RttiDhy5jx4NNqQBFnbQ52wLSBPF4MNvjkb"
-      },
-      "transactionHash": "j5sAf9Fna39RttiDhy5jx4NNqQBFnbQ52wLSBPF4MNvjkb"
-    }, {
-      "blockHeight": 1,
-      "executionState": "SUCCESS",
-      "request": {
-        "endpointSignatures": [{
-          "digest": "SMKSkJc8PBHCKuKgNEMYbzCyZeV335nZJroZAgA5a3ko7Sad8c8fRex1QVQkrKtzhpvjeBEQsYrzDRNKfqKpUMotHt",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "nodeSignatures": [{
-          "digest": "SMKSkJc8PBHCKuKgNEMYbzCyZeV335nZJroZAgA5a3ko7Sad8c8fRex1QVQkrKtzhpvjeBEQsYrzDRNKfqKpUMotHt",
-          "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
-        }],
-        "transactionContent": {
-          "ledgerHash": "j5oyNMUZNfuhdgC4UkwURqZkNNnFaNRQWgmWQXiQXhiopc",
-          "operations": [{}],
-          "timestamp": 1601274968253
-        },
-        "transactionHash": "j5xPbJHsjnrvsL5CsDwVCstPKPcvh9t6XtXjgzTUBn6e3j"
-      },
-      "result": {
-        "blockHeight": 1,
-        "dataSnapshot": {
-          "adminAccountHash": "j5sEPziX7gbht286xb1ECDNqMwUST6Bfd1iTb55UVSoB6V",
-          "userAccountSetHash": "j5qkRzh1txM2zKX7N2zUGHuhUjWLN4TFfYdMoivoyXe1mj"
-        },
-        "executionState": "SUCCESS",
-        "transactionHash": "j5xPbJHsjnrvsL5CsDwVCstPKPcvh9t6XtXjgzTUBn6e3j"
-      },
-      "transactionHash": "j5xPbJHsjnrvsL5CsDwVCstPKPcvh9t6XtXjgzTUBn6e3j"
-    }],
-    "success": true
-  });
+        "request": {
+          "transactionContent": {
+            "ledgerHash": "j5xJwCmBvsKByY9dpkpV4VNDnS5BeFBQKWXQozjsrpgfJF",
+            "operations": [{
+              "writeSet": [{
+                "expectedVersion": -1,
+                "value": {
+                  "nil": false,
+                  "bytes": {
+                    "value": "hZ8f4meDrG3boKXguGVZegLrZPm"
+                  },
+                  "type": "TEXT",
+                  "value": "2020-12-02 16:17:50 "
+                },
+                "key": "QY"
+              }],
+              "accountAddress": {
+                "value": "LdeP14iDiDwetm81ZC4wxwZvv8Zo5kbWRAfmb"
+              }
+            }],
+            "timestamp": 1606897070670
+          },
+          "endpointSignatures": [{
+            "digest": "SMJkeLrrVPjj3GzvVbstU3cBQBQuZWxJTXP2oskJJCebpsX2whPoDJi4QwUquxCYG67WHmBdmkuPLaYv9D2YsmiXPs",
+            "pubKey": "7VeR8GXfq7i8Pktc41mRjztQyv7PdVuSZH7XvF4xhg2omz9i"
+          }, {
+            "digest": "SMKTxyeANtUJv3gqaw5k2oB5qoTMbaupgdATx3Rj9V3dMBT2kowAVkaFNmLQtYqo9iEyYk7cgh2Af9dMnrGHYkqCwq",
+            "pubKey": "7VeRKi8Wi3KuQV4ptFvwU6ZbifTcXPFyVptBgrK28UBcnCA2"
+          }],
+          "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG",
+          "nodeSignatures": [{
+            "digest": "SMKTxyeANtUJv3gqaw5k2oB5qoTMbaupgdATx3Rj9V3dMBT2kowAVkaFNmLQtYqo9iEyYk7cgh2Af9dMnrGHYkqCwq",
+            "pubKey": "7VeRKi8Wi3KuQV4ptFvwU6ZbifTcXPFyVptBgrK28UBcnCA2"
+          }]
+        }
+      }],
+      "success": true
+    });
 
   res.send(ret);
 });
