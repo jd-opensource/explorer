@@ -555,15 +555,15 @@ export default class TransactionInfo extends Component {
                   {item.content && [
                     <tr>
                       <td>字节:</td>
-                      <td>{content.bytes && content.bytes.value || ''}</td>
+                      <td>{item.content.bytes && item.content.bytes.value || ''}</td>
                     </tr>,
                     <tr>
                       <td>类型:</td>
-                      <td>{content.type || ''}</td>
+                      <td>{item.content.type || ''}</td>
                     </tr>,
                     <tr>
                       <td>值:</td>
-                      <td>{content.value + ''}</td>
+                      <td>{item.content.value + ''}</td>
                     </tr>
                   ] || null}
                 </table>

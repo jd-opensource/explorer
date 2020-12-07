@@ -892,54 +892,118 @@ router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
     // "success": true
     // "data":{"result":{"blockHeight":15,"dataSnapshot":{"userAccountSetHash":{"value":"j5iSUBKD9ZNoim4TGcLoo8JhQFe2iAP7YvnCq9e9jzrQuN"},"adminAccountHash":{"value":"j5uMABfxYNbjNLQmMsS4zpEDmjSjhfHm2UbJosGvEQsPAR"},"dataAccountSetHash":{"value":"j5o3K2KcdAhVoXNAiDFRCdQGGLxAFmKE6WN4bEUEXWtdKD"}},"executionState":"SUCCESS","transactionHash":{"value":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"}},"request":{"transactionContent":{"ledgerHash":{"value":"j5vBAT6jVNqVQjHMp1FEr8xZ4bhKFtipnGbmujhJWBL6Wd"},"operations":[{"writeSet":[{"expectedVersion":-1,"value":{"nil":false,"bytes":{"value":"7iHgG87BWS9we4"},"type":"TEXT","value":"www.jd.com"},"key":"jingdong160343874998663908"}],"accountAddress":{"value":"LdeNwtn6A2eZciHc5NMWEvZVFCB8EBTqLMwrg"}}],"timestamp":1603438749987},"endpointSignatures":[{"digest":{"value":"SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH"},"pubKey":{"value":"7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"}}],"transactionHash":{"value":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"},"nodeSignatures":[{"digest":{"value":"SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH"},"pubKey":{"value":"7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"}}]},"blockHeight":15,"executionState":"SUCCESS","transactionHash":{"value":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"}},"success":true
     
+    
       "data": {
         "result": {
-          "blockHeight": 15,
+          "blockHeight": 12,
           "dataSnapshot": {
-            "userAccountSetHash":"j5iSUBKD9ZNoim4TGcLoo8JhQFe2iAP7YvnCq9e9jzrQuN",
-            "adminAccountHash":"j5uMABfxYNbjNLQmMsS4zpEDmjSjhfHm2UbJosGvEQsPAR",
-            "dataAccountSetHash":"j5o3K2KcdAhVoXNAiDFRCdQGGLxAFmKE6WN4bEUEXWtdKD"
+            "userAccountSetHash": "j5hqJuPEzNb26vsRXXrjSxFENLwiuVhuaHAHF6Z8qVwMNi",
+            "adminAccountHash": "j5uhPMep4tRn9x9Y24sEVGh4smXjCp1t5nyEw3bZf6F7ct",
+            "dataAccountSetHash": "j5roCpc2dWbuVmAngLm8y1Hxj3izzhY7KCVUfaThPU4BqZ",
+            "userEventSetHash": "j5k4AXQGArmyC3oXfnrUNvS2idpj4PfN5wZUi7Hr6AQdFM"
           },
           "executionState": "SUCCESS",
-          "transactionHash":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"
+          "transactionHash": "j5ndLYvavSzNspvzkSQ8ouPzAwtULuuu3prH6fnUsBB5Dg"
         },
         "request": {
           "transactionContent": {
-            "ledgerHash":"j5vBAT6jVNqVQjHMp1FEr8xZ4bhKFtipnGbmujhJWBL6Wd",
+            "ledgerHash": "j5xJwCmBvsKByY9dpkpV4VNDnS5BeFBQKWXQozjsrpgfJF",
             "operations": [{
-              "writeSet": [{
-                "expectedVersion": -1,
-                "value": {
+              "eventAddress": {
+                "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
+              },
+              "events": [{
+                "sequence": -1,
+                "name": "1207-15:25:55---long",
+                "content": {
                   "nil": false,
                   "bytes": {
-                    "value": "7iHgG87BWS9we4"
+                    "value": "11111111"
+                  },
+                  "type": "INT64",
+                  "value": 0
+                }
+              }]
+            }, {
+              "eventAddress": {
+                "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
+              },
+              "events": [{
+                "sequence": 0,
+                "name": "1207-15:25:55---long",
+                "content": {
+                  "nil": false,
+                  "bytes": {
+                    "value": "11111112"
+                  },
+                  "type": "INT64",
+                  "value": 1
+                }
+              }]
+            }, {
+              "eventAddress": {
+                "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
+              },
+              "events": [{
+                "sequence": 1,
+                "name": "1207-15:25:55---long",
+                "content": {
+                  "nil": false,
+                  "bytes": {
+                    "value": "11111112j"
+                  },
+                  "type": "INT64",
+                  "value": 100
+                }
+              }]
+            }, {
+              "eventAddress": {
+                "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
+              },
+              "events": [{
+                "sequence": -1,
+                "name": "1207-15:25:55---String",
+                "content": {
+                  "nil": false,
+                  "bytes": {
+                    "value": "5k1XmKDYbpxqAN"
                   },
                   "type": "TEXT",
-                  "value": "www.jd.com"
-                },
-                "key": "jingdong160343874998663908"
-              }],
-              "accountAddress": {
-                "value": "LdeNwtn6A2eZciHc5NMWEvZVFCB8EBTqLMwrg"
-              }
+                  "value": "TestString"
+                }
+              }]
+            }, {
+              "eventAddress": {
+                "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
+              },
+              "events": [{
+                "sequence": 0,
+                "name": "1207-15:25:55---String",
+                "content": {
+                  "nil": false,
+                  "bytes": {
+                    "value": "3usXMEDUSxDro"
+                  },
+                  "type": "TEXT",
+                  "value": "你好呀"
+                }
+              }]
             }],
-            "timestamp": 1603438749987
+            "timestamp": 1607325955507
           },
           "endpointSignatures": [{
-            "digest": "SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH",
-            "pubKey": "7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq",
+            "digest": "SMMPdaZwpdgYKTAwjNGYoy9aUUS2hHLSzyToytLCNpB29MqnYv58uFFdneKhourLaRREtAVXUNFGiusooSA4gt3ZLW",
+            "pubKey": "7VeR8nMrgkR9gde5PNSsaR2i2BKEL4UeDyP3haDzqD2FUhnk"
           }],
-          "transactionHash":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL",
+          "transactionHash": "j5ndLYvavSzNspvzkSQ8ouPzAwtULuuu3prH6fnUsBB5Dg",
           "nodeSignatures": [{
-            "digest":"SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH",
-            "pubKey":"7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"
+            "digest": "SMGgdigvrG3aHMBr2Zv2B2YGn7tmsW5W5Voiu1eGSb2WtapHiJKpSz9sxGCQ4upwKTUWB6bM9PTGhdBhtwRoLkEV9p",
+            "pubKey": "7VeRKi8Wi3KuQV4ptFvwU6ZbifTcXPFyVptBgrK28UBcnCA2"
           }]
-        },
-        "blockHeight": 15,
-        "executionState": "SUCCESS",
-        "transactionHash":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"
+        }
       },
       "success": true
+    
     
   });
 
