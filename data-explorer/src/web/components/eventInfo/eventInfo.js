@@ -223,7 +223,8 @@ export default class EventInfo extends Component {
             title: '事件序列',
         }, 
         {
-            dataIndex: 'transactionSource.value',
+            // dataIndex: 'transactionSource.value',
+            dataIndex: 'transactionSource',
             title: '交易哈希',
         }, 
         {
