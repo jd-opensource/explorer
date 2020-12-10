@@ -152,7 +152,7 @@ export default class EventInfo extends Component {
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.name && data.name || ''}</Col>
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>交易哈希:</Col>
-                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.transactionSource && data.transactionSource.value && data.transactionSource.value || ''}</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.transactionSource && data.transactionSource || ''}</Col>
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>区块高度:</Col>
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.blockHeight && data.blockHeight || 0}</Col>

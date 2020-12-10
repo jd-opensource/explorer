@@ -63,6 +63,8 @@ export default class TransactionInfo extends Component {
         result=data;
         break;
     }
+
+    console.log(result)
     return result;
   }
 
@@ -563,7 +565,8 @@ export default class TransactionInfo extends Component {
                     </tr>,
                     <tr>
                       <td>值:</td>
-                      <td>{item.content.value + ''}</td>
+                      {/* this.formatData(item.value.type,item.value.bytes, item.value.value) */}
+                      <td>{this.formatData(item.content.type, item.content.bytes, item.content.bytes.value)}</td>
                     </tr>
                   ] || null}
                 </table>
