@@ -27,15 +27,15 @@ class Bundle extends Component {
           ledgers=common.ledgers;
         if (ledgerDafault) {
           for (let i = 0; i < ledgers.length; i++) {
-            if(ledgers[i].value==ledgerDafault){
+            if(ledgers[i]==ledgerDafault){
               common.setDefaultLedger(ledgerDafault);
               this.load(this.props);
               return false;
             }
           }
           if (ledgers.length>0) {
-            common.setDefaultLedger(ledgers[0].value);
-            localStorage.setItem('defaultledger',ledgers[0].value);
+            common.setDefaultLedger(ledgers[0]);
+            localStorage.setItem('defaultledger',ledgers[0]);
           }
           else{
             // 没有账本时的操作
@@ -45,8 +45,8 @@ class Bundle extends Component {
         }
         else{
           if (ledgers.length>0) {
-            common.setDefaultLedger(ledgers[0].value);
-            localStorage.setItem('defaultledger',ledgers[0].value);
+            common.setDefaultLedger(ledgers[0]);
+            localStorage.setItem('defaultledger',ledgers[0]);
           }
           else{
             // 没有账本时的操作

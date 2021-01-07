@@ -49,7 +49,7 @@ export default class BlockInfo extends Component {
     let legder=this.props.store.common.getDefaultLedger();
     this.transactioninfoData={};
     Promise.all([
-      block.getTransactionMore({"ledger":legder,'tx_hash':record.transactionHash.value}),
+      block.getTransactionMore({"ledger":legder,'tx_hash':record.result && record.result.transactionHash && record.result.transactionHash || ''}),
     ]).then((success) => {
       this.show=true;
       this.transactioninfoData=block.transactionInfo;
@@ -60,12 +60,12 @@ export default class BlockInfo extends Component {
   @computed get tableColumns() {
     return [{
       title: '交易哈希',
-      dataIndex: 'transactionHash.value',
+      dataIndex: 'result.transactionHash',
       width:'80%',
       key:'name'
     }, {
       title: '执行状态',
-      dataIndex: 'executionState',
+      dataIndex: 'result.executionState',
       width:'10%',
       key:'describe',
       render: (text, record, index) => nj `

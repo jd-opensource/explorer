@@ -16,13 +16,19 @@ export default class AccountRootHash extends Component {
 
   @observable roothash='-';
   componentDidMount() {
-    const { store: { account, common },address } = this.props;
+    const { store: { account, common },address, hash } = this.props;
     let ledger =this.props.store.common.getDefaultLedger();
     let param={ledger:ledger,address:address};
     Promise.all([
       account.getAccountInfo(param),
     ]).then((success) => {
-     this.roothash=success[0].rootHash.value||'-';
+      console.log(success)
+      if (hash == 'data') {
+        this.roothash=success[0].dataRootHash||'-';
+      } else {
+        this.roothash=success[0].headerRootHash||'-';
+      }
+    //  this.roothash=success[0].rootHash.value||'-';
     });
   }
   render() {

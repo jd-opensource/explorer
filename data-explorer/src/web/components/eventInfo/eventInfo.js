@@ -152,7 +152,7 @@ export default class EventInfo extends Component {
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.name && data.name || ''}</Col>
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>交易哈希:</Col>
-                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.transactionSource && data.transactionSource.value && data.transactionSource.value || ''}</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.transactionSource && data.transactionSource || ''}</Col>
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>区块高度:</Col>
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.blockHeight && data.blockHeight || 0}</Col>
@@ -223,7 +223,8 @@ export default class EventInfo extends Component {
             title: '事件序列',
         }, 
         {
-            dataIndex: 'transactionSource.value',
+            // dataIndex: 'transactionSource.value',
+            dataIndex: 'transactionSource',
             title: '交易哈希',
         }, 
         {
@@ -295,7 +296,7 @@ export default class EventInfo extends Component {
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.address && data.address.value && data.address.value || ''}</Col>
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>事件账户公钥:</Col>
-                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.pubKey && data.pubKey.value && data.pubKey.value || ''}</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.pubKey && data.pubKey && data.pubKey || ''}</Col>
                     </Row>
 
                     <h3>事件列表</h3>

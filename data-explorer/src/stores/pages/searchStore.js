@@ -119,6 +119,7 @@ const SearchStore = types
       });
     },
     setEventTotal(result) {
+      console.log(result)
       if (result&&result.success) {
         self.dataEventTotal=result.data||0;
       }
@@ -164,7 +165,7 @@ const SearchStore = types
         self.accountsData=result.data && result.data.accounts ||[];// 数据账户
         self.contractsData=result.data && result.data.contracts || [];// 合约数据
 
-        self.eventData = [];
+        self.eventData = result.data && result.data['event_accounts'] || []; // 事件账户
 
         self.allData=[...self.blockData,...self.txsData,...self.usersData,...self.accountsData,...self.contractsData, ...self.eventData];
       } 
