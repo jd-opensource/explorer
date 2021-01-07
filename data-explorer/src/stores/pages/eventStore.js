@@ -40,7 +40,6 @@ const EventStore = types
 
     setEvent(v) {
       self.eventCurrent = v;
-      console.log(v, self.eventCurrent)
     },
 
     setName(v) {
@@ -64,7 +63,6 @@ const EventStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setAccount(result, keywords) {
@@ -89,7 +87,6 @@ const EventStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setAccountCount(result) {
@@ -113,7 +110,6 @@ const EventStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setEventData(result) {
@@ -137,7 +133,6 @@ const EventStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setEventCount(result) {
@@ -160,7 +155,6 @@ const EventStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setNameCount(result) {
@@ -183,7 +177,6 @@ const EventStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
 
@@ -208,7 +201,6 @@ const EventStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setEventLatest(result) {

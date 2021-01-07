@@ -30,7 +30,7 @@ const AccountStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
+
       });
     },
     // 数据账户列表--模糊查询
@@ -46,7 +46,7 @@ const AccountStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
+        
       });
     },
     setAccount(result) {
@@ -69,7 +69,7 @@ const AccountStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
+        
       });
     },
     // 数据账户列表总数--模糊查询
@@ -84,7 +84,7 @@ const AccountStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
+        
       });
     },
     setAccountCount(result) {
@@ -107,7 +107,7 @@ const AccountStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
+        
       });
     },
     setEntriescount(result) {
@@ -130,7 +130,7 @@ const AccountStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
+        
       });
     },
     setEntries(result) {
@@ -153,7 +153,7 @@ const AccountStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
+        
       });
     },
     setAccountInfo(result) {

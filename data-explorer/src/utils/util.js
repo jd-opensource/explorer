@@ -59,7 +59,6 @@ export function tranBase58(value) {
   // deal with leading zeros
   for (i = 0; value[i] === '1' && i < value.length - 1; i++) bytes.push(0);
 
-  console.log(bytes)
   // 声明node变量用于保存转码后的值
   let node = bytes.reverse()[1];
   // 根据node做映射处理

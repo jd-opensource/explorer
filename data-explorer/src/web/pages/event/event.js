@@ -38,7 +38,6 @@ export default class Event extends Component {
 
   onInputChange = e => {
     this.eventAddress = e.target.value;
-    console.log(this.eventAddress)
   } 
 
   componentDidMount() {
@@ -143,7 +142,7 @@ export default class Event extends Component {
       key: 'address',
     }, {
       title: '账户公钥',
-      dataIndex: 'pubKey.value',
+      dataIndex: 'pubKey',
       key: 'pubKey',
       render: (text, record, index) => nj`
         ${text}<br/>算法：${tranBase58(text)}

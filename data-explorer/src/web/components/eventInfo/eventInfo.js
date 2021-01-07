@@ -38,7 +38,6 @@ export default class EventInfo extends Component {
     @observable expandedRowKeysName = [];
     
     onPageChange = (page, pageSize) => {
-        console.log(page, pageSize)
         const { data, store: { common, event } } = this.props;
         const closeLoading = Message.loading('正在获取数据...', 0);
         let leaders = common.getDefaultLedger();
@@ -71,7 +70,6 @@ export default class EventInfo extends Component {
 
     onPageChangeName = (page, pageSize, record) => {
         const { data, store: { common, event } } = this.props;
-        console.log(record)
         event.setName(page);
         this.expandedRowKeysName = [];
         let address = data.address && data.address.value && data.address.value || '';
@@ -98,7 +96,6 @@ export default class EventInfo extends Component {
     onShow = (record, index) => {
         const { data, store: { common, event } } = this.props;
         let address = data.address && data.address.value && data.address.value || '';
-        console.log(address)
         let param = {
             fromSequence: (event.nameCurrent - 1) * this.pageEvent,
             count: this.pageEvent,
@@ -155,7 +152,7 @@ export default class EventInfo extends Component {
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.name && data.name || ''}</Col>
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>交易哈希:</Col>
-                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.transactionSource && data.transactionSource.value && data.transactionSource.value || ''}</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.transactionSource && data.transactionSource || ''}</Col>
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>区块高度:</Col>
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.blockHeight && data.blockHeight || 0}</Col>
@@ -214,7 +211,6 @@ export default class EventInfo extends Component {
             let testArr = [];
             testArr.push(record.index);
             this.expandedRowKeysName = [...testArr];
-            console.log(record, this.expandedRowKeysName)
         } else {
             this.expandedRowKeysName = [...arrayRemove(this.expandedRowKeysName, record.index)]
         }
@@ -227,7 +223,8 @@ export default class EventInfo extends Component {
             title: '事件序列',
         }, 
         {
-            dataIndex: 'transactionSource.value',
+            // dataIndex: 'transactionSource.value',
+            dataIndex: 'transactionSource',
             title: '交易哈希',
         }, 
         {
@@ -299,7 +296,7 @@ export default class EventInfo extends Component {
                         <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.address && data.address.value && data.address.value || ''}</Col>
 
                         <Col span = {2} xs = {24} sm = {8} lg = {2}>事件账户公钥:</Col>
-                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.pubKey && data.pubKey.value && data.pubKey.value || ''}</Col>
+                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.pubKey && data.pubKey && data.pubKey || ''}</Col>
                     </Row>
 
                     <h3>事件列表</h3>

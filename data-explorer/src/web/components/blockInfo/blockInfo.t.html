@@ -8,13 +8,13 @@
       </fj-Col>
       <fj-Col l=1 s=4 xs=12>区块哈希
       </fj-Col>
-      <fj-Col l=3 s=8 xs=12>{blockdata && blockdata.hash && blockdata.hash.value || ''}
+      <fj-Col l=3 s=8 xs=12>{blockdata && blockdata.hash && blockdata.hash || ''}
       </fj-Col>
       <fj-Col l=1 s=4 xs=12>前置区块哈希
       </fj-Col>
       <fj-Col l=3 s=8 xs=12>
         <span  style="cursor: pointer;" onClick={goBlock}>
-          {blockdata && blockdata.previousHash && blockdata.previousHash.value || ''}
+          {blockdata && blockdata.previousHash && blockdata.previousHash || ''}
         </span>
       </fj-Col>
     </fj-Row>
@@ -25,45 +25,51 @@
       </fj-Col>
        <fj-Col l=1 s=4  xs=12>交易集哈希
       </fj-Col>
-      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.transactionSetHash && blockdata.transactionSetHash.value || ''} 
+      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.transactionSetHash && blockdata.transactionSetHash || ''} 
       </fj-Col>
       <fj-Col l=1 s=4  xs=12>账本哈希
       </fj-Col>
-      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.ledgerHash && blockdata.ledgerHash.value || ''}
+      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.ledgerHash && blockdata.ledgerHash || ''}
       </fj-Col>
     </fj-Row>
     <fj-Row class="{styles.gl}">
       <fj-Col l=1 s=4  xs=12>用户集哈希
       </fj-Col>
-      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.userAccountSetHash && blockdata.userAccountSetHash.value || ''} 
+      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.userAccountSetHash && blockdata.userAccountSetHash || ''} 
       </fj-Col>
       <fj-Col l=1 s=4  xs=12>合约集哈希
       </fj-Col>
-      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.contractAccountSetHash && blockdata.contractAccountSetHash.value || ''} 
+      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.contractAccountSetHash && blockdata.contractAccountSetHash || ''} 
       </fj-Col>
       <fj-Col l=1 s=4  xs=12>配置集哈希
       </fj-Col>
-      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.adminAccountHash && blockdata.adminAccountHash.value || ''}  
+      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.adminAccountHash && blockdata.adminAccountHash || ''}  
       </fj-Col>
     </fj-Row>
     <fj-Row class="{styles.gl}">
       <fj-Col l=1 s=4  xs=12>数据账户集哈希
       </fj-Col>
-      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.dataAccountSetHash && blockdata.dataAccountSetHash.value || ''}  
+      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.dataAccountSetHash && blockdata.dataAccountSetHash || ''}  
       </fj-Col>
       <!-- 用户事件集哈希 --》 暂且用数据账户占位 -->
       <fj-Col l=1 s=4  xs=12>用户事件集哈希
       </fj-Col>
-      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.userEventSetHash && blockdata.userEventSetHash.value || ''}  
+      <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.userEventSetHash && blockdata.userEventSetHash || ''}  
+      </fj-Col>
+
+      <fj-Col l=1 s=4  xs=12>区块创建时间
+      </fj-Col>
+            <fj-Col l=3 s=8  xs=12>{blockdata.timestamp && moment(blockdata.timestamp).format('YYYY-MM-DD HH:mm:ss') || ''}  
+      <!-- <fj-Col l=3 s=8  xs=12>{blockdata && blockdata.timestamp && moment(blockdata.timestamp).format('YYYY-MM-DD hh:mm:ss') || ''}   -->
       </fj-Col>
       <!-- <fj-Col l=1 class="{styles.hidden_s}">
       </fj-Col>
       <fj-Col l=3 class="{styles.hidden_s}"> 
       </fj-Col> -->
-      <fj-Col l=1 class="{styles.hidden_s}">
+      <!-- <fj-Col l=1 class="{styles.hidden_s}">
       </fj-Col>
       <fj-Col l=3 class="{styles.hidden_s}"> 
-      </fj-Col>
+      </fj-Col> -->
     </fj-Row>
   </div>
   <h3>交易</h3>

@@ -54,10 +54,9 @@ const SearchStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
- 
+
     setTransactionTotal(result) {
       if (result&&result.success) {
         self.transactionTotal=result.data||0;
@@ -76,7 +75,6 @@ const SearchStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setUserTotal(result) {
@@ -97,7 +95,6 @@ const SearchStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     
@@ -119,10 +116,10 @@ const SearchStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setEventTotal(result) {
+      console.log(result)
       if (result&&result.success) {
         self.dataEventTotal=result.data||0;
       }
@@ -140,7 +137,6 @@ const SearchStore = types
           } 
         }
       ).catch(error => {
-        console.log(error);
       });
     },
     setContractTotal(result) {
@@ -169,7 +165,7 @@ const SearchStore = types
         self.accountsData=result.data && result.data.accounts ||[];// 数据账户
         self.contractsData=result.data && result.data.contracts || [];// 合约数据
 
-        self.eventData = [];
+        self.eventData = result.data && result.data['event_accounts'] || []; // 事件账户
 
         self.allData=[...self.blockData,...self.txsData,...self.usersData,...self.accountsData,...self.contractsData, ...self.eventData];
       } 

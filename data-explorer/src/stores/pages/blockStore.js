@@ -24,7 +24,6 @@ const BlockStore = types
     searchData(success, ledger) {
       let totalBlock=success[0];// 最高区块
       let searchBlock=self.inputRole*1; // 将要搜索的区块
-      console.log(totalBlock, searchBlock);
       if(self.inputRole<0){
         searchBlock=totalBlock-3; // 将要搜索的区块
       }
@@ -74,7 +73,6 @@ const BlockStore = types
         });
         
       }
-      console.log(self.blockList);
       // this.blockList=this.blockList.reverse();
       // closeLoading();
       Promise.all([
@@ -204,7 +202,7 @@ const BlockStore = types
     },
     // 根据高度查找交易
     getTransaction(param) {
-      return fetchData(`${__HOST}/ledgers/${param.ledger}/blocks/height/${param.height}/txs`,
+      return fetchData(`${__HOST}/ledgers/${param.ledger}/blocks/height/${param.height}/txs/additional-txs`,
         self.setTransaction,param,
         { 
           method: 'get',
@@ -214,7 +212,7 @@ const BlockStore = types
     },
     // 查找hash交易
     getTransactionOfHash(param) {
-      return fetchData(`${__HOST}/ledgers/${param.ledger}/blocks/hash/${param.hash}/txs`,
+      return fetchData(`${__HOST}/ledgers/${param.ledger}/blocks/hash/${param.hash}/txs/additional-txs`,
         self.setTransaction,param,
         { 
           method: 'get',
@@ -225,6 +223,7 @@ const BlockStore = types
     setTransaction(result){
       if (result&&result.success) {
         self.transactionList = result.data || [];// 交易数据
+        console.log(self.transactionList)
         return result.data;
       }     
     },
@@ -243,7 +242,7 @@ const BlockStore = types
     setTransactionMore(result){
       
       if (result&&result.success) {
-        self.transactionInfo = result.data || [];// 交易数据
+        self.transactionInfo = result.data || {};// 交易数据
       }  
     },
     // 获取交易Hash
