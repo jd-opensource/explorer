@@ -1519,9 +1519,7 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName/latest', fun
   Object.assign(ret, resultData, {
     "data": {
       "sequence": 0,//　事件序列
-      "transactionSource": {// 交易哈希
-        "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-      },
+      "transactionSource": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
       "blockHeight": 1,//　区块高度
       "contractSource": "",// 合约地址
       "eventAccount": {// 事件账户
