@@ -38,7 +38,7 @@ export default class Event extends Component {
 
   onInputChange = e => {
     this.eventAddress = e.target.value;
-  } 
+  }
 
   componentDidMount() {
     const { store: { header } } = this.props;
@@ -48,7 +48,7 @@ export default class Event extends Component {
 
   eventItem = () => {
     this.click++;
-    return <EventInfo data = {this.accountData} key = {this.click}/>
+    return <EventInfo data={this.accountData} key={this.click} />
   }
 
 
@@ -60,7 +60,7 @@ export default class Event extends Component {
         fromIndex: (event.accountcurrent - 1) * this.pageSize,
         count: this.pageSize,
       };
-    
+
     Promise.all([
       event.getAccountCount(leaders)
     ]).then(() => {
@@ -96,18 +96,18 @@ export default class Event extends Component {
     };
 
     Promise.all([
-        event.getEventCount(common.getDefaultLedger(), address)
+      event.getEventCount(common.getDefaultLedger(), address)
     ]).then(() => {
       if (event.eventTotal > 0) {
-          Promise.all([
-              event.getEventData(common.getDefaultLedger(), address, param)
-          ]).then(() => {
-              closeLoading();
-              this.accountData = record;
+        Promise.all([
+          event.getEventData(common.getDefaultLedger(), address, param)
+        ]).then(() => {
+          closeLoading();
+          this.accountData = record;
 
 
-              this.show = !this.show;
-          });
+          this.show = !this.show;
+        });
       } else if (event.eventTotal == 0) {
         closeLoading();
         this.accountData = record;
@@ -118,11 +118,11 @@ export default class Event extends Component {
         //   duration: 3
         // })
       } else {
-          closeLoading();
+        closeLoading();
       }
     })
 
-    
+
   }
 
   onShow = () => {
@@ -150,7 +150,7 @@ export default class Event extends Component {
     }, {
       title: '操作',
       render: (text, record, index) => nj`
-        <a  onClick=${() => this.showEvent(record, index)}>查看</a>
+        <a onClick=${() => this.showEvent(record, index)}>查看</a>
       `()
     }]
   }

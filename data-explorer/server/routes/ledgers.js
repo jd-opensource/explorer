@@ -8,12 +8,12 @@ const { resultData } = require('../common/utils');
 // 2 账本
 // 2.1 账本信息
 // GET //ledgers/{ledgerHash}/settings
-router.get('/:ledgerHash/settings', function(req, res) {
+router.get('/:ledgerHash/settings', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": {
       "consensusProtocol": "com.jd.blockchain.consensus.bftsmart.BftsmartConsensusProvider",
       "consensusSettings": {
@@ -205,12 +205,12 @@ router.get('/:ledgerHash/settings', function(req, res) {
 });
 // 2.2 获取账本列表
 // GET /ledgers?fromIndex={start_index}&count={count}
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": [
       "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
       "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
@@ -229,12 +229,12 @@ router.get('/', function(req, res) {
 // 3 区块
 // 3.1 获取最新区块
 // GET /ledgers/{ledger}/blocks/latest
-router.get('/:ledger/blocks/latest', function(req, res) {
+router.get('/:ledger/blocks/latest', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     // "data": {
     //   "ledgerHash": {
     //     "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
@@ -263,14 +263,14 @@ router.get('/:ledger/blocks/latest', function(req, res) {
     //   "height": 666
     // },
     "data": {
-      "ledgerHash":"657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
-      "previousHash":"6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T",
-      "transactionSetHash":"6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN",
-      "userAccountSetHash":"67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p",
-      "contractAccountSetHash":"67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN",
-      "adminAccountHash":"69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa",
-      "dataAccountSetHash":"6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ",
-      "hash":"67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL",
+      "ledgerHash": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
+      "previousHash": "6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T",
+      "transactionSetHash": "6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN",
+      "userAccountSetHash": "67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p",
+      "contractAccountSetHash": "67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN",
+      "adminAccountHash": "69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa",
+      "dataAccountSetHash": "6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ",
+      "hash": "67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL",
       "height": 666
     }
   });
@@ -279,12 +279,12 @@ router.get('/:ledger/blocks/latest', function(req, res) {
 });
 // 3.2 根据区块哈希获取区块详细信息
 // GET /ledgers/{ledger}/blocks/hash/{block_hash}
-router.get('/:ledger/blocks/hash/:block_hash', function(req, res) {
+router.get('/:ledger/blocks/hash/:block_hash', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     // "data": {
     //   "ledgerHash": {
     //     "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
@@ -313,14 +313,14 @@ router.get('/:ledger/blocks/hash/:block_hash', function(req, res) {
     //   "height": 666
     // },
     "data": {
-      "ledgerHash":"657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
-      "previousHash":"6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T",
-      "transactionSetHash":"6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN",
-      "userAccountSetHash":"67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p",
-      "contractAccountSetHash":"67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN",
-      "adminAccountHash":"69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa",
-      "dataAccountSetHash":"6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ",
-      "hash":"67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL",
+      "ledgerHash": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
+      "previousHash": "6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T",
+      "transactionSetHash": "6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN",
+      "userAccountSetHash": "67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p",
+      "contractAccountSetHash": "67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN",
+      "adminAccountHash": "69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa",
+      "dataAccountSetHash": "6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ",
+      "hash": "67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL",
       "height": 666
     }
   });
@@ -329,12 +329,12 @@ router.get('/:ledger/blocks/hash/:block_hash', function(req, res) {
 });
 // 3.3 根据区块高度获取区块详细信息
 // GET /ledgers/{ledger}/blocks/height/{block_height}
-router.get('/:ledger/blocks/height/:block_height', function(req, res) {
+router.get('/:ledger/blocks/height/:block_height', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     // "data": {
     //   "ledgerHash": {
     //     "value": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs"
@@ -363,14 +363,14 @@ router.get('/:ledger/blocks/height/:block_height', function(req, res) {
     //   "height": 666
     // },
     "data": {
-      "ledgerHash":"657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
-      "previousHash":"6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T",
-      "transactionSetHash":"6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN",
-      "userAccountSetHash":"67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p",
-      "contractAccountSetHash":"67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN",
-      "adminAccountHash":"69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa",
-      "dataAccountSetHash":"6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ",
-      "hash":"67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL",
+      "ledgerHash": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
+      "previousHash": "6EJZnMc9464DCSU2kgi96RyngEv8YeEfVoJNhH3yZ2v5T",
+      "transactionSetHash": "6LmZtDpMM7xE8FPChACEmLj1PLhfaoVM2rEHRsrV3ohPN",
+      "userAccountSetHash": "67jx7SctrwdSczxxuYjwBocA8fER7V8qcRZUzWamSav5p",
+      "contractAccountSetHash": "67ftaBhPDez24NEB9wiiTM3SNcn1XFz5rb7boYhpbbLXN",
+      "adminAccountHash": "69KEFp9m5iFyAiyGmJ2qPcVxuT79gMChMf9JkStBZe8aa",
+      "dataAccountSetHash": "6LB9gosVWEPG3uvWXkxTcWq22mcwMHVehbiXkavFtr5fZ",
+      "hash": "67XsKWgqZTBz1NsytKGpyNWHMbMRENWcBj8PEDYQnWiDL",
       "height": 666
     }
   });
@@ -379,12 +379,12 @@ router.get('/:ledger/blocks/height/:block_height', function(req, res) {
 });
 //3.5 根据哈希查询区块
 // GET ledgers/{ledger}/blocks/search?keyword={keyword}&fromIndex={start_index}&count={count}
-router.get('/:ledger/blocks/search', function(req, res) {
+router.get('/:ledger/blocks/search', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": {
       "blocks": [
         {
@@ -392,7 +392,7 @@ router.get('/:ledger/blocks/search', function(req, res) {
         }
       ],
       "height": 66,
-      "txCount":123
+      "txCount": 123
     },
   });
 
@@ -403,12 +403,12 @@ router.get('/:ledger/blocks/search', function(req, res) {
 // 4 交易
 // 4.1 获取账本交易总数
 // GET /ledgers/{ledger}/txs/count
-router.get('/:ledger/txs/count', function(req, res) {
+router.get('/:ledger/txs/count', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": 88
   });
 
@@ -416,12 +416,12 @@ router.get('/:ledger/txs/count', function(req, res) {
 });
 // 4.2 根据区块高度查询区块内的交易数量
 // GET /ledgers/{ledger}/blocks/height/{block_height}/txs/additional-count
-router.get('/:ledger/blocks/height/:block_height/txs/additional-count', function(req, res) {
+router.get('/:ledger/blocks/height/:block_height/txs/additional-count', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": 88
   });
 
@@ -429,12 +429,12 @@ router.get('/:ledger/blocks/height/:block_height/txs/additional-count', function
 });
 // 4.3 根据区块哈希查询区块内的交易数量
 // GET /ledgers/{ledger}/blocks/hash/{block_hash}/txs/additional-count
-router.get('/:ledger/blocks/hash/:block_hash/txs/additional-count', function(req, res) {
+router.get('/:ledger/blocks/hash/:block_hash/txs/additional-count', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": 88
   });
 
@@ -442,72 +442,72 @@ router.get('/:ledger/blocks/hash/:block_hash/txs/additional-count', function(req
 });
 // 4.4 获取指定高度的区块交易列表
 // GET /ledgers/{ledger}/blocks/height/{height}/txs?fromIndex={start_index}&count={count}
-router.get('/:ledger/blocks/height/:height/txs/additional-txs', function(req, res) {
+router.get('/:ledger/blocks/height/:height/txs/additional-txs', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
-      "data": [{
-        "result": {
-          "blockHeight": 3,
-          "dataSnapshot": {
-            "userAccountSetHash": "j5sbXyTRm28zZkLh2WSa9bS6HvHN2FJWkCvydWrKNs7cmq",
-            "adminAccountHash": "j5mcPKXkJi9bJqVRjYBCctfDDR4jQ5TvzhQ17fHBGzbf3c",
-            "dataAccountSetHash": "j5oKEHfRmrMbMwnTNowCHjHhy6FiHNuTy65ytfUChFXQft"
-          },
-          "executionState": "SUCCESS",
-          "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG"
+  Object.assign(ret, resultData, {
+    "data": [{
+      "result": {
+        "blockHeight": 3,
+        "dataSnapshot": {
+          "userAccountSetHash": "j5sbXyTRm28zZkLh2WSa9bS6HvHN2FJWkCvydWrKNs7cmq",
+          "adminAccountHash": "j5mcPKXkJi9bJqVRjYBCctfDDR4jQ5TvzhQ17fHBGzbf3c",
+          "dataAccountSetHash": "j5oKEHfRmrMbMwnTNowCHjHhy6FiHNuTy65ytfUChFXQft"
         },
-        "request": {
-          "transactionContent": {
-            "ledgerHash": "j5xJwCmBvsKByY9dpkpV4VNDnS5BeFBQKWXQozjsrpgfJF",
-            "operations": [{
-              "writeSet": [{
-                "expectedVersion": -1,
-                "value": {
-                  "nil": false,
-                  "bytes": {
-                    "value": "hZ8f4meDrG3boKXguGVZegLrZPm"
-                  },
-                  "type": "TEXT",
-                  "value": "2020-12-02 16:17:50 "
+        "executionState": "SUCCESS",
+        "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG"
+      },
+      "request": {
+        "transactionContent": {
+          "ledgerHash": "j5xJwCmBvsKByY9dpkpV4VNDnS5BeFBQKWXQozjsrpgfJF",
+          "operations": [{
+            "writeSet": [{
+              "expectedVersion": -1,
+              "value": {
+                "nil": false,
+                "bytes": {
+                  "value": "hZ8f4meDrG3boKXguGVZegLrZPm"
                 },
-                "key": "QY"
-              }],
-              "accountAddress": {
-                "value": "LdeP14iDiDwetm81ZC4wxwZvv8Zo5kbWRAfmb"
-              }
+                "type": "TEXT",
+                "value": "2020-12-02 16:17:50 "
+              },
+              "key": "QY"
             }],
-            "timestamp": 1606897070670
-          },
-          "endpointSignatures": [{
-            "digest": "SMJkeLrrVPjj3GzvVbstU3cBQBQuZWxJTXP2oskJJCebpsX2whPoDJi4QwUquxCYG67WHmBdmkuPLaYv9D2YsmiXPs",
-            "pubKey": "7VeR8GXfq7i8Pktc41mRjztQyv7PdVuSZH7XvF4xhg2omz9i"
-          }, {
-            "digest": "SMKTxyeANtUJv3gqaw5k2oB5qoTMbaupgdATx3Rj9V3dMBT2kowAVkaFNmLQtYqo9iEyYk7cgh2Af9dMnrGHYkqCwq",
-            "pubKey": "7VeRKi8Wi3KuQV4ptFvwU6ZbifTcXPFyVptBgrK28UBcnCA2"
+            "accountAddress": {
+              "value": "LdeP14iDiDwetm81ZC4wxwZvv8Zo5kbWRAfmb"
+            }
           }],
-          "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG",
-          "nodeSignatures": [{
-            "digest": "SMKTxyeANtUJv3gqaw5k2oB5qoTMbaupgdATx3Rj9V3dMBT2kowAVkaFNmLQtYqo9iEyYk7cgh2Af9dMnrGHYkqCwq",
-            "pubKey": "7VeRKi8Wi3KuQV4ptFvwU6ZbifTcXPFyVptBgrK28UBcnCA2"
-          }]
-        }
-      }],
-      "success": true
-    });
+          "timestamp": 1606897070670
+        },
+        "endpointSignatures": [{
+          "digest": "SMJkeLrrVPjj3GzvVbstU3cBQBQuZWxJTXP2oskJJCebpsX2whPoDJi4QwUquxCYG67WHmBdmkuPLaYv9D2YsmiXPs",
+          "pubKey": "7VeR8GXfq7i8Pktc41mRjztQyv7PdVuSZH7XvF4xhg2omz9i"
+        }, {
+          "digest": "SMKTxyeANtUJv3gqaw5k2oB5qoTMbaupgdATx3Rj9V3dMBT2kowAVkaFNmLQtYqo9iEyYk7cgh2Af9dMnrGHYkqCwq",
+          "pubKey": "7VeRKi8Wi3KuQV4ptFvwU6ZbifTcXPFyVptBgrK28UBcnCA2"
+        }],
+        "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG",
+        "nodeSignatures": [{
+          "digest": "SMKTxyeANtUJv3gqaw5k2oB5qoTMbaupgdATx3Rj9V3dMBT2kowAVkaFNmLQtYqo9iEyYk7cgh2Af9dMnrGHYkqCwq",
+          "pubKey": "7VeRKi8Wi3KuQV4ptFvwU6ZbifTcXPFyVptBgrK28UBcnCA2"
+        }]
+      }
+    }],
+    "success": true
+  });
 
   res.send(ret);
 });
 // 4.5 获取指定哈希的区块的交易列表
 // GET /ledgers/{ledger}/blocks/hash/{block_hash}/txs?fromIndex={start_index}&count={count}
-router.get('/:ledger/blocks/hash/:block_hash/txs', function(req, res) {
+router.get('/:ledger/blocks/hash/:block_hash/txs', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": [
       {
         "blockHeight": 1,
@@ -596,12 +596,12 @@ router.get('/:ledger/blocks/hash/:block_hash/txs', function(req, res) {
 });
 // 4.6 获取交易详细信息
 // GET /ledgers/{ledger}/txs/hash/{tx_hash}
-router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
+router.get('/:ledger/txs/hash/:tx_hash', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     // "data": {
     //   "blockHeight": 38,
     //   "userAccountSetHash": {
@@ -891,120 +891,120 @@ router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
     // },
     // "success": true
     // "data":{"result":{"blockHeight":15,"dataSnapshot":{"userAccountSetHash":{"value":"j5iSUBKD9ZNoim4TGcLoo8JhQFe2iAP7YvnCq9e9jzrQuN"},"adminAccountHash":{"value":"j5uMABfxYNbjNLQmMsS4zpEDmjSjhfHm2UbJosGvEQsPAR"},"dataAccountSetHash":{"value":"j5o3K2KcdAhVoXNAiDFRCdQGGLxAFmKE6WN4bEUEXWtdKD"}},"executionState":"SUCCESS","transactionHash":{"value":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"}},"request":{"transactionContent":{"ledgerHash":{"value":"j5vBAT6jVNqVQjHMp1FEr8xZ4bhKFtipnGbmujhJWBL6Wd"},"operations":[{"writeSet":[{"expectedVersion":-1,"value":{"nil":false,"bytes":{"value":"7iHgG87BWS9we4"},"type":"TEXT","value":"www.jd.com"},"key":"jingdong160343874998663908"}],"accountAddress":{"value":"LdeNwtn6A2eZciHc5NMWEvZVFCB8EBTqLMwrg"}}],"timestamp":1603438749987},"endpointSignatures":[{"digest":{"value":"SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH"},"pubKey":{"value":"7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"}}],"transactionHash":{"value":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"},"nodeSignatures":[{"digest":{"value":"SMKmmXbUx8rnLz1Puz13zmLEoM8jN9bXWUM2DCCjJNmXtbdkiHQr46ogntVF38M49BCWo63KeAHdVTEvpWCVPj1qVH"},"pubKey":{"value":"7VeRLdGtSz1Y91gjLTqEdnkotzUfaAqdap3xw6fQ1yKHkvVq"}}]},"blockHeight":15,"executionState":"SUCCESS","transactionHash":{"value":"j5kz23qsWQiJy3WHwJRULXSnbaXp4UUA592sMYnk4vtzqL"}},"success":true
-    
-    
-      "data": {
-        "result": {
-          "blockHeight": 12,
-          "dataSnapshot": {
-            "userAccountSetHash": "j5hqJuPEzNb26vsRXXrjSxFENLwiuVhuaHAHF6Z8qVwMNi",
-            "adminAccountHash": "j5uhPMep4tRn9x9Y24sEVGh4smXjCp1t5nyEw3bZf6F7ct",
-            "dataAccountSetHash": "j5roCpc2dWbuVmAngLm8y1Hxj3izzhY7KCVUfaThPU4BqZ",
-            "userEventSetHash": "j5k4AXQGArmyC3oXfnrUNvS2idpj4PfN5wZUi7Hr6AQdFM"
-          },
-          "executionState": "SUCCESS",
-          "transactionHash": "j5ndLYvavSzNspvzkSQ8ouPzAwtULuuu3prH6fnUsBB5Dg"
+
+
+    "data": {
+      "result": {
+        "blockHeight": 12,
+        "dataSnapshot": {
+          "userAccountSetHash": "j5hqJuPEzNb26vsRXXrjSxFENLwiuVhuaHAHF6Z8qVwMNi",
+          "adminAccountHash": "j5uhPMep4tRn9x9Y24sEVGh4smXjCp1t5nyEw3bZf6F7ct",
+          "dataAccountSetHash": "j5roCpc2dWbuVmAngLm8y1Hxj3izzhY7KCVUfaThPU4BqZ",
+          "userEventSetHash": "j5k4AXQGArmyC3oXfnrUNvS2idpj4PfN5wZUi7Hr6AQdFM"
         },
-        "request": {
-          "transactionContent": {
-            "ledgerHash": "j5xJwCmBvsKByY9dpkpV4VNDnS5BeFBQKWXQozjsrpgfJF",
-            "operations": [{
-              "eventAddress": {
-                "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
-              },
-              "events": [{
-                "sequence": -1,
-                "name": "1207-15:25:55---long",
-                "content": {
-                  "nil": false,
-                  "bytes": {
-                    "value": "11111111"
-                  },
-                  "type": "INT64",
-                  "value": 0
-                }
-              }]
-            }, {
-              "eventAddress": {
-                "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
-              },
-              "events": [{
-                "sequence": 0,
-                "name": "1207-15:25:55---long",
-                "content": {
-                  "nil": false,
-                  "bytes": {
-                    "value": "11111112"
-                  },
-                  "type": "INT64",
-                  "value": 1
-                }
-              }]
-            }, {
-              "eventAddress": {
-                "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
-              },
-              "events": [{
-                "sequence": 1,
-                "name": "1207-15:25:55---long",
-                "content": {
-                  "nil": false,
-                  "bytes": {
-                    "value": "11111112j"
-                  },
-                  "type": "INT64",
-                  "value": 100
-                }
-              }]
-            }, {
-              "eventAddress": {
-                "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
-              },
-              "events": [{
-                "sequence": -1,
-                "name": "1207-15:25:55---String",
-                "content": {
-                  "nil": false,
-                  "bytes": {
-                    "value": "5k1XmKDYbpxqAN"
-                  },
-                  "type": "TEXT",
-                  "value": "TestString"
-                }
-              }]
-            }, {
-              "eventAddress": {
-                "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
-              },
-              "events": [{
-                "sequence": 0,
-                "name": "1207-15:25:55---String",
-                "content": {
-                  "nil": false,
-                  "bytes": {
-                    "value": "3usXMEDUSxDro"
-                  },
-                  "type": "TEXT",
-                  "value": "你好呀"
-                }
-              }]
-            }],
-            "timestamp": 1607325955507
-          },
-          "endpointSignatures": [{
-            "digest": "SMMPdaZwpdgYKTAwjNGYoy9aUUS2hHLSzyToytLCNpB29MqnYv58uFFdneKhourLaRREtAVXUNFGiusooSA4gt3ZLW",
-            "pubKey": "7VeR8nMrgkR9gde5PNSsaR2i2BKEL4UeDyP3haDzqD2FUhnk"
-          }],
-          "transactionHash": "j5ndLYvavSzNspvzkSQ8ouPzAwtULuuu3prH6fnUsBB5Dg",
-          "nodeSignatures": [{
-            "digest": "SMGgdigvrG3aHMBr2Zv2B2YGn7tmsW5W5Voiu1eGSb2WtapHiJKpSz9sxGCQ4upwKTUWB6bM9PTGhdBhtwRoLkEV9p",
-            "pubKey": "7VeRKi8Wi3KuQV4ptFvwU6ZbifTcXPFyVptBgrK28UBcnCA2"
-          }]
-        }
+        "executionState": "SUCCESS",
+        "transactionHash": "j5ndLYvavSzNspvzkSQ8ouPzAwtULuuu3prH6fnUsBB5Dg"
       },
-      "success": true
-    
-    
+      "request": {
+        "transactionContent": {
+          "ledgerHash": "j5xJwCmBvsKByY9dpkpV4VNDnS5BeFBQKWXQozjsrpgfJF",
+          "operations": [{
+            "eventAddress": {
+              "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
+            },
+            "events": [{
+              "sequence": -1,
+              "name": "1207-15:25:55---long",
+              "content": {
+                "nil": false,
+                "bytes": {
+                  "value": "11111111"
+                },
+                "type": "INT64",
+                "value": 0
+              }
+            }]
+          }, {
+            "eventAddress": {
+              "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
+            },
+            "events": [{
+              "sequence": 0,
+              "name": "1207-15:25:55---long",
+              "content": {
+                "nil": false,
+                "bytes": {
+                  "value": "11111112"
+                },
+                "type": "INT64",
+                "value": 1
+              }
+            }]
+          }, {
+            "eventAddress": {
+              "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
+            },
+            "events": [{
+              "sequence": 1,
+              "name": "1207-15:25:55---long",
+              "content": {
+                "nil": false,
+                "bytes": {
+                  "value": "11111112j"
+                },
+                "type": "INT64",
+                "value": 100
+              }
+            }]
+          }, {
+            "eventAddress": {
+              "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
+            },
+            "events": [{
+              "sequence": -1,
+              "name": "1207-15:25:55---String",
+              "content": {
+                "nil": false,
+                "bytes": {
+                  "value": "5k1XmKDYbpxqAN"
+                },
+                "type": "TEXT",
+                "value": "TestString"
+              }
+            }]
+          }, {
+            "eventAddress": {
+              "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
+            },
+            "events": [{
+              "sequence": 0,
+              "name": "1207-15:25:55---String",
+              "content": {
+                "nil": false,
+                "bytes": {
+                  "value": "3usXMEDUSxDro"
+                },
+                "type": "TEXT",
+                "value": "你好呀"
+              }
+            }]
+          }],
+          "timestamp": 1607325955507
+        },
+        "endpointSignatures": [{
+          "digest": "SMMPdaZwpdgYKTAwjNGYoy9aUUS2hHLSzyToytLCNpB29MqnYv58uFFdneKhourLaRREtAVXUNFGiusooSA4gt3ZLW",
+          "pubKey": "7VeR8nMrgkR9gde5PNSsaR2i2BKEL4UeDyP3haDzqD2FUhnk"
+        }],
+        "transactionHash": "j5ndLYvavSzNspvzkSQ8ouPzAwtULuuu3prH6fnUsBB5Dg",
+        "nodeSignatures": [{
+          "digest": "SMGgdigvrG3aHMBr2Zv2B2YGn7tmsW5W5Voiu1eGSb2WtapHiJKpSz9sxGCQ4upwKTUWB6bM9PTGhdBhtwRoLkEV9p",
+          "pubKey": "7VeRKi8Wi3KuQV4ptFvwU6ZbifTcXPFyVptBgrK28UBcnCA2"
+        }]
+      }
+    },
+    "success": true
+
+
   });
 
 
@@ -1013,12 +1013,12 @@ router.get('/:ledger/txs/hash/:tx_hash', function(req, res) {
 // 5 用户
 // 5.1 获取用户总数
 // GET /ledgers/{ledger}/users/count
-router.get('/:ledger/users/count', function(req, res) {
+router.get('/:ledger/users/count', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": 4
   });
 
@@ -1026,13 +1026,13 @@ router.get('/:ledger/users/count', function(req, res) {
 });
 // 5.2 获取用户列表
 // GET /ledgers/{ledger}/users?fromIndex={start_index}&count={count}
-router.get('/:ledger/users', function(req, res) {
+router.get('/:ledger/users', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
-    "data":[{
+  Object.assign(ret, resultData, {
+    "data": [{
       "address": {
         "value": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
       },
@@ -1046,12 +1046,12 @@ router.get('/:ledger/users', function(req, res) {
 });
 // 5.4 用户查询数量
 //   GET /ledgers/{ledger}/users/count/search?keyword={keyword}
-router.get('/:ledger/users/count/search', function(req, res) {
+router.get('/:ledger/users/count/search', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": 4,
     "success": true
   });
@@ -1060,12 +1060,12 @@ router.get('/:ledger/users/count/search', function(req, res) {
 });
 // 5.5 用户查询
 //   GET /ledgers/{ledger}/users/search?keyword={keyword}&fromIndex={start_index}&count={count}
-router.get('/:ledger/users/search', function(req, res) {
+router.get('/:ledger/users/search', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": {
       "users": [
         {
@@ -1085,28 +1085,28 @@ router.get('/:ledger/users/search', function(req, res) {
 // 6 数据账户
 // 6.2 获取账户详细信息
 // GET /ledgers/{ledger}/accounts/address/{address}
-router.get('/:ledger/accounts/address/:address', function(req, res) {
+router.get('/:ledger/accounts/address/:address', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": {
       "address":
-      
-      { "value": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx" }
+
+        { "value": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx" }
       ,
       "headerRootHash": "j5qaaqyBqyb14LKbu3qMrqcv5UFnuYNKGBebE6X5LXKCKs",
       "iD": {
-      "address":
-      
-      { "value": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx" }
-      ,
-      "pubKey": "7VeR8t8kECBTJ9hCPwZonEvQYVD74Ko4wQR5soSVdS122pdV"
+        "address":
+
+          { "value": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx" }
+        ,
+        "pubKey": "7VeR8t8kECBTJ9hCPwZonEvQYVD74Ko4wQR5soSVdS122pdV"
       },
       "dataset":
-      
-      { "readonly": false, "rootHash": "j5uJfAqLw1ptaZYJyKVZm37zZybboqxMPpS6Mv59rNd4xF", "updated": false, "dataCount": 0 }
+
+        { "readonly": false, "rootHash": "j5uJfAqLw1ptaZYJyKVZm37zZybboqxMPpS6Mv59rNd4xF", "updated": false, "dataCount": 0 }
       ,
       "dataRootHash": "j5uJfAqLw1ptaZYJyKVZm37zZybboqxMPpS6Mv59rNd4xF",
       "pubKey": "7VeR8t8kECBTJ9hCPwZonEvQYVD74Ko4wQR5soSVdS122pdV"
@@ -1118,12 +1118,12 @@ router.get('/:ledger/accounts/address/:address', function(req, res) {
 });
 // 6.3 获取账户总数
 // GET /ledgers/{ledger}/accounts/count
-router.get('/:ledger/accounts/count', function(req, res) {
+router.get('/:ledger/accounts/count', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": 18
   });
 
@@ -1131,13 +1131,13 @@ router.get('/:ledger/accounts/count', function(req, res) {
 });
 // 6.1 获取账户列表
 // GET /ledgers/{ledger}/accounts?fromIndex={start_index}&count={count}
-router.get('/:ledger/accounts', function(req, res) {
+router.get('/:ledger/accounts', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
-    "data":[{
+  Object.assign(ret, resultData, {
+    "data": [{
       "address": {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
@@ -1151,13 +1151,13 @@ router.get('/:ledger/accounts', function(req, res) {
 });
 // 6.3 获取账户总数
 // GET /ledgers/{ledger}/accounts/count
-router.get('/:ledger/accounts/count', function(req, res) {
+router.get('/:ledger/accounts/count', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
-    "data":"18",
+  Object.assign(ret, resultData, {
+    "data": "18",
     "success": true
   });
 
@@ -1165,13 +1165,13 @@ router.get('/:ledger/accounts/count', function(req, res) {
 });
 // 6.4 查询数据账户匹配的数量
 // GET /ledgers/{ledger}/accounts/count/search?keyword={keyword}
-router.get('/:ledger/accounts/count/search', function(req, res) {
+router.get('/:ledger/accounts/count/search', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
-    "data":"18",
+  Object.assign(ret, resultData, {
+    "data": "18",
     "success": true
   });
 
@@ -1179,13 +1179,13 @@ router.get('/:ledger/accounts/count/search', function(req, res) {
 });
 // 6.5 查询数据账户
 //   GET /ledgers/{ledger}/accounts/search?keyword={keyword}&fromIndex={start_index}&count={count}
-router.get('/:ledger/accounts/search', function(req, res) {
+router.get('/:ledger/accounts/search', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
-    "data":[{
+  Object.assign(ret, resultData, {
+    "data": [{
       "address": {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
@@ -1199,13 +1199,13 @@ router.get('/:ledger/accounts/search', function(req, res) {
 });
 // 6.6 获取某数据账户KV总数
 //   GET /ledgers/{ledger}/accounts/address/{address}/entries/count
-router.get('/:ledger/accounts/address/:address/entries/count', function(req, res) {
+router.get('/:ledger/accounts/address/:address/entries/count', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
-    "data":66,
+  Object.assign(ret, resultData, {
+    "data": 66,
     "success": true
   });
 
@@ -1213,12 +1213,12 @@ router.get('/:ledger/accounts/address/:address/entries/count', function(req, res
 });
 // 6.7 获取某数据账户KV详情
 //   GET/POST /ledgers/{ledger}/accounts/address/{address}/entries?fromIndex={start_index}&count={count}
-router.get('/:ledger/accounts/address/:address/entries', function(req, res) {
+router.get('/:ledger/accounts/address/:address/entries', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": [
       {
         "key": "jd",
@@ -1231,7 +1231,9 @@ router.get('/:ledger/accounts/address/:address/entries', function(req, res) {
         "version": 0,
         "type": "TEXT",
         "value": "www.blockchain.com"
-      }],
+      },
+      { "type": "NIL", "version": 0, "key": "key" }
+    ],
   });
 
   res.send(ret);
@@ -1239,19 +1241,19 @@ router.get('/:ledger/accounts/address/:address/entries', function(req, res) {
 // 7 搜索
 // 7.1 搜索区块链
 // GET /ledgers/{ledger}/all/search?keyword={keyword}&fromIndex={start_index}&count={count}
-router.get('/:ledger/all/search', function(req, res) {
+router.get('/:ledger/all/search', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": {
       "blocks": [
         {
-        "hash": "6D5MJZnybT69bXET5QdCZdLGT16rZBJEjxLkANmDuykcb",
+          "hash": "6D5MJZnybT69bXET5QdCZdLGT16rZBJEjxLkANmDuykcb",
         }
       ],
-      "txs":[
+      "txs": [
         {
           "hash": "6L3ehswCmC1jqBfvGJP9vaPx8qxkLsieu2aRgYepmkiw3",
         }
@@ -1280,10 +1282,10 @@ router.get('/:ledger/all/search', function(req, res) {
           "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
         }
       ],
-      "event_accounts":[
+      "event_accounts": [
         {
           "address": {
-            "value":"LdeNo4xBX2Xmek39xfCXqmGfDcEk7K841xAuX"
+            "value": "LdeNo4xBX2Xmek39xfCXqmGfDcEk7K841xAuX"
           },
           "pubKey": "7VeRGgAPnMxHnVosL5LZY9gfBYvWXxv8aAMWmMkjkGXTFP3p"
         }
@@ -1297,19 +1299,19 @@ router.get('/:ledger/all/search', function(req, res) {
 // 8 合约
 // 8.1 获取合约列表
 // GET /ledgers/{ledger}/contracts?fromIndex={start_index}&count={count}
-router.get('/:ledger/contracts', function(req, res) {
+router.get('/:ledger/contracts', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": [{
       "address": {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
-      "rootHash":"6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
+      "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
       "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs",
-      "chainCode":"package com.jd.blockchain.contract;\n\nimport com.jd.blockchain.crypto.*;\nimport com.jd.blockchain.ledger.*;\nimport com.jd.blockchain.utils.io.*;\n\n@Contract\npublic class AssetContractImpl implements EventProcessingAwire, AssetContract\n{\n private static final String ASSET_ADDRESS = \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\";\n private static final String KEY_TOTAL = \"TV_TOTAL\";\n private ContractEventContext eventContext;\n \n @ContractEvent(name = \"transfer-asset\")\n public void transfer(final String fromAddress, final String toAddress, final long amount) {\n System.out.println(\"in AssetContractImpl transfer()\");\n final byte[] args_ = this.eventContext.getArgs();\n if (args_ == null) {\n return;\n }\n final String[] args = new String(args_).split(\"##\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final HashDigest hashDigest = this.eventContext.getCurrentLedgerHash();\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(hashDigest, \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", fromAddress, toAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final KVDataObject fromBalance = (KVDataObject)kvEntries[1];\n final KVDataObject toBalance = (KVDataObject)kvEntries[2];\n System.out.println(new StringBuilder().append(\"currTotal: \").append(currTotal.longValue()).toString());\n if (fromBalance.longValue() - amount < 0L) {\n throw new ContractException(\"Insufficient balance!\");\n }\n final long newFromBalance = fromBalance.longValue() - amount;\n System.out.println(new StringBuilder().append(\"newFromBalance: \").append(newFromBalance).toString());\n long newToBalance;\n if (toBalance.isNil()) {\n newToBalance = amount;\n }\n else {\n newToBalance = toBalance.longValue() + amount;\n }\n System.out.println(new StringBuilder().append(\"newToBalance: \").append(newToBalance).toString());\n final long fromVersion = fromBalance.getVersion();\n final long toVersion = toBalance.getVersion();\n System.out.println(new StringBuilder().append(\"fromVersion = \").append(fromVersion).toString());\n System.out.println(new StringBuilder().append(\"toVersion = \").append(toVersion).toString());\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(fromAddress, newFromBalance, fromVersion);\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(toAddress, newToBalance, toVersion);\n }\n \n public void beforeEvent(final ContractEventContext contractEventContext) {\n this.eventContext = contractEventContext;\n }\n \n public void postEvent(final ContractEventContext contractEventContext, final ContractException e) {\n this.eventContext = null;\n }\n \n public void postEvent(final ContractException e) {\n }\n \n public void postEvent() {\n }\n \n private HashDigest currentLedgerHash() {\n return this.eventContext.getCurrentLedgerHash();\n }\n \n @ContractEvent(name = \"issue-asset\")\n public void issue(final long amount, final String assetHolderAddress) {\n System.out.println(\"in AssetContractImpl2\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(this.currentLedgerHash(), \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", assetHolderAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final long newTotal = currTotal.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(\"TV_TOTAL\", BytesUtils.toBytes(newTotal), currTotal.getVersion());\n final KVDataObject holderAmount = (KVDataObject)kvEntries[1];\n final long newHodlerAmount = holderAmount.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(assetHolderAddress, BytesUtils.toBytes(newHodlerAmount), holderAmount.getVersion()).set(\"K2\", (byte[])null, -1L).set(\"k3\", (byte[])null, 3L);\n }\n}\n",
+      "chainCode": "package com.jd.blockchain.contract;\n\nimport com.jd.blockchain.crypto.*;\nimport com.jd.blockchain.ledger.*;\nimport com.jd.blockchain.utils.io.*;\n\n@Contract\npublic class AssetContractImpl implements EventProcessingAwire, AssetContract\n{\n private static final String ASSET_ADDRESS = \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\";\n private static final String KEY_TOTAL = \"TV_TOTAL\";\n private ContractEventContext eventContext;\n \n @ContractEvent(name = \"transfer-asset\")\n public void transfer(final String fromAddress, final String toAddress, final long amount) {\n System.out.println(\"in AssetContractImpl transfer()\");\n final byte[] args_ = this.eventContext.getArgs();\n if (args_ == null) {\n return;\n }\n final String[] args = new String(args_).split(\"##\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final HashDigest hashDigest = this.eventContext.getCurrentLedgerHash();\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(hashDigest, \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", fromAddress, toAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final KVDataObject fromBalance = (KVDataObject)kvEntries[1];\n final KVDataObject toBalance = (KVDataObject)kvEntries[2];\n System.out.println(new StringBuilder().append(\"currTotal: \").append(currTotal.longValue()).toString());\n if (fromBalance.longValue() - amount < 0L) {\n throw new ContractException(\"Insufficient balance!\");\n }\n final long newFromBalance = fromBalance.longValue() - amount;\n System.out.println(new StringBuilder().append(\"newFromBalance: \").append(newFromBalance).toString());\n long newToBalance;\n if (toBalance.isNil()) {\n newToBalance = amount;\n }\n else {\n newToBalance = toBalance.longValue() + amount;\n }\n System.out.println(new StringBuilder().append(\"newToBalance: \").append(newToBalance).toString());\n final long fromVersion = fromBalance.getVersion();\n final long toVersion = toBalance.getVersion();\n System.out.println(new StringBuilder().append(\"fromVersion = \").append(fromVersion).toString());\n System.out.println(new StringBuilder().append(\"toVersion = \").append(toVersion).toString());\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(fromAddress, newFromBalance, fromVersion);\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(toAddress, newToBalance, toVersion);\n }\n \n public void beforeEvent(final ContractEventContext contractEventContext) {\n this.eventContext = contractEventContext;\n }\n \n public void postEvent(final ContractEventContext contractEventContext, final ContractException e) {\n this.eventContext = null;\n }\n \n public void postEvent(final ContractException e) {\n }\n \n public void postEvent() {\n }\n \n private HashDigest currentLedgerHash() {\n return this.eventContext.getCurrentLedgerHash();\n }\n \n @ContractEvent(name = \"issue-asset\")\n public void issue(final long amount, final String assetHolderAddress) {\n System.out.println(\"in AssetContractImpl2\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(this.currentLedgerHash(), \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", assetHolderAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final long newTotal = currTotal.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(\"TV_TOTAL\", BytesUtils.toBytes(newTotal), currTotal.getVersion());\n final KVDataObject holderAmount = (KVDataObject)kvEntries[1];\n final long newHodlerAmount = holderAmount.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(assetHolderAddress, BytesUtils.toBytes(newHodlerAmount), holderAmount.getVersion()).set(\"K2\", (byte[])null, -1L).set(\"k3\", (byte[])null, 3L);\n }\n}\n",
     }],
   });
 
@@ -1317,19 +1319,19 @@ router.get('/:ledger/contracts', function(req, res) {
 });
 // 8.2 获取合约详细信息
 // GET /ledgers/{ledger}/contracts/address/{address}
-router.get('/:ledger/contracts/address/:address', function(req, res) {
+router.get('/:ledger/contracts/address/:address', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": {
       "address": {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
       },
       "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
       "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs",
-      "chainCode":"package com.jd.blockchain.contract;\n\nimport com.jd.blockchain.crypto.*;\nimport com.jd.blockchain.ledger.*;\nimport com.jd.blockchain.utils.io.*;\n\n@Contract\npublic class AssetContractImpl implements EventProcessingAwire, AssetContract\n{\n private static final String ASSET_ADDRESS = \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\";\n private static final String KEY_TOTAL = \"TV_TOTAL\";\n private ContractEventContext eventContext;\n \n @ContractEvent(name = \"transfer-asset\")\n public void transfer(final String fromAddress, final String toAddress, final long amount) {\n System.out.println(\"in AssetContractImpl transfer()\");\n final byte[] args_ = this.eventContext.getArgs();\n if (args_ == null) {\n return;\n }\n final String[] args = new String(args_).split(\"##\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final HashDigest hashDigest = this.eventContext.getCurrentLedgerHash();\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(hashDigest, \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", fromAddress, toAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final KVDataObject fromBalance = (KVDataObject)kvEntries[1];\n final KVDataObject toBalance = (KVDataObject)kvEntries[2];\n System.out.println(new StringBuilder().append(\"currTotal: \").append(currTotal.longValue()).toString());\n if (fromBalance.longValue() - amount < 0L) {\n throw new ContractException(\"Insufficient balance!\");\n }\n final long newFromBalance = fromBalance.longValue() - amount;\n System.out.println(new StringBuilder().append(\"newFromBalance: \").append(newFromBalance).toString());\n long newToBalance;\n if (toBalance.isNil()) {\n newToBalance = amount;\n }\n else {\n newToBalance = toBalance.longValue() + amount;\n }\n System.out.println(new StringBuilder().append(\"newToBalance: \").append(newToBalance).toString());\n final long fromVersion = fromBalance.getVersion();\n final long toVersion = toBalance.getVersion();\n System.out.println(new StringBuilder().append(\"fromVersion = \").append(fromVersion).toString());\n System.out.println(new StringBuilder().append(\"toVersion = \").append(toVersion).toString());\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(fromAddress, newFromBalance, fromVersion);\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(toAddress, newToBalance, toVersion);\n }\n \n public void beforeEvent(final ContractEventContext contractEventContext) {\n this.eventContext = contractEventContext;\n }\n \n public void postEvent(final ContractEventContext contractEventContext, final ContractException e) {\n this.eventContext = null;\n }\n \n public void postEvent(final ContractException e) {\n }\n \n public void postEvent() {\n }\n \n private HashDigest currentLedgerHash() {\n return this.eventContext.getCurrentLedgerHash();\n }\n \n @ContractEvent(name = \"issue-asset\")\n public void issue(final long amount, final String assetHolderAddress) {\n System.out.println(\"in AssetContractImpl2\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(this.currentLedgerHash(), \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", assetHolderAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final long newTotal = currTotal.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(\"TV_TOTAL\", BytesUtils.toBytes(newTotal), currTotal.getVersion());\n final KVDataObject holderAmount = (KVDataObject)kvEntries[1];\n final long newHodlerAmount = holderAmount.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(assetHolderAddress, BytesUtils.toBytes(newHodlerAmount), holderAmount.getVersion()).set(\"K2\", (byte[])null, -1L).set(\"k3\", (byte[])null, 3L);\n }\n}\n",
+      "chainCode": "package com.jd.blockchain.contract;\n\nimport com.jd.blockchain.crypto.*;\nimport com.jd.blockchain.ledger.*;\nimport com.jd.blockchain.utils.io.*;\n\n@Contract\npublic class AssetContractImpl implements EventProcessingAwire, AssetContract\n{\n private static final String ASSET_ADDRESS = \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\";\n private static final String KEY_TOTAL = \"TV_TOTAL\";\n private ContractEventContext eventContext;\n \n @ContractEvent(name = \"transfer-asset\")\n public void transfer(final String fromAddress, final String toAddress, final long amount) {\n System.out.println(\"in AssetContractImpl transfer()\");\n final byte[] args_ = this.eventContext.getArgs();\n if (args_ == null) {\n return;\n }\n final String[] args = new String(args_).split(\"##\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final HashDigest hashDigest = this.eventContext.getCurrentLedgerHash();\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(hashDigest, \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", fromAddress, toAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final KVDataObject fromBalance = (KVDataObject)kvEntries[1];\n final KVDataObject toBalance = (KVDataObject)kvEntries[2];\n System.out.println(new StringBuilder().append(\"currTotal: \").append(currTotal.longValue()).toString());\n if (fromBalance.longValue() - amount < 0L) {\n throw new ContractException(\"Insufficient balance!\");\n }\n final long newFromBalance = fromBalance.longValue() - amount;\n System.out.println(new StringBuilder().append(\"newFromBalance: \").append(newFromBalance).toString());\n long newToBalance;\n if (toBalance.isNil()) {\n newToBalance = amount;\n }\n else {\n newToBalance = toBalance.longValue() + amount;\n }\n System.out.println(new StringBuilder().append(\"newToBalance: \").append(newToBalance).toString());\n final long fromVersion = fromBalance.getVersion();\n final long toVersion = toBalance.getVersion();\n System.out.println(new StringBuilder().append(\"fromVersion = \").append(fromVersion).toString());\n System.out.println(new StringBuilder().append(\"toVersion = \").append(toVersion).toString());\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(fromAddress, newFromBalance, fromVersion);\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(toAddress, newToBalance, toVersion);\n }\n \n public void beforeEvent(final ContractEventContext contractEventContext) {\n this.eventContext = contractEventContext;\n }\n \n public void postEvent(final ContractEventContext contractEventContext, final ContractException e) {\n this.eventContext = null;\n }\n \n public void postEvent(final ContractException e) {\n }\n \n public void postEvent() {\n }\n \n private HashDigest currentLedgerHash() {\n return this.eventContext.getCurrentLedgerHash();\n }\n \n @ContractEvent(name = \"issue-asset\")\n public void issue(final long amount, final String assetHolderAddress) {\n System.out.println(\"in AssetContractImpl2\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(this.currentLedgerHash(), \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", assetHolderAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final long newTotal = currTotal.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(\"TV_TOTAL\", BytesUtils.toBytes(newTotal), currTotal.getVersion());\n final KVDataObject holderAmount = (KVDataObject)kvEntries[1];\n final long newHodlerAmount = holderAmount.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(assetHolderAddress, BytesUtils.toBytes(newHodlerAmount), holderAmount.getVersion()).set(\"K2\", (byte[])null, -1L).set(\"k3\", (byte[])null, 3L);\n }\n}\n",
     },
   });
 
@@ -1337,12 +1339,12 @@ router.get('/:ledger/contracts/address/:address', function(req, res) {
 });
 // 8.3 获取合约总数
 // GET /ledgers/{ledger}/contracts/count
-router.get('/:ledger/contracts/count', function(req, res) {
+router.get('/:ledger/contracts/count', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": 27
   });
 
@@ -1350,12 +1352,12 @@ router.get('/:ledger/contracts/count', function(req, res) {
 });
 // 8.4 查询指定合约数量
 // GET /ledgers/{ledger}/contracts/count/search?keyword={keyword}
-router.get('/:ledger/contracts/count/search', function(req, res) {
+router.get('/:ledger/contracts/count/search', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": 27
   });
 
@@ -1363,12 +1365,12 @@ router.get('/:ledger/contracts/count/search', function(req, res) {
 });
 // 8.5 合约查询
 //   GET /ledgers/{ledger}/contracts/search?keyword={keyword}&fromIndex={start_index}&count={count}
-router.get('/:ledger/contracts/search', function(req, res) {
+router.get('/:ledger/contracts/search', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
+  Object.assign(ret, resultData, {
     "data": [{
       "address": {
         "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
@@ -1382,96 +1384,96 @@ router.get('/:ledger/contracts/search', function(req, res) {
 });
 
 // 事件账户总数
-router.get('/:ledger/events/user/accounts/count', function(req, res) {
+router.get('/:ledger/events/user/accounts/count', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
-  
-    Object.assign(ret, resultData,{
-      "success":true,
-      "data":84
-    });
-  
-    res.send(ret);
+
+  Object.assign(ret, resultData, {
+    "success": true,
+    "data": 84
+  });
+
+  res.send(ret);
 });
 
 // 事件账户
-router.get('/:ledger/events/user/accounts', function(req, res) {
+router.get('/:ledger/events/user/accounts', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
 
-  Object.assign(ret, resultData,{
-    "success":true,
+  Object.assign(ret, resultData, {
+    "success": true,
     "data": [{
-      "address":{
-          "value":"LdeNu8QG9RuWYTo4zgrn2RsH3FRjubasgsnju"
+      "address": {
+        "value": "LdeNu8QG9RuWYTo4zgrn2RsH3FRjubasgsnju"
       },
       "pubKey": "7VeRNQrP1AQnhKJHTWc9xvM4UEXSz47yWTxaV3rJiCNngYBD"
     },
     {
-      "address":{
-          "value":"LdeP3UQY8ynDVLvFdBWtNqF8n5uS6qvBMe9VX"
+      "address": {
+        "value": "LdeP3UQY8ynDVLvFdBWtNqF8n5uS6qvBMe9VX"
       },
       "pubKey": "7VeRBwvf4qhJVHjgpbyX9QeX8H7AhGLUXq8hZcZnscij5Bj7"
     },
     {
-      "address":{
-          "value":"LdeNpGSucAexG6BrVWc2tLNXEoTDgBHCCibQY"
+      "address": {
+        "value": "LdeNpGSucAexG6BrVWc2tLNXEoTDgBHCCibQY"
       },
       "pubKey": "7VeRLaKGCiGj3X6FZA2jSwSxzdCmEK6aai6AnyqsGBsXW8DJ"
     },
     {
-      "address":{
-          "value":"LdeNzjmSth3us6GXYLe3WE4KufNKQRzti69PW"
+      "address": {
+        "value": "LdeNzjmSth3us6GXYLe3WE4KufNKQRzti69PW"
       },
       "pubKey": "7VeRA1zk2gk8B87X5gbX9aeGu1n9YKHDbmPrm1Z5wjNrKiMM"
     },
     {
-      "address":{
-          "value":"LdeNhM2WhhumjsozQzdQF7hGMN5f8Ajv3VjtC"
+      "address": {
+        "value": "LdeNhM2WhhumjsozQzdQF7hGMN5f8Ajv3VjtC"
       },
       "pubKey": "7VeRHuQxfWc9W9XBNqmEjjXmjg8LnuekadWmE8jqURKUEVNj"
     },
     {
-      "address":{
-          "value":"LdeNoD33a7zU26WPAj19TqP84SsUK8EYtxy3m"
+      "address": {
+        "value": "LdeNoD33a7zU26WPAj19TqP84SsUK8EYtxy3m"
       },
       "pubKey": "7VeRBQGE2u3ozUKcTrnk4BXHwfbJW5D3R1VjpT6bmzemvF2o"
     },
     {
-      "address":{
-        "value":"LdeNoumLzGAt9GER4y5LHTeovdCmSY24rdVWN"
+      "address": {
+        "value": "LdeNoumLzGAt9GER4y5LHTeovdCmSY24rdVWN"
       },
       "pubKey": "7VeRKDRchgcesxY95JXKj1vdnPKyBPATa1YNojXn3my61Ser"
     },
     {
-      "address":{
-        "value":"LdeP3VP3wwxAmHeo87J9RDJMEk1AzvDCM264j"
+      "address": {
+        "value": "LdeP3VP3wwxAmHeo87J9RDJMEk1AzvDCM264j"
       },
       "pubKey": "7VeRJDCGBv2kqTSBzwtcRYkHA2GzEaWGKff96o5SXfN6WuQa"
     },
     {
-      "address":{
-        "value":"LdeNhbJxCiPHw5jGYb1zFcydpFPRNpE47pEpW"
+      "address": {
+        "value": "LdeNhbJxCiPHw5jGYb1zFcydpFPRNpE47pEpW"
       },
       "pubKey": "7VeRDBea3y9z3WoEVfdTUfg8Z42qfaqf7LZou2eojRHbZn9e"
     },
     {
-      "address":{
-        "value":"LdeNxC19xnQ2XbBP4UChZB2hT5SUCz9JDCHRX"
+      "address": {
+        "value": "LdeNxC19xnQ2XbBP4UChZB2hT5SUCz9JDCHRX"
       },
       "pubKey": "7VeRM1EhjRXwybAiYLHwjmJxxGPpYrJrNhGVjXNeuQw4hH3o"
     },
     {
-      "address":{
-        "value":"LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+      "address": {
+        "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
       },
       "pubKey": "7VeRPrJgSt4nKqSinLMwHGEWskPiQ5WNqcSj9ximuwLTjKoH"
     },
     {
-      "address":{
-        "value":"LdeNzqjox47UKRxEYMC3rahxW7gBvrChPrf8E"
+      "address": {
+        "value": "LdeNzqjox47UKRxEYMC3rahxW7gBvrChPrf8E"
       },
       "pubKey": "7VeRLM82n3PrW8mXgvHPatEvA78oBZa1g3cN4dHR4JTPnXTT"
     }],
@@ -1481,45 +1483,43 @@ router.get('/:ledger/events/user/accounts', function(req, res) {
 });
 
 // 指定事件账户下事件列表总数
-router.get('/:ledger/events/user/accounts/:address/names/count', function(req, res) {
+router.get('/:ledger/events/user/accounts/:address/names/count', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
-  
-  Object.assign(ret, resultData,{
-    "success":true,
-    "data":1
+
+  Object.assign(ret, resultData, {
+    "success": true,
+    "data": 1
   });
 
   res.send(ret);
 });
 
 // 指定事件账户下事件列表
-router.get('/:ledger/events/user/accounts/:address/names', function(req, res) {
+router.get('/:ledger/events/user/accounts/:address/names', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
-  
-  Object.assign(ret, resultData,{
-    "data":["e12","e8","e3","e13","e6","e4","e11","e9","e5","e10"],
-    "success":true
+
+  Object.assign(ret, resultData, {
+    "data": ["e12", "e8", "e3", "e13", "e6", "e4", "e11", "e9", "e5", "e10"],
+    "success": true
   });
 
   res.send(ret);
 });
 
 // 指定事件账户下事件列表最新事件
-router.get('/:ledger/events/user/accounts/:address/names/:eventName/latest', function(req, res) {
+router.get('/:ledger/events/user/accounts/:address/names/:eventName/latest', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
-  
-  Object.assign(ret, resultData,{
+
+  Object.assign(ret, resultData, {
     "data": {
       "sequence": 0,//　事件序列
-      "transactionSource": {// 交易哈希
-        "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-      },
+      "transactionSource": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
       "blockHeight": 1,//　区块高度
       "contractSource": "",// 合约地址
       "eventAccount": {// 事件账户
@@ -1542,12 +1542,12 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName/latest', fun
 })
 
 // 指定事件账户下事件列表详情
-router.get('/:ledger/events/user/accounts/:address/names/:eventName', function(req, res) {
+router.get('/:ledger/events/user/accounts/:address/names/:eventName', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
-  
-  Object.assign(ret, resultData,{
+
+  Object.assign(ret, resultData, {
     "data": [
       {
         "sequence": 0,//　事件序列
@@ -1797,14 +1797,14 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName', function(r
 })
 
 // 指定事件账户下事件名总数
-router.get('/:ledger/events/user/accounts/:address/names/:eventName/count', function(req, res) {
+router.get('/:ledger/events/user/accounts/:address/names/:eventName/count', function (req, res) {
   res.type('json');
   let params = req.body,
     ret = {};
-  
-  Object.assign(ret, resultData,{
-    "success":true,
-    "data":14
+
+  Object.assign(ret, resultData, {
+    "success": true,
+    "data": 14
   });
 
   res.send(ret);
