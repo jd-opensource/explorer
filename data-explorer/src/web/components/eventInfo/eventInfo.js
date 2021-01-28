@@ -35,7 +35,7 @@ export default class EventInfo extends Component {
     @observable pageEvent = 10;
     @observable visible = false;
     @observable visibleLast = false;
-    @observable expandedRowKeys = [];
+    // @observable expandedRowKeys = [];
     @observable expandedRowKeysName = [];
 
     onPageChange = (page, pageSize) => {
@@ -44,7 +44,7 @@ export default class EventInfo extends Component {
         let leaders = common.getDefaultLedger();
 
         event.setEvent(page);
-        this.expandedRowKeys = [];
+        // this.expandedRowKeys = [];
 
         let param = {
             fromIndex: (event.eventCurrent - 1) * this.pageSize,
@@ -208,15 +208,15 @@ export default class EventInfo extends Component {
     }
 
     // 子表展开收缩函数
-    handleExpandShow = (expanded, record) => {
-        if (expanded) {
-            let testArr = [];
-            testArr.push(record);
-            this.expandedRowKeys = [...testArr];
-        } else {
-            this.expandedRowKeys = [...arrayRemove(this.expandedRowKeys, record)]
-        }
-    }
+    // handleExpandShow = (expanded, record) => {
+    //     if (expanded) {
+    //         let testArr = [];
+    //         testArr.push(record);
+    //         this.expandedRowKeys = [...testArr];
+    //     } else {
+    //         this.expandedRowKeys = [...arrayRemove(this.expandedRowKeys, record)]
+    //     }
+    // }
 
     handleExpandShowName = (expanded, record) => {
         if (expanded) {
@@ -299,6 +299,8 @@ export default class EventInfo extends Component {
 
     render() {
         const { data, store: { event } } = this.props;
+        let latest = event.dataLatest && { ...event.dataLatest } || {}
+        console.log(latest)
         return (
             <div>
                 <h3>账户详情</h3>
@@ -344,34 +346,31 @@ export default class EventInfo extends Component {
                             {/* <h4>最新事件</h4> */}
                             <Row className={styles.gl}>
                                 <Col span={2} xs={24} sm={8} lg={2}>事件序列:</Col>
-                                <Col span={10} xs={24} sm={16} lg={10}>{data.sequence && data.sequence || 0}</Col>
+                                <Col span={10} xs={24} sm={16} lg={10}>{latest.sequence && latest.sequence || 0}</Col>
 
                                 <Col span={2} xs={24} sm={8} lg={2}>事件账户:</Col>
-                                <Col span={10} xs={24} sm={16} lg={10}>{data.eventAccount && data.eventAccount.value && data.eventAccount.value || ''}</Col>
+                                <Col span={10} xs={24} sm={16} lg={10}>{latest.eventAccount && latest.eventAccount.value && latest.eventAccount.value || ''}</Col>
 
                                 <Col span={2} xs={24} sm={8} lg={2}>事件名称:</Col>
-                                <Col span={10} xs={24} sm={16} lg={10}>{data.name && data.name || ''}</Col>
+                                <Col span={10} xs={24} sm={16} lg={10}>{latest.name && latest.name || ''}</Col>
 
                                 <Col span={2} xs={24} sm={8} lg={2}>交易哈希:</Col>
-                                <Col span={10} xs={24} sm={16} lg={10}>{data.transactionSource && data.transactionSource || ''}</Col>
+                                <Col span={10} xs={24} sm={16} lg={10}>{latest.transactionSource && latest.transactionSource.value && latest.transactionSource.value || ''}</Col>
 
                                 <Col span={2} xs={24} sm={8} lg={2}>区块高度:</Col>
-                                <Col span={10} xs={24} sm={16} lg={10}>{data.blockHeight && data.blockHeight || 0}</Col>
+                                <Col span={10} xs={24} sm={16} lg={10}>{latest.blockHeight && latest.blockHeight || 0}</Col>
 
                                 <Col span={2} xs={24} sm={8} lg={2}>合约地址:</Col>
-                                <Col span={10} xs={24} sm={16} lg={10}>{data.contractSource && data.contractSource || ''}</Col>
-
-                                {/* <Col span = {2} xs = {24} sm = {8} lg = {2}>nil:</Col>
-                                <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.content && data.content.nil && 'true' || 'false'}</Col> */}
+                                <Col span={10} xs={24} sm={16} lg={10}>{latest.contractSource && latest.contractSource || ''}</Col>
 
                                 <Col span={2} xs={24} sm={8} lg={2}>字节:</Col>
-                                <Col span={10} xs={24} sm={16} lg={10}>{data.content && data.content.bytes && data.content.bytes.value || ''}</Col>
+                                <Col span={10} xs={24} sm={16} lg={10}>{latest.content && latest.content.bytes && latest.content.bytes.value || ''}</Col>
 
                                 <Col span={2} xs={24} sm={8} lg={2}>类型:</Col>
-                                <Col span={10} xs={24} sm={16} lg={10}>{data.content && data.content.type || ''}</Col>
+                                <Col span={10} xs={24} sm={16} lg={10}>{latest.content && latest.content.type || ''}</Col>
 
                                 <Col span={2} xs={24} sm={8} lg={2}>值:</Col>
-                                <Col span={10} xs={24} sm={16} lg={10}>{data.content && data.content.value && (data.content.value + '') || ''}</Col>
+                                <Col span={10} xs={24} sm={16} lg={10}>{latest.content && latest.content.value && (latest.content.value + '') || ''}</Col>
                                 <Col span={2} xs={24} sm={8} lg={2}></Col>
                                 <Col span={10} xs={24} sm={16} lg={10}></Col>
                             </Row>
