@@ -15,6 +15,10 @@ const HeaderStore = types
       name:'区块',
       icon:'block',
     },{
+      path:'user',
+      name:'用户',
+      icon:'user',
+    },{
       path:'account',
       name:'数据账户',
       icon:'switcher'
@@ -26,10 +30,6 @@ const HeaderStore = types
       path:'contract',
       name:'合约',
       icon:'profile',
-    },{
-      path:'user',
-      name:'用户',
-      icon:'user',
     }],
     selectMenu:[''],
   }))

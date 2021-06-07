@@ -87,22 +87,22 @@ export default class Header extends Component {
   // 交易列表
   @computed get tableColumns() {
     return [{
-      title: '参与方ID',
+      title: 'ID',
       dataIndex: 'id',
       key:'id'
     },
     {
-      title: '参与方名字',
+      title: '名字',
       dataIndex: 'name',
       key:'name'
     },
     {
-      title: '参与方地址',
+      title: '地址',
       dataIndex: 'address.value',
       key:'address'
     },
     {
-      title: '参与方公钥',
+      title: '公钥',
       dataIndex: 'pubKey',
       key:'pubKey'
     },
@@ -113,6 +113,11 @@ export default class Header extends Component {
       render: (text, record, index) => nj `
        ${tranBase58(text)}
       `()
+    },
+    {
+      title: '状态',
+      dataIndex: 'participantNodeState',
+      key:'participantNodeState'
     }];
   }
  // 交易列表
