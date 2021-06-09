@@ -78,13 +78,14 @@ export default class Event extends Component {
   }
 
   onSearchEvent = () => {
-    const { store: { common, event } } = this.props;
+    const { store: { event } } = this.props;
     const closeLoading = Message.loading('正在获取数据...', 0);
-    let leaders = common.getDefaultLedger(),
+    let leaders = this.props.store.common.getDefaultLedger(),
       keyword = this.eventAddress,
       param = {
         fromIndex: (event.accountcurrent - 1) * this.pageSize,
         count: this.pageSize,
+        keyword:keyword
       };
     Promise.all([
       event.eventCountSearch(leaders, keyword)
@@ -111,7 +112,6 @@ export default class Event extends Component {
   }
   @autobind
   SerchInfo() {
-    console.log(this.eventAddress);
     if (this.eventAddress.trim() != '') {
       this.onSearchEvent();
     }

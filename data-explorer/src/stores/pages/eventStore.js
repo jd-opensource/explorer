@@ -138,8 +138,8 @@ const EventStore = types
 
     searchEvent(ledger,param){
       return fetchData(`${__HOST}/ledgers/${ledger}/events/accounts/search`,
-        self.setEventCount,
-        param,{ 
+        result => self.setAccount(result, param.keyword),
+        param,{
           method: 'get',
           headers: {
             // accept: 'application/json',
@@ -152,7 +152,7 @@ const EventStore = types
 
     eventCountSearch(ledger,keyword){
       return fetchData(`${__HOST}/ledgers/${ledger}/events/accounts/count/search`,
-        self.setEventCount,
+        self.setAccountCount,
         {keyword:keyword},{ 
           method: 'get',
           headers: {

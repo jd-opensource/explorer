@@ -119,7 +119,6 @@ const SearchStore = types
       });
     },
     setEventTotal(result) {
-      console.log(result)
       if (result&&result.success) {
         self.dataEventTotal=result.data||0;
       }
@@ -164,10 +163,8 @@ const SearchStore = types
         self.usersData=result.data && result.data.users ||[];// 用户数据
         self.accountsData=result.data && result.data.accounts ||[];// 数据账户
         self.contractsData=result.data && result.data.contracts || [];// 合约数据
-
-        self.eventData = result.data && result.data['event_accounts'] || []; // 事件账户
-
-        self.allData=[...self.blockData,...self.txsData,...self.usersData,...self.accountsData,...self.contractsData, ...self.eventData];
+        self.eventData = result.data && result.data.event_accounts || []; // 事件账户
+        self.allData=[...self.blockData,...self.txsData,...self.usersData,...self.accountsData,...self.contractsData,...self.eventData];
       } 
       else{
         self.blockData=[];// 区块数据
@@ -175,9 +172,7 @@ const SearchStore = types
         self.usersData=[];// 用户数据
         self.kvsData=[];// 写操作数据
         self.datasetsData=[];// 数据账户
-
-        self.eventData = [];
-
+        self.eventData = [];// 事件账户
         self.contractsData=[];// 合约数据
         self.allData=[];
         Notification.error({
