@@ -135,6 +135,35 @@ const EventStore = types
       ).catch(error => {
       });
     },
+
+    searchEvent(ledger,param){
+      return fetchData(`${__HOST}/ledgers/${ledger}/events/accounts/search`,
+        result => self.setAccount(result, param.keyword),
+        param,{
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+      });
+    },
+
+    eventCountSearch(ledger,keyword){
+      return fetchData(`${__HOST}/ledgers/${ledger}/events/accounts/count/search`,
+        self.setAccountCount,
+        {keyword:keyword},{ 
+          method: 'get',
+          headers: {
+            // accept: 'application/json',
+            cookie: document.cookie,
+          } 
+        }
+      ).catch(error => {
+      });
+    },
+
     setEventCount(result) {
       if (result && result.success) {
         self.eventTotal = result.data || 0;

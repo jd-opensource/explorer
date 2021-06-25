@@ -1256,6 +1256,8 @@ router.get('/:ledger/all/search', function (req, res) {
       "txs": [
         {
           "hash": "6L3ehswCmC1jqBfvGJP9vaPx8qxkLsieu2aRgYepmkiw3",
+          "block_height" : 8,
+          "execution_state" : "SUCCESS"
         }
       ],
       "users": [
@@ -1477,6 +1479,43 @@ router.get('/:ledger/events/user/accounts', function (req, res) {
       },
       "pubKey": "7VeRLM82n3PrW8mXgvHPatEvA78oBZa1g3cN4dHR4JTPnXTT"
     }],
+  });
+
+  res.send(ret);
+});
+
+// 事件账户数量查询
+//   GET /ledgers/{ledger}/events/accounts/search?keyword={keyword}
+router.get('/:ledger/events/accounts/count/search', function (req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData, {
+    "data": 1,
+    "success": true
+  });
+
+  res.send(ret);
+});
+
+// 事件账户查询
+//   GET /ledgers/{ledger}/events/accounts/search?keyword={keyword}
+router.get('/:ledger/events/accounts/search', function (req, res) {
+  res.type('json');
+  let params = req.body,
+    ret = {};
+
+  Object.assign(ret, resultData, {
+    "data": [
+        {
+          "address": {
+            "value": "LdeNuaTzpyjCuQ8tPQZYof6AVf2RueEqjdH3R"
+          },
+          "pubKey": "7VeRPW5Xnam78PfrbdeTW7TSUG8VG8MSZcjEZQSodBwNf6yT"
+        }
+    ],
+    "success": true
   });
 
   res.send(ret);

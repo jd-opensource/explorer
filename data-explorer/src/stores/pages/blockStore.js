@@ -223,7 +223,6 @@ const BlockStore = types
     setTransaction(result){
       if (result&&result.success) {
         self.transactionList = result.data || [];// 交易数据
-        console.log(self.transactionList)
         return result.data;
       }     
     },
