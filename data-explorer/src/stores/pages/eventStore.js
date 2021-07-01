@@ -67,7 +67,7 @@ const EventStore = types
     },
     setAccount(result, keywords) {
       if (result&&result.success) {
-        self.tableData = result.data && result.data.filter(item => item.address.value.indexOf(keywords) != -1) || [];
+        self.tableData = result.data && result.data.filter(item => item.address.indexOf(keywords) != -1) || [];
         // self.accountcount = self.tableData.length || 0
       }
       else{

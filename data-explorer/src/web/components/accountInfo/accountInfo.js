@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-import { findDOMNode } from 'react-dom';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj from 'nornj';
 import { Drawer } from 'antd';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import JSONTree from 'react-json-tree';
-import { utf8ToString } from '../../../utils/util';
-import TransactionInfo from '../transactionInfo';
-import AccountRootHash from '../../components/accountRootHash';
+import {byteToString, stringToBase64, utf8ToString} from '../../../utils/util';
 import 'flarej/lib/components/antd/table';
 import Message from 'flarej/lib/components/antd/message';
-import KvCount from '../../components/kvcount';
 import styles from './accountInfo.m.scss';
 import tmpls from './accountInfo.t.html';
 
@@ -54,14 +49,14 @@ export default class AccountInfo extends Component {
   Search() {
     const { store: { account }, accountData } = this.props;
 
-    if (accountData && accountData.address && accountData.address.value) {
+    if (accountData && accountData.address) {
       const closeLoading = Message.loading('正在获取数据...', 0);
       let leader = this.props.store.common.getDefaultLedger(),
         param = {
           fromIndex: (this.accountcurrent - 1) * this.pageSize,
           count: this.pageSize,
         },
-        address = accountData.address.value;
+        address = accountData.address;
       Promise.all([
         account.getEntriescount(leader, address)
       ]).then((data) => {
@@ -132,11 +127,7 @@ export default class AccountInfo extends Component {
   @autobind
   onShowBlockDetails(text, record) {
     this.onCloseblockDetails();
-    if (record.type.toUpperCase() == 'BYTES') {
-      this.valueinfo = utf8ToString(text);
-      this.valueinfotype = 'BYTES';
-    }
-    else if (record.type.toUpperCase() == 'JSON') {
+    if (record.type.toUpperCase() == 'JSON') {
       this.valueinfotype = 'JSON';
       this.jsondata = text;
     }

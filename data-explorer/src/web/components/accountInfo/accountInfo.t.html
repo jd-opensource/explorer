@@ -7,8 +7,8 @@
       <fj-Col l=5  s=8  xs=12>
         <#if {{accountData && accountData.headerRootHash && accountData.headerRootHash}}>
           {accountData.headerRootHash}
-          <#elseif {{accountData && accountData.address && accountData.address.value}}>
-            <AccountRootHash  address={accountData.address.value} hash="header"/>
+          <#elseif {{accountData && accountData.address}}>
+            <AccountRootHash  address={accountData.address} hash="header"/>
           </#elseif>
           <#else>
             ''
@@ -20,8 +20,8 @@
       <fj-Col l=5  s=8  xs=12>
         <#if {{accountData && accountData.dataRootHash && accountData.dataRootHash}}>
           {accountData.dataRootHash}
-          <#elseif {{accountData && accountData.address && accountData.address.value}}>
-            <AccountRootHash  address={accountData.address.value} hash="data"/>
+          <#elseif {{accountData && accountData.address}}>
+            <AccountRootHash  address={accountData.address} hash="data"/>
           </#elseif>
           <#else>
             ''
@@ -30,7 +30,7 @@
       </fj-Col>
       <fj-Col l=1  s=4  xs=12>数据账户地址
       </fj-Col>
-      <fj-Col l=5  s=8  xs=12>{accountData && accountData.address && accountData.address.value || ''}
+      <fj-Col l=5  s=8  xs=12>{accountData && accountData.address && accountData.address || ''}
       </fj-Col>
       <fj-Col l=1  s=4  xs=12>数据账户公钥
       </fj-Col>
@@ -41,7 +41,7 @@
       
       <fj-Col l=1  s=4  xs=12>KV数量
       </fj-Col>
-      <fj-Col l=5  s=8  xs=12><KvCount address={accountData.address.value} key={accountData.address.value} />
+      <fj-Col l=5  s=8  xs=12><KvCount address={accountData.address} key={accountData.address} />
       </fj-Col>
     </fj-Row>
     <h3>数据写入</h3>

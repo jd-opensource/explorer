@@ -113,7 +113,7 @@ export default class User extends Component {
   @computed get tableColumns() {
     return [ {
       title: '用户地址',
-      dataIndex: 'address.value',
+      dataIndex: 'address',
       key:'address'
     },{
       title: '用户公钥',

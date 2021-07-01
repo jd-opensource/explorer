@@ -122,7 +122,7 @@ export default class Event extends Component {
   showEvent = (record, index) => {
     const { store: { common, event } } = this.props;
 
-    let address = record.address && record.address.value && record.address.value || '';
+    let address = record.address && record.address || '';
 
     const closeLoading = Message.loading('正在获取数据...', 0);
 
@@ -174,7 +174,7 @@ export default class Event extends Component {
   @computed get eventColumns() {
     return [{
       title: '账户地址',
-      dataIndex: 'address.value',
+      dataIndex: 'address',
       key: 'address',
     }, {
       title: '账户公钥',

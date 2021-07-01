@@ -3,6 +3,7 @@ import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import styles from './eventInfo.m.scss';
+import {formatBase64Data} from '../../../utils/util';
 
 import { Badge, Col, Drawer, Message, Row, Table, Icon } from 'antd';
 
@@ -50,7 +51,7 @@ export default class EventInfo extends Component {
             fromIndex: (event.eventCurrent - 1) * this.pageSize,
             count: this.pageSize,
         };
-        let address = data.address && data.address.value && data.address.value || '';
+        let address = data.address && data.address || '';
 
 
         // 查询事件列表
@@ -73,7 +74,7 @@ export default class EventInfo extends Component {
         const { data, store: { common, event } } = this.props;
         event.setName(page);
         this.expandedRowKeysName = [];
-        let address = data.address && data.address.value && data.address.value || '';
+        let address = data.address && data.address || '';
         let param = {
             fromSequence: (event.nameCurrent - 1) * this.pageEvent,
             count: this.pageEvent,
@@ -96,7 +97,7 @@ export default class EventInfo extends Component {
 
     onShow = (record, index) => {
         const { data, store: { common, event } } = this.props;
-        let address = data.address && data.address.value && data.address.value || '';
+        let address = data.address && data.address || '';
         let param = {
             fromSequence: (event.nameCurrent - 1) * this.pageEvent,
             count: this.pageEvent,
@@ -130,7 +131,7 @@ export default class EventInfo extends Component {
 
     onShowLatest = (e, record) => {
         const { data, store: { common, event } } = this.props;
-        let address = data.address && data.address.value && data.address.value || '';
+        let address = data.address && data.address || '';
 
 
         Promise.all([
@@ -153,7 +154,7 @@ export default class EventInfo extends Component {
                         <Col span={10} xs={24} sm={16} lg={10}>{data.sequence && data.sequence || 0}</Col>
 
                         <Col span={2} xs={24} sm={8} lg={2}>事件账户:</Col>
-                        <Col span={10} xs={24} sm={16} lg={10}>{data.eventAccount && data.eventAccount.value && data.eventAccount.value || ''}</Col>
+                        <Col span={10} xs={24} sm={16} lg={10}>{data.eventAccount && data.eventAccount || ''}</Col>
 
                         <Col span={2} xs={24} sm={8} lg={2}>事件名称:</Col>
                         <Col span={10} xs={24} sm={16} lg={10}>{data.name && data.name || ''}</Col>
@@ -167,19 +168,12 @@ export default class EventInfo extends Component {
                         <Col span={2} xs={24} sm={8} lg={2}>合约地址:</Col>
                         <Col span={10} xs={24} sm={16} lg={10}>{data.contractSource && data.contractSource || ''}</Col>
 
-                        {/* <Col span = {2} xs = {24} sm = {8} lg = {2}>nil:</Col>
-                        <Col span = {10} xs = {24} sm = {16} lg = {10}>{data.content && data.content.nil && 'true' || 'false'}</Col> */}
-
-                        <Col span={2} xs={24} sm={8} lg={2}>字节:</Col>
-                        <Col span={10} xs={24} sm={16} lg={10}>{data.content && data.content.bytes && data.content.bytes.value || ''}</Col>
-
                         <Col span={2} xs={24} sm={8} lg={2}>类型:</Col>
                         <Col span={10} xs={24} sm={16} lg={10}>{data.content && data.content.type || ''}</Col>
 
                         <Col span={2} xs={24} sm={8} lg={2}>值:</Col>
-                        <Col span={10} xs={24} sm={16} lg={10}>{data.content && data.content.value && (data.content.value + '') || ''}</Col>
-                        <Col span={2} xs={24} sm={8} lg={2}></Col>
-                        <Col span={10} xs={24} sm={16} lg={10}></Col>
+                        <Col span={10} xs={24} sm={16} lg={10}>{formatBase64Data(data.content && data.content.type && data.content.type || '',
+                            data.content && data.content.bytes || '')}</Col>
                     </Row>
                 </div>
             </div>
@@ -235,7 +229,6 @@ export default class EventInfo extends Component {
             title: '事件序列',
         },
         {
-            // dataIndex: 'transactionSource.value',
             dataIndex: 'transactionSource',
             title: '交易哈希',
         },
@@ -263,7 +256,7 @@ export default class EventInfo extends Component {
             <div className={styles.info}>
                 <Row className={styles.gl}>
                     <Col span={4} xs={24} sm={8} lg={4}>事件账户:</Col>
-                    <Col span={20} xs={24} sm={16} lg={20}>{record.eventAccount && record.eventAccount.value && record.eventAccount.value || ''}</Col>
+                    <Col span={20} xs={24} sm={16} lg={20}>{record.eventAccount && record.eventAccount || ''}</Col>
 
                     {/* <Col span = {4} xs = {24} sm = {8} lg = {4}>事件名称:</Col>
                     <Col span = {20} xs = {24} sm = {16} lg = {20}>{record.name && record.name || ''}</Col> */}
@@ -284,14 +277,12 @@ export default class EventInfo extends Component {
                     <Col span={4} xs={24} sm={8} lg={4}>事件名称:</Col>
                     <Col span={8} xs={24} sm={16} lg={8}>{record.name && record.name || ''}</Col>
 
-
-                    <Col span={4} xs={24} sm={8} lg={4}>字节:</Col>
-                    <Col span={8} xs={24} sm={16} lg={8}>{record.content && record.content.bytes && record.content.bytes.value && record.content.bytes.value || false}</Col>
                     <Col span={4} xs={24} sm={8} lg={4}>类型:</Col>
                     <Col span={8} xs={24} sm={16} lg={8}>{record.content && record.content.type && record.content.type || ''}</Col>
 
                     <Col span={4} xs={24} sm={8} lg={4}>值:</Col>
-                    <Col span={8} xs={24} sm={16} lg={8}>{record.content && record.content.value != undefined && (record.content.value + '') || ''}</Col>
+                    <Col span={8} xs={24} sm={16} lg={20}>{formatBase64Data(record.content && record.content.type && record.content.type || '',
+                        record.content && record.content.bytes || '')}</Col>
                 </Row>
             </div>
         )
@@ -307,7 +298,7 @@ export default class EventInfo extends Component {
                 <div className={styles.info}>
                     <Row className={styles.gl}>
                         <Col span={2} xs={24} sm={8} lg={2}>事件账户地址:</Col>
-                        <Col span={10} xs={24} sm={16} lg={10}>{data.address && data.address.value && data.address.value || ''}</Col>
+                        <Col span={10} xs={24} sm={16} lg={10}>{data.address && data.address || ''}</Col>
 
                         <Col span={2} xs={24} sm={8} lg={2}>事件账户公钥:</Col>
                         <Col span={10} xs={24} sm={16} lg={10}>{data.pubKey && data.pubKey && data.pubKey || ''}</Col>
@@ -349,7 +340,7 @@ export default class EventInfo extends Component {
                                 <Col span={10} xs={24} sm={16} lg={10}>{latest.sequence && latest.sequence || 0}</Col>
 
                                 <Col span={2} xs={24} sm={8} lg={2}>事件账户:</Col>
-                                <Col span={10} xs={24} sm={16} lg={10}>{latest.eventAccount && latest.eventAccount.value && latest.eventAccount.value || ''}</Col>
+                                <Col span={10} xs={24} sm={16} lg={10}>{latest.eventAccount && latest.eventAccount || ''}</Col>
 
                                 <Col span={2} xs={24} sm={8} lg={2}>事件名称:</Col>
                                 <Col span={10} xs={24} sm={16} lg={10}>{latest.name && latest.name || ''}</Col>
@@ -363,16 +354,12 @@ export default class EventInfo extends Component {
                                 <Col span={2} xs={24} sm={8} lg={2}>合约地址:</Col>
                                 <Col span={10} xs={24} sm={16} lg={10}>{latest.contractSource && latest.contractSource || ''}</Col>
 
-                                <Col span={2} xs={24} sm={8} lg={2}>字节:</Col>
-                                <Col span={10} xs={24} sm={16} lg={10}>{latest.content && latest.content.bytes && latest.content.bytes.value || ''}</Col>
-
                                 <Col span={2} xs={24} sm={8} lg={2}>类型:</Col>
-                                <Col span={10} xs={24} sm={16} lg={10}>{latest.content && latest.content.type || ''}</Col>
+                                <Col span={10} xs={24} sm={16} lg={20}>{latest.content && latest.content.type || ''}</Col>
 
                                 <Col span={2} xs={24} sm={8} lg={2}>值:</Col>
-                                <Col span={10} xs={24} sm={16} lg={10}>{latest.content && latest.content.value && (latest.content.value + '') || ''}</Col>
-                                <Col span={2} xs={24} sm={8} lg={2}></Col>
-                                <Col span={10} xs={24} sm={16} lg={10}></Col>
+                                <Col span={10} xs={24} sm={16} lg={20}>{formatBase64Data(latest.content && latest.content.type && latest.content.type || '',
+                                    latest.content && latest.content.bytes || '')}</Col>
                             </Row>
                         </div>
                     </div>

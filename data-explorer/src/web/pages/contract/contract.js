@@ -122,7 +122,7 @@ export default class Contract extends Component {
   @computed get tableColumns() {
     return [{
       title: '合约地址',
-      dataIndex: 'address.value',
+      dataIndex: 'address',
       key:'address'
     }, {
       title: '合约公钥',
@@ -147,7 +147,7 @@ export default class Contract extends Component {
     // },
     {
       title: '操作',
-      dataIndex: 'address.value',
+      dataIndex: 'address',
       key:'chainCode',
       render: (text, record, index) => nj `
         <a onClick=${()=>this.onShowContract(text)}>查看合约</a>

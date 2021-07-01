@@ -163,33 +163,25 @@ router.get('/:ledgerHash/settings', function (req, res) {
       },
       "ledgerStructureVersion": 0,
       "participantNodes": [{
-        "address": {
-          "value": "LdeNkSbfPR5BhfoTdnDBzJ9DZ8kMmGxrKj2Ug"
-        },
+        "address": "LdeNkSbfPR5BhfoTdnDBzJ9DZ8kMmGxrKj2Ug",
         "id": 3,
         "name": "3",
         "participantNodeState": "CONSENSUS",
         "pubKey": "7VeRHTYKbj1Ua6To2zjozUL8xpwrbiTqgWPJmaCzfVN7ioPr"
       }, {
-        "address": {
-          "value": "LdeNxy22cbRuohUTWWcdsx7dq7fawh7yAVwJR"
-        },
+        "address": "LdeNxy22cbRuohUTWWcdsx7dq7fawh7yAVwJR",
         "id": 0,
         "name": "0",
         "participantNodeState": "CONSENSUS",
         "pubKey": "7VeRJtmGhWZJKmjxHaKVdSUxSrYwumCHvdR4dKdWu8xpmcwZ"
       }, {
-        "address": {
-          "value": "LdeNgyuxXGUwEFCuuPL1wb5RJroqhJdTsyCTW"
-        },
+        "address": "LdeNgyuxXGUwEFCuuPL1wb5RJroqhJdTsyCTW",
         "id": 2,
         "name": "2",
         "participantNodeState": "CONSENSUS",
         "pubKey": "7VeRLuzSAiKBNDhYB7AaYfvfgTjVTUCaXHLdJ2BWZSLn8po4"
       }, {
-        "address": {
-          "value": "LdeNjeSZfY2stPYiSwaW6ScpdvSJvJa9VQmhb"
-        },
+        "address": "LdeNjeSZfY2stPYiSwaW6ScpdvSJvJa9VQmhb",
         "id": 1,
         "name": "1",
         "participantNodeState": "CONSENSUS",
@@ -467,17 +459,12 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function (req, r
               "expectedVersion": -1,
               "value": {
                 "nil": false,
-                "bytes": {
-                  "value": "hZ8f4meDrG3boKXguGVZegLrZPm"
-                },
-                "type": "TEXT",
-                "value": "2020-12-02 16:17:50 "
+                "value":  "hZ8f4meDrG3boKXguGVZegLrZPm",
+                "type": "TEXT"
               },
               "key": "QY"
             }],
-            "accountAddress": {
-              "value": "LdeP14iDiDwetm81ZC4wxwZvv8Zo5kbWRAfmb"
-            }
+            "accountAddress":  "LdeP14iDiDwetm81ZC4wxwZvv8Zo5kbWRAfmb"
           }],
           "timestamp": 1606897070670
         },
@@ -517,33 +504,25 @@ router.get('/:ledger/blocks/hash/:block_hash/txs', function (req, res) {
           "operations": [
             {
               "userID": {
-                "address": {
-                  "value": "5SmBgzsrnY6u9Y7DgSSkXfTkCgp83hiFin3v"
-                },
+                "address": "5SmBgzsrnY6u9Y7DgSSkXfTkCgp83hiFin3v",
                 "pubKey": "mb5kukaqjWtXyAerfHU1JDtVwabSeBU5c3khMZbNh7R8VJ"
               }
             },
             {
               "accountID": {
-                "address": {
-                  "value": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha"
-                },
+                "address": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha",
                 "pubKey": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
               }
             },
             {
               "contractID": {
-                "address": {
-                  "value": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha"
-                },
+                "address": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha",
                 "pubKey": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
               },
               "chainCode": "----------"
             },
             {
-              "contractAddress": {
-                "value": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
-              },
+              "contractAddress": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR",
               "event": "----------",
               "args": "----------"
             },
@@ -552,39 +531,25 @@ router.get('/:ledger/blocks/hash/:block_hash/txs', function (req, res) {
                 "key": "jdchain",
                 "value": {
                   "type": "TEXT",
-                  "value": {
-                    "value": "----------"
-                  }
+                  "value":  "----------"
                 },
                 "expectedVersion": 0
               }],
-              "accountAddress": {
-                "value": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
-              }
+              "accountAddress": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
             }
           ],
-          "hash": {
-            "value": "6BLtM1agb7ERKoN5AJgZKiTjzdS7BpjgzQNYK8ZeDqotA"
-          }
+          "hash": "6BLtM1agb7ERKoN5AJgZKiTjzdS7BpjgzQNYK8ZeDqotA"
         },
         "endpointSignatures": [
           {
-            "digest": {
-              "value": "42pbfM5YKnf39Gitr4UsjTCzhhnJjwNyi8MnLFYgP4VKewTLzHitzArHEMrCt3hZYUe5ex9XvqtmiCoWpeAbdc31F"
-            },
-            "pubKey": {
-              "value": "mb5kbwzACnhK9P1dVxgMPB2ySJLFyJKQbHpH7T9oRK3LpS"
-            }
+            "digest": "42pbfM5YKnf39Gitr4UsjTCzhhnJjwNyi8MnLFYgP4VKewTLzHitzArHEMrCt3hZYUe5ex9XvqtmiCoWpeAbdc31F",
+            "pubKey": "mb5kbwzACnhK9P1dVxgMPB2ySJLFyJKQbHpH7T9oRK3LpS"
           }
         ],
         "nodeSignatures": [
           {
-            "digest": {
-              "value": "66SQ95SbDaApAJhN2NsFx5sfAQTxsWhMW26D5iPqXc1jZU9rJEhRnqT1nzt62ZAcCvsfrjEsay3MxqXYA5tWPoA2U"
-            },
-            "pubKey": {
-              "value": "mb5kbwzACnhK9P1dVxgMPB2ySJLFyJKQbHpH7T9oRK3LpS"
-            }
+            "digest": "66SQ95SbDaApAJhN2NsFx5sfAQTxsWhMW26D5iPqXc1jZU9rJEhRnqT1nzt62ZAcCvsfrjEsay3MxqXYA5tWPoA2U",
+            "pubKey": "mb5kbwzACnhK9P1dVxgMPB2ySJLFyJKQbHpH7T9oRK3LpS"
           }
         ]
       }
@@ -909,83 +874,58 @@ router.get('/:ledger/txs/hash/:tx_hash', function (req, res) {
         "transactionContent": {
           "ledgerHash": "j5xJwCmBvsKByY9dpkpV4VNDnS5BeFBQKWXQozjsrpgfJF",
           "operations": [{
-            "eventAddress": {
-              "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
-            },
+            "eventAddress": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3",
             "events": [{
               "sequence": -1,
               "name": "1207-15:25:55---long",
               "content": {
                 "nil": false,
-                "bytes": {
-                  "value": "11111111"
-                },
-                "type": "INT64",
-                "value": 0
+                "bytes": "AAAAAAAABFc=",
+                "type": "INT64"
               }
             }]
           }, {
-            "eventAddress": {
-              "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
-            },
+            "eventAddress": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3",
             "events": [{
               "sequence": 0,
               "name": "1207-15:25:55---long",
               "content": {
                 "nil": false,
-                "bytes": {
-                  "value": "11111112"
-                },
-                "type": "INT64",
-                "value": 1
+                "bytes": "AAAAAAAABFc=",
+                "type": "INT64"
               }
             }]
           }, {
-            "eventAddress": {
-              "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
-            },
+            "eventAddress": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3",
             "events": [{
               "sequence": 1,
               "name": "1207-15:25:55---long",
               "content": {
                 "nil": false,
-                "bytes": {
-                  "value": "11111112j"
-                },
-                "type": "INT64",
-                "value": 100
+                "bytes": "AAAAAAAABFc=",
+                "type": "INT64"
               }
             }]
           }, {
-            "eventAddress": {
-              "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
-            },
+            "eventAddress": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3",
             "events": [{
               "sequence": -1,
               "name": "1207-15:25:55---String",
               "content": {
                 "nil": false,
-                "bytes": {
-                  "value": "5k1XmKDYbpxqAN"
-                },
-                "type": "TEXT",
-                "value": "TestString"
+                "bytes": "VGVzdFN0cmluZw==",
+                "type": "TEXT"
               }
             }]
           }, {
-            "eventAddress": {
-              "value": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3"
-            },
+            "eventAddress": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3",
             "events": [{
               "sequence": 0,
               "name": "1207-15:25:55---String",
               "content": {
                 "nil": false,
-                "bytes": {
-                  "value": "3usXMEDUSxDro"
-                },
-                "type": "TEXT",
-                "value": "你好呀"
+                "bytes": "VGVzdFN0cmluZw==",
+                "type": "TEXT"
               }
             }]
           }],
@@ -1033,9 +973,7 @@ router.get('/:ledger/users', function (req, res) {
 
   Object.assign(ret, resultData, {
     "data": [{
-      "address": {
-        "value": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
-      },
+      "address": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522",
       "pubKey": "mb5kbwzACnhK9P1dVxgMPB2ySJLFyJKQbHpH7T9oRK3LpS",
       "rootHash": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
     }],
@@ -1069,9 +1007,7 @@ router.get('/:ledger/users/search', function (req, res) {
     "data": {
       "users": [
         {
-          "address": {
-            "value": "5SmAGKgmXyj5VsVvJgHbYCJ67iTizwSkNpw1"
-          },
+          "address": "5SmAGKgmXyj5VsVvJgHbYCJ67iTizwSkNpw1",
           "pubKey": "mb97eG4bba2EjrgjXYiD9chAstjg4HaNuV5xgCtSHc5TeB",
           "rootHash": "5SmFzgFtHtpbJwMCsmWTwjNGTk6SeMKU1522"
         }
@@ -1092,16 +1028,10 @@ router.get('/:ledger/accounts/address/:address', function (req, res) {
 
   Object.assign(ret, resultData, {
     "data": {
-      "address":
-
-        { "value": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx" }
-      ,
+      "address": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx",
       "headerRootHash": "j5qaaqyBqyb14LKbu3qMrqcv5UFnuYNKGBebE6X5LXKCKs",
       "iD": {
-        "address":
-
-          { "value": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx" }
-        ,
+        "address": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx",
         "pubKey": "7VeR8t8kECBTJ9hCPwZonEvQYVD74Ko4wQR5soSVdS122pdV"
       },
       "dataset":
@@ -1138,9 +1068,7 @@ router.get('/:ledger/accounts', function (req, res) {
 
   Object.assign(ret, resultData, {
     "data": [{
-      "address": {
-        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
-      },
+      "address": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa",
       "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
       "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
     }],
@@ -1186,9 +1114,7 @@ router.get('/:ledger/accounts/search', function (req, res) {
 
   Object.assign(ret, resultData, {
     "data": [{
-      "address": {
-        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
-      },
+      "address": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa",
       "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
       "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
     }],
@@ -1232,6 +1158,18 @@ router.get('/:ledger/accounts/address/:address/entries', function (req, res) {
         "type": "TEXT",
         "value": "www.blockchain.com"
       },
+      {
+        "key": "bytes",
+        "version": 0,
+        "type": "BYTES",
+        "value": "d3d3LmJsb2NrY2hhaW4uY29t"
+      },
+      {
+        "key": "int64",
+        "version": 0,
+        "type": "INT64",
+        "value": "111"
+      },
       { "type": "NIL", "version": 0, "key": "key" }
     ],
   });
@@ -1262,33 +1200,25 @@ router.get('/:ledger/all/search', function (req, res) {
       ],
       "users": [
         {
-          "address": {
-            "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
-          },
+          "address": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa",
           "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
         }
       ],
       "accounts": [
         {
-          "address": {
-            "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
-          },
+          "address": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa",
           "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
         }
       ],
       "contracts": [
         {
-          "address": {
-            "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
-          },
+          "address": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa",
           "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
         }
       ],
       "event_accounts": [
         {
-          "address": {
-            "value": "LdeNo4xBX2Xmek39xfCXqmGfDcEk7K841xAuX"
-          },
+          "address": "LdeNo4xBX2Xmek39xfCXqmGfDcEk7K841xAuX",
           "pubKey": "7VeRGgAPnMxHnVosL5LZY9gfBYvWXxv8aAMWmMkjkGXTFP3p"
         }
       ],
@@ -1308,9 +1238,7 @@ router.get('/:ledger/contracts', function (req, res) {
 
   Object.assign(ret, resultData, {
     "data": [{
-      "address": {
-        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
-      },
+      "address": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa",
       "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
       "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs",
       "chainCode": "package com.jd.blockchain.contract;\n\nimport com.jd.blockchain.crypto.*;\nimport com.jd.blockchain.ledger.*;\nimport com.jd.blockchain.utils.io.*;\n\n@Contract\npublic class AssetContractImpl implements EventProcessingAwire, AssetContract\n{\n private static final String ASSET_ADDRESS = \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\";\n private static final String KEY_TOTAL = \"TV_TOTAL\";\n private ContractEventContext eventContext;\n \n @ContractEvent(name = \"transfer-asset\")\n public void transfer(final String fromAddress, final String toAddress, final long amount) {\n System.out.println(\"in AssetContractImpl transfer()\");\n final byte[] args_ = this.eventContext.getArgs();\n if (args_ == null) {\n return;\n }\n final String[] args = new String(args_).split(\"##\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final HashDigest hashDigest = this.eventContext.getCurrentLedgerHash();\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(hashDigest, \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", fromAddress, toAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final KVDataObject fromBalance = (KVDataObject)kvEntries[1];\n final KVDataObject toBalance = (KVDataObject)kvEntries[2];\n System.out.println(new StringBuilder().append(\"currTotal: \").append(currTotal.longValue()).toString());\n if (fromBalance.longValue() - amount < 0L) {\n throw new ContractException(\"Insufficient balance!\");\n }\n final long newFromBalance = fromBalance.longValue() - amount;\n System.out.println(new StringBuilder().append(\"newFromBalance: \").append(newFromBalance).toString());\n long newToBalance;\n if (toBalance.isNil()) {\n newToBalance = amount;\n }\n else {\n newToBalance = toBalance.longValue() + amount;\n }\n System.out.println(new StringBuilder().append(\"newToBalance: \").append(newToBalance).toString());\n final long fromVersion = fromBalance.getVersion();\n final long toVersion = toBalance.getVersion();\n System.out.println(new StringBuilder().append(\"fromVersion = \").append(fromVersion).toString());\n System.out.println(new StringBuilder().append(\"toVersion = \").append(toVersion).toString());\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(fromAddress, newFromBalance, fromVersion);\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(toAddress, newToBalance, toVersion);\n }\n \n public void beforeEvent(final ContractEventContext contractEventContext) {\n this.eventContext = contractEventContext;\n }\n \n public void postEvent(final ContractEventContext contractEventContext, final ContractException e) {\n this.eventContext = null;\n }\n \n public void postEvent(final ContractException e) {\n }\n \n public void postEvent() {\n }\n \n private HashDigest currentLedgerHash() {\n return this.eventContext.getCurrentLedgerHash();\n }\n \n @ContractEvent(name = \"issue-asset\")\n public void issue(final long amount, final String assetHolderAddress) {\n System.out.println(\"in AssetContractImpl2\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(this.currentLedgerHash(), \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", assetHolderAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final long newTotal = currTotal.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(\"TV_TOTAL\", BytesUtils.toBytes(newTotal), currTotal.getVersion());\n final KVDataObject holderAmount = (KVDataObject)kvEntries[1];\n final long newHodlerAmount = holderAmount.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(assetHolderAddress, BytesUtils.toBytes(newHodlerAmount), holderAmount.getVersion()).set(\"K2\", (byte[])null, -1L).set(\"k3\", (byte[])null, 3L);\n }\n}\n",
@@ -1328,9 +1256,7 @@ router.get('/:ledger/contracts/address/:address', function (req, res) {
 
   Object.assign(ret, resultData, {
     "data": {
-      "address": {
-        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
-      },
+      "address": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa",
       "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
       "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs",
       "chainCode": "package com.jd.blockchain.contract;\n\nimport com.jd.blockchain.crypto.*;\nimport com.jd.blockchain.ledger.*;\nimport com.jd.blockchain.utils.io.*;\n\n@Contract\npublic class AssetContractImpl implements EventProcessingAwire, AssetContract\n{\n private static final String ASSET_ADDRESS = \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\";\n private static final String KEY_TOTAL = \"TV_TOTAL\";\n private ContractEventContext eventContext;\n \n @ContractEvent(name = \"transfer-asset\")\n public void transfer(final String fromAddress, final String toAddress, final long amount) {\n System.out.println(\"in AssetContractImpl transfer()\");\n final byte[] args_ = this.eventContext.getArgs();\n if (args_ == null) {\n return;\n }\n final String[] args = new String(args_).split(\"##\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final HashDigest hashDigest = this.eventContext.getCurrentLedgerHash();\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(hashDigest, \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", fromAddress, toAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final KVDataObject fromBalance = (KVDataObject)kvEntries[1];\n final KVDataObject toBalance = (KVDataObject)kvEntries[2];\n System.out.println(new StringBuilder().append(\"currTotal: \").append(currTotal.longValue()).toString());\n if (fromBalance.longValue() - amount < 0L) {\n throw new ContractException(\"Insufficient balance!\");\n }\n final long newFromBalance = fromBalance.longValue() - amount;\n System.out.println(new StringBuilder().append(\"newFromBalance: \").append(newFromBalance).toString());\n long newToBalance;\n if (toBalance.isNil()) {\n newToBalance = amount;\n }\n else {\n newToBalance = toBalance.longValue() + amount;\n }\n System.out.println(new StringBuilder().append(\"newToBalance: \").append(newToBalance).toString());\n final long fromVersion = fromBalance.getVersion();\n final long toVersion = toBalance.getVersion();\n System.out.println(new StringBuilder().append(\"fromVersion = \").append(fromVersion).toString());\n System.out.println(new StringBuilder().append(\"toVersion = \").append(toVersion).toString());\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(fromAddress, newFromBalance, fromVersion);\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(toAddress, newToBalance, toVersion);\n }\n \n public void beforeEvent(final ContractEventContext contractEventContext) {\n this.eventContext = contractEventContext;\n }\n \n public void postEvent(final ContractEventContext contractEventContext, final ContractException e) {\n this.eventContext = null;\n }\n \n public void postEvent(final ContractException e) {\n }\n \n public void postEvent() {\n }\n \n private HashDigest currentLedgerHash() {\n return this.eventContext.getCurrentLedgerHash();\n }\n \n @ContractEvent(name = \"issue-asset\")\n public void issue(final long amount, final String assetHolderAddress) {\n System.out.println(\"in AssetContractImpl2\");\n if (amount < 0L) {\n throw new ContractException(\"The amount is negative!\");\n }\n if (amount == 0L) {\n return;\n }\n final KVDataEntry[] kvEntries = this.eventContext.getLedger().getDataEntries(this.currentLedgerHash(), \"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\", new String[] { \"TV_TOTAL\", assetHolderAddress });\n final KVDataObject currTotal = (KVDataObject)kvEntries[0];\n final long newTotal = currTotal.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(\"TV_TOTAL\", BytesUtils.toBytes(newTotal), currTotal.getVersion());\n final KVDataObject holderAmount = (KVDataObject)kvEntries[1];\n final long newHodlerAmount = holderAmount.longValue() + amount;\n this.eventContext.getLedger().dataAccount(\"5Sm1VK2RowVN3GVdicCkGMrwVt4pfjn4SGm3\").set(assetHolderAddress, BytesUtils.toBytes(newHodlerAmount), holderAmount.getVersion()).set(\"K2\", (byte[])null, -1L).set(\"k3\", (byte[])null, 3L);\n }\n}\n",
@@ -1374,9 +1300,7 @@ router.get('/:ledger/contracts/search', function (req, res) {
 
   Object.assign(ret, resultData, {
     "data": [{
-      "address": {
-        "value": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa"
-      },
+      "address": "5Sm4gWXrNpDWW9Boi4xZCzZMHboRvEDm29Fa",
       "rootHash": "6GiAH2PBRLnoE724ia83bKVijkKsNuNU5danA4AAi5qMM",
       "pubKey": "mavweXqvKGUAJzSxE9S15pV7c7qe9bgUn5R1HwpqmXVTUs"
     }],
@@ -1408,75 +1332,51 @@ router.get('/:ledger/events/user/accounts', function (req, res) {
   Object.assign(ret, resultData, {
     "success": true,
     "data": [{
-      "address": {
-        "value": "LdeNu8QG9RuWYTo4zgrn2RsH3FRjubasgsnju"
-      },
+      "address": "LdeNu8QG9RuWYTo4zgrn2RsH3FRjubasgsnju",
       "pubKey": "7VeRNQrP1AQnhKJHTWc9xvM4UEXSz47yWTxaV3rJiCNngYBD"
     },
     {
-      "address": {
-        "value": "LdeP3UQY8ynDVLvFdBWtNqF8n5uS6qvBMe9VX"
-      },
+      "address": "LdeP3UQY8ynDVLvFdBWtNqF8n5uS6qvBMe9VX",
       "pubKey": "7VeRBwvf4qhJVHjgpbyX9QeX8H7AhGLUXq8hZcZnscij5Bj7"
     },
     {
-      "address": {
-        "value": "LdeNpGSucAexG6BrVWc2tLNXEoTDgBHCCibQY"
-      },
+      "address": "LdeNpGSucAexG6BrVWc2tLNXEoTDgBHCCibQY",
       "pubKey": "7VeRLaKGCiGj3X6FZA2jSwSxzdCmEK6aai6AnyqsGBsXW8DJ"
     },
     {
-      "address": {
-        "value": "LdeNzjmSth3us6GXYLe3WE4KufNKQRzti69PW"
-      },
+      "address": "LdeNzjmSth3us6GXYLe3WE4KufNKQRzti69PW",
       "pubKey": "7VeRA1zk2gk8B87X5gbX9aeGu1n9YKHDbmPrm1Z5wjNrKiMM"
     },
     {
-      "address": {
-        "value": "LdeNhM2WhhumjsozQzdQF7hGMN5f8Ajv3VjtC"
-      },
+      "address": "LdeNhM2WhhumjsozQzdQF7hGMN5f8Ajv3VjtC",
       "pubKey": "7VeRHuQxfWc9W9XBNqmEjjXmjg8LnuekadWmE8jqURKUEVNj"
     },
     {
-      "address": {
-        "value": "LdeNoD33a7zU26WPAj19TqP84SsUK8EYtxy3m"
-      },
+      "address": "LdeNoD33a7zU26WPAj19TqP84SsUK8EYtxy3m",
       "pubKey": "7VeRBQGE2u3ozUKcTrnk4BXHwfbJW5D3R1VjpT6bmzemvF2o"
     },
     {
-      "address": {
-        "value": "LdeNoumLzGAt9GER4y5LHTeovdCmSY24rdVWN"
-      },
+      "address": "LdeNoumLzGAt9GER4y5LHTeovdCmSY24rdVWN",
       "pubKey": "7VeRKDRchgcesxY95JXKj1vdnPKyBPATa1YNojXn3my61Ser"
     },
     {
-      "address": {
-        "value": "LdeP3VP3wwxAmHeo87J9RDJMEk1AzvDCM264j"
-      },
+      "address": "LdeP3VP3wwxAmHeo87J9RDJMEk1AzvDCM264j",
       "pubKey": "7VeRJDCGBv2kqTSBzwtcRYkHA2GzEaWGKff96o5SXfN6WuQa"
     },
     {
-      "address": {
-        "value": "LdeNhbJxCiPHw5jGYb1zFcydpFPRNpE47pEpW"
-      },
+      "address": "LdeNhbJxCiPHw5jGYb1zFcydpFPRNpE47pEpW",
       "pubKey": "7VeRDBea3y9z3WoEVfdTUfg8Z42qfaqf7LZou2eojRHbZn9e"
     },
     {
-      "address": {
-        "value": "LdeNxC19xnQ2XbBP4UChZB2hT5SUCz9JDCHRX"
-      },
+      "address": "LdeNxC19xnQ2XbBP4UChZB2hT5SUCz9JDCHRX",
       "pubKey": "7VeRM1EhjRXwybAiYLHwjmJxxGPpYrJrNhGVjXNeuQw4hH3o"
     },
     {
-      "address": {
-        "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-      },
+      "address": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
       "pubKey": "7VeRPrJgSt4nKqSinLMwHGEWskPiQ5WNqcSj9ximuwLTjKoH"
     },
     {
-      "address": {
-        "value": "LdeNzqjox47UKRxEYMC3rahxW7gBvrChPrf8E"
-      },
+      "address": "LdeNzqjox47UKRxEYMC3rahxW7gBvrChPrf8E",
       "pubKey": "7VeRLM82n3PrW8mXgvHPatEvA78oBZa1g3cN4dHR4JTPnXTT"
     }],
   });
@@ -1509,9 +1409,7 @@ router.get('/:ledger/events/accounts/search', function (req, res) {
   Object.assign(ret, resultData, {
     "data": [
         {
-          "address": {
-            "value": "LdeNuaTzpyjCuQ8tPQZYof6AVf2RueEqjdH3R"
-          },
+          "address": "LdeNuaTzpyjCuQ8tPQZYof6AVf2RueEqjdH3R",
           "pubKey": "7VeRPW5Xnam78PfrbdeTW7TSUG8VG8MSZcjEZQSodBwNf6yT"
         }
     ],
@@ -1561,17 +1459,14 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName/latest', fun
       "transactionSource": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
       "blockHeight": 1,//　区块高度
       "contractSource": "",// 合约地址
-      "eventAccount": {// 事件账户
-        "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-      },
+      "eventAccount": // 事件账户
+        "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
+      ,
       "name": "e1",
       "content": {// 事件内容
         "nil": false,
-        "bytes": {
-          "value": "C7P9wfY"
-        },
-        "type": "BYTES",
-        "value": "Ynl0ZXM="
+        "bytes": "RG5Y",
+        "type": "TEXT"
       }
     },
     "success": true
@@ -1590,242 +1485,169 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName', function (
     "data": [
       {
         "sequence": 0,//　事件序列
-        "transactionSource": {// 交易哈希
-          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-        },
+        "transactionSource": // 交易哈希
+          "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
         "blockHeight": 1,//　区块高度
         "contractSource": "",// 合约地址
-        "eventAccount": {// 事件账户
-          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-        },
+        "eventAccount": // 事件账户
+           "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
         "name": "e1",// 事件名
         "content": {// 事件内容
           "nil": false,
-          "bytes": {
-            "value": "C7P9wfY"
-          },
+          "bytes": "Ynl0ZXM=",
           "type": "BYTES",
-          "value": "Ynl0ZXM="
         }
       },
       {
         "sequence": 1,
-        "transactionSource": {
-          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-        },
+        "transactionSource": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
         "blockHeight": 1,
         "contractSource": "",
-        "eventAccount": {
-          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-        },
+        "eventAccount": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
         "name": "e1",
         "content": {
-          "nil": false,
-          "bytes": {
-            "value": "C7P9wfY"
-          },
-          "type": "BYTES",
-          "value": "Ynl0ZXM="
+          "bytes": "AAAAAAAABFc=",
+          "type": "INT64"
         }
       },
       {
         "sequence": 0,//　事件序列
-        "transactionSource": {// 交易哈希
-          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-        },
+        "transactionSource": // 交易哈希
+          "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
         "blockHeight": 1,//　区块高度
         "contractSource": "",// 合约地址
-        "eventAccount": {// 事件账户
-          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-        },
+        "eventAccount": // 事件账户
+          "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
         "name": "e1",// 事件名
         "content": {// 事件内容
           "nil": false,
-          "bytes": {
-            "value": "C7P9wfY"
-          },
-          "type": "BYTES",
-          "value": "Ynl0ZXM="
+          "bytes": "Ynl0ZXM=",
+          "type": "BYTES"
         }
       },
       {
         "sequence": 1,
-        "transactionSource": {
-          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-        },
+        "transactionSource": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
         "blockHeight": 1,
         "contractSource": "",
-        "eventAccount": {
-          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-        },
+        "eventAccount": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
         "name": "e1",
         "content": {
           "nil": false,
-          "bytes": {
-            "value": "C7P9wfY"
-          },
-          "type": "BYTES",
-          "value": "Ynl0ZXM="
+          "bytes": "Ynl0ZXM=",
+          "type": "BYTES"
         }
       },
       {
         "sequence": 0,//　事件序列
-        "transactionSource": {// 交易哈希
-          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-        },
+        "transactionSource": // 交易哈希
+          "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
         "blockHeight": 1,//　区块高度
         "contractSource": "",// 合约地址
-        "eventAccount": {// 事件账户
-          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-        },
+        "eventAccount": // 事件账户
+          "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
         "name": "e1",// 事件名
         "content": {// 事件内容
           "nil": false,
-          "bytes": {
-            "value": "C7P9wfY"
-          },
-          "type": "BYTES",
-          "value": "Ynl0ZXM="
+          "bytes": "Ynl0ZXM=",
+          "type": "BYTES"
         }
       },
       {
         "sequence": 1,
-        "transactionSource": {
-          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-        },
+        "transactionSource": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
         "blockHeight": 1,
         "contractSource": "",
-        "eventAccount": {
-          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-        },
+        "eventAccount": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
         "name": "e1",
         "content": {
           "nil": false,
-          "bytes": {
-            "value": "C7P9wfY"
-          },
-          "type": "BYTES",
-          "value": "Ynl0ZXM="
+          "bytes": "Ynl0ZXM=",
+          "type": "BYTES"
         }
       },
       {
         "sequence": 0,//　事件序列
-        "transactionSource": {// 交易哈希
-          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-        },
+        "transactionSource": // 交易哈希
+          "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
         "blockHeight": 1,//　区块高度
         "contractSource": "",// 合约地址
-        "eventAccount": {// 事件账户
-          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-        },
+        "eventAccount": // 事件账户
+          "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
         "name": "e1",// 事件名
         "content": {// 事件内容
           "nil": false,
-          "bytes": {
-            "value": "C7P9wfY"
-          },
-          "type": "BYTES",
-          "value": "Ynl0ZXM="
+          "bytes": "Ynl0ZXM=",
+          "type": "BYTES"
         }
       },
       {
         "sequence": 1,
-        "transactionSource": {
-          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-        },
+        "transactionSource": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
         "blockHeight": 1,
         "contractSource": "",
-        "eventAccount": {
-          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-        },
+        "eventAccount": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
         "name": "e1",
         "content": {
           "nil": false,
-          "bytes": {
-            "value": "C7P9wfY"
-          },
-          "type": "BYTES",
-          "value": "Ynl0ZXM="
+          "bytes": "Ynl0ZXM=",
+          "type": "BYTES"
         }
       },
       {
         "sequence": 0,//　事件序列
-        "transactionSource": {// 交易哈希
-          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-        },
+        "transactionSource": // 交易哈希
+          "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
         "blockHeight": 1,//　区块高度
         "contractSource": "",// 合约地址
-        "eventAccount": {// 事件账户
-          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-        },
+        "eventAccount": // 事件账户
+          "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
         "name": "e1",// 事件名
         "content": {// 事件内容
           "nil": false,
-          "bytes": {
-            "value": "C7P9wfY"
-          },
-          "type": "BYTES",
-          "value": "Ynl0ZXM="
+          "bytes": "Ynl0ZXM=",
+          "type": "BYTES"
         }
       },
       {
         "sequence": 1,
-        "transactionSource": {
-          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-        },
+        "transactionSource": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
         "blockHeight": 1,
         "contractSource": "",
-        "eventAccount": {
-          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-        },
+        "eventAccount": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
         "name": "e1",
         "content": {
           "nil": false,
-          "bytes": {
-            "value": "C7P9wfY"
-          },
-          "type": "BYTES",
-          "value": 0
+          "bytes": "Ynl0ZXM=",
+          "type": "BYTES"
         }
       },
       {
         "sequence": 0,//　事件序列
-        "transactionSource": {// 交易哈希
-          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-        },
+        "transactionSource": // 交易哈希
+          "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
         "blockHeight": 1,//　区块高度
         "contractSource": "",// 合约地址
-        "eventAccount": {// 事件账户
-          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-        },
+        "eventAccount": // 事件账户
+          "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
         "name": "e1",// 事件名
         "content": {// 事件内容
           "nil": false,
-          "bytes": {
-            "value": "C7P9wfY"
-          },
-          "type": "BYTES",
-          "value": "Ynl0ZXM="
+          "bytes": "Ynl0ZXM=",
+          "type": "BYTES"
         }
       },
       {
         "sequence": 1,
-        "transactionSource": {
-          "value": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm"
-        },
+        "transactionSource": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
         "blockHeight": 1,
         "contractSource": "",
-        "eventAccount": {
-          "value": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa"
-        },
+        "eventAccount": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
         "name": "e1",
         "content": {
           "nil": false,
-          "bytes": {
-            "value": "C7P9wfY"
-          },
-          "type": "BYTES",
-          "value": "Ynl0ZXM="
+          "bytes": "Ynl0ZXM=",
+          "type": "BYTES"
         }
       },
     ],
