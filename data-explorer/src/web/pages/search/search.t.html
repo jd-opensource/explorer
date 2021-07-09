@@ -150,7 +150,7 @@
               <article key={@index} class="{styles.option}">
                 <p class="{styles.title}">
                   <span>用户地址：</span>
-                  <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
+                  <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
                   <span>用户公钥：</span>
                   <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey)}"></span>
                   <span>用户公钥算法：</span>
@@ -163,13 +163,13 @@
               <article key={@index} class="{styles.option}">
                 <p class="{styles.title}">
                   <span>数据账户地址：</span>
-                  <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
+                  <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
                   <span>数据账户公钥：</span>
                   <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey)}"></span>
                   <span>数据账户公钥算法：</span>
                   <span :dangerouslySetInnerHTML="{__html: tranBase58(pubKey)}"></span>
                   <span>默克尔树根哈希</span>
-                  <span><AccountRootHash address={address.value}/></span>
+                  <span><AccountRootHash address={address}/></span>
                 </p>
               </article>
             </#each>
@@ -178,7 +178,7 @@
               <article key={@index} class="{styles.option}">
                 <p class="{styles.title}">
                   <span>事件账户地址：</span>
-                  <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
+                  <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
                   <span>事件账户公钥：</span>
                   <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey)}"></span>
                   <span>事件账户公钥算法：</span>
@@ -191,7 +191,7 @@
                 <article key={@index} class="{styles.option}">
                   <p class="{styles.title} {styles.nocur}">
                     <span>合约地址：</span>
-                    <span :dangerouslySetInnerHTML="{__html: highLIght(address.value)}"></span>
+                    <span :dangerouslySetInnerHTML="{__html: highLIght(address)}"></span>
                     <span>合约公钥：</span>
                     <span :dangerouslySetInnerHTML="{__html: highLIght(pubKey) }"></span>
                     <span>合约公钥算法：</span>

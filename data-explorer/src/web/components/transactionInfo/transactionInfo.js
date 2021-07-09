@@ -6,7 +6,7 @@ import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import { Col, Drawer, Row, Tabs } from 'antd';
-import {tranBase58,stringToBase58,byteToLong,byteToString,Bytes2Str,Int32ToStr,transAuth} from '../../../utils/util';
+import {tranBase58,formatBase64Data,transAuth} from '../../../utils/util';
 import { BlockCollapse,BlockCollapseSmall,BlockCollapsePanel } from '../../components/blockCollapse';
 import styles from './transactionInfo.m.scss';
 import tmpls from './transactionInfo.t.html';
@@ -27,45 +27,6 @@ export default class TransactionInfo extends Component {
 
   transform = arr => {
     return arr.map(item => transAuth(item)).join(',')
-  }
-
-  
-  formatData(type,data, value = ''){
-    data = data && data.value != undefined && (data.value + '') || '';
-    
-    let result='';
-    switch (type.toUpperCase()) {
-      case 'INT64':
-        let int64=stringToBase58(data);
-        result=byteToLong(int64);
-        break;
-      case 'TEXT':
-        let text=stringToBase58(data);
-        result=byteToString(text);
-        break;
-      case 'JSON':
-        let json=stringToBase58(data);
-        result=byteToString(json);
-        break;
-      case 'BYTES':
-        let hex=stringToBase58(data);
-        result=Bytes2Str(hex);
-        break;  
-      case 'INT32':
-        let int32=stringToBase58(data);
-        result=Int32ToStr(int32);
-        break; 
-      case 'TIMESTAMP':
-        // let timestamp=stringToBase58(data);
-        result = value;
-        break;
-      default:
-        result=data;
-        break;
-    }
-
-    console.log(result)
-    return result;
   }
 
   stateItem = state => {
@@ -114,7 +75,7 @@ export default class TransactionInfo extends Component {
       for (let i = 0; i < data.values.length; i++) {
         json.push({
           type:data.values[i].type,
-          value:this.formatData(data.values[i].type,data.values[i].bytes),
+          value:formatBase64Data(data.values[i].type,data.values[i].bytes),
         });
         
       }
@@ -264,7 +225,7 @@ export default class TransactionInfo extends Component {
 
                     <tr>
                       <td>参与方地址:</td>
-                      <td>{item.address && item.address.value && item.address.value || ''}</td>
+                      <td>{item.address || ''}</td>
                     </tr>
                     <tr>
                       <td>参与方公钥算法:</td>
@@ -330,13 +291,13 @@ export default class TransactionInfo extends Component {
           
           <Row style = {{margin: '16px 0'}}>
             <Col span = {4}>账户地址:</Col>
-            <Col span = {20}>{accountAddress.value && accountAddress.value || ''}</Col>
+            <Col span = {20}>{accountAddress || ''}</Col>
           </Row>
 
           {
             writeSet.map((item, key) => (
               <BlockCollapseSmall title = {`键: ${item.key || ''}`}>
-                值:{this.formatData(item.value.type,item.value.bytes, item.value.value)}<br/>
+                值:{formatBase64Data(item.value.type,item.value.bytes)}<br/>
                 预期版本:{item.expectedVersion}<br/>
                 类型:{item.value.type}
               </BlockCollapseSmall>
@@ -349,7 +310,7 @@ export default class TransactionInfo extends Component {
           <table style = {{lineHeight: '41px'}}>
             <tr>
               <td>合约地址:</td>
-              <td>{contractID.address && contractID.address.value && contractID.address.value || ''}</td>
+              <td>{contractID.address || ''}</td>
             </tr>
             <tr>
               <td>合约公钥算法:</td>
@@ -375,7 +336,7 @@ export default class TransactionInfo extends Component {
             </tr>) || null}
             <tr>
               <td>合约地址:</td>
-              <td>{contractAddress.value && contractAddress.value || ''}</td>
+              <td>{contractAddress || ''}</td>
             </tr>
             {event && (<tr>
               <td>合约事件:</td>
@@ -389,7 +350,7 @@ export default class TransactionInfo extends Component {
           <table style = {{lineHeight: '41px'}}>
             <tr>
               <td>数据账户地址:</td>
-              <td>{accountID.address && accountID.address.value && accountID.address.value || ''}</td>
+              <td>{accountID.address || ''}</td>
             </tr>
             <tr>
               <td>账户公钥算法:</td>
@@ -407,7 +368,7 @@ export default class TransactionInfo extends Component {
           <table style = {{lineHeight: '41px'}}>
             <tr>
               <td>用户地址:</td>
-              <td>{userID.address && userID.address.value && userID.address.value || ''}</td>
+              <td>{userID.address}</td>
             </tr>
             <tr>
               <td>用户公钥算法:</td>
@@ -451,7 +412,7 @@ export default class TransactionInfo extends Component {
             }
             <tr>
               <td>参与方地址:</td>
-              <td>{participantRegisterIdentity.address && participantRegisterIdentity.address.value && participantRegisterIdentity.address.value || ''}</td>
+              <td>{participantRegisterIdentity.address || ''}</td>
             </tr>
             <tr>
               <td>参与方公钥算法:</td>
@@ -477,7 +438,7 @@ export default class TransactionInfo extends Component {
             }
             <tr>
               <td>参与方地址:</td>
-              <td>{participantID.address && participantID.address.value && participantID.address.value || ''}</td>
+              <td>{participantID.address || ''}</td>
             </tr>
             <tr>
               <td>参与方公钥算法:</td>
@@ -511,7 +472,7 @@ export default class TransactionInfo extends Component {
             }
             <tr>
               <td>参与方地址:</td>
-              <td>{stateUpdateIdentity.address && stateUpdateIdentity.address.value && stateUpdateIdentity.address.value || ''}</td>
+              <td>{stateUpdateIdentity.address || ''}</td>
             </tr>
             <tr>
               <td>参与方公钥算法:</td>
@@ -529,7 +490,7 @@ export default class TransactionInfo extends Component {
           <table style = {{lineHeight: '41px', width: '100%'}}>
             <tr>
               <td>事件账户地址:</td>
-              <td>{eventAccountID.address && eventAccountID.address.value && eventAccountID.address.value || ''}</td>
+              <td>{eventAccountID.address || ''}</td>
             </tr>
             <tr>
               <td>事件账户公钥算法:</td>
@@ -543,7 +504,7 @@ export default class TransactionInfo extends Component {
           <table style = {{lineHeight: '41px', width: '100%'}}>
             <tr>
               <td>事件地址:</td>
-              <td>{eventAddress.value && eventAddress.value || ''}</td>
+              <td>{eventAddress || ''}</td>
             </tr>
           </table>
           {
@@ -556,17 +517,14 @@ export default class TransactionInfo extends Component {
                   </tr>
                   {item.content && [
                     <tr>
-                      <td>字节:</td>
-                      <td>{item.content.bytes && item.content.bytes.value || ''}</td>
-                    </tr>,
-                    <tr>
                       <td>类型:</td>
                       <td>{item.content.type || ''}</td>
                     </tr>,
                     <tr>
                       <td>值:</td>
-                      {/* this.formatData(item.value.type,item.value.bytes, item.value.value) */}
-                      <td>{this.formatData(item.content.type, item.content.bytes, item.content.bytes.value)}</td>
+                      {/* formatBase64Data(item.value.type,item.value.bytes, item.value.value) */}
+                      <td>{formatBase64Data(item.content && item.content.type || '',
+                          item.content && item.content.bytes || '')}</td>
                     </tr>
                   ] || null}
                 </table>
@@ -623,7 +581,7 @@ export default class TransactionInfo extends Component {
             <table style = {{width: '100%', lineHeight: '41px'}}>
               <tr>
                 <td>用户地址:</td>
-                <td>{(item.userAddresses && item.userAddresses[0] && item.userAddresses[0].value) && item.userAddresses[0].value || ''}</td>
+                <td>{item.userAddresses[0] || ''}</td>
               </tr>
               <tr>
                 <td>用户授权的角色清单:</td>

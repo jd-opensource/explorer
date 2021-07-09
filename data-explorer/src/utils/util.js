@@ -22,6 +22,48 @@ export function isNotANumber(num) {
   return false;
 }
 
+export function stringToBase64(str) {
+  var binary_string = atob(str);
+  var len = binary_string.length;
+  var bytes = new Uint8Array(len);
+  for (var i = 0; i < len; i++) {
+    bytes[i] = binary_string.charCodeAt(i);
+  }
+  return bytes;
+};
+
+export function formatBase64Data(type,data){
+  data = data != undefined && (data + '') || '';
+
+  let result='';
+  switch (type.toUpperCase()) {
+    case 'INT64':
+      let int64=stringToBase64(data);
+      result=byteToLong(int64);
+      break;
+    case 'TEXT':
+      let text=stringToBase64(data);
+      result=byteToString(text);
+      break;
+    case 'JSON':
+      let json=stringToBase64(data);
+      result=byteToString(json);
+      break;
+    case 'INT32':
+      let int32=stringToBase64(data);
+      result=Int32ToStr(int32);
+      break;
+    case 'TIMESTAMP':
+      let timestamp=stringToBase64(data);
+      result=byteToLong(timestamp);
+      break;
+    default:
+      result=data;
+      break;
+  }
+  return result;
+}
+
 /**
  * 
  * @param {'需要进行base58转码的值, 必填项'} value 

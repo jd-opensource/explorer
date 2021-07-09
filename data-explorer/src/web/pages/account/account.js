@@ -165,7 +165,7 @@ export default class Account extends Component {
   @computed get tableColumns() {
     return [{
       title: '账户地址',
-      dataIndex: 'address.value',
+      dataIndex: 'address',
       key: 'address',
       width: '25%'
     }, {
@@ -193,7 +193,7 @@ export default class Account extends Component {
     // },
     {
       title: 'KV',
-      dataIndex: 'address.value',
+      dataIndex: 'address',
       key: 'kv',
       render: (text, record, index) => nj`
         <KvCount address=${text} key=${text}/>
