@@ -174,7 +174,7 @@ const EventStore = types
     },
 
     getNameCount(ledgers, address, eventName) {
-      return fetchData(`${__HOST}/ledgers/${ledgers}/events/user/accounts/${address}/names/${eventName}/count`,
+      return fetchData(`${__HOST}/ledgers/${ledgers}/events/user/accounts/${address}/names/${encodeURI(eventName)}/count`,
         self.setNameCount,
         '', { 
           method: 'get',
@@ -196,7 +196,7 @@ const EventStore = types
     },
 
     getEventName(ledgers, address, eventName, param) {
-      return fetchData(`${__HOST}/ledgers/${ledgers}/events/user/accounts/${address}/names/${eventName}`,
+      return fetchData(`${__HOST}/ledgers/${ledgers}/events/user/accounts/${address}/names/${encodeURI(eventName)}`,
         self.setEventName,
         param, { 
           method: 'get',
@@ -220,7 +220,7 @@ const EventStore = types
     },
 
     getEventLatest(ledgers, address, eventName) {
-      return fetchData(`${__HOST}/ledgers/${ledgers}/events/user/accounts/${address}/names/${eventName}/latest`,
+      return fetchData(`${__HOST}/ledgers/${ledgers}/events/user/accounts/${address}/names/${encodeURI(eventName)}/latest`,
         self.setEventLatest,
         '', { 
           method: 'get',
