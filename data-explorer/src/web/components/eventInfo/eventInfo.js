@@ -169,10 +169,10 @@ export default class EventInfo extends Component {
                         <Col span={10} xs={24} sm={16} lg={10}>{data.contractSource && data.contractSource || ''}</Col>
 
                         <Col span={2} xs={24} sm={8} lg={2}>类型:</Col>
-                        <Col span={10} xs={24} sm={16} lg={10}>{data.content && data.content.type || ''}</Col>
+                        <Col span={22} xs={72} sm={40} lg={22}>{data.content && data.content.type || ''}</Col>
 
                         <Col span={2} xs={24} sm={8} lg={2}>值:</Col>
-                        <Col span={10} xs={24} sm={16} lg={10}>{formatBase64Data(data.content && data.content.type && data.content.type || '',
+                        <Col span={22} xs={72} sm={40} lg={22}>{formatBase64Data(data.content && data.content.type && data.content.type || '',
                             data.content && data.content.bytes || '')}</Col>
                     </Row>
                 </div>
@@ -355,10 +355,10 @@ export default class EventInfo extends Component {
                                 <Col span={10} xs={24} sm={16} lg={10}>{latest.contractSource && latest.contractSource || ''}</Col>
 
                                 <Col span={2} xs={24} sm={8} lg={2}>类型:</Col>
-                                <Col span={10} xs={24} sm={16} lg={20}>{latest.content && latest.content.type || ''}</Col>
+                                <Col span={22} xs={72} sm={40} lg={22}>{latest.content && latest.content.type || ''}</Col>
 
                                 <Col span={2} xs={24} sm={8} lg={2}>值:</Col>
-                                <Col span={10} xs={24} sm={16} lg={20}>{formatBase64Data(latest.content && latest.content.type && latest.content.type || '',
+                                <Col span={22} xs={72} sm={40} lg={22}>{formatBase64Data(latest.content && latest.content.type && latest.content.type || '',
                                     latest.content && latest.content.bytes || '')}</Col>
                             </Row>
                         </div>

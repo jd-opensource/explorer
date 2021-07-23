@@ -1156,7 +1156,7 @@ router.get('/:ledger/accounts/address/:address/entries', function (req, res) {
         "key": "jdchain",
         "version": 0,
         "type": "TEXT",
-        "value": "www.blockchain.com"
+        "value": "www.blockchain.com中文是这个样子的"
       },
       {
         "key": "bytes",
@@ -1168,7 +1168,19 @@ router.get('/:ledger/accounts/address/:address/entries', function (req, res) {
         "key": "int64",
         "version": 0,
         "type": "INT64",
-        "value": "111"
+        "value": 9223372036854775807
+      },
+      {
+        "key": "XML",
+        "version": 0,
+        "type": "XML",
+        "value": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+            "<note>\n" +
+            "  <to>Tove</to>\n" +
+            "  <from>Jani</from>\n" +
+            "  <heading>Reminder</heading>\n" +
+            "  <body>Don't forget me this weekend!</body>\n" +
+            "</note>"
       },
       { "type": "NIL", "version": 0, "key": "key" }
     ],
@@ -1465,7 +1477,7 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName/latest', fun
       "name": "e1",
       "content": {// 事件内容
         "nil": false,
-        "bytes": "RG5Y",
+        "bytes": "5Lit5Y2O5Lu75ZG95YWx5ZKM5Zu9",
         "type": "TEXT"
       }
     },
@@ -1499,6 +1511,21 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName', function (
         }
       },
       {
+        "sequence": 0,//　事件序列
+        "transactionSource": // 交易哈希
+            "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
+        "blockHeight": 1,//　区块高度
+        "contractSource": "",// 合约地址
+        "eventAccount": // 事件账户
+            "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
+        "name": "e1",// 事件名
+        "content": {// 事件内容
+          "nil": false,
+          "bytes": "Ynl0ZXM=",
+          "type": "BYTES",
+        }
+      },
+      {
         "sequence": 1,
         "transactionSource": "j5ufPaiHndQ31ieQsBNFg57zqr2DmRJS8VnJCVmEL2dYWm",
         "blockHeight": 1,
@@ -1506,8 +1533,8 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName', function (
         "eventAccount": "LdeNpSUAoWgmj8inksfuBx6vL3PMdZxnovkFa",
         "name": "e1",
         "content": {
-          "bytes": "AAAAAAAABFc=",
-          "type": "INT64"
+          "bytes": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iR0JLIiA/Pgo8Ym9va3M+CiAgICA8Ym9vaz4KICAgICAgICA8bmFtZT5KYXZhPC9uYW1lPgogICAgICAgIDxwcmljZT41MDwvcHJpY2U+CiAgICA8L2Jvb2s+CjwvYm9va3M+",
+          "type": "XML"
         }
       },
       {
@@ -1521,8 +1548,8 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName', function (
         "name": "e1",// 事件名
         "content": {// 事件内容
           "nil": false,
-          "bytes": "Ynl0ZXM=",
-          "type": "BYTES"
+          "bytes": "gAAAAAAAAAg=", //-9223372036854775800
+          "type": "INT64"
         }
       },
       {
@@ -1534,8 +1561,8 @@ router.get('/:ledger/events/user/accounts/:address/names/:eventName', function (
         "name": "e1",
         "content": {
           "nil": false,
-          "bytes": "Ynl0ZXM=",
-          "type": "BYTES"
+          "bytes": "f/////////8=", // 9223372036854775807
+          "type": "INT64"
         }
       },
       {
