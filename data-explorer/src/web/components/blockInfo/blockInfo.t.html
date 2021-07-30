@@ -73,10 +73,17 @@
     </fj-Row>
   </div>
   <h3>交易</h3>
-  <ant-Table rowSelection={rowSelection}
+  <ant-Table
+    rowSelection={rowSelection}
     columns={toJS(tableColumns)}
     dataSource={toJS(transactionList)}
-    :pagination="{showQuickJumper:true}"
+    :pagination="{
+      current: txPageCurrent,
+      pageSize: pageSize,
+      total: txCount,
+      onChange: onTxPageChange,
+      showQuickJumper:true
+    }"
     bordered 
     />
   <TransactionInfo data={transactioninfoData} visible={show} onClose={onClose}/>

@@ -83,14 +83,17 @@ export default class BlockInfo extends Component {
   }
 
   render() {
-    const { store: { block },blockinfo,txCount,transactionList } = this.props;
-    
+    const { store: { block }, onTxPageChange } = this.props;
+
     return tmpls.container(this.props, this, {
       styles,
       block,
-      blockdata:blockinfo,
-      txCount:txCount,
-      transactionList:transactionList,
+      blockdata:block.blockInformation,
+      txCount:block.txCount,
+      onPageChange:onTxPageChange,
+      pageSize:block.txPageSize,
+      txPageCurrent:block.txPageCurrent,
+      transactionList:block.transactionList,
       moment,
     });
   }

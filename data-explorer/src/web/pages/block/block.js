@@ -136,13 +136,18 @@ export default class Block extends Component {
   @autobind
   Search(height){
     const { store: { block, common } } = this.props;
+    if(block.txCount > 0 && block.blockHeightSelected == height) {
+      return;
+    } else {
+      block.setTxCurrentPage(1);
+    }
     const closeLoading = Message.loading('正在获取数据...', 0);
     let ledger=this.props.store.common.getDefaultLedger();
     let param={ledger:ledger,height:height};
     Promise.all([
       block.getBlockInformation(param),
       block.getTxCount(param),
-      block.getTransaction(param),
+      block.getTransaction({ledger:ledger,height:height,fromIndex:0,count:10}),
     ]).then(() => {
       closeLoading();
     });
@@ -164,7 +169,22 @@ export default class Block extends Component {
       }
     });
   }
-  
+
+  @autobind
+  onTxPageChange(page, pageSize) {
+    const { store: { block } } = this.props;
+    let param = {
+      ledger:this.props.store.common.getDefaultLedger(),
+      height:block.blockHeightSelected,
+      fromIndex: (page - 1) * block.txPageSize,
+      count: block.txPageSize,
+    };
+    Promise.all([block.getTransaction(param)]).then((data) => {
+      block.setTxCurrentPage(page);
+      block.setTransactionList(data[0]);
+    });
+  }
+
   render() {
     const { store: { block } } = this.props;
     return tmpls.container(this.props, this, {

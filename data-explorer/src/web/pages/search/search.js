@@ -102,10 +102,11 @@ export default class Search extends Component {
     let ledger =this.props.store.common.getDefaultLedger();
     let hash=e.target.innerText;
     let param={ledger:ledger,hash:hash};
+    let txsParam={ledger:ledger,hash:hash,fromIndex:0,count:10};
     Promise.all([
       block.getBlockInformationOfHash(param),
       block.getTxCountOfHash(param),
-      block.getTransactionOfHash(param),
+      block.getTransactionOfHash(txsParam),
     ]).then((success) => {
       this.navShow=!this.navShow;
       this.blockShow=!this.blockShow;

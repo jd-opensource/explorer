@@ -15,6 +15,9 @@ const BlockStore = types
     blockHash:'',
     inputRole: 0,
     blockList: [],
+    txPageCurrent : 1,
+    txPageSize : 10,
+    blockHeightSelected : 0,
   }))
   .actions(self => ({
     setInputRole(e) {
@@ -176,6 +179,7 @@ const BlockStore = types
     setBlockInformation(result) {
       if (result&&result.success) {
         self.blockInformation= result.data;
+        self.blockHeightSelected=result.data.height;
         return result.data;
       }
     },
@@ -261,6 +265,12 @@ const BlockStore = types
         self.blockHash=result.data && result.data.blocks && result.data.blocks.length>0 && result.data.blocks[0]['hash_id'] || '';
         self.blockHeight=result.data && result.data.blocks && result.data.blocks.length>0 && result.data.blocks[0]['height'] || 0;
       } 
+    },
+    setTxCurrentPage(page){
+      self.txPageCurrent = page;
+    },
+    setTransactionList(data){
+      self.transactionList = data;
     }
   }));
 
