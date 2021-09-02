@@ -882,12 +882,14 @@ router.get('/:ledger/blocks/hash/:block_hash/txs', function (req, res) {
           "ledgerHash": "657TQAw6ssVoeKniWGwbovk7njvCTvikPambM9eBv6ezs",
           "operations": [
             {
+              "certificate":"-----BEGIN CERTIFICATE-----\nMIIBqTCCAVsCFC9g8e7fv91QCun/SW+pUwBKXEuaMAUGAytlcDB4MQswCQYDVQQGEwJDTjELMAkG\nA1UECAwCQkoxCzAJBgNVBAcMAkJKMQwwCgYDVQQKDANKRFQxDzANBgNVBAsMBkxFREdFUjERMA8G\nA1UEAwwISkQgQ2hhaW4xHTAbBgkqhkiG9w0BCQEWDmpkY2hhaW5AamQuY29tMB4XDTIxMDgzMTA4\nMTczNFoXDTMxMDgyOTA4MTczNFowdjELMAkGA1UEBhMCQ04xCzAJBgNVBAgMAkJKMQswCQYDVQQH\nDAJCSjEMMAoGA1UECgwDSkRUMQ0wCwYDVQQLDARVU0VSMREwDwYDVQQDDAhKRCBDaGFpbjEdMBsG\nCSqGSIb3DQEJARYOamRjaGFpbkBqZC5jb20wKjAFBgMrZXADIQDnK3XoAFb9uIeDS4cllpoCgxHe\n/LH3mfKFnikx8sbgzDAFBgMrZXADQQDV2jQ5zh2myjOmgWNegg12HCmcuwzMlmsY9oBVhbxU9Tcy\ngLAbDa7Lqbmlyn20sx3VbQUm56SsYsZc7icC2+EN\n-----END CERTIFICATE-----",
               "userID": {
                 "address": "5SmBgzsrnY6u9Y7DgSSkXfTkCgp83hiFin3v",
                 "pubKey": "mb5kukaqjWtXyAerfHU1JDtVwabSeBU5c3khMZbNh7R8VJ"
               }
             },
             {
+              "certificate":"-----BEGIN CERTIFICATE-----\nMIIBqTCCAVsCFC9g8e7fv91QCun/SW+pUwBKXEuaMAUGAytlcDB4MQswCQYDVQQGEwJDTjELMAkG\nA1UECAwCQkoxCzAJBgNVBAcMAkJKMQwwCgYDVQQKDANKRFQxDzANBgNVBAsMBkxFREdFUjERMA8G\nA1UEAwwISkQgQ2hhaW4xHTAbBgkqhkiG9w0BCQEWDmpkY2hhaW5AamQuY29tMB4XDTIxMDgzMTA4\nMTczNFoXDTMxMDgyOTA4MTczNFowdjELMAkGA1UEBhMCQ04xCzAJBgNVBAgMAkJKMQswCQYDVQQH\nDAJCSjEMMAoGA1UECgwDSkRUMQ0wCwYDVQQLDARVU0VSMREwDwYDVQQDDAhKRCBDaGFpbjEdMBsG\nCSqGSIb3DQEJARYOamRjaGFpbkBqZC5jb20wKjAFBgMrZXADIQDnK3XoAFb9uIeDS4cllpoCgxHe\n/LH3mfKFnikx8sbgzDAFBgMrZXADQQDV2jQ5zh2myjOmgWNegg12HCmcuwzMlmsY9oBVhbxU9Tcy\ngLAbDa7Lqbmlyn20sx3VbQUm56SsYsZc7icC2+EN\n-----END CERTIFICATE-----",
               "accountID": {
                 "address": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha",
                 "pubKey": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
@@ -1252,7 +1254,25 @@ router.get('/:ledger/txs/hash/:tx_hash', function (req, res) {
       "request": {
         "transactionContent": {
           "ledgerHash": "j5xJwCmBvsKByY9dpkpV4VNDnS5BeFBQKWXQozjsrpgfJF",
-          "operations": [{
+          "operations": [
+            {
+              "userAddress": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha"
+            },
+            {
+              "certificate":"-----BEGIN CERTIFICATE-----\nMIIBqTCCAVsCFC9g8e7fv91QCun/SW+pUwBKXEuaMAUGAytlcDB4MQswCQYDVQQGEwJDTjELMAkG\nA1UECAwCQkoxCzAJBgNVBAcMAkJKMQwwCgYDVQQKDANKRFQxDzANBgNVBAsMBkxFREdFUjERMA8G\nA1UEAwwISkQgQ2hhaW4xHTAbBgkqhkiG9w0BCQEWDmpkY2hhaW5AamQuY29tMB4XDTIxMDgzMTA4\nMTczNFoXDTMxMDgyOTA4MTczNFowdjELMAkGA1UEBhMCQ04xCzAJBgNVBAgMAkJKMQswCQYDVQQH\nDAJCSjEMMAoGA1UECgwDSkRUMQ0wCwYDVQQLDARVU0VSMREwDwYDVQQDDAhKRCBDaGFpbjEdMBsG\nCSqGSIb3DQEJARYOamRjaGFpbkBqZC5jb20wKjAFBgMrZXADIQDnK3XoAFb9uIeDS4cllpoCgxHe\n/LH3mfKFnikx8sbgzDAFBgMrZXADQQDV2jQ5zh2myjOmgWNegg12HCmcuwzMlmsY9oBVhbxU9Tcy\ngLAbDa7Lqbmlyn20sx3VbQUm56SsYsZc7icC2+EN\n-----END CERTIFICATE-----",
+              "userID": {
+                "address": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha",
+                "pubKey": "mbC8hzmYBz2SsLLqwoBXAJiGeHrCnByBEvcaUZWscAiPqR"
+              }
+            },
+            {
+              "certificate":"-----BEGIN CERTIFICATE-----\nMIIBqTCCAVsCFC9g8e7fv91QCun/SW+pUwBKXEuaMAUGAytlcDB4MQswCQYDVQQGEwJDTjELMAkG\nA1UECAwCQkoxCzAJBgNVBAcMAkJKMQwwCgYDVQQKDANKRFQxDzANBgNVBAsMBkxFREdFUjERMA8G\nA1UEAwwISkQgQ2hhaW4xHTAbBgkqhkiG9w0BCQEWDmpkY2hhaW5AamQuY29tMB4XDTIxMDgzMTA4\nMTczNFoXDTMxMDgyOTA4MTczNFowdjELMAkGA1UEBhMCQ04xCzAJBgNVBAgMAkJKMQswCQYDVQQH\nDAJCSjEMMAoGA1UECgwDSkRUMQ0wCwYDVQQLDARVU0VSMREwDwYDVQQDDAhKRCBDaGFpbjEdMBsG\nCSqGSIb3DQEJARYOamRjaGFpbkBqZC5jb20wKjAFBgMrZXADIQDnK3XoAFb9uIeDS4cllpoCgxHe\n/LH3mfKFnikx8sbgzDAFBgMrZXADQQDV2jQ5zh2myjOmgWNegg12HCmcuwzMlmsY9oBVhbxU9Tcy\ngLAbDa7Lqbmlyn20sx3VbQUm56SsYsZc7icC2+EN\n-----END CERTIFICATE-----",
+              "userAddress": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha"
+            },
+            {
+              "certificate":"-----BEGIN CERTIFICATE-----\nMIIBqTCCAVsCFC9g8e7fv91QCun/SW+pUwBKXEuaMAUGAytlcDB4MQswCQYDVQQGEwJDTjELMAkG\nA1UECAwCQkoxCzAJBgNVBAcMAkJKMQwwCgYDVQQKDANKRFQxDzANBgNVBAsMBkxFREdFUjERMA8G\nA1UEAwwISkQgQ2hhaW4xHTAbBgkqhkiG9w0BCQEWDmpkY2hhaW5AamQuY29tMB4XDTIxMDgzMTA4\nMTczNFoXDTMxMDgyOTA4MTczNFowdjELMAkGA1UEBhMCQ04xCzAJBgNVBAgMAkJKMQswCQYDVQQH\nDAJCSjEMMAoGA1UECgwDSkRUMQ0wCwYDVQQLDARVU0VSMREwDwYDVQQDDAhKRCBDaGFpbjEdMBsG\nCSqGSIb3DQEJARYOamRjaGFpbkBqZC5jb20wKjAFBgMrZXADIQDnK3XoAFb9uIeDS4cllpoCgxHe\n/LH3mfKFnikx8sbgzDAFBgMrZXADQQDV2jQ5zh2myjOmgWNegg12HCmcuwzMlmsY9oBVhbxU9Tcy\ngLAbDa7Lqbmlyn20sx3VbQUm56SsYsZc7icC2+EN\n-----END CERTIFICATE-----"
+            },
+          {
             "eventAddress": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3",
             "events": [{
               "sequence": -1,
@@ -1358,6 +1378,27 @@ router.get('/:ledger/users', function (req, res) {
     }],
     "success": true
   });
+
+  res.send(ret);
+});
+// 5.3 获取用户
+// GET /ledgers/{ledger}/users/address/{address}
+router.get('/:ledger/users/address/:address', function (req, res) {
+  res.type('json');
+  let params = req.body,
+      ret = {};
+
+  Object.assign(ret, resultData,
+      {
+        "data": {
+          "address": "LdeP1sCDKrf9LHKhBkqNUj3sHjHeUyvnaAj8j",
+          "certificate": "-----BEGIN CERTIFICATE-----\nMIIBtzCCAWkCFDcbdELMFmrppAdda8X+sHUFGJNcMAUGAytlcDB4MQswCQYDVQQGEwJDTjELMAkG\nA1UECAwCQkoxCzAJBgNVBAcMAkJKMQwwCgYDVQQKDANKRFQxDzANBgNVBAsMBkxFREdFUjERMA8G\nA1UEAwwISkQgQ2hhaW4xHTAbBgkqhkiG9w0BCQEWDmpkY2hhaW5AamQuY29tMB4XDTIxMDgzMDAz\nMjIxNFoXDTMxMDgyODAzMjIxNFowgYMxCzAJBgNVBAYTAkNOMQswCQYDVQQIDAJCSjELMAkGA1UE\nBwwCQkoxDDAKBgNVBAoMA0pEVDENMAsGA1UECwwEUEVFUjELMAkGA1UECwwCR1cxETAPBgNVBAMM\nCEpEIENoYWluMR0wGwYJKoZIhvcNAQkBFg5qZGNoYWluQGpkLmNvbTAqMAUGAytlcAMhAN86LUi7\n1rnq+QAABCLfzTcbMRK0LcEyhxWG/AafJGR5MAUGAytlcANBAFW9bs4wfM799Lg3ueSGTnJFGBgE\nKkznVvzlMKDKWvgGf2FhWaqHUNiHxe1I3zY8OqUvwYuv6Y39XfWaJuGqQQw=\n-----END CERTIFICATE-----",
+          "revoked": false,
+          "pubKey": "7VeRN4fSHB5Nb4yP7eiezxPerjH3QToYGtk4g9EagGDjR7a8"
+        },
+        "success": true
+      }
+  );
 
   res.send(ret);
 });

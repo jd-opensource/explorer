@@ -24,7 +24,26 @@ const UserStore = types
     setCurrent(v){
       self.accountcurrent=v;
     },
-    
+    // 获取用户详情
+    getUserInfo(ledger,address) {
+      return fetchData(`${__HOST}/ledgers/${ledger}/users/address/${address}`,
+          self.setUserInfo,
+          '', {
+            method: 'get',
+            headers: {
+              // accept: 'application/json',
+              cookie: document.cookie,
+            }
+          }
+      ).catch(error => {
+
+      });
+    },
+    setUserInfo(result) {
+      if (result&&result.success) {
+        return result.data;
+      }
+    },
     // 用户信息列表
     getUser(ledger,param) {
       return fetchData(`${__HOST}/ledgers/${ledger}/users`,

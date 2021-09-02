@@ -187,7 +187,9 @@ export default class TransactionInfo extends Component {
       roles,
       state, 
       stateUpdateIdentity,
-      userID, 
+      userID,
+      userAddress,
+      certificate,
       userRolesAuthorizations,
       writeSet, 
     } = opt;
@@ -378,8 +380,46 @@ export default class TransactionInfo extends Component {
               <td>用户公钥数据:</td>
               <td>{userID.pubKey && userID.pubKey && userID.pubKey || ''}</td>
             </tr>
+            <tr>
+              <td>用户证书数据:</td>
+              <td>{certificate && certificate || ''}</td>
+            </tr>
           </table>
         </BlockCollapsePanel>
+      ) || null,
+      userAddress && !certificate && (
+          <BlockCollapsePanel title = "撤销用户（证书）">
+            <table style = {{lineHeight: '41px'}}>
+              <tr>
+                <td>用户地址:</td>
+                <td>{userAddress}</td>
+              </tr>
+            </table>
+          </BlockCollapsePanel>
+      ) || null,
+      userAddress && certificate &&  (
+          <BlockCollapsePanel title = "更新用户证书">
+            <table style = {{lineHeight: '41px'}}>
+              <tr>
+                <td>用户地址:</td>
+                <td>{userAddress}</td>
+              </tr>
+              <tr>
+                <td>用户证书:</td>
+                <td>{certificate}</td>
+              </tr>
+            </table>
+          </BlockCollapsePanel>
+      ) || null,
+      !userAddress && !userID && certificate &&  (
+          <BlockCollapsePanel title = "更新账本证书">
+            <table style = {{lineHeight: '41px'}}>
+              <tr>
+                <td>证书:</td>
+                <td>{certificate}</td>
+              </tr>
+            </table>
+          </BlockCollapsePanel>
       ) || null,
       // state && (
       //   <BlockCollapsePanel title = "状态">

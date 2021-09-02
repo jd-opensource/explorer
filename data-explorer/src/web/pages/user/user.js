@@ -14,6 +14,7 @@ import 'flarej/lib/components/antd/datePicker';
 import 'flarej/lib/components/antd/checkbox';
 import Message from 'flarej/lib/components/antd/message';
 import Notification from 'flarej/lib/components/antd/notification';
+import UserCert from '../../components/usercert';
 
 import styles from './user.m.scss';
 import tmpls from './user.t.html';
@@ -114,13 +115,23 @@ export default class User extends Component {
     return [ {
       title: '用户地址',
       dataIndex: 'address',
-      key:'address'
+      key:'address',
+      width: 100
     },{
       title: '用户公钥',
       dataIndex: 'pubKey',
       key:'pubKey',
+      width: 120,
       render: (text, record, index) => nj `
       ${text}<br>算法：${tranBase58(text)}
+      `()
+    },{
+      title: '证书',
+      dataIndex: 'address',
+      key:'certificate',
+      width: 200,
+      render: (text, record, index) => nj`
+        <UserCert address=${text} key=${text}/>
       `()
     }];
   }
