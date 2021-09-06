@@ -129,7 +129,7 @@ export default class User extends Component {
       title: '证书',
       dataIndex: 'address',
       key:'certificate',
-      width: 200,
+      width: 150,
       render: (text, record, index) => nj`
         <UserCert address=${text} key=${text}/>
       `()

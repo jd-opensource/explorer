@@ -20,10 +20,10 @@ export default class UserCert extends Component {
             user.getUserInfo(leader, address)
         ]).then((data) => {
             if (data && data[0].certificate) {
-                if (!data[0].revoked) {
+                if (data[0].state == "NORMAL") {
                     this.usercert = data[0].certificate;
                 } else {
-                    this.usercert = "REVOKED";
+                    this.usercert = data[0].state;
                 }
             }
         });

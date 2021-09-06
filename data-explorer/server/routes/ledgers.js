@@ -1393,7 +1393,7 @@ router.get('/:ledger/users/address/:address', function (req, res) {
         "data": {
           "address": "LdeP1sCDKrf9LHKhBkqNUj3sHjHeUyvnaAj8j",
           "certificate": "-----BEGIN CERTIFICATE-----\nMIIBtzCCAWkCFDcbdELMFmrppAdda8X+sHUFGJNcMAUGAytlcDB4MQswCQYDVQQGEwJDTjELMAkG\nA1UECAwCQkoxCzAJBgNVBAcMAkJKMQwwCgYDVQQKDANKRFQxDzANBgNVBAsMBkxFREdFUjERMA8G\nA1UEAwwISkQgQ2hhaW4xHTAbBgkqhkiG9w0BCQEWDmpkY2hhaW5AamQuY29tMB4XDTIxMDgzMDAz\nMjIxNFoXDTMxMDgyODAzMjIxNFowgYMxCzAJBgNVBAYTAkNOMQswCQYDVQQIDAJCSjELMAkGA1UE\nBwwCQkoxDDAKBgNVBAoMA0pEVDENMAsGA1UECwwEUEVFUjELMAkGA1UECwwCR1cxETAPBgNVBAMM\nCEpEIENoYWluMR0wGwYJKoZIhvcNAQkBFg5qZGNoYWluQGpkLmNvbTAqMAUGAytlcAMhAN86LUi7\n1rnq+QAABCLfzTcbMRK0LcEyhxWG/AafJGR5MAUGAytlcANBAFW9bs4wfM799Lg3ueSGTnJFGBgE\nKkznVvzlMKDKWvgGf2FhWaqHUNiHxe1I3zY8OqUvwYuv6Y39XfWaJuGqQQw=\n-----END CERTIFICATE-----",
-          "revoked": false,
+          "state": "NORMAL",
           "pubKey": "7VeRN4fSHB5Nb4yP7eiezxPerjH3QToYGtk4g9EagGDjR7a8"
         },
         "success": true

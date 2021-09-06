@@ -387,12 +387,16 @@ export default class TransactionInfo extends Component {
           </table>
         </BlockCollapsePanel>
       ) || null,
-      userAddress && !certificate && (
-          <BlockCollapsePanel title = "撤销用户（证书）">
+      userAddress && state && (
+          <BlockCollapsePanel title = "更新用户（证书）状态">
             <table style = {{lineHeight: '41px'}}>
               <tr>
                 <td>用户地址:</td>
                 <td>{userAddress}</td>
+              </tr>
+              <tr>
+                <td>用户状态:</td>
+                <td>{state}</td>
               </tr>
             </table>
           </BlockCollapsePanel>
