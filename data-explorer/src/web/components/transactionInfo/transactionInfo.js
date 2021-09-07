@@ -40,7 +40,7 @@ export default class TransactionInfo extends Component {
       case 'CONSENSUS':
         span = '共识已启动';
       break;
-      default: 
+      default:
         span = '共识未启动';
       break;
     }
@@ -61,7 +61,7 @@ export default class TransactionInfo extends Component {
       case 'DECONSENSUS':
         span = '禁用参与方';
       break;
-      default: 
+      default:
         span = '注册参与方';
       break;
     }
@@ -77,7 +77,7 @@ export default class TransactionInfo extends Component {
           type:data.values[i].type,
           value:formatBase64Data(data.values[i].type,data.values[i].bytes),
         });
-        
+
       }
       var str = JSON.stringify(json);
       return str;
@@ -86,9 +86,9 @@ export default class TransactionInfo extends Component {
 
   modelItem = (data) => {
     return [
-      
-      <Tabs 
-        defaultActiveKey = "1" 
+
+      <Tabs
+        defaultActiveKey = "1"
         style = {{marginTop: '10px'}}
         tabBarStyle = {{
           color: '#5A77D3'
@@ -171,27 +171,30 @@ export default class TransactionInfo extends Component {
   operaItem = opt => {
     let {
       accountAddress,
-      accountID, 
+      accountID,
       args,
       chainCode,
-      contractAddress, 
-      contractID, 
+      contractAddress,
+      contractID,
       event,
       eventAccountID,
       eventAddress,
       events,
       initSetting,
       participantID,
-      participantName, 
-      participantRegisterIdentity, 
+      participantName,
+      participantRegisterIdentity,
       roles,
-      state, 
+      state,
       stateUpdateIdentity,
       userID,
       userAddress,
       certificate,
+      certificatesAdd,
+      certificatesUpdate,
+      certificatesRemove,
       userRolesAuthorizations,
-      writeSet, 
+      writeSet,
     } = opt;
     console.log(opt)
     return [
@@ -262,7 +265,7 @@ export default class TransactionInfo extends Component {
                 {
                   initSetting.cryptoSetting.supportedProviders && initSetting.cryptoSetting.supportedProviders.length != 0 && initSetting.cryptoSetting.supportedProviders.map((item, key) => (
                     <BlockCollapse title = {`名称: ${item.name || ''}`}>
-                      
+
                         {
                           item.algorithms && item.algorithms.length != 0 && item.algorithms.map((it, ke) => it && (
                             <BlockCollapseSmall title = {`算法名称: ${it.name || ''}`}>
@@ -273,7 +276,7 @@ export default class TransactionInfo extends Component {
                                 </tr>
                               </table>
                             </BlockCollapseSmall>
-                            
+
                           ) || null)
                         }
                     </BlockCollapse>
@@ -287,10 +290,10 @@ export default class TransactionInfo extends Component {
       writeSet && writeSet.length != 0 && (
         <BlockCollapsePanel title = "数据写入">
           <h4 style = {{
-            fontSize: '14px', color: '#333333', 
-            lineHeight: '14px', fontWeight: 'bold', 
+            fontSize: '14px', color: '#333333',
+            lineHeight: '14px', fontWeight: 'bold',
             margin: '16px 0'}}>写入</h4>
-          
+
           <Row style = {{margin: '16px 0'}}>
             <Col span = {4}>账户地址:</Col>
             <Col span = {20}>{accountAddress || ''}</Col>
@@ -415,13 +418,39 @@ export default class TransactionInfo extends Component {
             </table>
           </BlockCollapsePanel>
       ) || null,
-      !userAddress && !userID && certificate &&  (
-          <BlockCollapsePanel title = "更新账本证书">
+      ((certificatesAdd && certificatesAdd.length != 0) || (certificatesUpdate && certificatesUpdate.length != 0) || (certificatesRemove && certificatesRemove.length != 0)) &&  (
+          <BlockCollapsePanel title = "更新账本根证书">
             <table style = {{lineHeight: '41px'}}>
-              <tr>
-                <td>证书:</td>
-                <td>{certificate}</td>
-              </tr>
+              {certificatesAdd.map(item => (
+                  <tr>
+                    <td>
+                      添加根证书：
+                    </td>
+                    <td>
+                      {item}
+                    </td>
+                </tr>
+              ))}
+              {certificatesUpdate.map(item => (
+                  <tr>
+                    <td>
+                      更新根证书：
+                    </td>
+                    <td>
+                      {item}
+                    </td>
+                  </tr>
+              ))}
+              {certificatesRemove.map(item => (
+                  <tr>
+                    <td>
+                      删除根证书：
+                    </td>
+                    <td>
+                      {item}
+                    </td>
+                  </tr>
+              ))}
             </table>
           </BlockCollapsePanel>
       ) || null,
@@ -574,14 +603,14 @@ export default class TransactionInfo extends Component {
                 </table>
               </BlockCollapse>
             ))
-          }      
+          }
         </BlockCollapsePanel>
       ) || null,
       roles && roles.length != 0 && (
         <BlockCollapsePanel title="角色配置">
           {
             roles.map((item, key) => (
-              <BlockCollapse title = {`角色:${item.roleName}`}>  
+              <BlockCollapse title = {`角色:${item.roleName}`}>
                 <BlockCollapseSmall title = "账本操作权限">
                   <table style = {{width: '100%'}}>
                     <tr>
@@ -648,7 +677,7 @@ export default class TransactionInfo extends Component {
 
   reqItem = data => {
     let { dataSnapshot, executionState, blockHeight, transactionHash } = data
-    
+
     return (
       <div>
         <div className = {styles.option}>
@@ -715,7 +744,7 @@ export default class TransactionInfo extends Component {
             </BlockCollapse>
           )
         }
-        
+
         <div className = {styles.option}>
           运行结果: {executionState && executionState || ''}
         </div>
