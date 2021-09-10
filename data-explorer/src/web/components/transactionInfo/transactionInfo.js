@@ -332,7 +332,7 @@ export default class TransactionInfo extends Component {
           </table>
         </BlockCollapsePanel>
       ) || null,
-      contractAddress && JSON.stringify(contractAddress) != "{}" && (
+      contractAddress && !state && JSON.stringify(contractAddress) != "{}" && (
         <BlockCollapsePanel title = "合约事件操作">
           <table style = {{lineHeight: '41px'}}>
             {args && (<tr>
@@ -349,6 +349,20 @@ export default class TransactionInfo extends Component {
             </tr>) || null}
           </table>
         </BlockCollapsePanel>
+      ) || null,
+      contractAddress && state && (
+          <BlockCollapsePanel title = "更新合约状态">
+            <table style = {{lineHeight: '41px'}}>
+              <tr>
+                <td>合约地址:</td>
+                <td>{contractAddress}</td>
+              </tr>
+              <tr>
+                <td>合约状态:</td>
+                <td>{state}</td>
+              </tr>
+            </table>
+          </BlockCollapsePanel>
       ) || null,
       accountID && JSON.stringify(accountID) != "{}" && (
         <BlockCollapsePanel title = "数据账户注册">

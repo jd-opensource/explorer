@@ -32,6 +32,8 @@ export default class Contract extends Component {
   @observable contractAddress='';
   @observable visible=false;
   @observable contractValue='';
+  @observable contractState='NORMAL';
+  @observable chainCodeVersion=-1;
   constructor(props) {
     super(props);
   }
@@ -167,6 +169,8 @@ export default class Contract extends Component {
       contract.getContractsByAddress(param)     
     ]).then(data=> {
       this.contractValue=data[0].chainCode||'';
+      this.contractState=data[0].state||'';
+      this.chainCodeVersion=data[0].chainCodeVersion;
       closeLoading();
     });
    
@@ -175,6 +179,8 @@ export default class Contract extends Component {
   onClose(){
     this.visible=!this.visible;
     this.contractValue='';
+    this.contractState='NORMAL';
+    this.chainCodeVersion=-1;
     Message.destroy();
   }
 

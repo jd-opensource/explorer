@@ -29,6 +29,16 @@
     onClose={onClose}
     >
     <div style="min-height:800px;height:400px;">
+      <table style="lineHeight:41px">
+        <tr>
+          <td>状态： </td>
+          <td>{contractState} </td>
+        </tr>
+        <tr>
+          <td>版本： </td>
+          <td>{chainCodeVersion} </td>
+        </tr>
+      </table>
       <MonacoEditor
         language="java"
         theme="vs-dark"
