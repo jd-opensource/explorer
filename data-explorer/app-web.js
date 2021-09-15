@@ -50,7 +50,7 @@ const renderApp = appRoutes => {
             <${HeaderWithRouter} />
             ${appRoutes()}
             <div class="footContent">
-              Copyright © 2018-2020 JD.COM 京东版权所有 Power by
+              Copyright © 2018-2021 JD.COM 京东版权所有 Power by
               <a href="http://ledger.jd.com/" target="_blank" class="linker" title="京东区块链">&nbsp;京东区块链平台</a>
             </div>
           </div>
