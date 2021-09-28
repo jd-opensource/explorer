@@ -25,6 +25,7 @@ import Message from 'flarej/lib/components/antd/message';
 import Notification from '../../../utils/notification';
 import styles from './account.m.scss';
 import tmpls from './account.t.html';
+import {fetchData} from "../../../utils/fetchConfig";
 
 //页面容器组件
 @registerTmpl('Account')
@@ -81,7 +82,7 @@ export default class Account extends Component {
       account.getAccountCount(leaders)
     ]).then(() => {
       if (account.accountcount > 0) {
-        Promise.all([account.getAccount(leaders,
+        Promise.all([account.getAccounts(leaders,
           param
         ),
         ]).then(() => {
@@ -157,11 +158,6 @@ export default class Account extends Component {
     this.Search();
   }
 
-  @autobind
-  onShow(record, index) {
-    this.accountData = record;
-    this.show = !this.show;
-  }
   @computed get tableColumns() {
     return [{
       title: '账户地址',
@@ -176,21 +172,7 @@ export default class Account extends Component {
       render: (text, record, index) => nj`
        ${text}<br/>算法：${tranBase58(text)}
       `()
-    }, 
-    // {
-    //   title: '默克尔树根哈希',
-    //   dataIndex: 'rootHash',
-    //   key: 'rootHash',
-    //   width: '25%',
-    //   render: (text, record, index) => nj`
-    //     <#if ${text}>
-    //       ${text}
-    //       <#else>
-    //         <AccountRootHash address=${record.address}/>
-    //       </#else>
-    //     </#if>
-    //   `()
-    // },
+    },
     {
       title: 'KV',
       dataIndex: 'address',
@@ -202,9 +184,48 @@ export default class Account extends Component {
     {
       title: '操作',
       render: (text, record, index) => nj`
-       <a  onClick=${() => this.onShow(record, index)}>查看</a>
+       <a  onClick=${() => this.onShowAccount(record, index)}>查看</a>
       `()
     }];
+  }
+
+  @autobind
+  onShowAccount(record, index){
+    let ledger=this.props.store.common.getDefaultLedger();
+    Promise.all([this.getAccount(ledger, record.address)]).then(() => {
+    });
+
+  }
+
+  // 数据账户
+  getAccount(ledger,address) {
+    return fetchData(`${__HOST}/ledgers/${ledger}/accounts/address/${address}`,
+        this.setAccount,
+        {}, {
+          method: 'get',
+          headers: {
+            cookie: document.cookie,
+          }
+        }
+    ).catch(error => {
+
+    });
+  };
+
+  @autobind
+  setAccount(result) {
+    if (result&&result.success) {
+      this.accountData =result.data;
+      this.show = !this.show;
+    } else{
+      this.accountData = '';
+    }
+  }
+
+  @autobind
+  onShow(record, index) {
+    this.accountData = record;
+    this.show = !this.show;
   }
 
   render() {

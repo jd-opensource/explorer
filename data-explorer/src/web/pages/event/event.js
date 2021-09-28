@@ -20,6 +20,7 @@ import Notification from 'flarej/lib/components/antd/notification';
 
 import styles from './event.m.scss';
 import tmpls from './event.t.html';
+import {fetchData} from "../../../utils/fetchConfig";
 
 // 页面容器组件
 @registerTmpl('Event')
@@ -119,10 +120,9 @@ export default class Event extends Component {
       this.onSearch()
     }
   }
-  showEvent = (record, index) => {
+  showEvent = (record) => {
     const { store: { common, event } } = this.props;
-
-    let address = record.address && record.address || '';
+    let address = record.data && record.data.address || '';
 
     const closeLoading = Message.loading('正在获取数据...', 0);
 
@@ -139,14 +139,14 @@ export default class Event extends Component {
           event.getEventData(common.getDefaultLedger(), address, param)
         ]).then(() => {
           closeLoading();
-          this.accountData = record;
+          this.accountData = record.data;
 
 
           this.show = !this.show;
         });
       } else if (event.eventTotal == 0) {
         closeLoading();
-        this.accountData = record;
+        this.accountData = record.data;
 
         this.show = !this.show;
         // Notification.error({
@@ -186,10 +186,30 @@ export default class Event extends Component {
     }, {
       title: '操作',
       render: (text, record, index) => nj`
-        <a onClick=${() => this.showEvent(record, index)}>查看</a>
+        <a onClick=${() => {
+            let ledger=this.props.store.common.getDefaultLedger();
+            Promise.all([this.getAccount(ledger, record.address)]).then(() => {
+            });  
+        }}>查看</a>
       `()
     }]
   }
+
+  // 数据账户
+  @autobind
+  getAccount(ledger,address) {
+    return fetchData(`${__HOST}/ledgers/${ledger}/events/user/accounts/${address}`,
+        this.showEvent,
+        {}, {
+          method: 'get',
+          headers: {
+            cookie: document.cookie,
+          }
+        }
+    ).catch(error => {
+
+    });
+  };
 
   render() {
     const { store: { event } } = this.props;

@@ -18,16 +18,16 @@ const AccountStore = types
       self.accountcurrent=v;
     },
     // 数据账户列表
-    getAccount(ledger,param) {
+    getAccounts(ledger,param) {
       self.ledger=ledger;
       return fetchData(`${__HOST}/ledgers/${ledger}/accounts`,
-        self.setAccount,
-        param, { 
+        self.setAccounts,
+        param, {
           method: 'get',
           headers: {
             // accept: 'application/json',
             cookie: document.cookie,
-          } 
+          }
         }
       ).catch(error => {
 
@@ -37,7 +37,7 @@ const AccountStore = types
     getAccountVague(ledger,param) {
       self.ledger=ledger;
       return fetchData(`${__HOST}/ledgers/${ledger}/accounts/search`,
-        self.setAccount,
+        self.setAccounts,
         param, { 
           method: 'get',
           headers: {
@@ -49,7 +49,7 @@ const AccountStore = types
         
       });
     },
-    setAccount(result) {
+    setAccounts(result) {
       if (result&&result.success) {
         self.tableData=result.data||[];
       }

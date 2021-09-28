@@ -32,17 +32,29 @@
       <table style="lineHeight:41px">
         <tr>
           <td>状态： </td>
-          <td>{contractState} </td>
+          <td>{contractInfo.state} </td>
         </tr>
         <tr>
           <td>版本： </td>
-          <td>{chainCodeVersion} </td>
+          <td>{contractInfo.chainCodeVersion} </td>
+        </tr>
+        <tr>
+          <td>创建用户： </td>
+          <td>{contractInfo.permission && contractInfo.permission.owners || ''} </td>
+        </tr>
+        <tr>
+          <td>所属角色： </td>
+          <td>{contractInfo.permission && contractInfo.permission.role || 'DEFAULT'} </td>
+        </tr>
+        <tr>
+          <td>权限值： </td>
+          <td>{contractInfo.permission && contractInfo.permission.modeBits || ''} </td>
         </tr>
       </table>
       <MonacoEditor
         language="java"
         theme="vs-dark"
-        value={contractValue}
+        value={contractInfo.chainCode}
       />
     </div>  
   </ant-Drawer>

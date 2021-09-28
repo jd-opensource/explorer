@@ -31,9 +31,7 @@ export default class Contract extends Component {
   @observable pageSize = 10;
   @observable contractAddress='';
   @observable visible=false;
-  @observable contractValue='';
-  @observable contractState='NORMAL';
-  @observable chainCodeVersion=-1;
+  @observable contractInfo='';
   constructor(props) {
     super(props);
   }
@@ -168,9 +166,7 @@ export default class Contract extends Component {
     Promise.all([
       contract.getContractsByAddress(param)     
     ]).then(data=> {
-      this.contractValue=data[0].chainCode||'';
-      this.contractState=data[0].state||'';
-      this.chainCodeVersion=data[0].chainCodeVersion;
+      this.contractInfo=data[0]||'';
       closeLoading();
     });
    
@@ -178,9 +174,7 @@ export default class Contract extends Component {
   @autobind
   onClose(){
     this.visible=!this.visible;
-    this.contractValue='';
-    this.contractState='NORMAL';
-    this.chainCodeVersion=-1;
+    this.contractInfo='';
     Message.destroy();
   }
 

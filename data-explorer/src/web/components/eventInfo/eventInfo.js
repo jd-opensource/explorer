@@ -291,19 +291,28 @@ export default class EventInfo extends Component {
     render() {
         const { data, store: { event } } = this.props;
         let latest = event.dataLatest && { ...event.dataLatest } || {}
-        console.log(latest)
         return (
             <div>
                 <h3>账户详情</h3>
                 <div className={styles.info}>
                     <Row className={styles.gl}>
-                        <Col span={2} xs={24} sm={8} lg={2}>事件账户地址:</Col>
+                        <Col span={2} xs={24} sm={8} lg={2}>地址:</Col>
                         <Col span={10} xs={24} sm={16} lg={10}>{data.address && data.address || ''}</Col>
 
-                        <Col span={2} xs={24} sm={8} lg={2}>事件账户公钥:</Col>
+                        <Col span={2} xs={24} sm={8} lg={2}>公钥:</Col>
                         <Col span={10} xs={24} sm={16} lg={10}>{data.pubKey && data.pubKey && data.pubKey || ''}</Col>
+
+                        <Col span={2} xs={24} sm={8} lg={2}>创建用户:</Col>
+                        <Col span={10} xs={24} sm={16} lg={10}>{data.permission && data.permission && data.permission.owners || ''}</Col>
+
+                        <Col span={2} xs={24} sm={8} lg={2}>所属角色:</Col>
+                        <Col span={10} xs={24} sm={16} lg={10}>{data.permission && data.permission && data.permission.role || 'DEFAULT'}</Col>
                     </Row>
 
+                    <Row className={styles.gl}>
+                        <Col span={2} xs={24} sm={8} lg={2}>权限值:</Col>
+                        <Col span={10} xs={24} sm={16} lg={10}>{data.permission && data.permission && data.permission.modeBits || ''}</Col>
+                    </Row>
                     <h3>事件列表</h3>
                     <Table
                         rowKey={record => record}

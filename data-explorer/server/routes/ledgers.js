@@ -1256,6 +1256,27 @@ router.get('/:ledger/txs/hash/:tx_hash', function (req, res) {
           "ledgerHash": "j5xJwCmBvsKByY9dpkpV4VNDnS5BeFBQKWXQozjsrpgfJF",
           "operations": [
             {
+              "@type": "com.jd.blockchain.ledger.AccountPermissionSetOperation",
+              "accountType": "DATA",
+              "address": "LdeP2ji8PR1DPsLt5NoFeiBnhpckrLHgCJge6",
+              "mode": 770,
+              "role": "ROLE"
+            },
+            {
+              "@type": "com.jd.blockchain.ledger.AccountPermissionSetOperation",
+              "accountType": "DATA",
+              "address": "LdeP2ji8PR1DPsLt5NoFeiBnhpckrLHgCJge6",
+              "mode": -1,
+              "role": "ROLE"
+            },
+            {
+              "@type": "com.jd.blockchain.ledger.AccountPermissionSetOperation",
+              "accountType": "DATA",
+              "address": "LdeP2ji8PR1DPsLt5NoFeiBnhpckrLHgCJge6",
+              "mode": 770,
+              "role": ""
+            },
+            {
               "@type": "com.jd.blockchain.ledger.RootCAUpdateOperation",
               "certificatesAdd": [
                 "-----BEGIN CERTIFICATE-----\nMIIDcjCCAlqgAwIBAgIEKHHEcjANBgkqhkiG9w0BAQsFADByMQwwCgYDVQQKDANKRFQxDTALBgNV\nBAsMBFJPT1QxCzAJBgNVBAYTAkNOMQswCQYDVQQIDAJCSjELMAkGA1UEBwwCQkoxDTALBgNVBAMM\nBHJvb3QxHTAbBgkqhkiG9w0BCQEWDmpkY2hhaW5AamQuY29tMB4XDTIxMDkwNDEyMTAyOVoXDTMx\nMDkwMjEyMTAyOVowcjEMMAoGA1UECgwDSkRUMQ0wCwYDVQQLDARST09UMQswCQYDVQQGEwJDTjEL\nMAkGA1UECAwCQkoxCzAJBgNVBAcMAkJKMQ0wCwYDVQQDDARyb290MR0wGwYJKoZIhvcNAQkBFg5q\nZGNoYWluQGpkLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPMwo9keesMjtF8w\nMMBKlAgs84T1YoKqcFNGq8Ojbw3hR5YqkG9dG3i/7oNrgx5vJPlGgJzZfuffn0KtyII16DuZ+aO/\nYpM9G+UtxCYXVKWUzjmskSV+hVgvhc8ofuTG9YL95y/KyKeRjZJJoVcVEDi0Dr22qSyMBH3LwIHE\nb13WjNugCTG/N4Upfzy81aP3w5m6Llx3VzG878gzr46Q7H/O6ucTfabj3ML3laqTyKzBnwP8ztGZ\ng20GW+Ym+mmMbo5t7PWlAcHIcyhqlXj1XMN53koHxHWGrGdZq4Ohrrhvh5EZHt6A5/VO78OKQMPY\nppZ5ALpcLol7q/ptCv5L0McCAwEAAaMQMA4wDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOC\nAQEA4mBRSt/w4hKu1wd14aJ5QbUs9SXKrbbNeaP8v3QokfVfw6lXJx7J4mG/ULT1QvNiwvtRobP+\n2Y8/5q9DxdmH99AoSWSMxqARRIkOT8Tu7lVJNPUvbeldVW+eoyroqJIvxdajAZqUilLt/BoLXF78\ncoPLsrlULh5gJUG4HRvb+UTyOILAYij8v/OBMGh5I30aIjpEODEyLa6P1d8J5l55pZMp5pTXRV5Q\n6weX0lVmelVdxr34iaQuct6iXUxzTx7qb3WG60o78DVzjzsCS/A/+cmKrZSVCaNuDgsM848mnFud\nEbn6R+RTCKDnagq7WDbGOkQu84B1nb+ETEjfzybbiQ==\n-----END CERTIFICATE-----",
@@ -1461,18 +1482,27 @@ router.get('/:ledger/accounts/address/:address', function (req, res) {
 
   Object.assign(ret, resultData, {
     "data": {
-      "address": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx",
-      "headerRootHash": "j5qaaqyBqyb14LKbu3qMrqcv5UFnuYNKGBebE6X5LXKCKs",
-      "iD": {
-        "address": "LdeP2fggAK1icRgsSjPHrtbLawsK947Kr5Wnx",
-        "pubKey": "7VeR8t8kECBTJ9hCPwZonEvQYVD74Ko4wQR5soSVdS122pdV"
+      "address": "LdeNugLcgRpenj8wtVJuPJPZGpHc5vdjmE5sK",
+      "permission": {
+        "role": "",
+        "owners": [
+          "LdeNyibeafrAQXgHjBxgQxoLbna6hL4BcXZiw"
+        ],
+        "modeBits": "-rwxrwxrwx"
       },
-      "dataset":
-
-        { "readonly": false, "rootHash": "j5uJfAqLw1ptaZYJyKVZm37zZybboqxMPpS6Mv59rNd4xF", "updated": false, "dataCount": 0 }
-      ,
-      "dataRootHash": "j5uJfAqLw1ptaZYJyKVZm37zZybboqxMPpS6Mv59rNd4xF",
-      "pubKey": "7VeR8t8kECBTJ9hCPwZonEvQYVD74Ko4wQR5soSVdS122pdV"
+      "headerRootHash": "j5qwL5hMCJyBmJMyaMsFpEi63nxUe8NgTuqHtpzMPboCEk",
+      "iD": {
+        "address": "LdeNugLcgRpenj8wtVJuPJPZGpHc5vdjmE5sK",
+        "pubKey": "7VeRNG7stmQ7uJkhuetSu4SsH9heG6EfLKwZiq9sQKPmNGca"
+      },
+      "dataset": {
+        "readonly": true,
+        "rootHash": "j5vyv6SmvSXQNKyjsEVCQJsyqXxKGZMBU62fKvtdJm2W4y",
+        "updated": false,
+        "dataCount": 1
+      },
+      "dataRootHash": "j5vyv6SmvSXQNKyjsEVCQJsyqXxKGZMBU62fKvtdJm2W4y",
+      "pubKey": "7VeRNG7stmQ7uJkhuetSu4SsH9heG6EfLKwZiq9sQKPmNGca"
     },
     "success": true
   });
@@ -1858,6 +1888,43 @@ router.get('/:ledger/events/accounts/search', function (req, res) {
           "pubKey": "7VeRPW5Xnam78PfrbdeTW7TSUG8VG8MSZcjEZQSodBwNf6yT"
         }
     ],
+    "success": true
+  });
+
+  res.send(ret);
+});
+
+// 事件账户查询
+//   GET /ledgers/{ledger}/events/accounts/search?keyword={keyword}
+router.get('/:ledger/events/user/accounts/:address', function (req, res) {
+  res.type('json');
+  let params = req.body,
+      ret = {};
+
+  Object.assign(ret, resultData, {
+    "data": {
+      "address": "LdeNugLcgRpenj8wtVJuPJPZGpHc5vdjmE5sK",
+      "permission": {
+        "role": "",
+        "owners": [
+          "LdeNyibeafrAQXgHjBxgQxoLbna6hL4BcXZiw"
+        ],
+        "modeBits": "-rwxrwxrwx"
+      },
+      "headerRootHash": "j5qwL5hMCJyBmJMyaMsFpEi63nxUe8NgTuqHtpzMPboCEk",
+      "iD": {
+        "address": "LdeNugLcgRpenj8wtVJuPJPZGpHc5vdjmE5sK",
+        "pubKey": "7VeRNG7stmQ7uJkhuetSu4SsH9heG6EfLKwZiq9sQKPmNGca"
+      },
+      "dataset": {
+        "readonly": true,
+        "rootHash": "j5uJfAqLw1ptaZYJyKVZm37zZybboqxMPpS6Mv59rNd4xF",
+        "updated": false,
+        "dataCount": 0
+      },
+      "dataRootHash": "j5uJfAqLw1ptaZYJyKVZm37zZybboqxMPpS6Mv59rNd4xF",
+      "pubKey": "7VeRNG7stmQ7uJkhuetSu4SsH9heG6EfLKwZiq9sQKPmNGca"
+    },
     "success": true
   });
 

@@ -195,6 +195,10 @@ export default class TransactionInfo extends Component {
       certificatesRemove,
       userRolesAuthorizations,
       writeSet,
+      accountType,
+      address,
+      mode,
+      role,
     } = opt;
     console.log(opt)
     return [
@@ -619,6 +623,28 @@ export default class TransactionInfo extends Component {
             ))
           }
         </BlockCollapsePanel>
+      )  || null,
+      (accountType && mode) && (
+          <BlockCollapsePanel title = "账户权限配置">
+            <table style = {{lineHeight: '41px', width: '100%'}}>
+              <tr>
+                <td>账户类型:</td>
+                <td>{accountType || ''}</td>
+              </tr>
+              <tr>
+                <td>账户地址:</td>
+                <td>{address || ''}</td>
+              </tr>
+              {role != '' && (<tr>
+                <td>所属角色:</td>
+                <td>{role}</td>
+              </tr>) || null}
+              {mode > -1 && (<tr>
+                <td>权限值:</td>
+                <td>{mode}</td>
+              </tr>) || null}
+            </table>
+          </BlockCollapsePanel>
       ) || null,
       roles && roles.length != 0 && (
         <BlockCollapsePanel title="角色配置">

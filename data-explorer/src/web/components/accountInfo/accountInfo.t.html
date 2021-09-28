@@ -2,43 +2,26 @@
   <h3>数据详情</h3>
   <div class="{styles.info}">
     <fj-Row class="{styles.gl}">
-      <fj-Col l=1  s=4  xs=12>头根哈希
-      </fj-Col>
-      <fj-Col l=5  s=8  xs=12>
-        <#if {{accountData && accountData.headerRootHash && accountData.headerRootHash}}>
-          {accountData.headerRootHash}
-          <#elseif {{accountData && accountData.address}}>
-            <AccountRootHash  address={accountData.address} hash="header"/>
-          </#elseif>
-          <#else>
-            ''
-          </#else>
-        </#if>
-      </fj-Col>
-      <fj-Col l=1  s=4  xs=12>数据根哈希
-      </fj-Col>
-      <fj-Col l=5  s=8  xs=12>
-        <#if {{accountData && accountData.dataRootHash && accountData.dataRootHash}}>
-          {accountData.dataRootHash}
-          <#elseif {{accountData && accountData.address}}>
-            <AccountRootHash  address={accountData.address} hash="data"/>
-          </#elseif>
-          <#else>
-            ''
-          </#else>
-        </#if>
-      </fj-Col>
-      <fj-Col l=1  s=4  xs=12>数据账户地址
+      <fj-Col l=1  s=4  xs=12>地址
       </fj-Col>
       <fj-Col l=5  s=8  xs=12>{accountData && accountData.address && accountData.address || ''}
       </fj-Col>
-      <fj-Col l=1  s=4  xs=12>数据账户公钥
+      <fj-Col l=1  s=4  xs=12>公钥
       </fj-Col>
       <fj-Col l=5  s=8  xs=12>{accountData && accountData.pubKey && accountData.pubKey || ''}
       </fj-Col>
-    </fj-Row>
-    <fj-Row class="{styles.gl}">
-      
+      <fj-Col l=1  s=4  xs=12>创建用户
+      </fj-Col>
+      <fj-Col l=5  s=8  xs=12>{accountData && accountData.permission && accountData.permission.owners || ''}
+      </fj-Col>
+      <fj-Col l=1  s=4  xs=12>所属角色
+      </fj-Col>
+      <fj-Col l=5  s=8  xs=12>{accountData && accountData.permission && accountData.permission.role || 'DEFAULT'}
+      </fj-Col>
+      <fj-Col l=1  s=4  xs=12>权限值
+      </fj-Col>
+      <fj-Col l=5  s=8  xs=12>{accountData && accountData.permission && accountData.permission.modeBits || ''}
+      </fj-Col>
       <fj-Col l=1  s=4  xs=12>KV数量
       </fj-Col>
       <fj-Col l=5  s=8  xs=12><KvCount address={accountData.address} key={accountData.address} />
