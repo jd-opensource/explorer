@@ -161,7 +161,10 @@ export default class TransactionInfo extends Component {
             )
           }
           {
-            content.operations && content.operations.length != 0 && content.operations.map((item, key) => this.operaItem(item))
+            content.operations && content.operations.length != 0 && content.operations.map((item, key) => {
+              item['_type'] = item['@type']
+              return this.operaItem(item)
+            })
           }
         </BlockCollapse>
       </div>
@@ -170,6 +173,7 @@ export default class TransactionInfo extends Component {
 
   operaItem = opt => {
     let {
+      _type,
       accountAddress,
       accountID,
       args,
@@ -186,7 +190,6 @@ export default class TransactionInfo extends Component {
       participantRegisterIdentity,
       roles,
       state,
-      stateUpdateIdentity,
       userID,
       userAddress,
       certificate,
@@ -200,9 +203,8 @@ export default class TransactionInfo extends Component {
       mode,
       role,
     } = opt;
-    console.log(opt)
     return [
-      initSetting && JSON.stringify(initSetting) != "{}" && (
+      _type == "com.jd.blockchain.ledger.LedgerInitOperation" && (
         <BlockCollapsePanel title = "初始化配置">
           <table style = {{lineHeight: '41px'}}>
             <tr>
@@ -291,7 +293,7 @@ export default class TransactionInfo extends Component {
           )}
         </BlockCollapsePanel>
       ) || null,
-      writeSet && writeSet.length != 0 && (
+      _type == "com.jd.blockchain.ledger.DataAccountKVSetOperation" && (
         <BlockCollapsePanel title = "数据写入">
           <h4 style = {{
             fontSize: '14px', color: '#333333',
@@ -314,7 +316,7 @@ export default class TransactionInfo extends Component {
           }
         </BlockCollapsePanel>
       ) || null,
-      contractID && JSON.stringify(contractID) != "{}" && (
+      _type == "com.jd.blockchain.ledger.ContractCodeDeployOperation" && (
         <BlockCollapsePanel title = "合约发布">
           <table style = {{lineHeight: '41px'}}>
             <tr>
@@ -336,7 +338,7 @@ export default class TransactionInfo extends Component {
           </table>
         </BlockCollapsePanel>
       ) || null,
-      contractAddress && !state && JSON.stringify(contractAddress) != "{}" && (
+      _type == "com.jd.blockchain.ledger.ContractEventSendOperation" && (
         <BlockCollapsePanel title = "合约事件操作">
           <table style = {{lineHeight: '41px'}}>
             {args && (<tr>
@@ -354,7 +356,7 @@ export default class TransactionInfo extends Component {
           </table>
         </BlockCollapsePanel>
       ) || null,
-      contractAddress && state && (
+      _type == "com.jd.blockchain.ledger.ContractStateUpdateOperation" && (
           <BlockCollapsePanel title = "更新合约状态">
             <table style = {{lineHeight: '41px'}}>
               <tr>
@@ -368,8 +370,8 @@ export default class TransactionInfo extends Component {
             </table>
           </BlockCollapsePanel>
       ) || null,
-      accountID && JSON.stringify(accountID) != "{}" && (
-        <BlockCollapsePanel title = "数据账户注册">
+      _type == "com.jd.blockchain.ledger.DataAccountRegisterOperation" && (
+        <BlockCollapsePanel title = "注册数据账户">
           <table style = {{lineHeight: '41px'}}>
             <tr>
               <td>数据账户地址:</td>
@@ -386,7 +388,7 @@ export default class TransactionInfo extends Component {
           </table>
         </BlockCollapsePanel>
       ) || null,
-      userID && JSON.stringify(userID) != "{}" && (
+      _type == "com.jd.blockchain.ledger.UserRegisterOperation" && (
         <BlockCollapsePanel title = "注册用户">
           <table style = {{lineHeight: '41px'}}>
             <tr>
@@ -401,14 +403,18 @@ export default class TransactionInfo extends Component {
               <td>用户公钥数据:</td>
               <td>{userID.pubKey && userID.pubKey && userID.pubKey || ''}</td>
             </tr>
-            <tr>
-              <td>用户证书数据:</td>
-              <td>{certificate && certificate || ''}</td>
-            </tr>
+            {
+              certificate && (
+                  <tr>
+                    <td>用户证书数据:</td>
+                    <td>{certificate || ''}</td>
+                  </tr>
+              )
+            }
           </table>
         </BlockCollapsePanel>
       ) || null,
-      userAddress && state && (
+      _type == "com.jd.blockchain.ledger.UserStateUpdateOperation" && (
           <BlockCollapsePanel title = "更新用户（证书）状态">
             <table style = {{lineHeight: '41px'}}>
               <tr>
@@ -422,7 +428,7 @@ export default class TransactionInfo extends Component {
             </table>
           </BlockCollapsePanel>
       ) || null,
-      userAddress && certificate &&  (
+      _type == "com.jd.blockchain.ledger.UserCAUpdateOperation" &&  (
           <BlockCollapsePanel title = "更新用户证书">
             <table style = {{lineHeight: '41px'}}>
               <tr>
@@ -436,7 +442,7 @@ export default class TransactionInfo extends Component {
             </table>
           </BlockCollapsePanel>
       ) || null,
-      ((certificatesAdd && certificatesAdd.length != 0) || (certificatesUpdate && certificatesUpdate.length != 0) || (certificatesRemove && certificatesRemove.length != 0)) &&  (
+      _type == "com.jd.blockchain.ledger.RootCAUpdateOperation" &&  (
           <BlockCollapsePanel title = "更新账本根证书">
             <table style = {{lineHeight: '41px'}}>
               {certificatesAdd.map(item => (
@@ -472,25 +478,7 @@ export default class TransactionInfo extends Component {
             </table>
           </BlockCollapsePanel>
       ) || null,
-      // state && (
-      //   <BlockCollapsePanel title = "状态">
-      //     <Row style = {{margin: '16px 0'}}>
-      //       <Col span = {4}>状态:</Col>
-      //       <Col span = {20}>{this.stateItem(state)}</Col>
-      //     </Row>
-      //   </BlockCollapsePanel>
-      // ) || null,
-      // participantName && (
-      //   <BlockCollapsePanel title = "参与方信息">
-      //     <table style ={{lineHeight: '41px'}}>
-      //       <tr>
-      //         <td>参与方名称:</td>
-      //         <td>{participantName}</td>
-      //       </tr>
-      //     </table>
-      //   </BlockCollapsePanel>
-      // ) || null,
-      participantRegisterIdentity && JSON.stringify(participantRegisterIdentity) != "{}" && (
+      _type == "com.jd.blockchain.ledger.ParticipantRegisterOperation" && (
         <BlockCollapsePanel title = "注册参与方">
           <table style = {{lineHeight: '41px'}}>
             {
@@ -516,7 +504,7 @@ export default class TransactionInfo extends Component {
           </table>
         </BlockCollapsePanel>
       ) || null,
-      participantID && JSON.stringify(participantID) != "{}" && (
+      _type == "com.jd.blockchain.ledger.ParticipantStateUpdateOperation" && (
         <BlockCollapsePanel title = {this.partItem(state)}>
           <table style = {{lineHeight: '41px'}}>
             {
@@ -550,34 +538,8 @@ export default class TransactionInfo extends Component {
           </table>
         </BlockCollapsePanel>
       ) || null,
-      stateUpdateIdentity && JSON.stringify(stateUpdateIdentity) != "{}" && (
-        <BlockCollapsePanel title = "更新参与方">
-          <table style = {{lineHeight: '41px'}}>
-            {
-              participantName && (
-                <tr>
-                  <td>参与方名称:</td>
-                  <td>{participantName}</td>
-                </tr>
-              )
-            }
-            <tr>
-              <td>参与方地址:</td>
-              <td>{stateUpdateIdentity.address || ''}</td>
-            </tr>
-            <tr>
-              <td>参与方公钥算法:</td>
-              <td>{tranBase58(stateUpdateIdentity.pubKey && stateUpdateIdentity.pubKey && stateUpdateIdentity.pubKey || '')}</td>
-            </tr>
-            <tr>
-              <td>参与方公钥数据:</td>
-              <td>{stateUpdateIdentity.pubKey && stateUpdateIdentity.pubKey && stateUpdateIdentity.pubKey || ''}</td>
-            </tr>
-          </table>
-        </BlockCollapsePanel>
-      ) || null,
-      eventAccountID && JSON.stringify(eventAccountID) != "{}" && (
-        <BlockCollapsePanel title="事件账户">
+      _type == "com.jd.blockchain.ledger.EventAccountRegisterOperation" && (
+        <BlockCollapsePanel title="注册事件账户">
           <table style = {{lineHeight: '41px', width: '100%'}}>
             <tr>
               <td>事件账户地址:</td>
@@ -590,8 +552,8 @@ export default class TransactionInfo extends Component {
           </table>
         </BlockCollapsePanel>
       ) || null,
-      (eventAddress || events) && (
-        <BlockCollapsePanel title = "事件">
+      _type == "com.jd.blockchain.ledger.EventPublishOperation" && (
+        <BlockCollapsePanel title = "发布事件">
           <table style = {{lineHeight: '41px', width: '100%'}}>
             <tr>
               <td>事件地址:</td>
@@ -624,7 +586,7 @@ export default class TransactionInfo extends Component {
           }
         </BlockCollapsePanel>
       )  || null,
-      (accountType && mode) && (
+      _type == "com.jd.blockchain.ledger.AccountPermissionSetOperation" && (
           <BlockCollapsePanel title = "账户权限配置">
             <table style = {{lineHeight: '41px', width: '100%'}}>
               <tr>
@@ -646,7 +608,7 @@ export default class TransactionInfo extends Component {
             </table>
           </BlockCollapsePanel>
       ) || null,
-      roles && roles.length != 0 && (
+      _type == "com.jd.blockchain.ledger.RolesConfigureOperation" && (
         <BlockCollapsePanel title="角色配置">
           {
             roles.map((item, key) => (
@@ -688,7 +650,7 @@ export default class TransactionInfo extends Component {
           }
         </BlockCollapsePanel>
       ) || null,
-      userRolesAuthorizations && userRolesAuthorizations.length != 0 && (
+      _type == "com.jd.blockchain.ledger.UserAuthorizeOperation" && (
         <BlockCollapsePanel title="用户权限配置">
           {userRolesAuthorizations.map((item, key) => (
             <table style = {{width: '100%', lineHeight: '41px'}}>

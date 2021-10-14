@@ -1290,9 +1290,7 @@ router.get('/:ledger/txs/hash/:tx_hash', function (req, res) {
               ]
             },
             {
-              "userAddress": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha"
-            },
-            {
+              "@type": "com.jd.blockchain.ledger.UserRegisterOperation",
               "certificate":"-----BEGIN CERTIFICATE-----\nMIIBqTCCAVsCFC9g8e7fv91QCun/SW+pUwBKXEuaMAUGAytlcDB4MQswCQYDVQQGEwJDTjELMAkG\nA1UECAwCQkoxCzAJBgNVBAcMAkJKMQwwCgYDVQQKDANKRFQxDzANBgNVBAsMBkxFREdFUjERMA8G\nA1UEAwwISkQgQ2hhaW4xHTAbBgkqhkiG9w0BCQEWDmpkY2hhaW5AamQuY29tMB4XDTIxMDgzMTA4\nMTczNFoXDTMxMDgyOTA4MTczNFowdjELMAkGA1UEBhMCQ04xCzAJBgNVBAgMAkJKMQswCQYDVQQH\nDAJCSjEMMAoGA1UECgwDSkRUMQ0wCwYDVQQLDARVU0VSMREwDwYDVQQDDAhKRCBDaGFpbjEdMBsG\nCSqGSIb3DQEJARYOamRjaGFpbkBqZC5jb20wKjAFBgMrZXADIQDnK3XoAFb9uIeDS4cllpoCgxHe\n/LH3mfKFnikx8sbgzDAFBgMrZXADQQDV2jQ5zh2myjOmgWNegg12HCmcuwzMlmsY9oBVhbxU9Tcy\ngLAbDa7Lqbmlyn20sx3VbQUm56SsYsZc7icC2+EN\n-----END CERTIFICATE-----",
               "userID": {
                 "address": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha",
@@ -1300,13 +1298,12 @@ router.get('/:ledger/txs/hash/:tx_hash', function (req, res) {
               }
             },
             {
+              "@type": "com.jd.blockchain.ledger.UserCAUpdateOperation",
               "certificate":"-----BEGIN CERTIFICATE-----\nMIIBqTCCAVsCFC9g8e7fv91QCun/SW+pUwBKXEuaMAUGAytlcDB4MQswCQYDVQQGEwJDTjELMAkG\nA1UECAwCQkoxCzAJBgNVBAcMAkJKMQwwCgYDVQQKDANKRFQxDzANBgNVBAsMBkxFREdFUjERMA8G\nA1UEAwwISkQgQ2hhaW4xHTAbBgkqhkiG9w0BCQEWDmpkY2hhaW5AamQuY29tMB4XDTIxMDgzMTA4\nMTczNFoXDTMxMDgyOTA4MTczNFowdjELMAkGA1UEBhMCQ04xCzAJBgNVBAgMAkJKMQswCQYDVQQH\nDAJCSjEMMAoGA1UECgwDSkRUMQ0wCwYDVQQLDARVU0VSMREwDwYDVQQDDAhKRCBDaGFpbjEdMBsG\nCSqGSIb3DQEJARYOamRjaGFpbkBqZC5jb20wKjAFBgMrZXADIQDnK3XoAFb9uIeDS4cllpoCgxHe\n/LH3mfKFnikx8sbgzDAFBgMrZXADQQDV2jQ5zh2myjOmgWNegg12HCmcuwzMlmsY9oBVhbxU9Tcy\ngLAbDa7Lqbmlyn20sx3VbQUm56SsYsZc7icC2+EN\n-----END CERTIFICATE-----",
               "userAddress": "5SmA98VknTbZ1Z7fmbNPHBuN2pbD89ogy8Ha"
             },
-            {
-              "certificate":"-----BEGIN CERTIFICATE-----\nMIIBqTCCAVsCFC9g8e7fv91QCun/SW+pUwBKXEuaMAUGAytlcDB4MQswCQYDVQQGEwJDTjELMAkG\nA1UECAwCQkoxCzAJBgNVBAcMAkJKMQwwCgYDVQQKDANKRFQxDzANBgNVBAsMBkxFREdFUjERMA8G\nA1UEAwwISkQgQ2hhaW4xHTAbBgkqhkiG9w0BCQEWDmpkY2hhaW5AamQuY29tMB4XDTIxMDgzMTA4\nMTczNFoXDTMxMDgyOTA4MTczNFowdjELMAkGA1UEBhMCQ04xCzAJBgNVBAgMAkJKMQswCQYDVQQH\nDAJCSjEMMAoGA1UECgwDSkRUMQ0wCwYDVQQLDARVU0VSMREwDwYDVQQDDAhKRCBDaGFpbjEdMBsG\nCSqGSIb3DQEJARYOamRjaGFpbkBqZC5jb20wKjAFBgMrZXADIQDnK3XoAFb9uIeDS4cllpoCgxHe\n/LH3mfKFnikx8sbgzDAFBgMrZXADQQDV2jQ5zh2myjOmgWNegg12HCmcuwzMlmsY9oBVhbxU9Tcy\ngLAbDa7Lqbmlyn20sx3VbQUm56SsYsZc7icC2+EN\n-----END CERTIFICATE-----"
-            },
           {
+            "@type": "com.jd.blockchain.ledger.EventPublishOperation",
             "eventAddress": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3",
             "events": [{
               "sequence": -1,
@@ -1318,6 +1315,7 @@ router.get('/:ledger/txs/hash/:tx_hash', function (req, res) {
               }
             }]
           }, {
+            "@type": "com.jd.blockchain.ledger.EventPublishOperation",
             "eventAddress": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3",
             "events": [{
               "sequence": 0,
@@ -1329,6 +1327,7 @@ router.get('/:ledger/txs/hash/:tx_hash', function (req, res) {
               }
             }]
           }, {
+            "@type": "com.jd.blockchain.ledger.EventPublishOperation",
             "eventAddress": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3",
             "events": [{
               "sequence": 1,
@@ -1340,6 +1339,7 @@ router.get('/:ledger/txs/hash/:tx_hash', function (req, res) {
               }
             }]
           }, {
+            "@type": "com.jd.blockchain.ledger.EventPublishOperation",
             "eventAddress": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3",
             "events": [{
               "sequence": -1,
@@ -1351,6 +1351,7 @@ router.get('/:ledger/txs/hash/:tx_hash', function (req, res) {
               }
             }]
           }, {
+            "@type": "com.jd.blockchain.ledger.EventPublishOperation",
             "eventAddress": "LdeP2mkrMYEiFfgDmAGH4k44dSxQTHx7JJah3",
             "events": [{
               "sequence": 0,
@@ -1631,7 +1632,7 @@ router.get('/:ledger/accounts/address/:address/entries', function (req, res) {
         "key": "int64",
         "version": 0,
         "type": "INT64",
-        "value": 9223372036854775807
+        "value": "9223372036854775807"
       },
       {
         "key": "XML",

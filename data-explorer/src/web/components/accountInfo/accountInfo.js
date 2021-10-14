@@ -143,7 +143,6 @@ export default class AccountInfo extends Component {
   }
   //字符串限制长度
   strOfLength(str, l) {
-    console.log(str, l)
     if (str.length > l) {
       return str.substring(0, l) + "...";
     }
@@ -167,7 +166,7 @@ export default class AccountInfo extends Component {
       // `()
       render: (text, record, index) => (
         <div>
-          {this.strOfLength(text || '', 50)}&nbsp;&nbsp;&nbsp;
+          {text && this.strOfLength(('' + text + '') || '', 50)}&nbsp;&nbsp;&nbsp;
           {text && (<a onClick={() => this.onShowBlockDetails(text, record)}>详细</a>) || null}
         </div>
       )
