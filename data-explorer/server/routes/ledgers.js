@@ -449,6 +449,22 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function (req, r
           "dataAccountSetHash": "j5oKEHfRmrMbMwnTNowCHjHhy6FiHNuTy65ytfUChFXQft"
         },
         "executionState": "SUCCESS",
+        "derivedOperations": [
+          {
+            "@type": "com.jd.blockchain.ledger.DataAccountKVSetOperation",
+            "accountAddress": "LdeNh3HzbrkynGe1XqzPDgLackZkoq6KGcvFU",
+            "writeSet": [
+              {
+                "expectedVersion": -1,
+                "key": "key",
+                "value": {
+                  "bytes": "dmFsdWU=",
+                  "type": "TEXT"
+                }
+              }
+            ]
+          }
+        ],
         "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG"
       },
       "request": {
@@ -491,6 +507,22 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function (req, r
             "dataAccountSetHash": "j5oKEHfRmrMbMwnTNowCHjHhy6FiHNuTy65ytfUChFXQft"
           },
           "executionState": "SUCCESS",
+          "derivedOperations": [
+            {
+              "@type": "com.jd.blockchain.ledger.DataAccountKVSetOperation",
+              "accountAddress": "LdeNh3HzbrkynGe1XqzPDgLackZkoq6KGcvFU",
+              "writeSet": [
+                {
+                  "expectedVersion": -1,
+                  "key": "key",
+                  "value": {
+                    "bytes": "dmFsdWU=",
+                    "type": "TEXT"
+                  }
+                }
+              ]
+            }
+          ],
           "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG"
         },
         "request": {
@@ -533,6 +565,22 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function (req, r
             "dataAccountSetHash": "j5oKEHfRmrMbMwnTNowCHjHhy6FiHNuTy65ytfUChFXQft"
           },
           "executionState": "SUCCESS",
+          "derivedOperations": [
+            {
+              "@type": "com.jd.blockchain.ledger.DataAccountKVSetOperation",
+              "accountAddress": "LdeNh3HzbrkynGe1XqzPDgLackZkoq6KGcvFU",
+              "writeSet": [
+                {
+                  "expectedVersion": -1,
+                  "key": "key",
+                  "value": {
+                    "bytes": "dmFsdWU=",
+                    "type": "TEXT"
+                  }
+                }
+              ]
+            }
+          ],
           "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG"
         },
         "request": {
@@ -575,6 +623,22 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function (req, r
             "dataAccountSetHash": "j5oKEHfRmrMbMwnTNowCHjHhy6FiHNuTy65ytfUChFXQft"
           },
           "executionState": "SUCCESS",
+          "derivedOperations": [
+            {
+              "@type": "com.jd.blockchain.ledger.DataAccountKVSetOperation",
+              "accountAddress": "LdeNh3HzbrkynGe1XqzPDgLackZkoq6KGcvFU",
+              "writeSet": [
+                {
+                  "expectedVersion": -1,
+                  "key": "key",
+                  "value": {
+                    "bytes": "dmFsdWU=",
+                    "type": "TEXT"
+                  }
+                }
+              ]
+            }
+          ],
           "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG"
         },
         "request": {
@@ -617,6 +681,22 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function (req, r
             "dataAccountSetHash": "j5oKEHfRmrMbMwnTNowCHjHhy6FiHNuTy65ytfUChFXQft"
           },
           "executionState": "SUCCESS",
+          "derivedOperations": [
+            {
+              "@type": "com.jd.blockchain.ledger.DataAccountKVSetOperation",
+              "accountAddress": "LdeNh3HzbrkynGe1XqzPDgLackZkoq6KGcvFU",
+              "writeSet": [
+                {
+                  "expectedVersion": -1,
+                  "key": "key",
+                  "value": {
+                    "bytes": "dmFsdWU=",
+                    "type": "TEXT"
+                  }
+                }
+              ]
+            }
+          ],
           "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG"
         },
         "request": {
@@ -659,6 +739,22 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function (req, r
             "dataAccountSetHash": "j5oKEHfRmrMbMwnTNowCHjHhy6FiHNuTy65ytfUChFXQft"
           },
           "executionState": "SUCCESS",
+          "derivedOperations": [
+            {
+              "@type": "com.jd.blockchain.ledger.DataAccountKVSetOperation",
+              "accountAddress": "LdeNh3HzbrkynGe1XqzPDgLackZkoq6KGcvFU",
+              "writeSet": [
+                {
+                  "expectedVersion": -1,
+                  "key": "key",
+                  "value": {
+                    "bytes": "dmFsdWU=",
+                    "type": "TEXT"
+                  }
+                }
+              ]
+            }
+          ],
           "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG"
         },
         "request": {
@@ -701,6 +797,22 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function (req, r
             "dataAccountSetHash": "j5oKEHfRmrMbMwnTNowCHjHhy6FiHNuTy65ytfUChFXQft"
           },
           "executionState": "SUCCESS",
+          "derivedOperations": [
+            {
+              "@type": "com.jd.blockchain.ledger.DataAccountKVSetOperation",
+              "accountAddress": "LdeNh3HzbrkynGe1XqzPDgLackZkoq6KGcvFU",
+              "writeSet": [
+                {
+                  "expectedVersion": -1,
+                  "key": "key",
+                  "value": {
+                    "bytes": "dmFsdWU=",
+                    "type": "TEXT"
+                  }
+                }
+              ]
+            }
+          ],
           "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG"
         },
         "request": {
@@ -743,6 +855,22 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function (req, r
             "dataAccountSetHash": "j5oKEHfRmrMbMwnTNowCHjHhy6FiHNuTy65ytfUChFXQft"
           },
           "executionState": "SUCCESS",
+          "derivedOperations": [
+            {
+              "@type": "com.jd.blockchain.ledger.DataAccountKVSetOperation",
+              "accountAddress": "LdeNh3HzbrkynGe1XqzPDgLackZkoq6KGcvFU",
+              "writeSet": [
+                {
+                  "expectedVersion": -1,
+                  "key": "key",
+                  "value": {
+                    "bytes": "dmFsdWU=",
+                    "type": "TEXT"
+                  }
+                }
+              ]
+            }
+          ],
           "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG"
         },
         "request": {
@@ -785,6 +913,22 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function (req, r
             "dataAccountSetHash": "j5oKEHfRmrMbMwnTNowCHjHhy6FiHNuTy65ytfUChFXQft"
           },
           "executionState": "SUCCESS",
+          "derivedOperations": [
+            {
+              "@type": "com.jd.blockchain.ledger.DataAccountKVSetOperation",
+              "accountAddress": "LdeNh3HzbrkynGe1XqzPDgLackZkoq6KGcvFU",
+              "writeSet": [
+                {
+                  "expectedVersion": -1,
+                  "key": "key",
+                  "value": {
+                    "bytes": "dmFsdWU=",
+                    "type": "TEXT"
+                  }
+                }
+              ]
+            }
+          ],
           "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG"
         },
         "request": {
@@ -827,6 +971,22 @@ router.get('/:ledger/blocks/height/:height/txs/additional-txs', function (req, r
             "dataAccountSetHash": "j5oKEHfRmrMbMwnTNowCHjHhy6FiHNuTy65ytfUChFXQft"
           },
           "executionState": "SUCCESS",
+          "derivedOperations": [
+            {
+              "@type": "com.jd.blockchain.ledger.DataAccountKVSetOperation",
+              "accountAddress": "LdeNh3HzbrkynGe1XqzPDgLackZkoq6KGcvFU",
+              "writeSet": [
+                {
+                  "expectedVersion": -1,
+                  "key": "key",
+                  "value": {
+                    "bytes": "dmFsdWU=",
+                    "type": "TEXT"
+                  }
+                }
+              ]
+            }
+          ],
           "transactionHash": "j5x7EYRr4oE1jJ3FrEkvogPJN2Rupjmn59rJvyos2ZJQbG"
         },
         "request": {
@@ -1249,6 +1409,22 @@ router.get('/:ledger/txs/hash/:tx_hash', function (req, res) {
           "userEventSetHash": "j5k4AXQGArmyC3oXfnrUNvS2idpj4PfN5wZUi7Hr6AQdFM"
         },
         "executionState": "SUCCESS",
+        "derivedOperations": [
+          {
+            "@type": "com.jd.blockchain.ledger.DataAccountKVSetOperation",
+            "accountAddress": "LdeNh3HzbrkynGe1XqzPDgLackZkoq6KGcvFU",
+            "writeSet": [
+              {
+                "expectedVersion": -1,
+                "key": "key",
+                "value": {
+                  "bytes": "dmFsdWU=",
+                  "type": "TEXT"
+                }
+              }
+            ]
+          }
+        ],
         "transactionHash": "j5ndLYvavSzNspvzkSQ8ouPzAwtULuuu3prH6fnUsBB5Dg"
       },
       "request": {

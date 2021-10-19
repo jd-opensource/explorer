@@ -171,6 +171,21 @@ export default class TransactionInfo extends Component {
     )
   }
 
+  derivedTransItem = derivedOperations => {
+    return (
+        <div>
+          <BlockCollapse title = "衍生交易">
+            {
+              derivedOperations && derivedOperations.length != 0 && derivedOperations.map((item, key) => {
+                item['_type'] = item['@type']
+                return this.operaItem(item)
+              })
+            }
+          </BlockCollapse>
+        </div>
+    )
+  }
+
   operaItem = opt => {
     let {
       _type,
@@ -678,7 +693,7 @@ export default class TransactionInfo extends Component {
   }
 
   reqItem = data => {
-    let { dataSnapshot, executionState, blockHeight, transactionHash } = data
+    let { dataSnapshot, executionState, blockHeight, transactionHash, derivedOperations } = data
 
     return (
       <div>
@@ -746,7 +761,9 @@ export default class TransactionInfo extends Component {
             </BlockCollapse>
           )
         }
-
+        {
+          data.derivedOperations && JSON.stringify(data.derivedOperations) != "{}" && this.derivedTransItem(data.derivedOperations)
+        }
         <div className = {styles.option}>
           运行结果: {executionState && executionState || ''}
         </div>
