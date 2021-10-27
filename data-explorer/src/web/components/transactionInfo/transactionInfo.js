@@ -202,7 +202,6 @@ export default class TransactionInfo extends Component {
       initSetting,
       participantID,
       participantName,
-      participantRegisterIdentity,
       roles,
       state,
       userID,
@@ -217,6 +216,7 @@ export default class TransactionInfo extends Component {
       address,
       mode,
       role,
+      properties,
     } = opt;
     return [
       _type == "com.jd.blockchain.ledger.LedgerInitOperation" && (
@@ -232,11 +232,19 @@ export default class TransactionInfo extends Component {
             </tr> */}
             <tr>
               <td>账户种子:</td>
-              <td>{initSetting.ledgerSeed && initSetting.ledgerSeed || ''}</td>
+              <td>{initSetting.ledgerSeed || ''}</td>
             </tr>
             <tr>
               <td>账户结构版本:</td>
-              <td>{initSetting.ledgerStructureVersion && initSetting.ledgerStructureVersion || ''}</td>
+              <td>{initSetting.ledgerStructureVersion || ''}</td>
+            </tr>
+            <tr>
+              <td>账本数据结构:</td>
+              <td>{initSetting.ledgerDataStructure || ''}</td>
+            </tr>
+            <tr>
+              <td>身份模式:</td>
+              <td>{initSetting.identityMode || ''}</td>
             </tr>
             <tr>
               <td>创建时间:</td>
@@ -255,15 +263,15 @@ export default class TransactionInfo extends Component {
                     </tr>
                     <tr>
                       <td>参与方公钥算法:</td>
-                      <td>{tranBase58(item.pubKey && item.pubKey && item.pubKey || '')}</td>
+                      <td>{item.pubKey && tranBase58(item.pubKey) || ''}</td>
                     </tr>
                     <tr>
-                      <td>参与方公钥数据:</td>
-                      <td>{item.pubKey && item.pubKey && item.pubKey || ''}</td>
+                      <td>参与方公钥:</td>
+                      <td>{item.pubKey || ''}</td>
                     </tr>
                     <tr>
                       <td>节点状态:</td>
-                      <td>{item.participantNodeState && item.participantNodeState || ''}</td>
+                      <td>{item.participantNodeState || ''}</td>
                     </tr>
                   </table>
                 </BlockCollapseSmall>
@@ -506,16 +514,24 @@ export default class TransactionInfo extends Component {
             }
             <tr>
               <td>参与方地址:</td>
-              <td>{participantRegisterIdentity.address || ''}</td>
+              <td>{participantID.address || ''}</td>
             </tr>
             <tr>
               <td>参与方公钥算法:</td>
-              <td>{tranBase58(participantRegisterIdentity.pubKey && participantRegisterIdentity.pubKey && participantRegisterIdentity.pubKey || '')}</td>
+              <td>{participantID.pubKey && tranBase58(participantID.pubKey) || ''}</td>
             </tr>
             <tr>
-              <td>参与方公钥数据:</td>
-              <td>{participantRegisterIdentity.pubKey && participantRegisterIdentity.pubKey && participantRegisterIdentity.pubKey || ''}</td>
+              <td>参与方公钥:</td>
+              <td>{participantID.pubKey || ''}</td>
             </tr>
+            {
+              certificate && (
+                  <tr>
+                    <td>参与方证书:</td>
+                    <td>{certificate}</td>
+                  </tr>
+              )
+            }
           </table>
         </BlockCollapsePanel>
       ) || null,
@@ -536,11 +552,11 @@ export default class TransactionInfo extends Component {
             </tr>
             <tr>
               <td>参与方公钥算法:</td>
-              <td>{tranBase58(participantID.pubKey && participantID.pubKey && participantID.pubKey || '')}</td>
+              <td>{participantID.pubKey && tranBase58(participantID.pubKey) || ''}</td>
             </tr>
             <tr>
-              <td>参与方公钥数据:</td>
-              <td>{participantID.pubKey && participantID.pubKey && participantID.pubKey || ''}</td>
+              <td>参与方公钥:</td>
+              <td>{participantID.pubKey || ''}</td>
             </tr>
             {
               state && (
@@ -688,6 +704,18 @@ export default class TransactionInfo extends Component {
             </table>
           ))}
         </BlockCollapsePanel>
+      ) || null,
+      _type == "com.jd.blockchain.ledger.ConsensusSettingsUpdateOperation" && (
+          <BlockCollapsePanel title="更新共识配置">
+                <table style = {{width: '100%', lineHeight: '41px'}}>
+                  {properties.map((item, key) => (
+                    <tr>
+                      <td>{item.name || ''}:</td>
+                      <td>{item.value || ''}</td>
+                    </tr>
+                    ))}
+                </table>
+          </BlockCollapsePanel>
       )
     ]
   }
