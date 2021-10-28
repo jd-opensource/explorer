@@ -39,16 +39,16 @@
           <td>{contractInfo.chainCodeVersion} </td>
         </tr>
         <tr>
-          <td>创建用户： </td>
-          <td>{contractInfo.permission && contractInfo.permission.owners || ''} </td>
+          <td>权限值： </td>
+          <td>{contractInfo.permission && contractInfo.permission.modeBits || ''} </td>
         </tr>
         <tr>
           <td>所属角色： </td>
           <td>{contractInfo.permission && contractInfo.permission.role || 'DEFAULT'} </td>
         </tr>
         <tr>
-          <td>权限值： </td>
-          <td>{contractInfo.permission && contractInfo.permission.modeBits || ''} </td>
+          <td>创建用户： </td>
+          <td>{contractInfo.permission && contractInfo.permission.owners || ''} </td>
         </tr>
       </table>
       <MonacoEditor

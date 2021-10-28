@@ -42,10 +42,8 @@ export default class EventInfo extends Component {
     onPageChange = (page, pageSize) => {
         const { data, store: { common, event } } = this.props;
         const closeLoading = Message.loading('正在获取数据...', 0);
-        let leaders = common.getDefaultLedger();
 
         event.setEvent(page);
-        // this.expandedRowKeys = [];
 
         let param = {
             fromIndex: (event.eventCurrent - 1) * this.pageSize,
@@ -201,17 +199,6 @@ export default class EventInfo extends Component {
         }]
     }
 
-    // 子表展开收缩函数
-    // handleExpandShow = (expanded, record) => {
-    //     if (expanded) {
-    //         let testArr = [];
-    //         testArr.push(record);
-    //         this.expandedRowKeys = [...testArr];
-    //     } else {
-    //         this.expandedRowKeys = [...arrayRemove(this.expandedRowKeys, record)]
-    //     }
-    // }
-
     handleExpandShowName = (expanded, record) => {
         if (expanded) {
             let testArr = [];
@@ -240,14 +227,6 @@ export default class EventInfo extends Component {
             title: '区块高度',
             dataIndex: 'blockHeight',
         },
-            // {
-            //     title: '事件账户',
-            //     dataIndex: 'eventAccount.value'
-            // }, 
-            // {
-            //     title: '事件名称',
-            //     dataIndex: 'name',
-            // }
         ]
     }
 
@@ -257,22 +236,6 @@ export default class EventInfo extends Component {
                 <Row className={styles.gl}>
                     <Col span={4} xs={24} sm={8} lg={4}>事件账户:</Col>
                     <Col span={20} xs={24} sm={16} lg={20}>{record.eventAccount && record.eventAccount || ''}</Col>
-
-                    {/* <Col span = {4} xs = {24} sm = {8} lg = {4}>事件名称:</Col>
-                    <Col span = {20} xs = {24} sm = {16} lg = {20}>{record.name && record.name || ''}</Col> */}
-
-                    {/* <Col span = {4} xs = {24} sm = {8} lg = {4}>内容:</Col>
-                    <Col span = {20} xs = {24} sm = {16} lg = {20}>
-                        <ul>
-                            <li>nil: {record.content && record.content.nil && record.content.nil || false}</li>
-                            <li>bytes: {record.content && record.content.bytes && record.content.bytes.value && record.content.bytes.value || false}</li>
-                            <li>type: {record.content && record.content.type && record.content.type || ''}</li>
-                            <li>value: {record.content && record.content.value && record.content.value || ''}</li>
-                        </ul>   
-                    </Col> */}
-
-                    {/* <Col span = {4} xs = {24} sm = {8} lg = {4}>nil:</Col>
-                    <Col span = {8} xs = {24} sm = {16} lg = {8}>{record.content && record.content.nil && record.content.nil || false}</Col> */}
 
                     <Col span={4} xs={24} sm={8} lg={4}>事件名称:</Col>
                     <Col span={8} xs={24} sm={16} lg={8}>{record.name && record.name || ''}</Col>
@@ -297,33 +260,30 @@ export default class EventInfo extends Component {
                 <div className={styles.info}>
                     <Row className={styles.gl}>
                         <Col span={2} xs={24} sm={8} lg={2}>地址:</Col>
-                        <Col span={10} xs={24} sm={16} lg={10}>{data.address && data.address || ''}</Col>
+                        <Col span={10} xs={24} sm={16} lg={10}>{data.address || ''}</Col>
 
                         <Col span={2} xs={24} sm={8} lg={2}>公钥:</Col>
-                        <Col span={10} xs={24} sm={16} lg={10}>{data.pubKey && data.pubKey && data.pubKey || ''}</Col>
+                        <Col span={10} xs={24} sm={16} lg={10}>{data.pubKey || ''}</Col>
 
                         <Col span={2} xs={24} sm={8} lg={2}>创建用户:</Col>
-                        <Col span={10} xs={24} sm={16} lg={10}>{data.permission && data.permission && data.permission.owners || ''}</Col>
+                        <Col span={10} xs={24} sm={16} lg={10}>{data.permission && data.permission.owners || ''}</Col>
 
                         <Col span={2} xs={24} sm={8} lg={2}>所属角色:</Col>
-                        <Col span={10} xs={24} sm={16} lg={10}>{data.permission && data.permission && data.permission.role || 'DEFAULT'}</Col>
+                        <Col span={10} xs={24} sm={16} lg={10}>{data.permission && data.permission.role || 'DEFAULT'}</Col>
+
+                        <Col span={2} xs={24} sm={8} lg={2}>权限值:</Col>
+                        <Col span={10} xs={24} sm={16} lg={10}>{data.permission && data.permission.modeBits || ''}</Col>
+
+                        <Col span={2} xs={24} sm={8} lg={2}>事件名总数:</Col>
+                        <Col span={10} xs={24} sm={16} lg={10}>{data.dataset && data.dataset.dataCount}</Col>
+
                     </Row>
 
-                    <Row className={styles.gl}>
-                        <Col span={2} xs={24} sm={8} lg={2}>权限值:</Col>
-                        <Col span={10} xs={24} sm={16} lg={10}>{data.permission && data.permission && data.permission.modeBits || ''}</Col>
-                    </Row>
                     <h3>事件列表</h3>
                     <Table
                         rowKey={record => record}
                         dataSource={event.dataEvent}
                         columns={this.eventColumns()}
-                        // expandedRowKeys={this.expandedRowKeys}
-                        // expandedRowRender={this.expandedRowRender}
-                        // onExpand={(expanded, record) => this.handleExpandShow(expanded, record)}
-                        // onRow={record => ({
-                        //     onMouseOver: event => this.onShowLatest(event, record)
-                        // })}
                         pagination={{
                             current: event.eventCurrent,
                             pageSize: this.pageSize,

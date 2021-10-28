@@ -116,20 +116,17 @@ export default class User extends Component {
       title: '用户地址',
       dataIndex: 'address',
       key:'address',
-      width: 100
     },{
       title: '用户公钥',
       dataIndex: 'pubKey',
       key:'pubKey',
-      width: 120,
       render: (text, record, index) => nj `
       ${text}<br>算法：${tranBase58(text)}
       `()
     },{
-      title: '证书',
+      title: '状态',
       dataIndex: 'address',
-      key:'certificate',
-      width: 150,
+      key:'state',
       render: (text, record, index) => nj`
         <UserCert address=${text} key=${text}/>
       `()

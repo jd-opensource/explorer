@@ -11,7 +11,7 @@ import styles from './usercert.m.scss';
 @observer
 export default class UserCert extends Component {
 
-    @observable usercert = '-';
+    @observable userinfo = '-';
 
     componentDidMount() {
         const {store: {user}, address} = this.props;
@@ -19,12 +19,8 @@ export default class UserCert extends Component {
         Promise.all([
             user.getUserInfo(leader, address)
         ]).then((data) => {
-            if (data && data[0].certificate) {
-                if (data[0].state == "NORMAL") {
-                    this.usercert = data[0].certificate;
-                } else {
-                    this.usercert = data[0].state;
-                }
+            if (data && data[0].address) {
+                this.userinfo = data[0]
             }
         });
     }
