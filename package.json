@@ -41,7 +41,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-3": "^6.11.0",
-    "babel-register": "^6.9.0",
+    "babel-register": "^6.26.0",
     "babel-runtime": "^6.26.0",
     "body-parser": "^1.15.2",
     "browser-sync": "^2.18.7",
@@ -68,7 +68,7 @@
     "flarej": "^0.3.0",
     "font-awesome": "^4.7.0",
     "glob": "^7.0.3",
-    "gulp": "^3.9.1",
+    "gulp": "^3.9.0",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-env": "^0.4.0",
@@ -114,5 +114,9 @@
   },
   "njCliConfig": {
     "templateType": "multi-page"
+  },
+  "dependencies": {
+    "babel-preset-stage-0": "^6.24.1",
+    "event-stream": "^3.3.4"
   }
 }
