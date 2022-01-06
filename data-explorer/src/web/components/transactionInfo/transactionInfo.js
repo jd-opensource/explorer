@@ -218,6 +218,7 @@ export default class TransactionInfo extends Component {
       role,
       properties,
       providerName,
+      hashAlgoName,
     } = opt;
     return [
       _type == "com.jd.blockchain.ledger.LedgerInitOperation" && (
@@ -743,7 +744,18 @@ export default class TransactionInfo extends Component {
             </table>
 
           </BlockCollapsePanel>
-      )
+      )|| null,
+         _type == "com.jd.blockchain.ledger.CryptoHashAlgoUpdateOperation" && (
+             <BlockCollapsePanel title="切换Hash算法">
+               <table style = {{width: '100%', lineHeight: '41px'}}>
+                 <tr>
+                   <td>变更Hash算法:</td>
+                   <td>{hashAlgoName || ''}</td>
+                 </tr>
+               </table>
+
+             </BlockCollapsePanel>
+         )
     ]
   }
 

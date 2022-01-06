@@ -273,6 +273,12 @@ export function numToalgorithm(flag)
     case "8216":
       str="SHA256";
       break;
+    case "8195":
+       str="SM3";
+       break;
+    case "8127":
+       str="RIPEMD160";
+       break;
     default:
       break;
   }

@@ -116,6 +116,7 @@
     "templateType": "multi-page"
   },
   "dependencies": {
+    "babel-plugin-nornj-in-jsx": "^5.3.4",
     "babel-preset-stage-0": "^6.24.1",
     "event-stream": "^3.3.4"
   }
