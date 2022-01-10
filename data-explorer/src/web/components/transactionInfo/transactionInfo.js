@@ -219,6 +219,7 @@ export default class TransactionInfo extends Component {
       properties,
       providerName,
       hashAlgoName,
+      reconfigType,
     } = opt;
     return [
       _type == "com.jd.blockchain.ledger.LedgerInitOperation" && (
@@ -755,7 +756,18 @@ export default class TransactionInfo extends Component {
                </table>
 
              </BlockCollapsePanel>
-         )
+         )|| null,
+           _type == "com.jd.blockchain.ledger.ConsensusReconfigOperation" && (
+               <BlockCollapsePanel title="Reconfig操作">
+                 <table style = {{width: '100%', lineHeight: '41px'}}>
+                   <tr>
+                     <td>操作类型:</td>
+                     <td>{reconfigType || ''}</td>
+                   </tr>
+                 </table>
+
+               </BlockCollapsePanel>
+           )
     ]
   }
 
