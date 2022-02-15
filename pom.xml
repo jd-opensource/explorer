@@ -15,6 +15,5 @@
 
 	<modules>
 		<module>data-explorer</module>
-		<module>manager-explorer</module>
 	</modules>
 </project>
