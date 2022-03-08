@@ -217,6 +217,9 @@ export default class TransactionInfo extends Component {
       mode,
       role,
       properties,
+      providerName,
+      hashAlgoName,
+      reconfigType,
     } = opt;
     return [
       _type == "com.jd.blockchain.ledger.LedgerInitOperation" && (
@@ -716,7 +719,55 @@ export default class TransactionInfo extends Component {
                     ))}
                 </table>
           </BlockCollapsePanel>
-      )
+      ) || null,
+      _type == "com.jd.blockchain.ledger.ConsensusTypeUpdateOperation" && (
+          <BlockCollapsePanel title="切换共识">
+            <table style = {{width: '100%', lineHeight: '41px'}}>
+              <tr>
+                <td>共识提供方:</td>
+                <td>{providerName || ''}</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <table style = {{width: '100%', lineHeight: '41px'}}>
+                        <tr>
+                            <th colspan="2">共识配置:</th>
+                        </tr>
+                        {properties.map((item, key) => (
+                          <tr>
+                            <td style = {{width: '80%' }}>{item.name || ''}:</td>
+                            <td style = {{width: '20%' }}>{item.value || ''}</td>
+                          </tr>
+                          ))}
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+          </BlockCollapsePanel>
+      )|| null,
+         _type == "com.jd.blockchain.ledger.CryptoHashAlgoUpdateOperation" && (
+             <BlockCollapsePanel title="切换Hash算法">
+               <table style = {{width: '100%', lineHeight: '41px'}}>
+                 <tr>
+                   <td>变更Hash算法:</td>
+                   <td>{hashAlgoName || ''}</td>
+                 </tr>
+               </table>
+
+             </BlockCollapsePanel>
+         )|| null,
+           _type == "com.jd.blockchain.ledger.ConsensusReconfigOperation" && (
+               <BlockCollapsePanel title="Reconfig操作">
+                 <table style = {{width: '100%', lineHeight: '41px'}}>
+                   <tr>
+                     <td>操作类型:</td>
+                     <td>{reconfigType || ''}</td>
+                   </tr>
+                 </table>
+
+               </BlockCollapsePanel>
+           )
     ]
   }
 
