@@ -218,7 +218,7 @@ export default class TransactionInfo extends Component {
       role,
       properties,
       providerName,
-      hashAlgoName,
+      algorithm,
       reconfigType,
     } = opt;
     return [
@@ -709,24 +709,12 @@ export default class TransactionInfo extends Component {
         </BlockCollapsePanel>
       ) || null,
       _type == "com.jd.blockchain.ledger.ConsensusSettingsUpdateOperation" && (
-          <BlockCollapsePanel title="更新共识配置">
-                <table style = {{width: '100%', lineHeight: '41px'}}>
-                  {properties.map((item, key) => (
-                    <tr>
-                      <td>{item.name || ''}:</td>
-                      <td>{item.value || ''}</td>
-                    </tr>
-                    ))}
-                </table>
-          </BlockCollapsePanel>
-      ) || null,
-      _type == "com.jd.blockchain.ledger.ConsensusTypeUpdateOperation" && (
-          <BlockCollapsePanel title="切换共识">
+          <BlockCollapsePanel title="共识更新">
             <table style = {{width: '100%', lineHeight: '41px'}}>
-              <tr>
+              {providerName != '' && (<tr>
                 <td>共识提供方:</td>
-                <td>{providerName || ''}</td>
-              </tr>
+                <td>{providerName}</td>
+              </tr>) || null}
               <tr>
                 <td colspan="2">
                   <table style = {{width: '100%', lineHeight: '41px'}}>
@@ -746,12 +734,12 @@ export default class TransactionInfo extends Component {
 
           </BlockCollapsePanel>
       )|| null,
-         _type == "com.jd.blockchain.ledger.CryptoHashAlgoUpdateOperation" && (
-             <BlockCollapsePanel title="切换Hash算法">
+         _type == "com.jd.blockchain.ledger.HashAlgorithmUpdateOperation" && (
+             <BlockCollapsePanel title="Hash算法切换">
                <table style = {{width: '100%', lineHeight: '41px'}}>
                  <tr>
                    <td>变更Hash算法:</td>
-                   <td>{hashAlgoName || ''}</td>
+                   <td>{algorithm || ''}</td>
                  </tr>
                </table>
 
