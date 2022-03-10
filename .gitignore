@@ -1,0 +1,10 @@
+.project
+**/.project
+/target
+**/target
+.iml
+**/.iml
+.idea
+**/.idea
+/node_modules
+**/node_modules
