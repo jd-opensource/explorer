@@ -1,11 +1,5 @@
-.project
-**/.project
-/target
-**/target
-.iml
-**/.iml
-.idea
-**/.idea
-/node_modules
-**/node_modules
-**package-lock.json
+*.project
+*/target
+*.iml
+*.idea
+*/node_modules
