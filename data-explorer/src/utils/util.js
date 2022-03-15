@@ -276,7 +276,7 @@ export function numToalgorithm(flag)
     case "8195":
        str="SM3";
        break;
-    case "8127":
+    case "8217":
        str="RIPEMD160";
        break;
     default:
