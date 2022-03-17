@@ -217,7 +217,7 @@ export default class TransactionInfo extends Component {
       mode,
       role,
       properties,
-      providerName,
+      provider,
       algorithm,
       reconfigType,
     } = opt;
@@ -711,9 +711,9 @@ export default class TransactionInfo extends Component {
       _type == "com.jd.blockchain.ledger.ConsensusSettingsUpdateOperation" && (
           <BlockCollapsePanel title="共识更新">
             <table style = {{width: '100%', lineHeight: '41px'}}>
-              {providerName != '' && (<tr>
+              {provider != '' && (<tr>
                 <td>共识提供方:</td>
-                <td>{providerName}</td>
+                <td>{provider}</td>
               </tr>) || null}
               <tr>
                 <td colspan="2">
