@@ -110,7 +110,7 @@
     "int64-buffer": "^1.0.1",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.5.0",
-    "lodash": "^4.17.13",
+    "lodash": "^4.17.21",
     "lodash.merge": "^4.6.2",
     "mditor": "^1.3.3",
     "mixin-deep": "^1.3.2",
