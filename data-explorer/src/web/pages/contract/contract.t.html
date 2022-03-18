@@ -33,22 +33,22 @@
         <tr>
           <td>状态： </td>
           <td>{contractInfo.state} </td>
-        </tr>
-        <tr>
-          <td>版本： </td>
-          <td>{contractInfo.chainCodeVersion} </td>
-        </tr>
-        <tr>
-          <td>权限值： </td>
-          <td>{contractInfo.permission && contractInfo.permission.modeBits || ''} </td>
+          <td>语言： </td>
+          <td>{contractInfo.lang} </td>
         </tr>
         <tr>
           <td>所属角色： </td>
           <td>{contractInfo.permission && contractInfo.permission.role || 'DEFAULT'} </td>
+          <td>权限值： </td>
+          <td>{contractInfo.permission && contractInfo.permission.modeBits || ''} </td>
         </tr>
         <tr>
           <td>创建用户： </td>
           <td>{contractInfo.permission && contractInfo.permission.owners || ''} </td>
+        </tr>
+        <tr>
+          <td>版本： </td>
+          <td>{contractInfo.chainCodeVersion} </td>
         </tr>
       </table>
       <MonacoEditor

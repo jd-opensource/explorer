@@ -193,6 +193,7 @@ export default class TransactionInfo extends Component {
       accountID,
       args,
       chainCode,
+      lang,
       contractAddress,
       contractID,
       event,
@@ -351,11 +352,15 @@ export default class TransactionInfo extends Component {
             </tr>
             <tr>
               <td>合约公钥算法:</td>
-              <td>{tranBase58(contractID.pubKey && contractID.pubKey && contractID.pubKey || '')}</td>
+              <td>{tranBase58(contractID.pubKey || '')}</td>
             </tr>
             <tr>
               <td>合约公钥:</td>
-              <td>{contractID.pubKey && contractID.pubKey && contractID.pubKey || ''}</td>
+              <td>{contractID.pubKey || ''}</td>
+            </tr>
+            <tr>
+              <td>合约语言:</td>
+              <td>{lang || 'Java'}</td>
             </tr>
             {chainCode && (<tr>
               <td>合约内容:</td>
@@ -712,7 +717,7 @@ export default class TransactionInfo extends Component {
           <BlockCollapsePanel title="共识更新">
             <table style = {{width: '100%', lineHeight: '41px'}}>
               {provider != '' && (<tr>
-                <td>共识提供方:</td>
+                <td>共识方式:</td>
                 <td>{provider}</td>
               </tr>) || null}
               <tr>
