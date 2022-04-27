@@ -195,6 +195,7 @@ export default class TransactionInfo extends Component {
       chainCode,
       lang,
       contractAddress,
+      version,
       contractID,
       event,
       eventAccountID,
@@ -384,6 +385,10 @@ export default class TransactionInfo extends Component {
               <td>合约事件:</td>
               <td>{event}</td>
             </tr>) || null}
+            <tr>
+              <td>合约版本:</td>
+              <td>{version}</td>
+            </tr>
           </table>
         </BlockCollapsePanel>
       ) || null,
