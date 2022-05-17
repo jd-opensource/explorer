@@ -130,7 +130,7 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-router-transition": "0.0.6",
-    "swiper": "^4.4.6",
+    "swiper": "^6.5.1",
     "universal-cookie": "^2.0.8",
     "whatwg-fetch": "^0.11.1"
   },
